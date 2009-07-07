@@ -1,0 +1,6 @@
+The clients package contains the following modules:
+
+a) webservice: This contains the source code of all of the VMWare SDK web service APIs that we depend on. 
+b) exercises: This contains some useful exercises that were presented at a VMWare conference.
+c) utilities: This will contain shared helper classes that can be written based on the exercises.
+d) commands: This will contain the actual components that implement the various scenarios that we want to manage.
