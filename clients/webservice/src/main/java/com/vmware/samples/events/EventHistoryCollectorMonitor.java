@@ -1,0 +1,131 @@
+package com.vmware.samples.events;
+
+import com.vmware.vim.*;
+import com.vmware.apputils.*;
+import com.vmware.apputils.vim.*;
+import com.vmware.apputils.vim.VMUtils;
+import java.util.*;
+import java.net.URL;
+
+
+/**
+ * This sample demonstrates how to create and monitor an {@link <a href="../../../../../ReferenceGuide/vim.event.EventHistoryCollector.html">
+ * EventHistoryCollector</a>}. The sample uses the latesetPage property of 
+ * the EventHistoryCollector to filter the Events.</p>
+ * <p>This sample uses the helper classes {@link AppUtil} to perform the initial 
+ * connection tasks. It also uses the basic command-line arguments --url, 
+ * --userName, and --password.<p>
+ *  
+ * <p><b>Command Line:</b></p>
+ * <pre>run.bat com.vmware.samples.vm.EventHistoryCollectorMonitor --url [webserviceurl] 
+ * --username [username] --password [password]
+ *  </pre>
+ * <p><b>Usage Examples:</b></p>
+ * <pre>
+ * java com.vmware.samples.vm.EventHistoryCollectorMonitor --url https://myVMwareService/sdk
+ * --username root --password ***** --ignorecert
+ * </pre>
+ *     
+*/
+
+public class EventHistoryCollectorMonitor {  
+   
+   private static AppUtil cb = null;
+   private VimPortType _service;           // All webservice methods
+   private ServiceContent _sic;            
+   private ManagedObjectReference _propCol; // PropertyCollector Reference
+
+   // EventManager and EventHistoryCollector References
+   private ManagedObjectReference _eventManager;
+   private ManagedObjectReference _eventHistoryCollector;  
+   
+   private void initialize() {
+      _sic = cb.getConnection().getServiceContent();
+      _service = cb.getConnection().getService();
+      // The PropertyCollector and EventManager References are present
+      // in the ServiceInstanceContent
+      _propCol = _sic.getPropertyCollector();
+      _eventManager = _sic.getEventManager();
+   }
+  
+   private void createEventHistoryCollector() throws Exception {
+      EventFilterSpec eventFilter = new EventFilterSpec();
+      _eventHistoryCollector = 
+      _service.createCollectorForEvents(_eventManager, eventFilter);
+   }
+  
+   private PropertyFilterSpec createEventFilterSpec() {
+      // Set up a PropertySpec to use the latestPage attribute 
+      // of the EventHistoryCollector
+      PropertySpec propSpec = new PropertySpec();
+      propSpec.setAll(new Boolean(false));
+      propSpec.setPathSet(new String[] { "latestPage" });
+      propSpec.setType(_eventHistoryCollector.getType());
+      
+      // PropertySpecs are wrapped in a PropertySpec array
+      PropertySpec[] propSpecAry = new PropertySpec[] { propSpec };
+      
+      // Set up an ObjectSpec with the above PropertySpec for the
+      // EventHistoryCollector we just created
+      // as the Root or Starting Object to get Attributes for.
+      ObjectSpec objSpec = new ObjectSpec();
+      objSpec.setObj(_eventHistoryCollector);
+      objSpec.setSkip(new Boolean(false));
+      
+      // Get Event objects in "latestPage" from "EventHistoryCollector"
+      // and no "traversl" further, so, no SelectionSpec is specified 
+      objSpec.setSelectSet(new SelectionSpec[] { });
+      
+      // ObjectSpecs are wrapped in an ObjectSpec array
+      ObjectSpec[] objSpecAry = new ObjectSpec[] { objSpec };
+      PropertyFilterSpec spec = new PropertyFilterSpec();
+      spec.setPropSet(propSpecAry);
+      spec.setObjectSet(objSpecAry);
+      return spec;
+   }
+   
+   private void monitorEvents(PropertyFilterSpec spec) throws Exception {
+      // Get all Events returned from the EventHistoryCollector
+      // This will result in a large number of events, depending on the
+      // page size of the latestPage.
+      ObjectContent[] objectContents = 
+         _service.retrieveProperties(_propCol, new PropertyFilterSpec[] { spec });
+      // Print out class names of the Events we got back 
+      if (objectContents != null) {
+         ArrayOfEvent arrayEvents 
+            = (ArrayOfEvent)objectContents[0].getPropSet(0).getVal();
+         Event[] events =  arrayEvents.getEvent();
+         //Event[] events = (Event[])objectContents[0].getPropSet(0).getVal();
+
+         System.out.println("Events In the latestPage are : ");
+         for (int i = 0; i < events.length; i++) {
+            Event anEvent = events[i];
+            System.out.println("Event: " + anEvent.getClass().getName());
+         }
+      } else {
+         System.out.println("No Events retrieved!");
+      }
+   }
+
+   public static void main(String[] args) {
+      try {
+         EventHistoryCollectorMonitor eventMonitor 
+            = new EventHistoryCollectorMonitor();
+         cb = AppUtil.initialize("EventFormat",args);
+         cb.connect();         
+         eventMonitor.initialize();         
+         eventMonitor.createEventHistoryCollector();         
+         PropertyFilterSpec eventFilterSpec = eventMonitor.createEventFilterSpec();
+         eventMonitor.monitorEvents(eventFilterSpec);
+         cb.disConnect();
+      } 
+      catch (Exception e) {
+         System.out.println("Caught Exception : " +
+                            " Name : " + e.getClass().getName() +
+                            " Message : " + e.getMessage() +
+                            " Trace : ");
+         e.printStackTrace();
+      }
+   }
+}
+

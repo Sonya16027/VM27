@@ -1,0 +1,222 @@
+package com.vmware.samples.scheduling;
+
+import java.net.URL;
+
+import com.vmware.vim.*;
+import com.vmware.apputils.*;
+import com.vmware.apputils.vim.*;
+
+
+import com.vmware.vim.ManagedObjectReference;
+import com.vmware.vim.MethodActionArgument;
+import com.vmware.vim.MethodAction;
+import com.vmware.vim.ScheduledTaskSpec;
+import com.vmware.vim.ServiceContent;
+import com.vmware.vim.TaskScheduler;
+import com.vmware.vim.VimPortType;
+import com.vmware.vim.VimServiceLocator;
+import com.vmware.vim.WeeklyTaskScheduler;
+
+
+/**
+*<pre>
+*This is a simple standalone client whose purpose is to demonstrate the
+*process of creation of a ScheduledTask
+*using the ScheduledTaskManager
+*
+*
+*<b>To run this samples following parameters are used :</b>
+*
+*taskname   [required]   : name of the task to be scheduled
+*vmpath     [required]   :VM Inventory Path
+*
+*
+*<b>Command Line:</b>
+*run.bat com.vmware.samples.vm.WeeklyRecurrenceScheduledTask --url [webserviceurl]
+*--username [username] --password  [password] 
+*--vmpath ["/DatacenterName/vm/FolderName/myVM"]
+*--taskname [Task1]
+*</pre>
+*/
+
+public class WeeklyRecurrenceScheduledTask {
+   private static AppUtil cb = null;   
+   private ManagedObjectReference _svcRef; // Service Instance Reference   
+   
+   
+   private VimServiceLocator _locator;
+   private VimPortType _service;           // All webservice methods
+   
+   // ServiceContent contains References to commonly used
+   // Managed Objects like PropertyCollector, SearchIndex, EventManager, etc.
+   private ServiceContent _sic;            
+
+   private ManagedObjectReference _searchIndex;
+
+   private ManagedObjectReference _scheduleManager;   
+   
+   /**
+    * Initialize the necessary Managed Object References needed here
+    */
+   private void initialize() {
+      _sic = cb.getConnection().getServiceContent();
+      _service = cb.getConnection().getService();
+      // Get the SearchIndex and ScheduleManager references from ServiceContent
+      _searchIndex = _sic.getSearchIndex();
+      _scheduleManager = _sic.getScheduledTaskManager();
+   }
+   
+   private ManagedObjectReference _virtualMachine;
+   
+   /**
+    * Use the SearchIndex to find a VirtualMachine by Inventory Path
+    * 
+    * @throws Exception
+    */
+   private void findVirtualMachine() throws Exception {
+      String vmPath = cb.get_option("vmpath");
+      _virtualMachine = _service.findByInventoryPath(_searchIndex, vmPath);
+   }
+   
+   /**
+    * Create method action to reboot the guest in a vm
+    * 
+    * @return the action to run when the schedule runs
+    */
+   private Action createTaskAction() {
+      MethodAction action = new MethodAction();
+      
+      // Method Name is the WSDL name of the 
+      // ManagedObject's method to be run, in this Case, 
+      // the rebootGuest method for the VM
+      action.setName("RebootGuest");
+      
+      // There are no arguments to this method
+      // so we pass in an empty MethodActionArgument
+      action.setArgument(new MethodActionArgument[] { });
+      
+      return action;
+   }
+   
+   /**
+    * Create a Weekly task scheduler to run 
+    * at 11:59 pm every Saturday
+    * 
+    * @return weekly task scheduler
+    */
+   private TaskScheduler createTaskScheduler() {
+      WeeklyTaskScheduler scheduler = new WeeklyTaskScheduler();
+      
+      // Set the Day of the Week to be Saturday
+      scheduler.setSaturday(true);
+      
+      // Set the Time to be 23:59 hours or 11:59 pm
+      scheduler.setHour(23);
+      scheduler.setMinute(59);
+      
+      // set the interval to 1 to run the task only 
+      // Once every Week at the specified time
+      scheduler.setInterval(1);
+      
+      return scheduler;
+   }
+   
+   /**
+    * Create a Scheduled Task using the reboot method action and 
+    * the weekly scheduler, for the VM found. 
+    * 
+    * @param taskAction action to be performed when schedule executes
+    * @param scheduler the scheduler used to execute the action
+    * @throws Exception
+    */
+   private void createScheduledTask(Action taskAction, 
+                                   TaskScheduler scheduler) 
+         throws Exception {
+      try {
+         // Create the Scheduled Task Spec and set a unique task name
+         // and description, and enable the task as soon as it is created
+         String taskName = cb.get_option("taskname");
+         ScheduledTaskSpec scheduleSpec = new ScheduledTaskSpec();
+         scheduleSpec.setName(taskName);
+         scheduleSpec.setDescription("Reboot VM's Guest at 11.59pm every Saturday");
+         scheduleSpec.setEnabled(true);
+   
+         // Set the RebootGuest Method Task action and 
+         // the Weekly scheduler in the spec 
+         scheduleSpec.setAction(taskAction);
+         scheduleSpec.setScheduler(scheduler);
+         
+         // Create the ScheduledTask for the VirtualMachine we found earlier
+         ManagedObjectReference task = 
+            _service.createScheduledTask(
+                     _scheduleManager, _virtualMachine, scheduleSpec);
+         
+         // printout the MoRef id of the Scheduled Task
+         System.out.println("Successfully created Weekly Task: " + 
+                            task.get_value());
+      }
+      catch(InvalidRequest e){
+         System.out.println(" InvalidRequest: vmPath may be wrong");
+      }
+      catch(DuplicateName e){
+         System.out.println("Task Name already Exists");
+      }
+      catch(Exception e){
+         System.out.println("Error");
+         e.printStackTrace();
+      }                   
+   }
+
+   private static OptionSpec[] constructOptions() {
+      OptionSpec [] useroptions = new OptionSpec[2];
+      useroptions[0] = new OptionSpec("vmpath","String",1
+                                      ,"VM Inventory Path"
+                                      ,null);
+      useroptions[1] = new OptionSpec("taskname","String",1,
+                                      "Name of the task to be scheduled",
+                                      null);
+      return useroptions;
+   }
+   
+   /**
+    *  The main entry point for the application.
+     *  @param args Arguments: <url> <user> <password> <A VM Inventory Path> 
+    */
+   public static void main(String[] args) {
+      try {
+       
+       
+         WeeklyRecurrenceScheduledTask schedTask = new WeeklyRecurrenceScheduledTask();
+         cb = AppUtil.initialize("WeeklyRecurrenceScheduledTask"
+                                 ,WeeklyRecurrenceScheduledTask.constructOptions()
+                                 ,args);
+         
+         // Connect to the Service and initialize 
+         // any required ManagedObjectReferences
+         cb.connect();
+         schedTask.initialize();
+         
+         // find the VM by dns name to create a scheduled task for
+         schedTask.findVirtualMachine();
+         
+         // create the power Off action to be scheduled
+         Action taskAction = schedTask.createTaskAction();
+         
+         // create a One time scheduler to run
+         TaskScheduler taskScheduler = schedTask.createTaskScheduler();
+         
+         // Create Scheduled Task
+         schedTask.createScheduledTask(taskAction,
+                                       taskScheduler);
+         
+         // Disconnect from the WebService
+         cb.disConnect();
+      } catch (Exception e) {
+           System.out.println("Caught Exception : " +
+                              " Name : " + e.getClass().getName() +
+                              " Message : " + e.getMessage() +
+                              " Trace : ");
+           e.printStackTrace();
+      }
+   }
+}
