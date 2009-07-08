@@ -56,7 +56,8 @@ COMMONS             = struct(
   :logging          =>"commons-logging:commons-logging:jar:1.1",
   :io               =>"commons-io:commons-io:jar:1.4",
   :pool             =>"commons-pool:commons-pool:jar:1.2",
-  :primitives       =>"commons-primitives:commons-primitives:jar:1.0"
+  :primitives       =>"commons-primitives:commons-primitives:jar:1.0",
+  :discovery	    =>"commons-discovery:commons-discovery:jar:0.4"
 )
 DOM4J               = "dom4j:dom4j:jar:1.6.1"
 JAVAX               = struct(
@@ -121,7 +122,7 @@ define "clients" do
   desc "VMWare SDK Exercises"
   define "exercises" do
     compile.with VMWARE_SDK, JAVAX.activation, JAVAX.javamail, JAXEN, JAX_RPC,
-      AXIOM, AXIS2_ALL, COMMONS.lang, COMMONS.logging, COMMONS.collections, COMMONS.httpclient, COMMONS.lang, 
+      AXIOM, AXIS2_ALL, COMMONS.lang, COMMONS.logging, COMMONS.collections, COMMONS.httpclient, COMMONS.lang, COMMONS.discovery,
       JAVAX.activation, JAVAX.servlet, JAVAX.stream, JAVAX.transaction, WSDL4J, AXIS2_MODULES.libs
 
     test.exclude 'com.vmware.*'
