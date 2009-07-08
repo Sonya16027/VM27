@@ -87,6 +87,7 @@ VMWARE_SDK		    = [ "com.vmware:apputils:jar:1.0",
 						"com.vmware:smsamples:jar:1.0"						 
 					  ]
 WBEM			    = "org.wbemservices:wbem:jar:1.0"					  
+ENV['JAVA_OPTS']    = '-Xms1g -Xmx1g'
 
 repositories.remote << "http://www.intalio.org/public/maven2"
 repositories.remote << "http://people.apache.org/repo/m2-incubating-repository"
@@ -108,9 +109,9 @@ end
 
 
 desc "VMWare SDK Clients"
-define "vmware-clients" do
+define "clients" do
   project.version = VERSION_NUMBER
-  project.group = "com.vmware.clients"
+  project.group = "com.intalio.vmware.clients"
 
   compile.options.source = "1.5"
   compile.options.target = "1.5"
@@ -172,6 +173,6 @@ define "vmware-clients" do
     end
   end
 
-  package(:zip, :id=>"#{id}-docs").include(javadoc(project("clients").projects).target) unless ENV["JAVADOC"] =~ /^(no|off|false|skip)$/i
+  #package(:zip, :id=>"#{id}-docs").include(javadoc(project("clients").projects).target) unless ENV["JAVADOC"] =~ /^(no|off|false|skip)$/i
 end
 
