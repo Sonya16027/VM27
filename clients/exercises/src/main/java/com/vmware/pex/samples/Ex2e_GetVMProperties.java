@@ -382,6 +382,38 @@ public class Ex2e_GetVMProperties {
 				 ********************************
 				 ********************************
 				 */
+				VIM_HOST = args[0];
+				USER_NAME = args[1];
+				PASSWORD = args[2];
+				initAll();
+				System.out.println("***************************************************************");
+				
+				long st = System.currentTimeMillis();
+				getVMInfo();
+				long et = System.currentTimeMillis();
+				System.out.println("\nTotal time (msec) to retrieve the properties of all VMs in one call: " + (et - st));
+				System.out.println("\n***************************************************************");
+				System.out.println("\n***************************************************************");
+				st = System.currentTimeMillis();
+				initVMMorList();
+				Iterator<ManagedObjectReference> iter = VM_MOR_LIST.iterator();
+				StringBuilder sb = new StringBuilder();
+				String name = "name";
+				String powerState = "runtime.powerState";
+				while (iter.hasNext()) {
+					ManagedObjectReference vmMor = iter.next();
+					String vmName = (String) getVMProperty(vmMor, name);
+					sb.append(vmName);
+					VirtualMachinePowerState vmPs = (VirtualMachinePowerState) getVMProperty(
+					vmMor, powerState);
+					sb.append(" : ");
+					sb.append(vmPs);
+					sb.append("\n");
+				}
+				et = System.currentTimeMillis();
+				System.out.println(sb.toString());
+				System.out.println("\nTotal time (msec) to retrieve the properties of all VMs individually: " + (et - st));
+				System.out.println("\n***************************************************************");
 			} catch (Exception e) {
 				e.printStackTrace();
 			} finally {
