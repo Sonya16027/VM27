@@ -7,173 +7,182 @@
 
 package com.vmware.vim25;
 
-public class PerfCompositeMetric  extends com.vmware.vim25.DynamicData  implements java.io.Serializable {
-    private com.vmware.vim25.PerfEntityMetricBase entity;
+public class PerfCompositeMetric extends com.vmware.vim25.DynamicData implements
+		java.io.Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
-    private com.vmware.vim25.PerfEntityMetricBase[] childEntity;
+	private com.vmware.vim25.PerfEntityMetricBase entity;
 
-    public PerfCompositeMetric() {
-    }
+	private com.vmware.vim25.PerfEntityMetricBase[] childEntity;
 
-    public PerfCompositeMetric(
-           java.lang.String dynamicType,
-           com.vmware.vim25.DynamicProperty[] dynamicProperty,
-           com.vmware.vim25.PerfEntityMetricBase entity,
-           com.vmware.vim25.PerfEntityMetricBase[] childEntity) {
-        super(
-            dynamicType,
-            dynamicProperty);
-        this.entity = entity;
-        this.childEntity = childEntity;
-    }
+	public PerfCompositeMetric() {
+	}
 
+	public PerfCompositeMetric(java.lang.String dynamicType,
+			com.vmware.vim25.DynamicProperty[] dynamicProperty,
+			com.vmware.vim25.PerfEntityMetricBase entity,
+			com.vmware.vim25.PerfEntityMetricBase[] childEntity) {
+		super(dynamicType, dynamicProperty);
+		this.entity = entity;
+		this.childEntity = childEntity;
+	}
 
-    /**
-     * Gets the entity value for this PerfCompositeMetric.
-     * 
-     * @return entity
-     */
-    public com.vmware.vim25.PerfEntityMetricBase getEntity() {
-        return entity;
-    }
+	/**
+	 * Gets the entity value for this PerfCompositeMetric.
+	 * 
+	 * @return entity
+	 */
+	public com.vmware.vim25.PerfEntityMetricBase getEntity() {
+		return entity;
+	}
 
+	/**
+	 * Sets the entity value for this PerfCompositeMetric.
+	 * 
+	 * @param entity
+	 */
+	public void setEntity(com.vmware.vim25.PerfEntityMetricBase entity) {
+		this.entity = entity;
+	}
 
-    /**
-     * Sets the entity value for this PerfCompositeMetric.
-     * 
-     * @param entity
-     */
-    public void setEntity(com.vmware.vim25.PerfEntityMetricBase entity) {
-        this.entity = entity;
-    }
+	/**
+	 * Gets the childEntity value for this PerfCompositeMetric.
+	 * 
+	 * @return childEntity
+	 */
+	public com.vmware.vim25.PerfEntityMetricBase[] getChildEntity() {
+		return childEntity;
+	}
 
+	/**
+	 * Sets the childEntity value for this PerfCompositeMetric.
+	 * 
+	 * @param childEntity
+	 */
+	public void setChildEntity(
+			com.vmware.vim25.PerfEntityMetricBase[] childEntity) {
+		this.childEntity = childEntity;
+	}
 
-    /**
-     * Gets the childEntity value for this PerfCompositeMetric.
-     * 
-     * @return childEntity
-     */
-    public com.vmware.vim25.PerfEntityMetricBase[] getChildEntity() {
-        return childEntity;
-    }
+	public com.vmware.vim25.PerfEntityMetricBase getChildEntity(int i) {
+		return this.childEntity[i];
+	}
 
+	public void setChildEntity(int i,
+			com.vmware.vim25.PerfEntityMetricBase _value) {
+		this.childEntity[i] = _value;
+	}
 
-    /**
-     * Sets the childEntity value for this PerfCompositeMetric.
-     * 
-     * @param childEntity
-     */
-    public void setChildEntity(com.vmware.vim25.PerfEntityMetricBase[] childEntity) {
-        this.childEntity = childEntity;
-    }
+	private java.lang.Object __equalsCalc = null;
 
-    public com.vmware.vim25.PerfEntityMetricBase getChildEntity(int i) {
-        return this.childEntity[i];
-    }
+	@Override
+	public synchronized boolean equals(java.lang.Object obj) {
+		if (!(obj instanceof PerfCompositeMetric)) {
+			return false;
+		}
+		PerfCompositeMetric other = (PerfCompositeMetric) obj;
+		if (obj == null) {
+			return false;
+		}
+		if (this == obj) {
+			return true;
+		}
+		if (__equalsCalc != null) {
+			return (__equalsCalc == obj);
+		}
+		__equalsCalc = obj;
+		boolean _equals;
+		_equals = super.equals(obj)
+				&& ((this.entity == null && other.getEntity() == null) || (this.entity != null && this.entity
+						.equals(other.getEntity())))
+				&& ((this.childEntity == null && other.getChildEntity() == null) || (this.childEntity != null && java.util.Arrays
+						.equals(this.childEntity, other.getChildEntity())));
+		__equalsCalc = null;
+		return _equals;
+	}
 
-    public void setChildEntity(int i, com.vmware.vim25.PerfEntityMetricBase _value) {
-        this.childEntity[i] = _value;
-    }
+	private boolean __hashCodeCalc = false;
 
-    private java.lang.Object __equalsCalc = null;
-    public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof PerfCompositeMetric)) return false;
-        PerfCompositeMetric other = (PerfCompositeMetric) obj;
-        if (obj == null) return false;
-        if (this == obj) return true;
-        if (__equalsCalc != null) {
-            return (__equalsCalc == obj);
-        }
-        __equalsCalc = obj;
-        boolean _equals;
-        _equals = super.equals(obj) && 
-            ((this.entity==null && other.getEntity()==null) || 
-             (this.entity!=null &&
-              this.entity.equals(other.getEntity()))) &&
-            ((this.childEntity==null && other.getChildEntity()==null) || 
-             (this.childEntity!=null &&
-              java.util.Arrays.equals(this.childEntity, other.getChildEntity())));
-        __equalsCalc = null;
-        return _equals;
-    }
+	@Override
+	public synchronized int hashCode() {
+		if (__hashCodeCalc) {
+			return 0;
+		}
+		__hashCodeCalc = true;
+		int _hashCode = super.hashCode();
+		if (getEntity() != null) {
+			_hashCode += getEntity().hashCode();
+		}
+		if (getChildEntity() != null) {
+			for (int i = 0; i < java.lang.reflect.Array
+					.getLength(getChildEntity()); i++) {
+				java.lang.Object obj = java.lang.reflect.Array.get(
+						getChildEntity(), i);
+				if (obj != null && !obj.getClass().isArray()) {
+					_hashCode += obj.hashCode();
+				}
+			}
+		}
+		__hashCodeCalc = false;
+		return _hashCode;
+	}
 
-    private boolean __hashCodeCalc = false;
-    public synchronized int hashCode() {
-        if (__hashCodeCalc) {
-            return 0;
-        }
-        __hashCodeCalc = true;
-        int _hashCode = super.hashCode();
-        if (getEntity() != null) {
-            _hashCode += getEntity().hashCode();
-        }
-        if (getChildEntity() != null) {
-            for (int i=0;
-                 i<java.lang.reflect.Array.getLength(getChildEntity());
-                 i++) {
-                java.lang.Object obj = java.lang.reflect.Array.get(getChildEntity(), i);
-                if (obj != null &&
-                    !obj.getClass().isArray()) {
-                    _hashCode += obj.hashCode();
-                }
-            }
-        }
-        __hashCodeCalc = false;
-        return _hashCode;
-    }
+	// Type metadata
+	private static org.apache.axis.description.TypeDesc typeDesc = new org.apache.axis.description.TypeDesc(
+			PerfCompositeMetric.class, true);
 
-    // Type metadata
-    private static org.apache.axis.description.TypeDesc typeDesc =
-        new org.apache.axis.description.TypeDesc(PerfCompositeMetric.class, true);
+	static {
+		typeDesc.setXmlType(new javax.xml.namespace.QName("urn:vim25",
+				"PerfCompositeMetric"));
+		org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+		elemField.setFieldName("entity");
+		elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25",
+				"entity"));
+		elemField.setXmlType(new javax.xml.namespace.QName("urn:vim25",
+				"PerfEntityMetricBase"));
+		elemField.setMinOccurs(0);
+		elemField.setNillable(false);
+		typeDesc.addFieldDesc(elemField);
+		elemField = new org.apache.axis.description.ElementDesc();
+		elemField.setFieldName("childEntity");
+		elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25",
+				"childEntity"));
+		elemField.setXmlType(new javax.xml.namespace.QName("urn:vim25",
+				"PerfEntityMetricBase"));
+		elemField.setMinOccurs(0);
+		elemField.setNillable(false);
+		elemField.setMaxOccursUnbounded(true);
+		typeDesc.addFieldDesc(elemField);
+	}
 
-    static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("urn:vim25", "PerfCompositeMetric"));
-        org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("entity");
-        elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25", "entity"));
-        elemField.setXmlType(new javax.xml.namespace.QName("urn:vim25", "PerfEntityMetricBase"));
-        elemField.setMinOccurs(0);
-        elemField.setNillable(false);
-        typeDesc.addFieldDesc(elemField);
-        elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("childEntity");
-        elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25", "childEntity"));
-        elemField.setXmlType(new javax.xml.namespace.QName("urn:vim25", "PerfEntityMetricBase"));
-        elemField.setMinOccurs(0);
-        elemField.setNillable(false);
-        elemField.setMaxOccursUnbounded(true);
-        typeDesc.addFieldDesc(elemField);
-    }
+	/**
+	 * Return type metadata object
+	 */
+	public static org.apache.axis.description.TypeDesc getTypeDesc() {
+		return typeDesc;
+	}
 
-    /**
-     * Return type metadata object
-     */
-    public static org.apache.axis.description.TypeDesc getTypeDesc() {
-        return typeDesc;
-    }
+	/**
+	 * Get Custom Serializer
+	 */
+	public static org.apache.axis.encoding.Serializer getSerializer(
+			java.lang.String mechType, java.lang.Class _javaType,
+			javax.xml.namespace.QName _xmlType) {
+		return new org.apache.axis.encoding.ser.BeanSerializer(_javaType,
+				_xmlType, typeDesc);
+	}
 
-    /**
-     * Get Custom Serializer
-     */
-    public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanSerializer(
-            _javaType, _xmlType, typeDesc);
-    }
-
-    /**
-     * Get Custom Deserializer
-     */
-    public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanDeserializer(
-            _javaType, _xmlType, typeDesc);
-    }
+	/**
+	 * Get Custom Deserializer
+	 */
+	public static org.apache.axis.encoding.Deserializer getDeserializer(
+			java.lang.String mechType, java.lang.Class _javaType,
+			javax.xml.namespace.QName _xmlType) {
+		return new org.apache.axis.encoding.ser.BeanDeserializer(_javaType,
+				_xmlType, typeDesc);
+	}
 
 }

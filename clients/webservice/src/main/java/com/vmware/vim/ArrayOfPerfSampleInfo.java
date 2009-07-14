@@ -7,131 +7,139 @@
 
 package com.vmware.vim;
 
-public class ArrayOfPerfSampleInfo  implements java.io.Serializable {
-    private com.vmware.vim.PerfSampleInfo[] perfSampleInfo;
+public class ArrayOfPerfSampleInfo implements java.io.Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private com.vmware.vim.PerfSampleInfo[] perfSampleInfo;
 
-    public ArrayOfPerfSampleInfo() {
-    }
+	public ArrayOfPerfSampleInfo() {
+	}
 
-    public ArrayOfPerfSampleInfo(
-           com.vmware.vim.PerfSampleInfo[] perfSampleInfo) {
-           this.perfSampleInfo = perfSampleInfo;
-    }
+	public ArrayOfPerfSampleInfo(com.vmware.vim.PerfSampleInfo[] perfSampleInfo) {
+		this.perfSampleInfo = perfSampleInfo;
+	}
 
+	/**
+	 * Gets the perfSampleInfo value for this ArrayOfPerfSampleInfo.
+	 * 
+	 * @return perfSampleInfo
+	 */
+	public com.vmware.vim.PerfSampleInfo[] getPerfSampleInfo() {
+		return perfSampleInfo;
+	}
 
-    /**
-     * Gets the perfSampleInfo value for this ArrayOfPerfSampleInfo.
-     * 
-     * @return perfSampleInfo
-     */
-    public com.vmware.vim.PerfSampleInfo[] getPerfSampleInfo() {
-        return perfSampleInfo;
-    }
+	/**
+	 * Sets the perfSampleInfo value for this ArrayOfPerfSampleInfo.
+	 * 
+	 * @param perfSampleInfo
+	 */
+	public void setPerfSampleInfo(com.vmware.vim.PerfSampleInfo[] perfSampleInfo) {
+		this.perfSampleInfo = perfSampleInfo;
+	}
 
+	public com.vmware.vim.PerfSampleInfo getPerfSampleInfo(int i) {
+		return this.perfSampleInfo[i];
+	}
 
-    /**
-     * Sets the perfSampleInfo value for this ArrayOfPerfSampleInfo.
-     * 
-     * @param perfSampleInfo
-     */
-    public void setPerfSampleInfo(com.vmware.vim.PerfSampleInfo[] perfSampleInfo) {
-        this.perfSampleInfo = perfSampleInfo;
-    }
+	public void setPerfSampleInfo(int i, com.vmware.vim.PerfSampleInfo _value) {
+		this.perfSampleInfo[i] = _value;
+	}
 
-    public com.vmware.vim.PerfSampleInfo getPerfSampleInfo(int i) {
-        return this.perfSampleInfo[i];
-    }
+	private java.lang.Object __equalsCalc = null;
 
-    public void setPerfSampleInfo(int i, com.vmware.vim.PerfSampleInfo _value) {
-        this.perfSampleInfo[i] = _value;
-    }
+	@Override
+	public synchronized boolean equals(java.lang.Object obj) {
+		if (!(obj instanceof ArrayOfPerfSampleInfo)) {
+			return false;
+		}
+		ArrayOfPerfSampleInfo other = (ArrayOfPerfSampleInfo) obj;
+		if (obj == null) {
+			return false;
+		}
+		if (this == obj) {
+			return true;
+		}
+		if (__equalsCalc != null) {
+			return (__equalsCalc == obj);
+		}
+		__equalsCalc = obj;
+		boolean _equals;
+		_equals = true && ((this.perfSampleInfo == null && other
+				.getPerfSampleInfo() == null) || (this.perfSampleInfo != null && java.util.Arrays
+				.equals(this.perfSampleInfo, other.getPerfSampleInfo())));
+		__equalsCalc = null;
+		return _equals;
+	}
 
-    private java.lang.Object __equalsCalc = null;
-    public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof ArrayOfPerfSampleInfo)) return false;
-        ArrayOfPerfSampleInfo other = (ArrayOfPerfSampleInfo) obj;
-        if (obj == null) return false;
-        if (this == obj) return true;
-        if (__equalsCalc != null) {
-            return (__equalsCalc == obj);
-        }
-        __equalsCalc = obj;
-        boolean _equals;
-        _equals = true && 
-            ((this.perfSampleInfo==null && other.getPerfSampleInfo()==null) || 
-             (this.perfSampleInfo!=null &&
-              java.util.Arrays.equals(this.perfSampleInfo, other.getPerfSampleInfo())));
-        __equalsCalc = null;
-        return _equals;
-    }
+	private boolean __hashCodeCalc = false;
 
-    private boolean __hashCodeCalc = false;
-    public synchronized int hashCode() {
-        if (__hashCodeCalc) {
-            return 0;
-        }
-        __hashCodeCalc = true;
-        int _hashCode = 1;
-        if (getPerfSampleInfo() != null) {
-            for (int i=0;
-                 i<java.lang.reflect.Array.getLength(getPerfSampleInfo());
-                 i++) {
-                java.lang.Object obj = java.lang.reflect.Array.get(getPerfSampleInfo(), i);
-                if (obj != null &&
-                    !obj.getClass().isArray()) {
-                    _hashCode += obj.hashCode();
-                }
-            }
-        }
-        __hashCodeCalc = false;
-        return _hashCode;
-    }
+	@Override
+	public synchronized int hashCode() {
+		if (__hashCodeCalc) {
+			return 0;
+		}
+		__hashCodeCalc = true;
+		int _hashCode = 1;
+		if (getPerfSampleInfo() != null) {
+			for (int i = 0; i < java.lang.reflect.Array
+					.getLength(getPerfSampleInfo()); i++) {
+				java.lang.Object obj = java.lang.reflect.Array.get(
+						getPerfSampleInfo(), i);
+				if (obj != null && !obj.getClass().isArray()) {
+					_hashCode += obj.hashCode();
+				}
+			}
+		}
+		__hashCodeCalc = false;
+		return _hashCode;
+	}
 
-    // Type metadata
-    private static org.apache.axis.description.TypeDesc typeDesc =
-        new org.apache.axis.description.TypeDesc(ArrayOfPerfSampleInfo.class, true);
+	// Type metadata
+	private static org.apache.axis.description.TypeDesc typeDesc = new org.apache.axis.description.TypeDesc(
+			ArrayOfPerfSampleInfo.class, true);
 
-    static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("urn:vim2", "ArrayOfPerfSampleInfo"));
-        org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("perfSampleInfo");
-        elemField.setXmlName(new javax.xml.namespace.QName("urn:vim2", "PerfSampleInfo"));
-        elemField.setXmlType(new javax.xml.namespace.QName("urn:vim2", "PerfSampleInfo"));
-        elemField.setMinOccurs(0);
-        elemField.setNillable(false);
-        elemField.setMaxOccursUnbounded(true);
-        typeDesc.addFieldDesc(elemField);
-    }
+	static {
+		typeDesc.setXmlType(new javax.xml.namespace.QName("urn:vim2",
+				"ArrayOfPerfSampleInfo"));
+		org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+		elemField.setFieldName("perfSampleInfo");
+		elemField.setXmlName(new javax.xml.namespace.QName("urn:vim2",
+				"PerfSampleInfo"));
+		elemField.setXmlType(new javax.xml.namespace.QName("urn:vim2",
+				"PerfSampleInfo"));
+		elemField.setMinOccurs(0);
+		elemField.setNillable(false);
+		elemField.setMaxOccursUnbounded(true);
+		typeDesc.addFieldDesc(elemField);
+	}
 
-    /**
-     * Return type metadata object
-     */
-    public static org.apache.axis.description.TypeDesc getTypeDesc() {
-        return typeDesc;
-    }
+	/**
+	 * Return type metadata object
+	 */
+	public static org.apache.axis.description.TypeDesc getTypeDesc() {
+		return typeDesc;
+	}
 
-    /**
-     * Get Custom Serializer
-     */
-    public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanSerializer(
-            _javaType, _xmlType, typeDesc);
-    }
+	/**
+	 * Get Custom Serializer
+	 */
+	public static org.apache.axis.encoding.Serializer getSerializer(
+			java.lang.String mechType, java.lang.Class _javaType,
+			javax.xml.namespace.QName _xmlType) {
+		return new org.apache.axis.encoding.ser.BeanSerializer(_javaType,
+				_xmlType, typeDesc);
+	}
 
-    /**
-     * Get Custom Deserializer
-     */
-    public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanDeserializer(
-            _javaType, _xmlType, typeDesc);
-    }
+	/**
+	 * Get Custom Deserializer
+	 */
+	public static org.apache.axis.encoding.Deserializer getDeserializer(
+			java.lang.String mechType, java.lang.Class _javaType,
+			javax.xml.namespace.QName _xmlType) {
+		return new org.apache.axis.encoding.ser.BeanDeserializer(_javaType,
+				_xmlType, typeDesc);
+	}
 
 }

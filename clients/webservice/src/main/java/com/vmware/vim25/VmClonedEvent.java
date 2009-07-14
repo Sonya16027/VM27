@@ -7,146 +7,138 @@
 
 package com.vmware.vim25;
 
-public class VmClonedEvent  extends com.vmware.vim25.VmCloneEvent  implements java.io.Serializable {
-    private com.vmware.vim25.VmEventArgument sourceVm;
+public class VmClonedEvent extends com.vmware.vim25.VmCloneEvent implements
+		java.io.Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private com.vmware.vim25.VmEventArgument sourceVm;
 
-    public VmClonedEvent() {
-    }
+	public VmClonedEvent() {
+	}
 
-    public VmClonedEvent(
-           java.lang.String dynamicType,
-           com.vmware.vim25.DynamicProperty[] dynamicProperty,
-           int key,
-           int chainId,
-           java.util.Calendar createdTime,
-           java.lang.String userName,
-           com.vmware.vim25.DatacenterEventArgument datacenter,
-           com.vmware.vim25.ComputeResourceEventArgument computeResource,
-           com.vmware.vim25.HostEventArgument host,
-           com.vmware.vim25.VmEventArgument vm,
-           com.vmware.vim25.DatastoreEventArgument ds,
-           com.vmware.vim25.NetworkEventArgument net,
-           com.vmware.vim25.DvsEventArgument dvs,
-           java.lang.String fullFormattedMessage,
-           java.lang.String changeTag,
-           boolean template,
-           com.vmware.vim25.VmEventArgument sourceVm) {
-        super(
-            dynamicType,
-            dynamicProperty,
-            key,
-            chainId,
-            createdTime,
-            userName,
-            datacenter,
-            computeResource,
-            host,
-            vm,
-            ds,
-            net,
-            dvs,
-            fullFormattedMessage,
-            changeTag,
-            template);
-        this.sourceVm = sourceVm;
-    }
+	public VmClonedEvent(java.lang.String dynamicType,
+			com.vmware.vim25.DynamicProperty[] dynamicProperty, int key,
+			int chainId, java.util.Calendar createdTime,
+			java.lang.String userName,
+			com.vmware.vim25.DatacenterEventArgument datacenter,
+			com.vmware.vim25.ComputeResourceEventArgument computeResource,
+			com.vmware.vim25.HostEventArgument host,
+			com.vmware.vim25.VmEventArgument vm,
+			com.vmware.vim25.DatastoreEventArgument ds,
+			com.vmware.vim25.NetworkEventArgument net,
+			com.vmware.vim25.DvsEventArgument dvs,
+			java.lang.String fullFormattedMessage, java.lang.String changeTag,
+			boolean template, com.vmware.vim25.VmEventArgument sourceVm) {
+		super(dynamicType, dynamicProperty, key, chainId, createdTime,
+				userName, datacenter, computeResource, host, vm, ds, net, dvs,
+				fullFormattedMessage, changeTag, template);
+		this.sourceVm = sourceVm;
+	}
 
+	/**
+	 * Gets the sourceVm value for this VmClonedEvent.
+	 * 
+	 * @return sourceVm
+	 */
+	public com.vmware.vim25.VmEventArgument getSourceVm() {
+		return sourceVm;
+	}
 
-    /**
-     * Gets the sourceVm value for this VmClonedEvent.
-     * 
-     * @return sourceVm
-     */
-    public com.vmware.vim25.VmEventArgument getSourceVm() {
-        return sourceVm;
-    }
+	/**
+	 * Sets the sourceVm value for this VmClonedEvent.
+	 * 
+	 * @param sourceVm
+	 */
+	public void setSourceVm(com.vmware.vim25.VmEventArgument sourceVm) {
+		this.sourceVm = sourceVm;
+	}
 
+	private java.lang.Object __equalsCalc = null;
 
-    /**
-     * Sets the sourceVm value for this VmClonedEvent.
-     * 
-     * @param sourceVm
-     */
-    public void setSourceVm(com.vmware.vim25.VmEventArgument sourceVm) {
-        this.sourceVm = sourceVm;
-    }
+	@Override
+	public synchronized boolean equals(java.lang.Object obj) {
+		if (!(obj instanceof VmClonedEvent)) {
+			return false;
+		}
+		VmClonedEvent other = (VmClonedEvent) obj;
+		if (obj == null) {
+			return false;
+		}
+		if (this == obj) {
+			return true;
+		}
+		if (__equalsCalc != null) {
+			return (__equalsCalc == obj);
+		}
+		__equalsCalc = obj;
+		boolean _equals;
+		_equals = super.equals(obj)
+				&& ((this.sourceVm == null && other.getSourceVm() == null) || (this.sourceVm != null && this.sourceVm
+						.equals(other.getSourceVm())));
+		__equalsCalc = null;
+		return _equals;
+	}
 
-    private java.lang.Object __equalsCalc = null;
-    public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof VmClonedEvent)) return false;
-        VmClonedEvent other = (VmClonedEvent) obj;
-        if (obj == null) return false;
-        if (this == obj) return true;
-        if (__equalsCalc != null) {
-            return (__equalsCalc == obj);
-        }
-        __equalsCalc = obj;
-        boolean _equals;
-        _equals = super.equals(obj) && 
-            ((this.sourceVm==null && other.getSourceVm()==null) || 
-             (this.sourceVm!=null &&
-              this.sourceVm.equals(other.getSourceVm())));
-        __equalsCalc = null;
-        return _equals;
-    }
+	private boolean __hashCodeCalc = false;
 
-    private boolean __hashCodeCalc = false;
-    public synchronized int hashCode() {
-        if (__hashCodeCalc) {
-            return 0;
-        }
-        __hashCodeCalc = true;
-        int _hashCode = super.hashCode();
-        if (getSourceVm() != null) {
-            _hashCode += getSourceVm().hashCode();
-        }
-        __hashCodeCalc = false;
-        return _hashCode;
-    }
+	@Override
+	public synchronized int hashCode() {
+		if (__hashCodeCalc) {
+			return 0;
+		}
+		__hashCodeCalc = true;
+		int _hashCode = super.hashCode();
+		if (getSourceVm() != null) {
+			_hashCode += getSourceVm().hashCode();
+		}
+		__hashCodeCalc = false;
+		return _hashCode;
+	}
 
-    // Type metadata
-    private static org.apache.axis.description.TypeDesc typeDesc =
-        new org.apache.axis.description.TypeDesc(VmClonedEvent.class, true);
+	// Type metadata
+	private static org.apache.axis.description.TypeDesc typeDesc = new org.apache.axis.description.TypeDesc(
+			VmClonedEvent.class, true);
 
-    static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("urn:vim25", "VmClonedEvent"));
-        org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("sourceVm");
-        elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25", "sourceVm"));
-        elemField.setXmlType(new javax.xml.namespace.QName("urn:vim25", "VmEventArgument"));
-        elemField.setNillable(false);
-        typeDesc.addFieldDesc(elemField);
-    }
+	static {
+		typeDesc.setXmlType(new javax.xml.namespace.QName("urn:vim25",
+				"VmClonedEvent"));
+		org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+		elemField.setFieldName("sourceVm");
+		elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25",
+				"sourceVm"));
+		elemField.setXmlType(new javax.xml.namespace.QName("urn:vim25",
+				"VmEventArgument"));
+		elemField.setNillable(false);
+		typeDesc.addFieldDesc(elemField);
+	}
 
-    /**
-     * Return type metadata object
-     */
-    public static org.apache.axis.description.TypeDesc getTypeDesc() {
-        return typeDesc;
-    }
+	/**
+	 * Return type metadata object
+	 */
+	public static org.apache.axis.description.TypeDesc getTypeDesc() {
+		return typeDesc;
+	}
 
-    /**
-     * Get Custom Serializer
-     */
-    public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanSerializer(
-            _javaType, _xmlType, typeDesc);
-    }
+	/**
+	 * Get Custom Serializer
+	 */
+	public static org.apache.axis.encoding.Serializer getSerializer(
+			java.lang.String mechType, java.lang.Class _javaType,
+			javax.xml.namespace.QName _xmlType) {
+		return new org.apache.axis.encoding.ser.BeanSerializer(_javaType,
+				_xmlType, typeDesc);
+	}
 
-    /**
-     * Get Custom Deserializer
-     */
-    public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanDeserializer(
-            _javaType, _xmlType, typeDesc);
-    }
+	/**
+	 * Get Custom Deserializer
+	 */
+	public static org.apache.axis.encoding.Deserializer getDeserializer(
+			java.lang.String mechType, java.lang.Class _javaType,
+			javax.xml.namespace.QName _xmlType) {
+		return new org.apache.axis.encoding.ser.BeanDeserializer(_javaType,
+				_xmlType, typeDesc);
+	}
 
 }

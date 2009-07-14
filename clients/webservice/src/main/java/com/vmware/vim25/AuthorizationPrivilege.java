@@ -7,222 +7,227 @@
 
 package com.vmware.vim25;
 
-public class AuthorizationPrivilege  extends com.vmware.vim25.DynamicData  implements java.io.Serializable {
-    private java.lang.String privId;
+public class AuthorizationPrivilege extends com.vmware.vim25.DynamicData
+		implements java.io.Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
-    private boolean onParent;
+	private java.lang.String privId;
 
-    private java.lang.String name;
+	private boolean onParent;
 
-    private java.lang.String privGroupName;
+	private java.lang.String name;
 
-    public AuthorizationPrivilege() {
-    }
+	private java.lang.String privGroupName;
 
-    public AuthorizationPrivilege(
-           java.lang.String dynamicType,
-           com.vmware.vim25.DynamicProperty[] dynamicProperty,
-           java.lang.String privId,
-           boolean onParent,
-           java.lang.String name,
-           java.lang.String privGroupName) {
-        super(
-            dynamicType,
-            dynamicProperty);
-        this.privId = privId;
-        this.onParent = onParent;
-        this.name = name;
-        this.privGroupName = privGroupName;
-    }
+	public AuthorizationPrivilege() {
+	}
 
+	public AuthorizationPrivilege(java.lang.String dynamicType,
+			com.vmware.vim25.DynamicProperty[] dynamicProperty,
+			java.lang.String privId, boolean onParent, java.lang.String name,
+			java.lang.String privGroupName) {
+		super(dynamicType, dynamicProperty);
+		this.privId = privId;
+		this.onParent = onParent;
+		this.name = name;
+		this.privGroupName = privGroupName;
+	}
 
-    /**
-     * Gets the privId value for this AuthorizationPrivilege.
-     * 
-     * @return privId
-     */
-    public java.lang.String getPrivId() {
-        return privId;
-    }
+	/**
+	 * Gets the privId value for this AuthorizationPrivilege.
+	 * 
+	 * @return privId
+	 */
+	public java.lang.String getPrivId() {
+		return privId;
+	}
 
+	/**
+	 * Sets the privId value for this AuthorizationPrivilege.
+	 * 
+	 * @param privId
+	 */
+	public void setPrivId(java.lang.String privId) {
+		this.privId = privId;
+	}
 
-    /**
-     * Sets the privId value for this AuthorizationPrivilege.
-     * 
-     * @param privId
-     */
-    public void setPrivId(java.lang.String privId) {
-        this.privId = privId;
-    }
+	/**
+	 * Gets the onParent value for this AuthorizationPrivilege.
+	 * 
+	 * @return onParent
+	 */
+	public boolean isOnParent() {
+		return onParent;
+	}
 
+	/**
+	 * Sets the onParent value for this AuthorizationPrivilege.
+	 * 
+	 * @param onParent
+	 */
+	public void setOnParent(boolean onParent) {
+		this.onParent = onParent;
+	}
 
-    /**
-     * Gets the onParent value for this AuthorizationPrivilege.
-     * 
-     * @return onParent
-     */
-    public boolean isOnParent() {
-        return onParent;
-    }
+	/**
+	 * Gets the name value for this AuthorizationPrivilege.
+	 * 
+	 * @return name
+	 */
+	public java.lang.String getName() {
+		return name;
+	}
 
+	/**
+	 * Sets the name value for this AuthorizationPrivilege.
+	 * 
+	 * @param name
+	 */
+	public void setName(java.lang.String name) {
+		this.name = name;
+	}
 
-    /**
-     * Sets the onParent value for this AuthorizationPrivilege.
-     * 
-     * @param onParent
-     */
-    public void setOnParent(boolean onParent) {
-        this.onParent = onParent;
-    }
+	/**
+	 * Gets the privGroupName value for this AuthorizationPrivilege.
+	 * 
+	 * @return privGroupName
+	 */
+	public java.lang.String getPrivGroupName() {
+		return privGroupName;
+	}
 
+	/**
+	 * Sets the privGroupName value for this AuthorizationPrivilege.
+	 * 
+	 * @param privGroupName
+	 */
+	public void setPrivGroupName(java.lang.String privGroupName) {
+		this.privGroupName = privGroupName;
+	}
 
-    /**
-     * Gets the name value for this AuthorizationPrivilege.
-     * 
-     * @return name
-     */
-    public java.lang.String getName() {
-        return name;
-    }
+	private java.lang.Object __equalsCalc = null;
 
+	@Override
+	public synchronized boolean equals(java.lang.Object obj) {
+		if (!(obj instanceof AuthorizationPrivilege)) {
+			return false;
+		}
+		AuthorizationPrivilege other = (AuthorizationPrivilege) obj;
+		if (obj == null) {
+			return false;
+		}
+		if (this == obj) {
+			return true;
+		}
+		if (__equalsCalc != null) {
+			return (__equalsCalc == obj);
+		}
+		__equalsCalc = obj;
+		boolean _equals;
+		_equals = super.equals(obj)
+				&& ((this.privId == null && other.getPrivId() == null) || (this.privId != null && this.privId
+						.equals(other.getPrivId())))
+				&& this.onParent == other.isOnParent()
+				&& ((this.name == null && other.getName() == null) || (this.name != null && this.name
+						.equals(other.getName())))
+				&& ((this.privGroupName == null && other.getPrivGroupName() == null) || (this.privGroupName != null && this.privGroupName
+						.equals(other.getPrivGroupName())));
+		__equalsCalc = null;
+		return _equals;
+	}
 
-    /**
-     * Sets the name value for this AuthorizationPrivilege.
-     * 
-     * @param name
-     */
-    public void setName(java.lang.String name) {
-        this.name = name;
-    }
+	private boolean __hashCodeCalc = false;
 
+	@Override
+	public synchronized int hashCode() {
+		if (__hashCodeCalc) {
+			return 0;
+		}
+		__hashCodeCalc = true;
+		int _hashCode = super.hashCode();
+		if (getPrivId() != null) {
+			_hashCode += getPrivId().hashCode();
+		}
+		_hashCode += (isOnParent() ? Boolean.TRUE : Boolean.FALSE).hashCode();
+		if (getName() != null) {
+			_hashCode += getName().hashCode();
+		}
+		if (getPrivGroupName() != null) {
+			_hashCode += getPrivGroupName().hashCode();
+		}
+		__hashCodeCalc = false;
+		return _hashCode;
+	}
 
-    /**
-     * Gets the privGroupName value for this AuthorizationPrivilege.
-     * 
-     * @return privGroupName
-     */
-    public java.lang.String getPrivGroupName() {
-        return privGroupName;
-    }
+	// Type metadata
+	private static org.apache.axis.description.TypeDesc typeDesc = new org.apache.axis.description.TypeDesc(
+			AuthorizationPrivilege.class, true);
 
+	static {
+		typeDesc.setXmlType(new javax.xml.namespace.QName("urn:vim25",
+				"AuthorizationPrivilege"));
+		org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+		elemField.setFieldName("privId");
+		elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25",
+				"privId"));
+		elemField.setXmlType(new javax.xml.namespace.QName(
+				"http://www.w3.org/2001/XMLSchema", "string"));
+		elemField.setNillable(false);
+		typeDesc.addFieldDesc(elemField);
+		elemField = new org.apache.axis.description.ElementDesc();
+		elemField.setFieldName("onParent");
+		elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25",
+				"onParent"));
+		elemField.setXmlType(new javax.xml.namespace.QName(
+				"http://www.w3.org/2001/XMLSchema", "boolean"));
+		elemField.setNillable(false);
+		typeDesc.addFieldDesc(elemField);
+		elemField = new org.apache.axis.description.ElementDesc();
+		elemField.setFieldName("name");
+		elemField
+				.setXmlName(new javax.xml.namespace.QName("urn:vim25", "name"));
+		elemField.setXmlType(new javax.xml.namespace.QName(
+				"http://www.w3.org/2001/XMLSchema", "string"));
+		elemField.setNillable(false);
+		typeDesc.addFieldDesc(elemField);
+		elemField = new org.apache.axis.description.ElementDesc();
+		elemField.setFieldName("privGroupName");
+		elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25",
+				"privGroupName"));
+		elemField.setXmlType(new javax.xml.namespace.QName(
+				"http://www.w3.org/2001/XMLSchema", "string"));
+		elemField.setNillable(false);
+		typeDesc.addFieldDesc(elemField);
+	}
 
-    /**
-     * Sets the privGroupName value for this AuthorizationPrivilege.
-     * 
-     * @param privGroupName
-     */
-    public void setPrivGroupName(java.lang.String privGroupName) {
-        this.privGroupName = privGroupName;
-    }
+	/**
+	 * Return type metadata object
+	 */
+	public static org.apache.axis.description.TypeDesc getTypeDesc() {
+		return typeDesc;
+	}
 
-    private java.lang.Object __equalsCalc = null;
-    public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof AuthorizationPrivilege)) return false;
-        AuthorizationPrivilege other = (AuthorizationPrivilege) obj;
-        if (obj == null) return false;
-        if (this == obj) return true;
-        if (__equalsCalc != null) {
-            return (__equalsCalc == obj);
-        }
-        __equalsCalc = obj;
-        boolean _equals;
-        _equals = super.equals(obj) && 
-            ((this.privId==null && other.getPrivId()==null) || 
-             (this.privId!=null &&
-              this.privId.equals(other.getPrivId()))) &&
-            this.onParent == other.isOnParent() &&
-            ((this.name==null && other.getName()==null) || 
-             (this.name!=null &&
-              this.name.equals(other.getName()))) &&
-            ((this.privGroupName==null && other.getPrivGroupName()==null) || 
-             (this.privGroupName!=null &&
-              this.privGroupName.equals(other.getPrivGroupName())));
-        __equalsCalc = null;
-        return _equals;
-    }
+	/**
+	 * Get Custom Serializer
+	 */
+	public static org.apache.axis.encoding.Serializer getSerializer(
+			java.lang.String mechType, java.lang.Class _javaType,
+			javax.xml.namespace.QName _xmlType) {
+		return new org.apache.axis.encoding.ser.BeanSerializer(_javaType,
+				_xmlType, typeDesc);
+	}
 
-    private boolean __hashCodeCalc = false;
-    public synchronized int hashCode() {
-        if (__hashCodeCalc) {
-            return 0;
-        }
-        __hashCodeCalc = true;
-        int _hashCode = super.hashCode();
-        if (getPrivId() != null) {
-            _hashCode += getPrivId().hashCode();
-        }
-        _hashCode += (isOnParent() ? Boolean.TRUE : Boolean.FALSE).hashCode();
-        if (getName() != null) {
-            _hashCode += getName().hashCode();
-        }
-        if (getPrivGroupName() != null) {
-            _hashCode += getPrivGroupName().hashCode();
-        }
-        __hashCodeCalc = false;
-        return _hashCode;
-    }
-
-    // Type metadata
-    private static org.apache.axis.description.TypeDesc typeDesc =
-        new org.apache.axis.description.TypeDesc(AuthorizationPrivilege.class, true);
-
-    static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("urn:vim25", "AuthorizationPrivilege"));
-        org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("privId");
-        elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25", "privId"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
-        elemField.setNillable(false);
-        typeDesc.addFieldDesc(elemField);
-        elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("onParent");
-        elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25", "onParent"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
-        elemField.setNillable(false);
-        typeDesc.addFieldDesc(elemField);
-        elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("name");
-        elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25", "name"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
-        elemField.setNillable(false);
-        typeDesc.addFieldDesc(elemField);
-        elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("privGroupName");
-        elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25", "privGroupName"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
-        elemField.setNillable(false);
-        typeDesc.addFieldDesc(elemField);
-    }
-
-    /**
-     * Return type metadata object
-     */
-    public static org.apache.axis.description.TypeDesc getTypeDesc() {
-        return typeDesc;
-    }
-
-    /**
-     * Get Custom Serializer
-     */
-    public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanSerializer(
-            _javaType, _xmlType, typeDesc);
-    }
-
-    /**
-     * Get Custom Deserializer
-     */
-    public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanDeserializer(
-            _javaType, _xmlType, typeDesc);
-    }
+	/**
+	 * Get Custom Deserializer
+	 */
+	public static org.apache.axis.encoding.Deserializer getDeserializer(
+			java.lang.String mechType, java.lang.Class _javaType,
+			javax.xml.namespace.QName _xmlType) {
+		return new org.apache.axis.encoding.ser.BeanDeserializer(_javaType,
+				_xmlType, typeDesc);
+	}
 
 }

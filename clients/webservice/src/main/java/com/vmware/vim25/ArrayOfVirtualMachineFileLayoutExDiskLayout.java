@@ -7,131 +7,147 @@
 
 package com.vmware.vim25;
 
-public class ArrayOfVirtualMachineFileLayoutExDiskLayout  implements java.io.Serializable {
-    private com.vmware.vim25.VirtualMachineFileLayoutExDiskLayout[] virtualMachineFileLayoutExDiskLayout;
+public class ArrayOfVirtualMachineFileLayoutExDiskLayout implements
+		java.io.Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private com.vmware.vim25.VirtualMachineFileLayoutExDiskLayout[] virtualMachineFileLayoutExDiskLayout;
 
-    public ArrayOfVirtualMachineFileLayoutExDiskLayout() {
-    }
+	public ArrayOfVirtualMachineFileLayoutExDiskLayout() {
+	}
 
-    public ArrayOfVirtualMachineFileLayoutExDiskLayout(
-           com.vmware.vim25.VirtualMachineFileLayoutExDiskLayout[] virtualMachineFileLayoutExDiskLayout) {
-           this.virtualMachineFileLayoutExDiskLayout = virtualMachineFileLayoutExDiskLayout;
-    }
+	public ArrayOfVirtualMachineFileLayoutExDiskLayout(
+			com.vmware.vim25.VirtualMachineFileLayoutExDiskLayout[] virtualMachineFileLayoutExDiskLayout) {
+		this.virtualMachineFileLayoutExDiskLayout = virtualMachineFileLayoutExDiskLayout;
+	}
 
+	/**
+	 * Gets the virtualMachineFileLayoutExDiskLayout value for this
+	 * ArrayOfVirtualMachineFileLayoutExDiskLayout.
+	 * 
+	 * @return virtualMachineFileLayoutExDiskLayout
+	 */
+	public com.vmware.vim25.VirtualMachineFileLayoutExDiskLayout[] getVirtualMachineFileLayoutExDiskLayout() {
+		return virtualMachineFileLayoutExDiskLayout;
+	}
 
-    /**
-     * Gets the virtualMachineFileLayoutExDiskLayout value for this ArrayOfVirtualMachineFileLayoutExDiskLayout.
-     * 
-     * @return virtualMachineFileLayoutExDiskLayout
-     */
-    public com.vmware.vim25.VirtualMachineFileLayoutExDiskLayout[] getVirtualMachineFileLayoutExDiskLayout() {
-        return virtualMachineFileLayoutExDiskLayout;
-    }
+	/**
+	 * Sets the virtualMachineFileLayoutExDiskLayout value for this
+	 * ArrayOfVirtualMachineFileLayoutExDiskLayout.
+	 * 
+	 * @param virtualMachineFileLayoutExDiskLayout
+	 */
+	public void setVirtualMachineFileLayoutExDiskLayout(
+			com.vmware.vim25.VirtualMachineFileLayoutExDiskLayout[] virtualMachineFileLayoutExDiskLayout) {
+		this.virtualMachineFileLayoutExDiskLayout = virtualMachineFileLayoutExDiskLayout;
+	}
 
+	public com.vmware.vim25.VirtualMachineFileLayoutExDiskLayout getVirtualMachineFileLayoutExDiskLayout(
+			int i) {
+		return this.virtualMachineFileLayoutExDiskLayout[i];
+	}
 
-    /**
-     * Sets the virtualMachineFileLayoutExDiskLayout value for this ArrayOfVirtualMachineFileLayoutExDiskLayout.
-     * 
-     * @param virtualMachineFileLayoutExDiskLayout
-     */
-    public void setVirtualMachineFileLayoutExDiskLayout(com.vmware.vim25.VirtualMachineFileLayoutExDiskLayout[] virtualMachineFileLayoutExDiskLayout) {
-        this.virtualMachineFileLayoutExDiskLayout = virtualMachineFileLayoutExDiskLayout;
-    }
+	public void setVirtualMachineFileLayoutExDiskLayout(int i,
+			com.vmware.vim25.VirtualMachineFileLayoutExDiskLayout _value) {
+		this.virtualMachineFileLayoutExDiskLayout[i] = _value;
+	}
 
-    public com.vmware.vim25.VirtualMachineFileLayoutExDiskLayout getVirtualMachineFileLayoutExDiskLayout(int i) {
-        return this.virtualMachineFileLayoutExDiskLayout[i];
-    }
+	private java.lang.Object __equalsCalc = null;
 
-    public void setVirtualMachineFileLayoutExDiskLayout(int i, com.vmware.vim25.VirtualMachineFileLayoutExDiskLayout _value) {
-        this.virtualMachineFileLayoutExDiskLayout[i] = _value;
-    }
+	@Override
+	public synchronized boolean equals(java.lang.Object obj) {
+		if (!(obj instanceof ArrayOfVirtualMachineFileLayoutExDiskLayout)) {
+			return false;
+		}
+		ArrayOfVirtualMachineFileLayoutExDiskLayout other = (ArrayOfVirtualMachineFileLayoutExDiskLayout) obj;
+		if (obj == null) {
+			return false;
+		}
+		if (this == obj) {
+			return true;
+		}
+		if (__equalsCalc != null) {
+			return (__equalsCalc == obj);
+		}
+		__equalsCalc = obj;
+		boolean _equals;
+		_equals = true && ((this.virtualMachineFileLayoutExDiskLayout == null && other
+				.getVirtualMachineFileLayoutExDiskLayout() == null) || (this.virtualMachineFileLayoutExDiskLayout != null && java.util.Arrays
+				.equals(this.virtualMachineFileLayoutExDiskLayout, other
+						.getVirtualMachineFileLayoutExDiskLayout())));
+		__equalsCalc = null;
+		return _equals;
+	}
 
-    private java.lang.Object __equalsCalc = null;
-    public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof ArrayOfVirtualMachineFileLayoutExDiskLayout)) return false;
-        ArrayOfVirtualMachineFileLayoutExDiskLayout other = (ArrayOfVirtualMachineFileLayoutExDiskLayout) obj;
-        if (obj == null) return false;
-        if (this == obj) return true;
-        if (__equalsCalc != null) {
-            return (__equalsCalc == obj);
-        }
-        __equalsCalc = obj;
-        boolean _equals;
-        _equals = true && 
-            ((this.virtualMachineFileLayoutExDiskLayout==null && other.getVirtualMachineFileLayoutExDiskLayout()==null) || 
-             (this.virtualMachineFileLayoutExDiskLayout!=null &&
-              java.util.Arrays.equals(this.virtualMachineFileLayoutExDiskLayout, other.getVirtualMachineFileLayoutExDiskLayout())));
-        __equalsCalc = null;
-        return _equals;
-    }
+	private boolean __hashCodeCalc = false;
 
-    private boolean __hashCodeCalc = false;
-    public synchronized int hashCode() {
-        if (__hashCodeCalc) {
-            return 0;
-        }
-        __hashCodeCalc = true;
-        int _hashCode = 1;
-        if (getVirtualMachineFileLayoutExDiskLayout() != null) {
-            for (int i=0;
-                 i<java.lang.reflect.Array.getLength(getVirtualMachineFileLayoutExDiskLayout());
-                 i++) {
-                java.lang.Object obj = java.lang.reflect.Array.get(getVirtualMachineFileLayoutExDiskLayout(), i);
-                if (obj != null &&
-                    !obj.getClass().isArray()) {
-                    _hashCode += obj.hashCode();
-                }
-            }
-        }
-        __hashCodeCalc = false;
-        return _hashCode;
-    }
+	@Override
+	public synchronized int hashCode() {
+		if (__hashCodeCalc) {
+			return 0;
+		}
+		__hashCodeCalc = true;
+		int _hashCode = 1;
+		if (getVirtualMachineFileLayoutExDiskLayout() != null) {
+			for (int i = 0; i < java.lang.reflect.Array
+					.getLength(getVirtualMachineFileLayoutExDiskLayout()); i++) {
+				java.lang.Object obj = java.lang.reflect.Array.get(
+						getVirtualMachineFileLayoutExDiskLayout(), i);
+				if (obj != null && !obj.getClass().isArray()) {
+					_hashCode += obj.hashCode();
+				}
+			}
+		}
+		__hashCodeCalc = false;
+		return _hashCode;
+	}
 
-    // Type metadata
-    private static org.apache.axis.description.TypeDesc typeDesc =
-        new org.apache.axis.description.TypeDesc(ArrayOfVirtualMachineFileLayoutExDiskLayout.class, true);
+	// Type metadata
+	private static org.apache.axis.description.TypeDesc typeDesc = new org.apache.axis.description.TypeDesc(
+			ArrayOfVirtualMachineFileLayoutExDiskLayout.class, true);
 
-    static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("urn:vim25", "ArrayOfVirtualMachineFileLayoutExDiskLayout"));
-        org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("virtualMachineFileLayoutExDiskLayout");
-        elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25", "VirtualMachineFileLayoutExDiskLayout"));
-        elemField.setXmlType(new javax.xml.namespace.QName("urn:vim25", "VirtualMachineFileLayoutExDiskLayout"));
-        elemField.setMinOccurs(0);
-        elemField.setNillable(false);
-        elemField.setMaxOccursUnbounded(true);
-        typeDesc.addFieldDesc(elemField);
-    }
+	static {
+		typeDesc.setXmlType(new javax.xml.namespace.QName("urn:vim25",
+				"ArrayOfVirtualMachineFileLayoutExDiskLayout"));
+		org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+		elemField.setFieldName("virtualMachineFileLayoutExDiskLayout");
+		elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25",
+				"VirtualMachineFileLayoutExDiskLayout"));
+		elemField.setXmlType(new javax.xml.namespace.QName("urn:vim25",
+				"VirtualMachineFileLayoutExDiskLayout"));
+		elemField.setMinOccurs(0);
+		elemField.setNillable(false);
+		elemField.setMaxOccursUnbounded(true);
+		typeDesc.addFieldDesc(elemField);
+	}
 
-    /**
-     * Return type metadata object
-     */
-    public static org.apache.axis.description.TypeDesc getTypeDesc() {
-        return typeDesc;
-    }
+	/**
+	 * Return type metadata object
+	 */
+	public static org.apache.axis.description.TypeDesc getTypeDesc() {
+		return typeDesc;
+	}
 
-    /**
-     * Get Custom Serializer
-     */
-    public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanSerializer(
-            _javaType, _xmlType, typeDesc);
-    }
+	/**
+	 * Get Custom Serializer
+	 */
+	public static org.apache.axis.encoding.Serializer getSerializer(
+			java.lang.String mechType, java.lang.Class _javaType,
+			javax.xml.namespace.QName _xmlType) {
+		return new org.apache.axis.encoding.ser.BeanSerializer(_javaType,
+				_xmlType, typeDesc);
+	}
 
-    /**
-     * Get Custom Deserializer
-     */
-    public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanDeserializer(
-            _javaType, _xmlType, typeDesc);
-    }
+	/**
+	 * Get Custom Deserializer
+	 */
+	public static org.apache.axis.encoding.Deserializer getDeserializer(
+			java.lang.String mechType, java.lang.Class _javaType,
+			javax.xml.namespace.QName _xmlType) {
+		return new org.apache.axis.encoding.ser.BeanDeserializer(_javaType,
+				_xmlType, typeDesc);
+	}
 
 }

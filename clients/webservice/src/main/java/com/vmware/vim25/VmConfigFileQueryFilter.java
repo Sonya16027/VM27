@@ -7,136 +7,145 @@
 
 package com.vmware.vim25;
 
-public class VmConfigFileQueryFilter  extends com.vmware.vim25.DynamicData  implements java.io.Serializable {
-    private int[] matchConfigVersion;
+public class VmConfigFileQueryFilter extends com.vmware.vim25.DynamicData
+		implements java.io.Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private int[] matchConfigVersion;
 
-    public VmConfigFileQueryFilter() {
-    }
+	public VmConfigFileQueryFilter() {
+	}
 
-    public VmConfigFileQueryFilter(
-           java.lang.String dynamicType,
-           com.vmware.vim25.DynamicProperty[] dynamicProperty,
-           int[] matchConfigVersion) {
-        super(
-            dynamicType,
-            dynamicProperty);
-        this.matchConfigVersion = matchConfigVersion;
-    }
+	public VmConfigFileQueryFilter(java.lang.String dynamicType,
+			com.vmware.vim25.DynamicProperty[] dynamicProperty,
+			int[] matchConfigVersion) {
+		super(dynamicType, dynamicProperty);
+		this.matchConfigVersion = matchConfigVersion;
+	}
 
+	/**
+	 * Gets the matchConfigVersion value for this VmConfigFileQueryFilter.
+	 * 
+	 * @return matchConfigVersion
+	 */
+	public int[] getMatchConfigVersion() {
+		return matchConfigVersion;
+	}
 
-    /**
-     * Gets the matchConfigVersion value for this VmConfigFileQueryFilter.
-     * 
-     * @return matchConfigVersion
-     */
-    public int[] getMatchConfigVersion() {
-        return matchConfigVersion;
-    }
+	/**
+	 * Sets the matchConfigVersion value for this VmConfigFileQueryFilter.
+	 * 
+	 * @param matchConfigVersion
+	 */
+	public void setMatchConfigVersion(int[] matchConfigVersion) {
+		this.matchConfigVersion = matchConfigVersion;
+	}
 
+	public int getMatchConfigVersion(int i) {
+		return this.matchConfigVersion[i];
+	}
 
-    /**
-     * Sets the matchConfigVersion value for this VmConfigFileQueryFilter.
-     * 
-     * @param matchConfigVersion
-     */
-    public void setMatchConfigVersion(int[] matchConfigVersion) {
-        this.matchConfigVersion = matchConfigVersion;
-    }
+	public void setMatchConfigVersion(int i, int _value) {
+		this.matchConfigVersion[i] = _value;
+	}
 
-    public int getMatchConfigVersion(int i) {
-        return this.matchConfigVersion[i];
-    }
+	private java.lang.Object __equalsCalc = null;
 
-    public void setMatchConfigVersion(int i, int _value) {
-        this.matchConfigVersion[i] = _value;
-    }
+	@Override
+	public synchronized boolean equals(java.lang.Object obj) {
+		if (!(obj instanceof VmConfigFileQueryFilter)) {
+			return false;
+		}
+		VmConfigFileQueryFilter other = (VmConfigFileQueryFilter) obj;
+		if (obj == null) {
+			return false;
+		}
+		if (this == obj) {
+			return true;
+		}
+		if (__equalsCalc != null) {
+			return (__equalsCalc == obj);
+		}
+		__equalsCalc = obj;
+		boolean _equals;
+		_equals = super.equals(obj)
+				&& ((this.matchConfigVersion == null && other
+						.getMatchConfigVersion() == null) || (this.matchConfigVersion != null && java.util.Arrays
+						.equals(this.matchConfigVersion, other
+								.getMatchConfigVersion())));
+		__equalsCalc = null;
+		return _equals;
+	}
 
-    private java.lang.Object __equalsCalc = null;
-    public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof VmConfigFileQueryFilter)) return false;
-        VmConfigFileQueryFilter other = (VmConfigFileQueryFilter) obj;
-        if (obj == null) return false;
-        if (this == obj) return true;
-        if (__equalsCalc != null) {
-            return (__equalsCalc == obj);
-        }
-        __equalsCalc = obj;
-        boolean _equals;
-        _equals = super.equals(obj) && 
-            ((this.matchConfigVersion==null && other.getMatchConfigVersion()==null) || 
-             (this.matchConfigVersion!=null &&
-              java.util.Arrays.equals(this.matchConfigVersion, other.getMatchConfigVersion())));
-        __equalsCalc = null;
-        return _equals;
-    }
+	private boolean __hashCodeCalc = false;
 
-    private boolean __hashCodeCalc = false;
-    public synchronized int hashCode() {
-        if (__hashCodeCalc) {
-            return 0;
-        }
-        __hashCodeCalc = true;
-        int _hashCode = super.hashCode();
-        if (getMatchConfigVersion() != null) {
-            for (int i=0;
-                 i<java.lang.reflect.Array.getLength(getMatchConfigVersion());
-                 i++) {
-                java.lang.Object obj = java.lang.reflect.Array.get(getMatchConfigVersion(), i);
-                if (obj != null &&
-                    !obj.getClass().isArray()) {
-                    _hashCode += obj.hashCode();
-                }
-            }
-        }
-        __hashCodeCalc = false;
-        return _hashCode;
-    }
+	@Override
+	public synchronized int hashCode() {
+		if (__hashCodeCalc) {
+			return 0;
+		}
+		__hashCodeCalc = true;
+		int _hashCode = super.hashCode();
+		if (getMatchConfigVersion() != null) {
+			for (int i = 0; i < java.lang.reflect.Array
+					.getLength(getMatchConfigVersion()); i++) {
+				java.lang.Object obj = java.lang.reflect.Array.get(
+						getMatchConfigVersion(), i);
+				if (obj != null && !obj.getClass().isArray()) {
+					_hashCode += obj.hashCode();
+				}
+			}
+		}
+		__hashCodeCalc = false;
+		return _hashCode;
+	}
 
-    // Type metadata
-    private static org.apache.axis.description.TypeDesc typeDesc =
-        new org.apache.axis.description.TypeDesc(VmConfigFileQueryFilter.class, true);
+	// Type metadata
+	private static org.apache.axis.description.TypeDesc typeDesc = new org.apache.axis.description.TypeDesc(
+			VmConfigFileQueryFilter.class, true);
 
-    static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("urn:vim25", "VmConfigFileQueryFilter"));
-        org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("matchConfigVersion");
-        elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25", "matchConfigVersion"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
-        elemField.setMinOccurs(0);
-        elemField.setNillable(false);
-        elemField.setMaxOccursUnbounded(true);
-        typeDesc.addFieldDesc(elemField);
-    }
+	static {
+		typeDesc.setXmlType(new javax.xml.namespace.QName("urn:vim25",
+				"VmConfigFileQueryFilter"));
+		org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+		elemField.setFieldName("matchConfigVersion");
+		elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25",
+				"matchConfigVersion"));
+		elemField.setXmlType(new javax.xml.namespace.QName(
+				"http://www.w3.org/2001/XMLSchema", "int"));
+		elemField.setMinOccurs(0);
+		elemField.setNillable(false);
+		elemField.setMaxOccursUnbounded(true);
+		typeDesc.addFieldDesc(elemField);
+	}
 
-    /**
-     * Return type metadata object
-     */
-    public static org.apache.axis.description.TypeDesc getTypeDesc() {
-        return typeDesc;
-    }
+	/**
+	 * Return type metadata object
+	 */
+	public static org.apache.axis.description.TypeDesc getTypeDesc() {
+		return typeDesc;
+	}
 
-    /**
-     * Get Custom Serializer
-     */
-    public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanSerializer(
-            _javaType, _xmlType, typeDesc);
-    }
+	/**
+	 * Get Custom Serializer
+	 */
+	public static org.apache.axis.encoding.Serializer getSerializer(
+			java.lang.String mechType, java.lang.Class _javaType,
+			javax.xml.namespace.QName _xmlType) {
+		return new org.apache.axis.encoding.ser.BeanSerializer(_javaType,
+				_xmlType, typeDesc);
+	}
 
-    /**
-     * Get Custom Deserializer
-     */
-    public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanDeserializer(
-            _javaType, _xmlType, typeDesc);
-    }
+	/**
+	 * Get Custom Deserializer
+	 */
+	public static org.apache.axis.encoding.Deserializer getDeserializer(
+			java.lang.String mechType, java.lang.Class _javaType,
+			javax.xml.namespace.QName _xmlType) {
+		return new org.apache.axis.encoding.ser.BeanDeserializer(_javaType,
+				_xmlType, typeDesc);
+	}
 
 }

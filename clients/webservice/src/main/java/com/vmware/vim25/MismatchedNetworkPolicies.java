@@ -7,197 +7,203 @@
 
 package com.vmware.vim25;
 
-public class MismatchedNetworkPolicies  extends com.vmware.vim25.MigrationFault  implements java.io.Serializable {
-    private java.lang.String device;
+public class MismatchedNetworkPolicies extends com.vmware.vim25.MigrationFault
+		implements java.io.Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
-    private java.lang.String backing;
+	private java.lang.String device;
 
-    private boolean connected;
+	private java.lang.String backing;
 
-    public MismatchedNetworkPolicies() {
-    }
+	private boolean connected;
 
-    public MismatchedNetworkPolicies(
-           java.lang.String dynamicType,
-           com.vmware.vim25.DynamicProperty[] dynamicProperty,
-           com.vmware.vim25.LocalizedMethodFault faultCause,
-           com.vmware.vim25.LocalizableMessage[] faultMessage,
-           java.lang.String device,
-           java.lang.String backing,
-           boolean connected) {
-        super(
-            dynamicType,
-            dynamicProperty,
-            faultCause,
-            faultMessage);
-        this.device = device;
-        this.backing = backing;
-        this.connected = connected;
-    }
+	public MismatchedNetworkPolicies() {
+	}
 
+	public MismatchedNetworkPolicies(java.lang.String dynamicType,
+			com.vmware.vim25.DynamicProperty[] dynamicProperty,
+			com.vmware.vim25.LocalizedMethodFault faultCause,
+			com.vmware.vim25.LocalizableMessage[] faultMessage,
+			java.lang.String device, java.lang.String backing, boolean connected) {
+		super(dynamicType, dynamicProperty, faultCause, faultMessage);
+		this.device = device;
+		this.backing = backing;
+		this.connected = connected;
+	}
 
-    /**
-     * Gets the device value for this MismatchedNetworkPolicies.
-     * 
-     * @return device
-     */
-    public java.lang.String getDevice() {
-        return device;
-    }
+	/**
+	 * Gets the device value for this MismatchedNetworkPolicies.
+	 * 
+	 * @return device
+	 */
+	public java.lang.String getDevice() {
+		return device;
+	}
 
+	/**
+	 * Sets the device value for this MismatchedNetworkPolicies.
+	 * 
+	 * @param device
+	 */
+	public void setDevice(java.lang.String device) {
+		this.device = device;
+	}
 
-    /**
-     * Sets the device value for this MismatchedNetworkPolicies.
-     * 
-     * @param device
-     */
-    public void setDevice(java.lang.String device) {
-        this.device = device;
-    }
+	/**
+	 * Gets the backing value for this MismatchedNetworkPolicies.
+	 * 
+	 * @return backing
+	 */
+	public java.lang.String getBacking() {
+		return backing;
+	}
 
+	/**
+	 * Sets the backing value for this MismatchedNetworkPolicies.
+	 * 
+	 * @param backing
+	 */
+	public void setBacking(java.lang.String backing) {
+		this.backing = backing;
+	}
 
-    /**
-     * Gets the backing value for this MismatchedNetworkPolicies.
-     * 
-     * @return backing
-     */
-    public java.lang.String getBacking() {
-        return backing;
-    }
+	/**
+	 * Gets the connected value for this MismatchedNetworkPolicies.
+	 * 
+	 * @return connected
+	 */
+	public boolean isConnected() {
+		return connected;
+	}
 
+	/**
+	 * Sets the connected value for this MismatchedNetworkPolicies.
+	 * 
+	 * @param connected
+	 */
+	public void setConnected(boolean connected) {
+		this.connected = connected;
+	}
 
-    /**
-     * Sets the backing value for this MismatchedNetworkPolicies.
-     * 
-     * @param backing
-     */
-    public void setBacking(java.lang.String backing) {
-        this.backing = backing;
-    }
+	private java.lang.Object __equalsCalc = null;
 
+	@Override
+	public synchronized boolean equals(java.lang.Object obj) {
+		if (!(obj instanceof MismatchedNetworkPolicies)) {
+			return false;
+		}
+		MismatchedNetworkPolicies other = (MismatchedNetworkPolicies) obj;
+		if (obj == null) {
+			return false;
+		}
+		if (this == obj) {
+			return true;
+		}
+		if (__equalsCalc != null) {
+			return (__equalsCalc == obj);
+		}
+		__equalsCalc = obj;
+		boolean _equals;
+		_equals = super.equals(obj)
+				&& ((this.device == null && other.getDevice() == null) || (this.device != null && this.device
+						.equals(other.getDevice())))
+				&& ((this.backing == null && other.getBacking() == null) || (this.backing != null && this.backing
+						.equals(other.getBacking())))
+				&& this.connected == other.isConnected();
+		__equalsCalc = null;
+		return _equals;
+	}
 
-    /**
-     * Gets the connected value for this MismatchedNetworkPolicies.
-     * 
-     * @return connected
-     */
-    public boolean isConnected() {
-        return connected;
-    }
+	private boolean __hashCodeCalc = false;
 
+	@Override
+	public synchronized int hashCode() {
+		if (__hashCodeCalc) {
+			return 0;
+		}
+		__hashCodeCalc = true;
+		int _hashCode = super.hashCode();
+		if (getDevice() != null) {
+			_hashCode += getDevice().hashCode();
+		}
+		if (getBacking() != null) {
+			_hashCode += getBacking().hashCode();
+		}
+		_hashCode += (isConnected() ? Boolean.TRUE : Boolean.FALSE).hashCode();
+		__hashCodeCalc = false;
+		return _hashCode;
+	}
 
-    /**
-     * Sets the connected value for this MismatchedNetworkPolicies.
-     * 
-     * @param connected
-     */
-    public void setConnected(boolean connected) {
-        this.connected = connected;
-    }
+	// Type metadata
+	private static org.apache.axis.description.TypeDesc typeDesc = new org.apache.axis.description.TypeDesc(
+			MismatchedNetworkPolicies.class, true);
 
-    private java.lang.Object __equalsCalc = null;
-    public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof MismatchedNetworkPolicies)) return false;
-        MismatchedNetworkPolicies other = (MismatchedNetworkPolicies) obj;
-        if (obj == null) return false;
-        if (this == obj) return true;
-        if (__equalsCalc != null) {
-            return (__equalsCalc == obj);
-        }
-        __equalsCalc = obj;
-        boolean _equals;
-        _equals = super.equals(obj) && 
-            ((this.device==null && other.getDevice()==null) || 
-             (this.device!=null &&
-              this.device.equals(other.getDevice()))) &&
-            ((this.backing==null && other.getBacking()==null) || 
-             (this.backing!=null &&
-              this.backing.equals(other.getBacking()))) &&
-            this.connected == other.isConnected();
-        __equalsCalc = null;
-        return _equals;
-    }
+	static {
+		typeDesc.setXmlType(new javax.xml.namespace.QName("urn:vim25",
+				"MismatchedNetworkPolicies"));
+		org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+		elemField.setFieldName("device");
+		elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25",
+				"device"));
+		elemField.setXmlType(new javax.xml.namespace.QName(
+				"http://www.w3.org/2001/XMLSchema", "string"));
+		elemField.setNillable(false);
+		typeDesc.addFieldDesc(elemField);
+		elemField = new org.apache.axis.description.ElementDesc();
+		elemField.setFieldName("backing");
+		elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25",
+				"backing"));
+		elemField.setXmlType(new javax.xml.namespace.QName(
+				"http://www.w3.org/2001/XMLSchema", "string"));
+		elemField.setNillable(false);
+		typeDesc.addFieldDesc(elemField);
+		elemField = new org.apache.axis.description.ElementDesc();
+		elemField.setFieldName("connected");
+		elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25",
+				"connected"));
+		elemField.setXmlType(new javax.xml.namespace.QName(
+				"http://www.w3.org/2001/XMLSchema", "boolean"));
+		elemField.setNillable(false);
+		typeDesc.addFieldDesc(elemField);
+	}
 
-    private boolean __hashCodeCalc = false;
-    public synchronized int hashCode() {
-        if (__hashCodeCalc) {
-            return 0;
-        }
-        __hashCodeCalc = true;
-        int _hashCode = super.hashCode();
-        if (getDevice() != null) {
-            _hashCode += getDevice().hashCode();
-        }
-        if (getBacking() != null) {
-            _hashCode += getBacking().hashCode();
-        }
-        _hashCode += (isConnected() ? Boolean.TRUE : Boolean.FALSE).hashCode();
-        __hashCodeCalc = false;
-        return _hashCode;
-    }
+	/**
+	 * Return type metadata object
+	 */
+	public static org.apache.axis.description.TypeDesc getTypeDesc() {
+		return typeDesc;
+	}
 
-    // Type metadata
-    private static org.apache.axis.description.TypeDesc typeDesc =
-        new org.apache.axis.description.TypeDesc(MismatchedNetworkPolicies.class, true);
+	/**
+	 * Get Custom Serializer
+	 */
+	public static org.apache.axis.encoding.Serializer getSerializer(
+			java.lang.String mechType, java.lang.Class _javaType,
+			javax.xml.namespace.QName _xmlType) {
+		return new org.apache.axis.encoding.ser.BeanSerializer(_javaType,
+				_xmlType, typeDesc);
+	}
 
-    static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("urn:vim25", "MismatchedNetworkPolicies"));
-        org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("device");
-        elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25", "device"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
-        elemField.setNillable(false);
-        typeDesc.addFieldDesc(elemField);
-        elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("backing");
-        elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25", "backing"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
-        elemField.setNillable(false);
-        typeDesc.addFieldDesc(elemField);
-        elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("connected");
-        elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25", "connected"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
-        elemField.setNillable(false);
-        typeDesc.addFieldDesc(elemField);
-    }
+	/**
+	 * Get Custom Deserializer
+	 */
+	public static org.apache.axis.encoding.Deserializer getDeserializer(
+			java.lang.String mechType, java.lang.Class _javaType,
+			javax.xml.namespace.QName _xmlType) {
+		return new org.apache.axis.encoding.ser.BeanDeserializer(_javaType,
+				_xmlType, typeDesc);
+	}
 
-    /**
-     * Return type metadata object
-     */
-    public static org.apache.axis.description.TypeDesc getTypeDesc() {
-        return typeDesc;
-    }
-
-    /**
-     * Get Custom Serializer
-     */
-    public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanSerializer(
-            _javaType, _xmlType, typeDesc);
-    }
-
-    /**
-     * Get Custom Deserializer
-     */
-    public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanDeserializer(
-            _javaType, _xmlType, typeDesc);
-    }
-
-
-    /**
-     * Writes the exception data to the faultDetails
-     */
-    public void writeDetails(javax.xml.namespace.QName qname, org.apache.axis.encoding.SerializationContext context) throws java.io.IOException {
-        context.serialize(qname, null, this);
-    }
+	/**
+	 * Writes the exception data to the faultDetails
+	 */
+	@Override
+	public void writeDetails(javax.xml.namespace.QName qname,
+			org.apache.axis.encoding.SerializationContext context)
+			throws java.io.IOException {
+		context.serialize(qname, null, this);
+	}
 }

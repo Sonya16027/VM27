@@ -4,8 +4,7 @@
  * Includes client-side API. 
  * 
  *  
-*/     
+ */
 
 package com.vmware.security.credstore;
-
 

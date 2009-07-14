@@ -7,150 +7,158 @@
 
 package com.vmware.vim.sms;
 
-public class SortSpec  extends com.vmware.vim.sms.DynamicData  implements java.io.Serializable {
-    private java.lang.String propertyName;
+public class SortSpec extends com.vmware.vim.sms.DynamicData implements
+		java.io.Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
-    private boolean ascending;
+	private java.lang.String propertyName;
 
-    public SortSpec() {
-    }
+	private boolean ascending;
 
-    public SortSpec(
-           java.lang.String dynamicType,
-           com.vmware.vim.sms.DynamicProperty[] dynamicProperty,
-           java.lang.String propertyName,
-           boolean ascending) {
-        super(
-            dynamicType,
-            dynamicProperty);
-        this.propertyName = propertyName;
-        this.ascending = ascending;
-    }
+	public SortSpec() {
+	}
 
+	public SortSpec(java.lang.String dynamicType,
+			com.vmware.vim.sms.DynamicProperty[] dynamicProperty,
+			java.lang.String propertyName, boolean ascending) {
+		super(dynamicType, dynamicProperty);
+		this.propertyName = propertyName;
+		this.ascending = ascending;
+	}
 
-    /**
-     * Gets the propertyName value for this SortSpec.
-     * 
-     * @return propertyName
-     */
-    public java.lang.String getPropertyName() {
-        return propertyName;
-    }
+	/**
+	 * Gets the propertyName value for this SortSpec.
+	 * 
+	 * @return propertyName
+	 */
+	public java.lang.String getPropertyName() {
+		return propertyName;
+	}
 
+	/**
+	 * Sets the propertyName value for this SortSpec.
+	 * 
+	 * @param propertyName
+	 */
+	public void setPropertyName(java.lang.String propertyName) {
+		this.propertyName = propertyName;
+	}
 
-    /**
-     * Sets the propertyName value for this SortSpec.
-     * 
-     * @param propertyName
-     */
-    public void setPropertyName(java.lang.String propertyName) {
-        this.propertyName = propertyName;
-    }
+	/**
+	 * Gets the ascending value for this SortSpec.
+	 * 
+	 * @return ascending
+	 */
+	public boolean isAscending() {
+		return ascending;
+	}
 
+	/**
+	 * Sets the ascending value for this SortSpec.
+	 * 
+	 * @param ascending
+	 */
+	public void setAscending(boolean ascending) {
+		this.ascending = ascending;
+	}
 
-    /**
-     * Gets the ascending value for this SortSpec.
-     * 
-     * @return ascending
-     */
-    public boolean isAscending() {
-        return ascending;
-    }
+	private java.lang.Object __equalsCalc = null;
 
+	@Override
+	public synchronized boolean equals(java.lang.Object obj) {
+		if (!(obj instanceof SortSpec)) {
+			return false;
+		}
+		SortSpec other = (SortSpec) obj;
+		if (obj == null) {
+			return false;
+		}
+		if (this == obj) {
+			return true;
+		}
+		if (__equalsCalc != null) {
+			return (__equalsCalc == obj);
+		}
+		__equalsCalc = obj;
+		boolean _equals;
+		_equals = super.equals(obj)
+				&& ((this.propertyName == null && other.getPropertyName() == null) || (this.propertyName != null && this.propertyName
+						.equals(other.getPropertyName())))
+				&& this.ascending == other.isAscending();
+		__equalsCalc = null;
+		return _equals;
+	}
 
-    /**
-     * Sets the ascending value for this SortSpec.
-     * 
-     * @param ascending
-     */
-    public void setAscending(boolean ascending) {
-        this.ascending = ascending;
-    }
+	private boolean __hashCodeCalc = false;
 
-    private java.lang.Object __equalsCalc = null;
-    public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof SortSpec)) return false;
-        SortSpec other = (SortSpec) obj;
-        if (obj == null) return false;
-        if (this == obj) return true;
-        if (__equalsCalc != null) {
-            return (__equalsCalc == obj);
-        }
-        __equalsCalc = obj;
-        boolean _equals;
-        _equals = super.equals(obj) && 
-            ((this.propertyName==null && other.getPropertyName()==null) || 
-             (this.propertyName!=null &&
-              this.propertyName.equals(other.getPropertyName()))) &&
-            this.ascending == other.isAscending();
-        __equalsCalc = null;
-        return _equals;
-    }
+	@Override
+	public synchronized int hashCode() {
+		if (__hashCodeCalc) {
+			return 0;
+		}
+		__hashCodeCalc = true;
+		int _hashCode = super.hashCode();
+		if (getPropertyName() != null) {
+			_hashCode += getPropertyName().hashCode();
+		}
+		_hashCode += (isAscending() ? Boolean.TRUE : Boolean.FALSE).hashCode();
+		__hashCodeCalc = false;
+		return _hashCode;
+	}
 
-    private boolean __hashCodeCalc = false;
-    public synchronized int hashCode() {
-        if (__hashCodeCalc) {
-            return 0;
-        }
-        __hashCodeCalc = true;
-        int _hashCode = super.hashCode();
-        if (getPropertyName() != null) {
-            _hashCode += getPropertyName().hashCode();
-        }
-        _hashCode += (isAscending() ? Boolean.TRUE : Boolean.FALSE).hashCode();
-        __hashCodeCalc = false;
-        return _hashCode;
-    }
+	// Type metadata
+	private static org.apache.axis.description.TypeDesc typeDesc = new org.apache.axis.description.TypeDesc(
+			SortSpec.class, true);
 
-    // Type metadata
-    private static org.apache.axis.description.TypeDesc typeDesc =
-        new org.apache.axis.description.TypeDesc(SortSpec.class, true);
+	static {
+		typeDesc
+				.setXmlType(new javax.xml.namespace.QName("urn:sm1", "SortSpec"));
+		org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+		elemField.setFieldName("propertyName");
+		elemField.setXmlName(new javax.xml.namespace.QName("urn:sm1",
+				"propertyName"));
+		elemField.setXmlType(new javax.xml.namespace.QName(
+				"http://www.w3.org/2001/XMLSchema", "string"));
+		elemField.setNillable(false);
+		typeDesc.addFieldDesc(elemField);
+		elemField = new org.apache.axis.description.ElementDesc();
+		elemField.setFieldName("ascending");
+		elemField.setXmlName(new javax.xml.namespace.QName("urn:sm1",
+				"ascending"));
+		elemField.setXmlType(new javax.xml.namespace.QName(
+				"http://www.w3.org/2001/XMLSchema", "boolean"));
+		elemField.setNillable(false);
+		typeDesc.addFieldDesc(elemField);
+	}
 
-    static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("urn:sm1", "SortSpec"));
-        org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("propertyName");
-        elemField.setXmlName(new javax.xml.namespace.QName("urn:sm1", "propertyName"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
-        elemField.setNillable(false);
-        typeDesc.addFieldDesc(elemField);
-        elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("ascending");
-        elemField.setXmlName(new javax.xml.namespace.QName("urn:sm1", "ascending"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "boolean"));
-        elemField.setNillable(false);
-        typeDesc.addFieldDesc(elemField);
-    }
+	/**
+	 * Return type metadata object
+	 */
+	public static org.apache.axis.description.TypeDesc getTypeDesc() {
+		return typeDesc;
+	}
 
-    /**
-     * Return type metadata object
-     */
-    public static org.apache.axis.description.TypeDesc getTypeDesc() {
-        return typeDesc;
-    }
+	/**
+	 * Get Custom Serializer
+	 */
+	public static org.apache.axis.encoding.Serializer getSerializer(
+			java.lang.String mechType, java.lang.Class _javaType,
+			javax.xml.namespace.QName _xmlType) {
+		return new org.apache.axis.encoding.ser.BeanSerializer(_javaType,
+				_xmlType, typeDesc);
+	}
 
-    /**
-     * Get Custom Serializer
-     */
-    public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanSerializer(
-            _javaType, _xmlType, typeDesc);
-    }
-
-    /**
-     * Get Custom Deserializer
-     */
-    public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanDeserializer(
-            _javaType, _xmlType, typeDesc);
-    }
+	/**
+	 * Get Custom Deserializer
+	 */
+	public static org.apache.axis.encoding.Deserializer getDeserializer(
+			java.lang.String mechType, java.lang.Class _javaType,
+			javax.xml.namespace.QName _xmlType) {
+		return new org.apache.axis.encoding.ser.BeanDeserializer(_javaType,
+				_xmlType, typeDesc);
+	}
 
 }

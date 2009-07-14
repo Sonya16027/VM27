@@ -23,7 +23,7 @@ import com.vmware.vim25.TraversalSpec;
 
 public class Performance {
 	private Connection connection;
-	
+
 	private ManagedObjectReference propertyCollector;
 	private ManagedObjectReference rootFolder;
 	private ManagedObjectReference performanceManager;
@@ -31,189 +31,43 @@ public class Performance {
 	private HashMap<Integer, PerfCounterInfo> counterInfoMap = new HashMap<Integer, PerfCounterInfo>();
 	private HashMap<String, Integer> counters = new HashMap<String, Integer>();
 	private HashMap<Integer, PerfMetricId> metrics = new HashMap<Integer, PerfMetricId>();
-	
+
 	public Performance(Connection connection) {
 		this.connection = connection;
 	}
-	
-	
-	public void initialize() {
-		initPropertyCollector();
-		initRootFolder();
-		initPerfMgr();
-	}
-	
-	private void initPropertyCollector() {
-		if (propertyCollector == null) {
-			try {
-				propertyCollector = connection.getServiceContent().getPropertyCollector();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-	}
-
-	private void initRootFolder() {
-		if (rootFolder == null) {
-			try {
-				rootFolder = connection.getServiceContent().getRootFolder();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-	}
-
-	private void initPerfMgr() {
-		if (performanceManager == null) {
-			try {
-				performanceManager = connection.getServiceContent().getPerfManager();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-	}
 
 	/**
+	 * This method retrieves all the performance metrics available on the
+	 * managed entity. It could be either a VM or a Host system. The performance
+	 * metrics are stored in the hashmap metrics with counterId being the key
+	 * and PerfMetricId being the value.
 	 * 
-	 * @return TraversalSpec specification to get to the VirtualMachine managed
-	 *         object.
+	 * @param entityName
+	 *            - The name of the entity (vm or host)
+	 * @param isVM
+	 *            - Boolean indicating whether the entityName is a VM name
 	 */
-	public TraversalSpec getVMTraversalSpec() {
-		// Create a traversal spec that starts from the 'root' objects
-		// and traverses the inventory tree to get to the VirtualMachines.
-		// Build the traversal specs bottoms up
-
-		// Traversal to get to the vmFolder from DataCenter
-		TraversalSpec dataCenterToVMFolder = new TraversalSpec();
-		dataCenterToVMFolder.setName("DataCenterToVMFolder");
-		dataCenterToVMFolder.setType("Datacenter");
-		dataCenterToVMFolder.setPath("vmFolder");
-		dataCenterToVMFolder.setSkip(false);
-		SelectionSpec sSpec = new SelectionSpec();
-		sSpec.setName("VisitFolders");
-		SelectionSpec[] sSpecs = new SelectionSpec[] { sSpec };
-		dataCenterToVMFolder.setSelectSet(sSpecs);
-
-		// TraversalSpec to get to the DataCenter from rootFolder
-		TraversalSpec traversalSpec = new TraversalSpec();
-		traversalSpec.setName("VisitFolders");
-		traversalSpec.setType("Folder");
-		traversalSpec.setPath("childEntity");
-		traversalSpec.setSkip(false);
-		SelectionSpec[] sSpecArr = new SelectionSpec[] { sSpec,
-				dataCenterToVMFolder };
-		traversalSpec.setSelectSet(sSpecArr);
-
-		return traversalSpec;
-	}
-
-	/**
-	 * Demonstrate how to use the PropertyCollector to retrieve properties of a
-	 * managed object and its managed object reference in one call.
-	 * 
-	 * Retrieves the Virtual machine name and its managed object reference.
-	 * 
-	 * @return ManagedObjectReference to the VirtualMachine managed object.
-	 */
-	public ManagedObjectReference getVMByName(String vmName) {
-		ManagedObjectReference retVal = null;
+	private void getAvailablePerfMetricIds(String entityName, boolean isVM) {
+		PerfMetricId[] pmArr = null;
 		try {
-			TraversalSpec tSpec = getVMTraversalSpec();
-			// Create Property Spec
-			PropertySpec propertySpec = new PropertySpec();
-			propertySpec.setAll(Boolean.FALSE);
-			propertySpec.setPathSet(new String[] { "name" });
-			propertySpec.setType("VirtualMachine");
-			PropertySpec[] propertySpecs = new PropertySpec[] { propertySpec };
+			ManagedObjectReference entityMor = null;
+			if (isVM) {
+				entityMor = getVMByName(entityName);
+			} else {
+				entityMor = getHostByName(entityName);
+			}
 
-			// Now create Object Spec
-			ObjectSpec objectSpec = new ObjectSpec();
-			objectSpec.setObj(rootFolder);
-			objectSpec.setSkip(Boolean.TRUE);
-			objectSpec.setSelectSet(new SelectionSpec[] { tSpec });
-			ObjectSpec[] objectSpecs = new ObjectSpec[] { objectSpec };
-
-			// Create PropertyFilterSpec using the PropertySpec and ObjectPec
-			// created above.
-			PropertyFilterSpec propertyFilterSpec = new PropertyFilterSpec();
-			propertyFilterSpec.setPropSet(propertySpecs);
-			propertyFilterSpec.setObjectSet(objectSpecs);
-
-			PropertyFilterSpec[] propertyFilterSpecs = new PropertyFilterSpec[] { propertyFilterSpec };
-
-			ObjectContent[] oCont = connection.getVimPort().retrieveProperties(propertyCollector,
-					propertyFilterSpecs);
-			if (oCont != null) {
-				// System.out.println("ObjectContent Length : " + oCont.length);
-				for (ObjectContent oc : oCont) {
-					ManagedObjectReference mr = oc.getObj();
-					// System.out.println("MOR Type : " + mr.getType());
-					String vmnm = null;
-					DynamicProperty[] dps = oc.getPropSet();
-					if (dps != null) {
-						for (DynamicProperty dp : dps) {
-							// System.out.println(dp.getName() + " : " +
-							// dp.getVal());
-							vmnm = (String) dp.getVal();
-						}
-					}
-
-					// System.out.println("VM Name: " + vmnm);
-					if (vmnm != null && vmnm.equals(vmName)) {
-						retVal = mr;
-						System.out.println("MOR Type : " + mr.getType());
-						System.out.println("VM Name: " + vmnm);
-						break;
-					}
-				}
+			pmArr = connection.getVimPort().queryAvailablePerfMetric(
+					performanceManager, entityMor, null, null, new Integer(20));
+			System.out.println("PerfMetricId array length: " + pmArr.length);
+			for (PerfMetricId pmid : pmArr) {
+				System.out.println("CounterID: " + pmid.getCounterId()
+						+ " - Instance: " + pmid.getInstance());
+				metrics.put(new Integer(pmid.getCounterId()), pmid);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
-		return retVal;
-	}
-
-	/**
-	 * 
-	 * @return TraversalSpec specification to get to the HostSystem managed
-	 *         object.
-	 */
-	public TraversalSpec getHostSystemTraversalSpec() {
-		// Create a traversal spec that starts from the 'root' objects
-		// and traverses the inventory tree to get to the Host system.
-		// Build the traversal specs bottoms up
-
-		// Traversal to get to the host from ComputeResource
-		TraversalSpec computeResourceToHostSystem = new TraversalSpec();
-		computeResourceToHostSystem.setName("computeResourceToHostSystem");
-		computeResourceToHostSystem.setType("ComputeResource");
-		computeResourceToHostSystem.setPath("host");
-		computeResourceToHostSystem.setSkip(false);
-		SelectionSpec sSpec = new SelectionSpec();
-		sSpec.setName("VisitFolders");
-		SelectionSpec[] sSpecs = new SelectionSpec[] { sSpec };
-		computeResourceToHostSystem.setSelectSet(sSpecs);
-
-		// Traversal to get to the hostFolder from DataCenter
-		TraversalSpec dataCenterToHostFolder = new TraversalSpec();
-		dataCenterToHostFolder.setName("DataCenterToHostFolder");
-		dataCenterToHostFolder.setType("Datacenter");
-		dataCenterToHostFolder.setPath("hostFolder");
-		dataCenterToHostFolder.setSkip(false);
-		dataCenterToHostFolder.setSelectSet(sSpecs);
-
-		// TraversalSpec to get to the DataCenter from rootFolder
-		TraversalSpec traversalSpec = new TraversalSpec();
-		traversalSpec.setName("VisitFolders");
-		traversalSpec.setType("Folder");
-		traversalSpec.setPath("childEntity");
-		traversalSpec.setSkip(false);
-		SelectionSpec[] sSpecArr = new SelectionSpec[] { sSpec,
-				dataCenterToHostFolder, computeResourceToHostSystem };
-		traversalSpec.setSelectSet(sSpecArr);
-
-		return traversalSpec;
 	}
 
 	/**
@@ -247,8 +101,8 @@ public class Performance {
 
 			PropertyFilterSpec[] propertyFilterSpecs = new PropertyFilterSpec[] { propertyFilterSpec };
 
-			ObjectContent[] oCont = connection.getVimPort().retrieveProperties(propertyCollector,
-					propertyFilterSpecs);
+			ObjectContent[] oCont = connection.getVimPort().retrieveProperties(
+					propertyCollector, propertyFilterSpecs);
 			if (oCont != null) {
 				// System.out.println("ObjectContent Length : " + oCont.length);
 				for (ObjectContent oc : oCont) {
@@ -310,8 +164,8 @@ public class Performance {
 
 			PropertyFilterSpec[] propertyFilterSpecs = new PropertyFilterSpec[] { propertyFilterSpec };
 
-			ObjectContent[] oCont = connection.getVimPort().retrieveProperties(propertyCollector,
-					propertyFilterSpecs);
+			ObjectContent[] oCont = connection.getVimPort().retrieveProperties(
+					propertyCollector, propertyFilterSpecs);
 			if (oCont != null) {
 				// System.out.println("ObjectContent Length : " + oCont.length);
 				for (ObjectContent oc : oCont) {
@@ -333,38 +187,45 @@ public class Performance {
 	}
 
 	/**
-	 * This method retrieves all the performance metrics available on the
-	 * managed entity. It could be either a VM or a Host system. The performance
-	 * metrics are stored in the hashmap metrics with counterId being the key
-	 * and PerfMetricId being the value.
 	 * 
-	 * @param entityName
-	 *            - The name of the entity (vm or host)
-	 * @param isVM
-	 *            - Boolean indicating whether the entityName is a VM name
+	 * @return TraversalSpec specification to get to the HostSystem managed
+	 *         object.
 	 */
-	private void getAvailablePerfMetricIds(String entityName,
-			boolean isVM) {
-		PerfMetricId[] pmArr = null;
-		try {
-			ManagedObjectReference entityMor = null;
-			if (isVM) {
-				entityMor = getVMByName(entityName);
-			} else {
-				entityMor = getHostByName(entityName);
-			}
+	public TraversalSpec getHostSystemTraversalSpec() {
+		// Create a traversal spec that starts from the 'root' objects
+		// and traverses the inventory tree to get to the Host system.
+		// Build the traversal specs bottoms up
 
-			pmArr = connection.getVimPort().queryAvailablePerfMetric(performanceManager, entityMor,
-					null, null, new Integer(20));
-			System.out.println("PerfMetricId array length: " + pmArr.length);
-			for (PerfMetricId pmid : pmArr) {
-				System.out.println("CounterID: " + pmid.getCounterId()
-						+ " - Instance: " + pmid.getInstance());
-				metrics.put(new Integer(pmid.getCounterId()), pmid);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		// Traversal to get to the host from ComputeResource
+		TraversalSpec computeResourceToHostSystem = new TraversalSpec();
+		computeResourceToHostSystem.setName("computeResourceToHostSystem");
+		computeResourceToHostSystem.setType("ComputeResource");
+		computeResourceToHostSystem.setPath("host");
+		computeResourceToHostSystem.setSkip(false);
+		SelectionSpec sSpec = new SelectionSpec();
+		sSpec.setName("VisitFolders");
+		SelectionSpec[] sSpecs = new SelectionSpec[] { sSpec };
+		computeResourceToHostSystem.setSelectSet(sSpecs);
+
+		// Traversal to get to the hostFolder from DataCenter
+		TraversalSpec dataCenterToHostFolder = new TraversalSpec();
+		dataCenterToHostFolder.setName("DataCenterToHostFolder");
+		dataCenterToHostFolder.setType("Datacenter");
+		dataCenterToHostFolder.setPath("hostFolder");
+		dataCenterToHostFolder.setSkip(false);
+		dataCenterToHostFolder.setSelectSet(sSpecs);
+
+		// TraversalSpec to get to the DataCenter from rootFolder
+		TraversalSpec traversalSpec = new TraversalSpec();
+		traversalSpec.setName("VisitFolders");
+		traversalSpec.setType("Folder");
+		traversalSpec.setPath("childEntity");
+		traversalSpec.setSkip(false);
+		SelectionSpec[] sSpecArr = new SelectionSpec[] { sSpec,
+				dataCenterToHostFolder, computeResourceToHostSystem };
+		traversalSpec.setSelectSet(sSpecArr);
+
+		return traversalSpec;
 	}
 
 	/**
@@ -395,8 +256,8 @@ public class Performance {
 
 			PropertyFilterSpec[] propertyFilterSpecs = new PropertyFilterSpec[] { propertyFilterSpec };
 
-			ObjectContent[] oCont = connection.getVimPort().retrieveProperties(propertyCollector,
-					propertyFilterSpecs);
+			ObjectContent[] oCont = connection.getVimPort().retrieveProperties(
+					propertyCollector, propertyFilterSpecs);
 			if (oCont != null) {
 				// System.out.println("ObjectContent Length : " + oCont.length);
 				for (ObjectContent oc : oCont) {
@@ -458,22 +319,12 @@ public class Performance {
 				mor = getHostByName(entityName);
 			}
 
-			PerfProviderSummary pps = connection.getVimPort().queryPerfProviderSummary(
-					performanceManager, mor);
+			PerfProviderSummary pps = connection.getVimPort()
+					.queryPerfProviderSummary(performanceManager, mor);
 			printPerfProviderSummary(pps);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	}
-
-	/**
-	 * This method prints the PerfProviderSummary information
-	 */
-	public void printPerfProviderSummary(PerfProviderSummary pps) {
-		System.out.println("Current supported: " + pps.isCurrentSupported());
-		System.out.println("Refresh rate: " + pps.getRefreshRate());
-		System.out.println("Summary supported: " + pps.isSummarySupported());
-		System.out.println("Managed entity: " + pps.getEntity());
 	}
 
 	/**
@@ -486,19 +337,16 @@ public class Performance {
 	 *            - The name of the performance counter (cpu.usage.average)
 	 * @return PerfQuerySpec
 	 */
-	private PerfQuerySpec getPerfQuerySpec(String entityName,
-			boolean isVM, String perfCounter) {
+	private PerfQuerySpec getPerfQuerySpec(String entityName, boolean isVM,
+			String perfCounter) {
 		PerfQuerySpec retVal = null;
 
 		try {
 			/********************************
-			 ********************************
-			 ***                          ***
-			 ***   Your code goes here    ***
-			 ***    (fill-in 1 of 1)      ***
-			 ***                          ***
-			 ********************************
-			 ********************************
+			 ******************************** 
+			 *** *** Your code goes here *** (fill-in 1 of 1) *** ***
+			 ******************************** 
+			 ******************************** 
 			 */
 			Integer counterInteger = counters.get(perfCounter);
 			if (counterInteger == null) {
@@ -506,10 +354,10 @@ public class Performance {
 				System.exit(1);
 			}
 			int counterId = counterInteger.intValue();
-			System.out.println("Counter id " + counterId+ " - "+perfCounter);
+			System.out.println("Counter id " + counterId + " - " + perfCounter);
 			if (!metrics.containsKey(counterInteger)) {
 				System.out
-				.println("This Counter is not supported in this entity $$$$$$$$$$$$$$$$$$");
+						.println("This Counter is not supported in this entity $$$$$$$$$$$$$$$$$$");
 				System.exit(1);
 			}
 			PerfMetricId pmid = new PerfMetricId();
@@ -551,11 +399,12 @@ public class Performance {
 	 *            - The name of the performance counter (cpu.usage.average)
 	 * @return PerfEntityMetricBase array
 	 */
-	public PerfEntityMetricBase[] getPerfStats(String entityName,
-			boolean isVM, String perfCounter) {
+	public PerfEntityMetricBase[] getPerfStats(String entityName, boolean isVM,
+			String perfCounter) {
 		PerfEntityMetricBase[] retVal = null;
 		try {
-			retVal = connection.getVimPort().queryPerf(performanceManager,
+			retVal = connection.getVimPort().queryPerf(
+					performanceManager,
 					new PerfQuerySpec[] { getPerfQuerySpec(entityName, isVM,
 							perfCounter) });
 			System.out.println("PerfEntityMetricBase array length: "
@@ -599,5 +448,154 @@ public class Performance {
 		}
 
 		return retVal;
+	}
+
+	/**
+	 * Demonstrate how to use the PropertyCollector to retrieve properties of a
+	 * managed object and its managed object reference in one call.
+	 * 
+	 * Retrieves the Virtual machine name and its managed object reference.
+	 * 
+	 * @return ManagedObjectReference to the VirtualMachine managed object.
+	 */
+	public ManagedObjectReference getVMByName(String vmName) {
+		ManagedObjectReference retVal = null;
+		try {
+			TraversalSpec tSpec = getVMTraversalSpec();
+			// Create Property Spec
+			PropertySpec propertySpec = new PropertySpec();
+			propertySpec.setAll(Boolean.FALSE);
+			propertySpec.setPathSet(new String[] { "name" });
+			propertySpec.setType("VirtualMachine");
+			PropertySpec[] propertySpecs = new PropertySpec[] { propertySpec };
+
+			// Now create Object Spec
+			ObjectSpec objectSpec = new ObjectSpec();
+			objectSpec.setObj(rootFolder);
+			objectSpec.setSkip(Boolean.TRUE);
+			objectSpec.setSelectSet(new SelectionSpec[] { tSpec });
+			ObjectSpec[] objectSpecs = new ObjectSpec[] { objectSpec };
+
+			// Create PropertyFilterSpec using the PropertySpec and ObjectPec
+			// created above.
+			PropertyFilterSpec propertyFilterSpec = new PropertyFilterSpec();
+			propertyFilterSpec.setPropSet(propertySpecs);
+			propertyFilterSpec.setObjectSet(objectSpecs);
+
+			PropertyFilterSpec[] propertyFilterSpecs = new PropertyFilterSpec[] { propertyFilterSpec };
+
+			ObjectContent[] oCont = connection.getVimPort().retrieveProperties(
+					propertyCollector, propertyFilterSpecs);
+			if (oCont != null) {
+				// System.out.println("ObjectContent Length : " + oCont.length);
+				for (ObjectContent oc : oCont) {
+					ManagedObjectReference mr = oc.getObj();
+					// System.out.println("MOR Type : " + mr.getType());
+					String vmnm = null;
+					DynamicProperty[] dps = oc.getPropSet();
+					if (dps != null) {
+						for (DynamicProperty dp : dps) {
+							// System.out.println(dp.getName() + " : " +
+							// dp.getVal());
+							vmnm = (String) dp.getVal();
+						}
+					}
+
+					// System.out.println("VM Name: " + vmnm);
+					if (vmnm != null && vmnm.equals(vmName)) {
+						retVal = mr;
+						System.out.println("MOR Type : " + mr.getType());
+						System.out.println("VM Name: " + vmnm);
+						break;
+					}
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return retVal;
+	}
+
+	/**
+	 * 
+	 * @return TraversalSpec specification to get to the VirtualMachine managed
+	 *         object.
+	 */
+	public TraversalSpec getVMTraversalSpec() {
+		// Create a traversal spec that starts from the 'root' objects
+		// and traverses the inventory tree to get to the VirtualMachines.
+		// Build the traversal specs bottoms up
+
+		// Traversal to get to the vmFolder from DataCenter
+		TraversalSpec dataCenterToVMFolder = new TraversalSpec();
+		dataCenterToVMFolder.setName("DataCenterToVMFolder");
+		dataCenterToVMFolder.setType("Datacenter");
+		dataCenterToVMFolder.setPath("vmFolder");
+		dataCenterToVMFolder.setSkip(false);
+		SelectionSpec sSpec = new SelectionSpec();
+		sSpec.setName("VisitFolders");
+		SelectionSpec[] sSpecs = new SelectionSpec[] { sSpec };
+		dataCenterToVMFolder.setSelectSet(sSpecs);
+
+		// TraversalSpec to get to the DataCenter from rootFolder
+		TraversalSpec traversalSpec = new TraversalSpec();
+		traversalSpec.setName("VisitFolders");
+		traversalSpec.setType("Folder");
+		traversalSpec.setPath("childEntity");
+		traversalSpec.setSkip(false);
+		SelectionSpec[] sSpecArr = new SelectionSpec[] { sSpec,
+				dataCenterToVMFolder };
+		traversalSpec.setSelectSet(sSpecArr);
+
+		return traversalSpec;
+	}
+
+	public void initialize() {
+		initPropertyCollector();
+		initRootFolder();
+		initPerfMgr();
+	}
+
+	private void initPerfMgr() {
+		if (performanceManager == null) {
+			try {
+				performanceManager = connection.getServiceContent()
+						.getPerfManager();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	private void initPropertyCollector() {
+		if (propertyCollector == null) {
+			try {
+				propertyCollector = connection.getServiceContent()
+						.getPropertyCollector();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	private void initRootFolder() {
+		if (rootFolder == null) {
+			try {
+				rootFolder = connection.getServiceContent().getRootFolder();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	/**
+	 * This method prints the PerfProviderSummary information
+	 */
+	public void printPerfProviderSummary(PerfProviderSummary pps) {
+		System.out.println("Current supported: " + pps.isCurrentSupported());
+		System.out.println("Refresh rate: " + pps.getRefreshRate());
+		System.out.println("Summary supported: " + pps.isSummarySupported());
+		System.out.println("Managed entity: " + pps.getEntity());
 	}
 }

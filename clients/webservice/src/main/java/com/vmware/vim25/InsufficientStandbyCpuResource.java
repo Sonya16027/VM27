@@ -7,157 +7,166 @@
 
 package com.vmware.vim25;
 
-public class InsufficientStandbyCpuResource  extends com.vmware.vim25.InsufficientStandbyResource  implements java.io.Serializable {
-    private long available;
+public class InsufficientStandbyCpuResource extends
+		com.vmware.vim25.InsufficientStandbyResource implements
+		java.io.Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
-    private long requested;
+	private long available;
 
-    public InsufficientStandbyCpuResource() {
-    }
+	private long requested;
 
-    public InsufficientStandbyCpuResource(
-           java.lang.String dynamicType,
-           com.vmware.vim25.DynamicProperty[] dynamicProperty,
-           com.vmware.vim25.LocalizedMethodFault faultCause,
-           com.vmware.vim25.LocalizableMessage[] faultMessage,
-           long available,
-           long requested) {
-        super(
-            dynamicType,
-            dynamicProperty,
-            faultCause,
-            faultMessage);
-        this.available = available;
-        this.requested = requested;
-    }
+	public InsufficientStandbyCpuResource() {
+	}
 
+	public InsufficientStandbyCpuResource(java.lang.String dynamicType,
+			com.vmware.vim25.DynamicProperty[] dynamicProperty,
+			com.vmware.vim25.LocalizedMethodFault faultCause,
+			com.vmware.vim25.LocalizableMessage[] faultMessage, long available,
+			long requested) {
+		super(dynamicType, dynamicProperty, faultCause, faultMessage);
+		this.available = available;
+		this.requested = requested;
+	}
 
-    /**
-     * Gets the available value for this InsufficientStandbyCpuResource.
-     * 
-     * @return available
-     */
-    public long getAvailable() {
-        return available;
-    }
+	/**
+	 * Gets the available value for this InsufficientStandbyCpuResource.
+	 * 
+	 * @return available
+	 */
+	public long getAvailable() {
+		return available;
+	}
 
+	/**
+	 * Sets the available value for this InsufficientStandbyCpuResource.
+	 * 
+	 * @param available
+	 */
+	public void setAvailable(long available) {
+		this.available = available;
+	}
 
-    /**
-     * Sets the available value for this InsufficientStandbyCpuResource.
-     * 
-     * @param available
-     */
-    public void setAvailable(long available) {
-        this.available = available;
-    }
+	/**
+	 * Gets the requested value for this InsufficientStandbyCpuResource.
+	 * 
+	 * @return requested
+	 */
+	public long getRequested() {
+		return requested;
+	}
 
+	/**
+	 * Sets the requested value for this InsufficientStandbyCpuResource.
+	 * 
+	 * @param requested
+	 */
+	public void setRequested(long requested) {
+		this.requested = requested;
+	}
 
-    /**
-     * Gets the requested value for this InsufficientStandbyCpuResource.
-     * 
-     * @return requested
-     */
-    public long getRequested() {
-        return requested;
-    }
+	private java.lang.Object __equalsCalc = null;
 
+	@Override
+	public synchronized boolean equals(java.lang.Object obj) {
+		if (!(obj instanceof InsufficientStandbyCpuResource)) {
+			return false;
+		}
+		InsufficientStandbyCpuResource other = (InsufficientStandbyCpuResource) obj;
+		if (obj == null) {
+			return false;
+		}
+		if (this == obj) {
+			return true;
+		}
+		if (__equalsCalc != null) {
+			return (__equalsCalc == obj);
+		}
+		__equalsCalc = obj;
+		boolean _equals;
+		_equals = super.equals(obj) && this.available == other.getAvailable()
+				&& this.requested == other.getRequested();
+		__equalsCalc = null;
+		return _equals;
+	}
 
-    /**
-     * Sets the requested value for this InsufficientStandbyCpuResource.
-     * 
-     * @param requested
-     */
-    public void setRequested(long requested) {
-        this.requested = requested;
-    }
+	private boolean __hashCodeCalc = false;
 
-    private java.lang.Object __equalsCalc = null;
-    public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof InsufficientStandbyCpuResource)) return false;
-        InsufficientStandbyCpuResource other = (InsufficientStandbyCpuResource) obj;
-        if (obj == null) return false;
-        if (this == obj) return true;
-        if (__equalsCalc != null) {
-            return (__equalsCalc == obj);
-        }
-        __equalsCalc = obj;
-        boolean _equals;
-        _equals = super.equals(obj) && 
-            this.available == other.getAvailable() &&
-            this.requested == other.getRequested();
-        __equalsCalc = null;
-        return _equals;
-    }
+	@Override
+	public synchronized int hashCode() {
+		if (__hashCodeCalc) {
+			return 0;
+		}
+		__hashCodeCalc = true;
+		int _hashCode = super.hashCode();
+		_hashCode += new Long(getAvailable()).hashCode();
+		_hashCode += new Long(getRequested()).hashCode();
+		__hashCodeCalc = false;
+		return _hashCode;
+	}
 
-    private boolean __hashCodeCalc = false;
-    public synchronized int hashCode() {
-        if (__hashCodeCalc) {
-            return 0;
-        }
-        __hashCodeCalc = true;
-        int _hashCode = super.hashCode();
-        _hashCode += new Long(getAvailable()).hashCode();
-        _hashCode += new Long(getRequested()).hashCode();
-        __hashCodeCalc = false;
-        return _hashCode;
-    }
+	// Type metadata
+	private static org.apache.axis.description.TypeDesc typeDesc = new org.apache.axis.description.TypeDesc(
+			InsufficientStandbyCpuResource.class, true);
 
-    // Type metadata
-    private static org.apache.axis.description.TypeDesc typeDesc =
-        new org.apache.axis.description.TypeDesc(InsufficientStandbyCpuResource.class, true);
+	static {
+		typeDesc.setXmlType(new javax.xml.namespace.QName("urn:vim25",
+				"InsufficientStandbyCpuResource"));
+		org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+		elemField.setFieldName("available");
+		elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25",
+				"available"));
+		elemField.setXmlType(new javax.xml.namespace.QName(
+				"http://www.w3.org/2001/XMLSchema", "long"));
+		elemField.setNillable(false);
+		typeDesc.addFieldDesc(elemField);
+		elemField = new org.apache.axis.description.ElementDesc();
+		elemField.setFieldName("requested");
+		elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25",
+				"requested"));
+		elemField.setXmlType(new javax.xml.namespace.QName(
+				"http://www.w3.org/2001/XMLSchema", "long"));
+		elemField.setNillable(false);
+		typeDesc.addFieldDesc(elemField);
+	}
 
-    static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("urn:vim25", "InsufficientStandbyCpuResource"));
-        org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("available");
-        elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25", "available"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long"));
-        elemField.setNillable(false);
-        typeDesc.addFieldDesc(elemField);
-        elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("requested");
-        elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25", "requested"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "long"));
-        elemField.setNillable(false);
-        typeDesc.addFieldDesc(elemField);
-    }
+	/**
+	 * Return type metadata object
+	 */
+	public static org.apache.axis.description.TypeDesc getTypeDesc() {
+		return typeDesc;
+	}
 
-    /**
-     * Return type metadata object
-     */
-    public static org.apache.axis.description.TypeDesc getTypeDesc() {
-        return typeDesc;
-    }
+	/**
+	 * Get Custom Serializer
+	 */
+	public static org.apache.axis.encoding.Serializer getSerializer(
+			java.lang.String mechType, java.lang.Class _javaType,
+			javax.xml.namespace.QName _xmlType) {
+		return new org.apache.axis.encoding.ser.BeanSerializer(_javaType,
+				_xmlType, typeDesc);
+	}
 
-    /**
-     * Get Custom Serializer
-     */
-    public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanSerializer(
-            _javaType, _xmlType, typeDesc);
-    }
+	/**
+	 * Get Custom Deserializer
+	 */
+	public static org.apache.axis.encoding.Deserializer getDeserializer(
+			java.lang.String mechType, java.lang.Class _javaType,
+			javax.xml.namespace.QName _xmlType) {
+		return new org.apache.axis.encoding.ser.BeanDeserializer(_javaType,
+				_xmlType, typeDesc);
+	}
 
-    /**
-     * Get Custom Deserializer
-     */
-    public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanDeserializer(
-            _javaType, _xmlType, typeDesc);
-    }
-
-
-    /**
-     * Writes the exception data to the faultDetails
-     */
-    public void writeDetails(javax.xml.namespace.QName qname, org.apache.axis.encoding.SerializationContext context) throws java.io.IOException {
-        context.serialize(qname, null, this);
-    }
+	/**
+	 * Writes the exception data to the faultDetails
+	 */
+	@Override
+	public void writeDetails(javax.xml.namespace.QName qname,
+			org.apache.axis.encoding.SerializationContext context)
+			throws java.io.IOException {
+		context.serialize(qname, null, this);
+	}
 }

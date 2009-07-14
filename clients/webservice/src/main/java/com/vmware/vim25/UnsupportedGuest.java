@@ -7,131 +7,138 @@
 
 package com.vmware.vim25;
 
-public class UnsupportedGuest  extends com.vmware.vim25.InvalidVmConfig  implements java.io.Serializable {
-    private java.lang.String unsupportedGuestOS;
+public class UnsupportedGuest extends com.vmware.vim25.InvalidVmConfig
+		implements java.io.Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private java.lang.String unsupportedGuestOS;
 
-    public UnsupportedGuest() {
-    }
+	public UnsupportedGuest() {
+	}
 
-    public UnsupportedGuest(
-           java.lang.String dynamicType,
-           com.vmware.vim25.DynamicProperty[] dynamicProperty,
-           com.vmware.vim25.LocalizedMethodFault faultCause,
-           com.vmware.vim25.LocalizableMessage[] faultMessage,
-           java.lang.String property,
-           java.lang.String unsupportedGuestOS) {
-        super(
-            dynamicType,
-            dynamicProperty,
-            faultCause,
-            faultMessage,
-            property);
-        this.unsupportedGuestOS = unsupportedGuestOS;
-    }
+	public UnsupportedGuest(java.lang.String dynamicType,
+			com.vmware.vim25.DynamicProperty[] dynamicProperty,
+			com.vmware.vim25.LocalizedMethodFault faultCause,
+			com.vmware.vim25.LocalizableMessage[] faultMessage,
+			java.lang.String property, java.lang.String unsupportedGuestOS) {
+		super(dynamicType, dynamicProperty, faultCause, faultMessage, property);
+		this.unsupportedGuestOS = unsupportedGuestOS;
+	}
 
+	/**
+	 * Gets the unsupportedGuestOS value for this UnsupportedGuest.
+	 * 
+	 * @return unsupportedGuestOS
+	 */
+	public java.lang.String getUnsupportedGuestOS() {
+		return unsupportedGuestOS;
+	}
 
-    /**
-     * Gets the unsupportedGuestOS value for this UnsupportedGuest.
-     * 
-     * @return unsupportedGuestOS
-     */
-    public java.lang.String getUnsupportedGuestOS() {
-        return unsupportedGuestOS;
-    }
+	/**
+	 * Sets the unsupportedGuestOS value for this UnsupportedGuest.
+	 * 
+	 * @param unsupportedGuestOS
+	 */
+	public void setUnsupportedGuestOS(java.lang.String unsupportedGuestOS) {
+		this.unsupportedGuestOS = unsupportedGuestOS;
+	}
 
+	private java.lang.Object __equalsCalc = null;
 
-    /**
-     * Sets the unsupportedGuestOS value for this UnsupportedGuest.
-     * 
-     * @param unsupportedGuestOS
-     */
-    public void setUnsupportedGuestOS(java.lang.String unsupportedGuestOS) {
-        this.unsupportedGuestOS = unsupportedGuestOS;
-    }
+	@Override
+	public synchronized boolean equals(java.lang.Object obj) {
+		if (!(obj instanceof UnsupportedGuest)) {
+			return false;
+		}
+		UnsupportedGuest other = (UnsupportedGuest) obj;
+		if (obj == null) {
+			return false;
+		}
+		if (this == obj) {
+			return true;
+		}
+		if (__equalsCalc != null) {
+			return (__equalsCalc == obj);
+		}
+		__equalsCalc = obj;
+		boolean _equals;
+		_equals = super.equals(obj)
+				&& ((this.unsupportedGuestOS == null && other
+						.getUnsupportedGuestOS() == null) || (this.unsupportedGuestOS != null && this.unsupportedGuestOS
+						.equals(other.getUnsupportedGuestOS())));
+		__equalsCalc = null;
+		return _equals;
+	}
 
-    private java.lang.Object __equalsCalc = null;
-    public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof UnsupportedGuest)) return false;
-        UnsupportedGuest other = (UnsupportedGuest) obj;
-        if (obj == null) return false;
-        if (this == obj) return true;
-        if (__equalsCalc != null) {
-            return (__equalsCalc == obj);
-        }
-        __equalsCalc = obj;
-        boolean _equals;
-        _equals = super.equals(obj) && 
-            ((this.unsupportedGuestOS==null && other.getUnsupportedGuestOS()==null) || 
-             (this.unsupportedGuestOS!=null &&
-              this.unsupportedGuestOS.equals(other.getUnsupportedGuestOS())));
-        __equalsCalc = null;
-        return _equals;
-    }
+	private boolean __hashCodeCalc = false;
 
-    private boolean __hashCodeCalc = false;
-    public synchronized int hashCode() {
-        if (__hashCodeCalc) {
-            return 0;
-        }
-        __hashCodeCalc = true;
-        int _hashCode = super.hashCode();
-        if (getUnsupportedGuestOS() != null) {
-            _hashCode += getUnsupportedGuestOS().hashCode();
-        }
-        __hashCodeCalc = false;
-        return _hashCode;
-    }
+	@Override
+	public synchronized int hashCode() {
+		if (__hashCodeCalc) {
+			return 0;
+		}
+		__hashCodeCalc = true;
+		int _hashCode = super.hashCode();
+		if (getUnsupportedGuestOS() != null) {
+			_hashCode += getUnsupportedGuestOS().hashCode();
+		}
+		__hashCodeCalc = false;
+		return _hashCode;
+	}
 
-    // Type metadata
-    private static org.apache.axis.description.TypeDesc typeDesc =
-        new org.apache.axis.description.TypeDesc(UnsupportedGuest.class, true);
+	// Type metadata
+	private static org.apache.axis.description.TypeDesc typeDesc = new org.apache.axis.description.TypeDesc(
+			UnsupportedGuest.class, true);
 
-    static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("urn:vim25", "UnsupportedGuest"));
-        org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("unsupportedGuestOS");
-        elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25", "unsupportedGuestOS"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
-        elemField.setNillable(false);
-        typeDesc.addFieldDesc(elemField);
-    }
+	static {
+		typeDesc.setXmlType(new javax.xml.namespace.QName("urn:vim25",
+				"UnsupportedGuest"));
+		org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+		elemField.setFieldName("unsupportedGuestOS");
+		elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25",
+				"unsupportedGuestOS"));
+		elemField.setXmlType(new javax.xml.namespace.QName(
+				"http://www.w3.org/2001/XMLSchema", "string"));
+		elemField.setNillable(false);
+		typeDesc.addFieldDesc(elemField);
+	}
 
-    /**
-     * Return type metadata object
-     */
-    public static org.apache.axis.description.TypeDesc getTypeDesc() {
-        return typeDesc;
-    }
+	/**
+	 * Return type metadata object
+	 */
+	public static org.apache.axis.description.TypeDesc getTypeDesc() {
+		return typeDesc;
+	}
 
-    /**
-     * Get Custom Serializer
-     */
-    public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanSerializer(
-            _javaType, _xmlType, typeDesc);
-    }
+	/**
+	 * Get Custom Serializer
+	 */
+	public static org.apache.axis.encoding.Serializer getSerializer(
+			java.lang.String mechType, java.lang.Class _javaType,
+			javax.xml.namespace.QName _xmlType) {
+		return new org.apache.axis.encoding.ser.BeanSerializer(_javaType,
+				_xmlType, typeDesc);
+	}
 
-    /**
-     * Get Custom Deserializer
-     */
-    public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanDeserializer(
-            _javaType, _xmlType, typeDesc);
-    }
+	/**
+	 * Get Custom Deserializer
+	 */
+	public static org.apache.axis.encoding.Deserializer getDeserializer(
+			java.lang.String mechType, java.lang.Class _javaType,
+			javax.xml.namespace.QName _xmlType) {
+		return new org.apache.axis.encoding.ser.BeanDeserializer(_javaType,
+				_xmlType, typeDesc);
+	}
 
-
-    /**
-     * Writes the exception data to the faultDetails
-     */
-    public void writeDetails(javax.xml.namespace.QName qname, org.apache.axis.encoding.SerializationContext context) throws java.io.IOException {
-        context.serialize(qname, null, this);
-    }
+	/**
+	 * Writes the exception data to the faultDetails
+	 */
+	@Override
+	public void writeDetails(javax.xml.namespace.QName qname,
+			org.apache.axis.encoding.SerializationContext context)
+			throws java.io.IOException {
+		context.serialize(qname, null, this);
+	}
 }

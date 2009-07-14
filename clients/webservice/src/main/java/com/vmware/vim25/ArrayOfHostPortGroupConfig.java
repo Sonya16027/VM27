@@ -7,131 +7,143 @@
 
 package com.vmware.vim25;
 
-public class ArrayOfHostPortGroupConfig  implements java.io.Serializable {
-    private com.vmware.vim25.HostPortGroupConfig[] hostPortGroupConfig;
+public class ArrayOfHostPortGroupConfig implements java.io.Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private com.vmware.vim25.HostPortGroupConfig[] hostPortGroupConfig;
 
-    public ArrayOfHostPortGroupConfig() {
-    }
+	public ArrayOfHostPortGroupConfig() {
+	}
 
-    public ArrayOfHostPortGroupConfig(
-           com.vmware.vim25.HostPortGroupConfig[] hostPortGroupConfig) {
-           this.hostPortGroupConfig = hostPortGroupConfig;
-    }
+	public ArrayOfHostPortGroupConfig(
+			com.vmware.vim25.HostPortGroupConfig[] hostPortGroupConfig) {
+		this.hostPortGroupConfig = hostPortGroupConfig;
+	}
 
+	/**
+	 * Gets the hostPortGroupConfig value for this ArrayOfHostPortGroupConfig.
+	 * 
+	 * @return hostPortGroupConfig
+	 */
+	public com.vmware.vim25.HostPortGroupConfig[] getHostPortGroupConfig() {
+		return hostPortGroupConfig;
+	}
 
-    /**
-     * Gets the hostPortGroupConfig value for this ArrayOfHostPortGroupConfig.
-     * 
-     * @return hostPortGroupConfig
-     */
-    public com.vmware.vim25.HostPortGroupConfig[] getHostPortGroupConfig() {
-        return hostPortGroupConfig;
-    }
+	/**
+	 * Sets the hostPortGroupConfig value for this ArrayOfHostPortGroupConfig.
+	 * 
+	 * @param hostPortGroupConfig
+	 */
+	public void setHostPortGroupConfig(
+			com.vmware.vim25.HostPortGroupConfig[] hostPortGroupConfig) {
+		this.hostPortGroupConfig = hostPortGroupConfig;
+	}
 
+	public com.vmware.vim25.HostPortGroupConfig getHostPortGroupConfig(int i) {
+		return this.hostPortGroupConfig[i];
+	}
 
-    /**
-     * Sets the hostPortGroupConfig value for this ArrayOfHostPortGroupConfig.
-     * 
-     * @param hostPortGroupConfig
-     */
-    public void setHostPortGroupConfig(com.vmware.vim25.HostPortGroupConfig[] hostPortGroupConfig) {
-        this.hostPortGroupConfig = hostPortGroupConfig;
-    }
+	public void setHostPortGroupConfig(int i,
+			com.vmware.vim25.HostPortGroupConfig _value) {
+		this.hostPortGroupConfig[i] = _value;
+	}
 
-    public com.vmware.vim25.HostPortGroupConfig getHostPortGroupConfig(int i) {
-        return this.hostPortGroupConfig[i];
-    }
+	private java.lang.Object __equalsCalc = null;
 
-    public void setHostPortGroupConfig(int i, com.vmware.vim25.HostPortGroupConfig _value) {
-        this.hostPortGroupConfig[i] = _value;
-    }
+	@Override
+	public synchronized boolean equals(java.lang.Object obj) {
+		if (!(obj instanceof ArrayOfHostPortGroupConfig)) {
+			return false;
+		}
+		ArrayOfHostPortGroupConfig other = (ArrayOfHostPortGroupConfig) obj;
+		if (obj == null) {
+			return false;
+		}
+		if (this == obj) {
+			return true;
+		}
+		if (__equalsCalc != null) {
+			return (__equalsCalc == obj);
+		}
+		__equalsCalc = obj;
+		boolean _equals;
+		_equals = true && ((this.hostPortGroupConfig == null && other
+				.getHostPortGroupConfig() == null) || (this.hostPortGroupConfig != null && java.util.Arrays
+				.equals(this.hostPortGroupConfig, other
+						.getHostPortGroupConfig())));
+		__equalsCalc = null;
+		return _equals;
+	}
 
-    private java.lang.Object __equalsCalc = null;
-    public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof ArrayOfHostPortGroupConfig)) return false;
-        ArrayOfHostPortGroupConfig other = (ArrayOfHostPortGroupConfig) obj;
-        if (obj == null) return false;
-        if (this == obj) return true;
-        if (__equalsCalc != null) {
-            return (__equalsCalc == obj);
-        }
-        __equalsCalc = obj;
-        boolean _equals;
-        _equals = true && 
-            ((this.hostPortGroupConfig==null && other.getHostPortGroupConfig()==null) || 
-             (this.hostPortGroupConfig!=null &&
-              java.util.Arrays.equals(this.hostPortGroupConfig, other.getHostPortGroupConfig())));
-        __equalsCalc = null;
-        return _equals;
-    }
+	private boolean __hashCodeCalc = false;
 
-    private boolean __hashCodeCalc = false;
-    public synchronized int hashCode() {
-        if (__hashCodeCalc) {
-            return 0;
-        }
-        __hashCodeCalc = true;
-        int _hashCode = 1;
-        if (getHostPortGroupConfig() != null) {
-            for (int i=0;
-                 i<java.lang.reflect.Array.getLength(getHostPortGroupConfig());
-                 i++) {
-                java.lang.Object obj = java.lang.reflect.Array.get(getHostPortGroupConfig(), i);
-                if (obj != null &&
-                    !obj.getClass().isArray()) {
-                    _hashCode += obj.hashCode();
-                }
-            }
-        }
-        __hashCodeCalc = false;
-        return _hashCode;
-    }
+	@Override
+	public synchronized int hashCode() {
+		if (__hashCodeCalc) {
+			return 0;
+		}
+		__hashCodeCalc = true;
+		int _hashCode = 1;
+		if (getHostPortGroupConfig() != null) {
+			for (int i = 0; i < java.lang.reflect.Array
+					.getLength(getHostPortGroupConfig()); i++) {
+				java.lang.Object obj = java.lang.reflect.Array.get(
+						getHostPortGroupConfig(), i);
+				if (obj != null && !obj.getClass().isArray()) {
+					_hashCode += obj.hashCode();
+				}
+			}
+		}
+		__hashCodeCalc = false;
+		return _hashCode;
+	}
 
-    // Type metadata
-    private static org.apache.axis.description.TypeDesc typeDesc =
-        new org.apache.axis.description.TypeDesc(ArrayOfHostPortGroupConfig.class, true);
+	// Type metadata
+	private static org.apache.axis.description.TypeDesc typeDesc = new org.apache.axis.description.TypeDesc(
+			ArrayOfHostPortGroupConfig.class, true);
 
-    static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("urn:vim25", "ArrayOfHostPortGroupConfig"));
-        org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("hostPortGroupConfig");
-        elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25", "HostPortGroupConfig"));
-        elemField.setXmlType(new javax.xml.namespace.QName("urn:vim25", "HostPortGroupConfig"));
-        elemField.setMinOccurs(0);
-        elemField.setNillable(false);
-        elemField.setMaxOccursUnbounded(true);
-        typeDesc.addFieldDesc(elemField);
-    }
+	static {
+		typeDesc.setXmlType(new javax.xml.namespace.QName("urn:vim25",
+				"ArrayOfHostPortGroupConfig"));
+		org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+		elemField.setFieldName("hostPortGroupConfig");
+		elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25",
+				"HostPortGroupConfig"));
+		elemField.setXmlType(new javax.xml.namespace.QName("urn:vim25",
+				"HostPortGroupConfig"));
+		elemField.setMinOccurs(0);
+		elemField.setNillable(false);
+		elemField.setMaxOccursUnbounded(true);
+		typeDesc.addFieldDesc(elemField);
+	}
 
-    /**
-     * Return type metadata object
-     */
-    public static org.apache.axis.description.TypeDesc getTypeDesc() {
-        return typeDesc;
-    }
+	/**
+	 * Return type metadata object
+	 */
+	public static org.apache.axis.description.TypeDesc getTypeDesc() {
+		return typeDesc;
+	}
 
-    /**
-     * Get Custom Serializer
-     */
-    public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanSerializer(
-            _javaType, _xmlType, typeDesc);
-    }
+	/**
+	 * Get Custom Serializer
+	 */
+	public static org.apache.axis.encoding.Serializer getSerializer(
+			java.lang.String mechType, java.lang.Class _javaType,
+			javax.xml.namespace.QName _xmlType) {
+		return new org.apache.axis.encoding.ser.BeanSerializer(_javaType,
+				_xmlType, typeDesc);
+	}
 
-    /**
-     * Get Custom Deserializer
-     */
-    public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanDeserializer(
-            _javaType, _xmlType, typeDesc);
-    }
+	/**
+	 * Get Custom Deserializer
+	 */
+	public static org.apache.axis.encoding.Deserializer getDeserializer(
+			java.lang.String mechType, java.lang.Class _javaType,
+			javax.xml.namespace.QName _xmlType) {
+		return new org.apache.axis.encoding.ser.BeanDeserializer(_javaType,
+				_xmlType, typeDesc);
+	}
 
 }

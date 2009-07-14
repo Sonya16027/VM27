@@ -7,227 +7,224 @@
 
 package com.vmware.vim.sms;
 
-public class Map  extends com.vmware.vim.sms.DynamicData  implements java.io.Serializable {
-    private com.vmware.vim.sms.Node[] node;
+public class Map extends com.vmware.vim.sms.DynamicData implements
+		java.io.Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
-    private com.vmware.vim.sms.Edge[] edge;
+	private com.vmware.vim.sms.Node[] node;
 
-    private java.util.Calendar lastUpdateTime;
+	private com.vmware.vim.sms.Edge[] edge;
 
-    public Map() {
-    }
+	private java.util.Calendar lastUpdateTime;
 
-    public Map(
-           java.lang.String dynamicType,
-           com.vmware.vim.sms.DynamicProperty[] dynamicProperty,
-           com.vmware.vim.sms.Node[] node,
-           com.vmware.vim.sms.Edge[] edge,
-           java.util.Calendar lastUpdateTime) {
-        super(
-            dynamicType,
-            dynamicProperty);
-        this.node = node;
-        this.edge = edge;
-        this.lastUpdateTime = lastUpdateTime;
-    }
+	public Map() {
+	}
 
+	public Map(java.lang.String dynamicType,
+			com.vmware.vim.sms.DynamicProperty[] dynamicProperty,
+			com.vmware.vim.sms.Node[] node, com.vmware.vim.sms.Edge[] edge,
+			java.util.Calendar lastUpdateTime) {
+		super(dynamicType, dynamicProperty);
+		this.node = node;
+		this.edge = edge;
+		this.lastUpdateTime = lastUpdateTime;
+	}
 
-    /**
-     * Gets the node value for this Map.
-     * 
-     * @return node
-     */
-    public com.vmware.vim.sms.Node[] getNode() {
-        return node;
-    }
+	/**
+	 * Gets the node value for this Map.
+	 * 
+	 * @return node
+	 */
+	public com.vmware.vim.sms.Node[] getNode() {
+		return node;
+	}
 
+	/**
+	 * Sets the node value for this Map.
+	 * 
+	 * @param node
+	 */
+	public void setNode(com.vmware.vim.sms.Node[] node) {
+		this.node = node;
+	}
 
-    /**
-     * Sets the node value for this Map.
-     * 
-     * @param node
-     */
-    public void setNode(com.vmware.vim.sms.Node[] node) {
-        this.node = node;
-    }
+	public com.vmware.vim.sms.Node getNode(int i) {
+		return this.node[i];
+	}
 
-    public com.vmware.vim.sms.Node getNode(int i) {
-        return this.node[i];
-    }
+	public void setNode(int i, com.vmware.vim.sms.Node _value) {
+		this.node[i] = _value;
+	}
 
-    public void setNode(int i, com.vmware.vim.sms.Node _value) {
-        this.node[i] = _value;
-    }
+	/**
+	 * Gets the edge value for this Map.
+	 * 
+	 * @return edge
+	 */
+	public com.vmware.vim.sms.Edge[] getEdge() {
+		return edge;
+	}
 
+	/**
+	 * Sets the edge value for this Map.
+	 * 
+	 * @param edge
+	 */
+	public void setEdge(com.vmware.vim.sms.Edge[] edge) {
+		this.edge = edge;
+	}
 
-    /**
-     * Gets the edge value for this Map.
-     * 
-     * @return edge
-     */
-    public com.vmware.vim.sms.Edge[] getEdge() {
-        return edge;
-    }
+	public com.vmware.vim.sms.Edge getEdge(int i) {
+		return this.edge[i];
+	}
 
+	public void setEdge(int i, com.vmware.vim.sms.Edge _value) {
+		this.edge[i] = _value;
+	}
 
-    /**
-     * Sets the edge value for this Map.
-     * 
-     * @param edge
-     */
-    public void setEdge(com.vmware.vim.sms.Edge[] edge) {
-        this.edge = edge;
-    }
+	/**
+	 * Gets the lastUpdateTime value for this Map.
+	 * 
+	 * @return lastUpdateTime
+	 */
+	public java.util.Calendar getLastUpdateTime() {
+		return lastUpdateTime;
+	}
 
-    public com.vmware.vim.sms.Edge getEdge(int i) {
-        return this.edge[i];
-    }
+	/**
+	 * Sets the lastUpdateTime value for this Map.
+	 * 
+	 * @param lastUpdateTime
+	 */
+	public void setLastUpdateTime(java.util.Calendar lastUpdateTime) {
+		this.lastUpdateTime = lastUpdateTime;
+	}
 
-    public void setEdge(int i, com.vmware.vim.sms.Edge _value) {
-        this.edge[i] = _value;
-    }
+	private java.lang.Object __equalsCalc = null;
 
+	@Override
+	public synchronized boolean equals(java.lang.Object obj) {
+		if (!(obj instanceof Map)) {
+			return false;
+		}
+		Map other = (Map) obj;
+		if (obj == null) {
+			return false;
+		}
+		if (this == obj) {
+			return true;
+		}
+		if (__equalsCalc != null) {
+			return (__equalsCalc == obj);
+		}
+		__equalsCalc = obj;
+		boolean _equals;
+		_equals = super.equals(obj)
+				&& ((this.node == null && other.getNode() == null) || (this.node != null && java.util.Arrays
+						.equals(this.node, other.getNode())))
+				&& ((this.edge == null && other.getEdge() == null) || (this.edge != null && java.util.Arrays
+						.equals(this.edge, other.getEdge())))
+				&& ((this.lastUpdateTime == null && other.getLastUpdateTime() == null) || (this.lastUpdateTime != null && this.lastUpdateTime
+						.equals(other.getLastUpdateTime())));
+		__equalsCalc = null;
+		return _equals;
+	}
 
-    /**
-     * Gets the lastUpdateTime value for this Map.
-     * 
-     * @return lastUpdateTime
-     */
-    public java.util.Calendar getLastUpdateTime() {
-        return lastUpdateTime;
-    }
+	private boolean __hashCodeCalc = false;
 
+	@Override
+	public synchronized int hashCode() {
+		if (__hashCodeCalc) {
+			return 0;
+		}
+		__hashCodeCalc = true;
+		int _hashCode = super.hashCode();
+		if (getNode() != null) {
+			for (int i = 0; i < java.lang.reflect.Array.getLength(getNode()); i++) {
+				java.lang.Object obj = java.lang.reflect.Array
+						.get(getNode(), i);
+				if (obj != null && !obj.getClass().isArray()) {
+					_hashCode += obj.hashCode();
+				}
+			}
+		}
+		if (getEdge() != null) {
+			for (int i = 0; i < java.lang.reflect.Array.getLength(getEdge()); i++) {
+				java.lang.Object obj = java.lang.reflect.Array
+						.get(getEdge(), i);
+				if (obj != null && !obj.getClass().isArray()) {
+					_hashCode += obj.hashCode();
+				}
+			}
+		}
+		if (getLastUpdateTime() != null) {
+			_hashCode += getLastUpdateTime().hashCode();
+		}
+		__hashCodeCalc = false;
+		return _hashCode;
+	}
 
-    /**
-     * Sets the lastUpdateTime value for this Map.
-     * 
-     * @param lastUpdateTime
-     */
-    public void setLastUpdateTime(java.util.Calendar lastUpdateTime) {
-        this.lastUpdateTime = lastUpdateTime;
-    }
+	// Type metadata
+	private static org.apache.axis.description.TypeDesc typeDesc = new org.apache.axis.description.TypeDesc(
+			Map.class, true);
 
-    private java.lang.Object __equalsCalc = null;
-    public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof Map)) return false;
-        Map other = (Map) obj;
-        if (obj == null) return false;
-        if (this == obj) return true;
-        if (__equalsCalc != null) {
-            return (__equalsCalc == obj);
-        }
-        __equalsCalc = obj;
-        boolean _equals;
-        _equals = super.equals(obj) && 
-            ((this.node==null && other.getNode()==null) || 
-             (this.node!=null &&
-              java.util.Arrays.equals(this.node, other.getNode()))) &&
-            ((this.edge==null && other.getEdge()==null) || 
-             (this.edge!=null &&
-              java.util.Arrays.equals(this.edge, other.getEdge()))) &&
-            ((this.lastUpdateTime==null && other.getLastUpdateTime()==null) || 
-             (this.lastUpdateTime!=null &&
-              this.lastUpdateTime.equals(other.getLastUpdateTime())));
-        __equalsCalc = null;
-        return _equals;
-    }
+	static {
+		typeDesc.setXmlType(new javax.xml.namespace.QName("urn:sm1", "Map"));
+		org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+		elemField.setFieldName("node");
+		elemField.setXmlName(new javax.xml.namespace.QName("urn:sm1", "node"));
+		elemField.setXmlType(new javax.xml.namespace.QName("urn:sm1", "Node"));
+		elemField.setMinOccurs(0);
+		elemField.setNillable(false);
+		elemField.setMaxOccursUnbounded(true);
+		typeDesc.addFieldDesc(elemField);
+		elemField = new org.apache.axis.description.ElementDesc();
+		elemField.setFieldName("edge");
+		elemField.setXmlName(new javax.xml.namespace.QName("urn:sm1", "edge"));
+		elemField.setXmlType(new javax.xml.namespace.QName("urn:sm1", "Edge"));
+		elemField.setMinOccurs(0);
+		elemField.setNillable(false);
+		elemField.setMaxOccursUnbounded(true);
+		typeDesc.addFieldDesc(elemField);
+		elemField = new org.apache.axis.description.ElementDesc();
+		elemField.setFieldName("lastUpdateTime");
+		elemField.setXmlName(new javax.xml.namespace.QName("urn:sm1",
+				"lastUpdateTime"));
+		elemField.setXmlType(new javax.xml.namespace.QName(
+				"http://www.w3.org/2001/XMLSchema", "dateTime"));
+		elemField.setMinOccurs(0);
+		elemField.setNillable(false);
+		typeDesc.addFieldDesc(elemField);
+	}
 
-    private boolean __hashCodeCalc = false;
-    public synchronized int hashCode() {
-        if (__hashCodeCalc) {
-            return 0;
-        }
-        __hashCodeCalc = true;
-        int _hashCode = super.hashCode();
-        if (getNode() != null) {
-            for (int i=0;
-                 i<java.lang.reflect.Array.getLength(getNode());
-                 i++) {
-                java.lang.Object obj = java.lang.reflect.Array.get(getNode(), i);
-                if (obj != null &&
-                    !obj.getClass().isArray()) {
-                    _hashCode += obj.hashCode();
-                }
-            }
-        }
-        if (getEdge() != null) {
-            for (int i=0;
-                 i<java.lang.reflect.Array.getLength(getEdge());
-                 i++) {
-                java.lang.Object obj = java.lang.reflect.Array.get(getEdge(), i);
-                if (obj != null &&
-                    !obj.getClass().isArray()) {
-                    _hashCode += obj.hashCode();
-                }
-            }
-        }
-        if (getLastUpdateTime() != null) {
-            _hashCode += getLastUpdateTime().hashCode();
-        }
-        __hashCodeCalc = false;
-        return _hashCode;
-    }
+	/**
+	 * Return type metadata object
+	 */
+	public static org.apache.axis.description.TypeDesc getTypeDesc() {
+		return typeDesc;
+	}
 
-    // Type metadata
-    private static org.apache.axis.description.TypeDesc typeDesc =
-        new org.apache.axis.description.TypeDesc(Map.class, true);
+	/**
+	 * Get Custom Serializer
+	 */
+	public static org.apache.axis.encoding.Serializer getSerializer(
+			java.lang.String mechType, java.lang.Class _javaType,
+			javax.xml.namespace.QName _xmlType) {
+		return new org.apache.axis.encoding.ser.BeanSerializer(_javaType,
+				_xmlType, typeDesc);
+	}
 
-    static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("urn:sm1", "Map"));
-        org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("node");
-        elemField.setXmlName(new javax.xml.namespace.QName("urn:sm1", "node"));
-        elemField.setXmlType(new javax.xml.namespace.QName("urn:sm1", "Node"));
-        elemField.setMinOccurs(0);
-        elemField.setNillable(false);
-        elemField.setMaxOccursUnbounded(true);
-        typeDesc.addFieldDesc(elemField);
-        elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("edge");
-        elemField.setXmlName(new javax.xml.namespace.QName("urn:sm1", "edge"));
-        elemField.setXmlType(new javax.xml.namespace.QName("urn:sm1", "Edge"));
-        elemField.setMinOccurs(0);
-        elemField.setNillable(false);
-        elemField.setMaxOccursUnbounded(true);
-        typeDesc.addFieldDesc(elemField);
-        elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("lastUpdateTime");
-        elemField.setXmlName(new javax.xml.namespace.QName("urn:sm1", "lastUpdateTime"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "dateTime"));
-        elemField.setMinOccurs(0);
-        elemField.setNillable(false);
-        typeDesc.addFieldDesc(elemField);
-    }
-
-    /**
-     * Return type metadata object
-     */
-    public static org.apache.axis.description.TypeDesc getTypeDesc() {
-        return typeDesc;
-    }
-
-    /**
-     * Get Custom Serializer
-     */
-    public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanSerializer(
-            _javaType, _xmlType, typeDesc);
-    }
-
-    /**
-     * Get Custom Deserializer
-     */
-    public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanDeserializer(
-            _javaType, _xmlType, typeDesc);
-    }
+	/**
+	 * Get Custom Deserializer
+	 */
+	public static org.apache.axis.encoding.Deserializer getDeserializer(
+			java.lang.String mechType, java.lang.Class _javaType,
+			javax.xml.namespace.QName _xmlType) {
+		return new org.apache.axis.encoding.ser.BeanDeserializer(_javaType,
+				_xmlType, typeDesc);
+	}
 
 }

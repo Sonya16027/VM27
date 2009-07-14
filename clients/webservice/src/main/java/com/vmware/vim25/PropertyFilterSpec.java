@@ -7,188 +7,193 @@
 
 package com.vmware.vim25;
 
-public class PropertyFilterSpec  extends com.vmware.vim25.DynamicData  implements java.io.Serializable {
-    private com.vmware.vim25.PropertySpec[] propSet;
+public class PropertyFilterSpec extends com.vmware.vim25.DynamicData implements
+		java.io.Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
-    private com.vmware.vim25.ObjectSpec[] objectSet;
+	private com.vmware.vim25.PropertySpec[] propSet;
 
-    public PropertyFilterSpec() {
-    }
+	private com.vmware.vim25.ObjectSpec[] objectSet;
 
-    public PropertyFilterSpec(
-           java.lang.String dynamicType,
-           com.vmware.vim25.DynamicProperty[] dynamicProperty,
-           com.vmware.vim25.PropertySpec[] propSet,
-           com.vmware.vim25.ObjectSpec[] objectSet) {
-        super(
-            dynamicType,
-            dynamicProperty);
-        this.propSet = propSet;
-        this.objectSet = objectSet;
-    }
+	public PropertyFilterSpec() {
+	}
 
+	public PropertyFilterSpec(java.lang.String dynamicType,
+			com.vmware.vim25.DynamicProperty[] dynamicProperty,
+			com.vmware.vim25.PropertySpec[] propSet,
+			com.vmware.vim25.ObjectSpec[] objectSet) {
+		super(dynamicType, dynamicProperty);
+		this.propSet = propSet;
+		this.objectSet = objectSet;
+	}
 
-    /**
-     * Gets the propSet value for this PropertyFilterSpec.
-     * 
-     * @return propSet
-     */
-    public com.vmware.vim25.PropertySpec[] getPropSet() {
-        return propSet;
-    }
+	/**
+	 * Gets the propSet value for this PropertyFilterSpec.
+	 * 
+	 * @return propSet
+	 */
+	public com.vmware.vim25.PropertySpec[] getPropSet() {
+		return propSet;
+	}
 
+	/**
+	 * Sets the propSet value for this PropertyFilterSpec.
+	 * 
+	 * @param propSet
+	 */
+	public void setPropSet(com.vmware.vim25.PropertySpec[] propSet) {
+		this.propSet = propSet;
+	}
 
-    /**
-     * Sets the propSet value for this PropertyFilterSpec.
-     * 
-     * @param propSet
-     */
-    public void setPropSet(com.vmware.vim25.PropertySpec[] propSet) {
-        this.propSet = propSet;
-    }
+	public com.vmware.vim25.PropertySpec getPropSet(int i) {
+		return this.propSet[i];
+	}
 
-    public com.vmware.vim25.PropertySpec getPropSet(int i) {
-        return this.propSet[i];
-    }
+	public void setPropSet(int i, com.vmware.vim25.PropertySpec _value) {
+		this.propSet[i] = _value;
+	}
 
-    public void setPropSet(int i, com.vmware.vim25.PropertySpec _value) {
-        this.propSet[i] = _value;
-    }
+	/**
+	 * Gets the objectSet value for this PropertyFilterSpec.
+	 * 
+	 * @return objectSet
+	 */
+	public com.vmware.vim25.ObjectSpec[] getObjectSet() {
+		return objectSet;
+	}
 
+	/**
+	 * Sets the objectSet value for this PropertyFilterSpec.
+	 * 
+	 * @param objectSet
+	 */
+	public void setObjectSet(com.vmware.vim25.ObjectSpec[] objectSet) {
+		this.objectSet = objectSet;
+	}
 
-    /**
-     * Gets the objectSet value for this PropertyFilterSpec.
-     * 
-     * @return objectSet
-     */
-    public com.vmware.vim25.ObjectSpec[] getObjectSet() {
-        return objectSet;
-    }
+	public com.vmware.vim25.ObjectSpec getObjectSet(int i) {
+		return this.objectSet[i];
+	}
 
+	public void setObjectSet(int i, com.vmware.vim25.ObjectSpec _value) {
+		this.objectSet[i] = _value;
+	}
 
-    /**
-     * Sets the objectSet value for this PropertyFilterSpec.
-     * 
-     * @param objectSet
-     */
-    public void setObjectSet(com.vmware.vim25.ObjectSpec[] objectSet) {
-        this.objectSet = objectSet;
-    }
+	private java.lang.Object __equalsCalc = null;
 
-    public com.vmware.vim25.ObjectSpec getObjectSet(int i) {
-        return this.objectSet[i];
-    }
+	@Override
+	public synchronized boolean equals(java.lang.Object obj) {
+		if (!(obj instanceof PropertyFilterSpec)) {
+			return false;
+		}
+		PropertyFilterSpec other = (PropertyFilterSpec) obj;
+		if (obj == null) {
+			return false;
+		}
+		if (this == obj) {
+			return true;
+		}
+		if (__equalsCalc != null) {
+			return (__equalsCalc == obj);
+		}
+		__equalsCalc = obj;
+		boolean _equals;
+		_equals = super.equals(obj)
+				&& ((this.propSet == null && other.getPropSet() == null) || (this.propSet != null && java.util.Arrays
+						.equals(this.propSet, other.getPropSet())))
+				&& ((this.objectSet == null && other.getObjectSet() == null) || (this.objectSet != null && java.util.Arrays
+						.equals(this.objectSet, other.getObjectSet())));
+		__equalsCalc = null;
+		return _equals;
+	}
 
-    public void setObjectSet(int i, com.vmware.vim25.ObjectSpec _value) {
-        this.objectSet[i] = _value;
-    }
+	private boolean __hashCodeCalc = false;
 
-    private java.lang.Object __equalsCalc = null;
-    public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof PropertyFilterSpec)) return false;
-        PropertyFilterSpec other = (PropertyFilterSpec) obj;
-        if (obj == null) return false;
-        if (this == obj) return true;
-        if (__equalsCalc != null) {
-            return (__equalsCalc == obj);
-        }
-        __equalsCalc = obj;
-        boolean _equals;
-        _equals = super.equals(obj) && 
-            ((this.propSet==null && other.getPropSet()==null) || 
-             (this.propSet!=null &&
-              java.util.Arrays.equals(this.propSet, other.getPropSet()))) &&
-            ((this.objectSet==null && other.getObjectSet()==null) || 
-             (this.objectSet!=null &&
-              java.util.Arrays.equals(this.objectSet, other.getObjectSet())));
-        __equalsCalc = null;
-        return _equals;
-    }
+	@Override
+	public synchronized int hashCode() {
+		if (__hashCodeCalc) {
+			return 0;
+		}
+		__hashCodeCalc = true;
+		int _hashCode = super.hashCode();
+		if (getPropSet() != null) {
+			for (int i = 0; i < java.lang.reflect.Array.getLength(getPropSet()); i++) {
+				java.lang.Object obj = java.lang.reflect.Array.get(
+						getPropSet(), i);
+				if (obj != null && !obj.getClass().isArray()) {
+					_hashCode += obj.hashCode();
+				}
+			}
+		}
+		if (getObjectSet() != null) {
+			for (int i = 0; i < java.lang.reflect.Array
+					.getLength(getObjectSet()); i++) {
+				java.lang.Object obj = java.lang.reflect.Array.get(
+						getObjectSet(), i);
+				if (obj != null && !obj.getClass().isArray()) {
+					_hashCode += obj.hashCode();
+				}
+			}
+		}
+		__hashCodeCalc = false;
+		return _hashCode;
+	}
 
-    private boolean __hashCodeCalc = false;
-    public synchronized int hashCode() {
-        if (__hashCodeCalc) {
-            return 0;
-        }
-        __hashCodeCalc = true;
-        int _hashCode = super.hashCode();
-        if (getPropSet() != null) {
-            for (int i=0;
-                 i<java.lang.reflect.Array.getLength(getPropSet());
-                 i++) {
-                java.lang.Object obj = java.lang.reflect.Array.get(getPropSet(), i);
-                if (obj != null &&
-                    !obj.getClass().isArray()) {
-                    _hashCode += obj.hashCode();
-                }
-            }
-        }
-        if (getObjectSet() != null) {
-            for (int i=0;
-                 i<java.lang.reflect.Array.getLength(getObjectSet());
-                 i++) {
-                java.lang.Object obj = java.lang.reflect.Array.get(getObjectSet(), i);
-                if (obj != null &&
-                    !obj.getClass().isArray()) {
-                    _hashCode += obj.hashCode();
-                }
-            }
-        }
-        __hashCodeCalc = false;
-        return _hashCode;
-    }
+	// Type metadata
+	private static org.apache.axis.description.TypeDesc typeDesc = new org.apache.axis.description.TypeDesc(
+			PropertyFilterSpec.class, true);
 
-    // Type metadata
-    private static org.apache.axis.description.TypeDesc typeDesc =
-        new org.apache.axis.description.TypeDesc(PropertyFilterSpec.class, true);
+	static {
+		typeDesc.setXmlType(new javax.xml.namespace.QName("urn:vim25",
+				"PropertyFilterSpec"));
+		org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+		elemField.setFieldName("propSet");
+		elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25",
+				"propSet"));
+		elemField.setXmlType(new javax.xml.namespace.QName("urn:vim25",
+				"PropertySpec"));
+		elemField.setNillable(false);
+		elemField.setMaxOccursUnbounded(true);
+		typeDesc.addFieldDesc(elemField);
+		elemField = new org.apache.axis.description.ElementDesc();
+		elemField.setFieldName("objectSet");
+		elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25",
+				"objectSet"));
+		elemField.setXmlType(new javax.xml.namespace.QName("urn:vim25",
+				"ObjectSpec"));
+		elemField.setNillable(false);
+		elemField.setMaxOccursUnbounded(true);
+		typeDesc.addFieldDesc(elemField);
+	}
 
-    static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("urn:vim25", "PropertyFilterSpec"));
-        org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("propSet");
-        elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25", "propSet"));
-        elemField.setXmlType(new javax.xml.namespace.QName("urn:vim25", "PropertySpec"));
-        elemField.setNillable(false);
-        elemField.setMaxOccursUnbounded(true);
-        typeDesc.addFieldDesc(elemField);
-        elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("objectSet");
-        elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25", "objectSet"));
-        elemField.setXmlType(new javax.xml.namespace.QName("urn:vim25", "ObjectSpec"));
-        elemField.setNillable(false);
-        elemField.setMaxOccursUnbounded(true);
-        typeDesc.addFieldDesc(elemField);
-    }
+	/**
+	 * Return type metadata object
+	 */
+	public static org.apache.axis.description.TypeDesc getTypeDesc() {
+		return typeDesc;
+	}
 
-    /**
-     * Return type metadata object
-     */
-    public static org.apache.axis.description.TypeDesc getTypeDesc() {
-        return typeDesc;
-    }
+	/**
+	 * Get Custom Serializer
+	 */
+	public static org.apache.axis.encoding.Serializer getSerializer(
+			java.lang.String mechType, java.lang.Class _javaType,
+			javax.xml.namespace.QName _xmlType) {
+		return new org.apache.axis.encoding.ser.BeanSerializer(_javaType,
+				_xmlType, typeDesc);
+	}
 
-    /**
-     * Get Custom Serializer
-     */
-    public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanSerializer(
-            _javaType, _xmlType, typeDesc);
-    }
-
-    /**
-     * Get Custom Deserializer
-     */
-    public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanDeserializer(
-            _javaType, _xmlType, typeDesc);
-    }
+	/**
+	 * Get Custom Deserializer
+	 */
+	public static org.apache.axis.encoding.Deserializer getDeserializer(
+			java.lang.String mechType, java.lang.Class _javaType,
+			javax.xml.namespace.QName _xmlType) {
+		return new org.apache.axis.encoding.ser.BeanDeserializer(_javaType,
+				_xmlType, typeDesc);
+	}
 
 }

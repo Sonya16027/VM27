@@ -8,9 +8,11 @@
 package com.vmware.vim.sms;
 
 public interface SmService extends javax.xml.rpc.Service {
-    public java.lang.String getsmPortAddress();
+	public java.lang.String getsmPortAddress();
 
-    public com.vmware.vim.sms.SmPortType getsmPort() throws javax.xml.rpc.ServiceException;
+	public com.vmware.vim.sms.SmPortType getsmPort()
+			throws javax.xml.rpc.ServiceException;
 
-    public com.vmware.vim.sms.SmPortType getsmPort(java.net.URL portAddress) throws javax.xml.rpc.ServiceException;
+	public com.vmware.vim.sms.SmPortType getsmPort(java.net.URL portAddress)
+			throws javax.xml.rpc.ServiceException;
 }

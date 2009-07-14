@@ -7,161 +7,171 @@
 
 package com.vmware.vim;
 
-public class MethodNotFound  extends com.vmware.vim.InvalidRequest  implements java.io.Serializable {
-    private com.vmware.vim.ManagedObjectReference receiver;
+public class MethodNotFound extends com.vmware.vim.InvalidRequest implements
+		java.io.Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
-    private java.lang.String method;
+	private com.vmware.vim.ManagedObjectReference receiver;
 
-    public MethodNotFound() {
-    }
+	private java.lang.String method;
 
-    public MethodNotFound(
-           java.lang.String dynamicType,
-           com.vmware.vim.DynamicProperty[] dynamicProperty,
-           com.vmware.vim.ManagedObjectReference receiver,
-           java.lang.String method) {
-        super(
-            dynamicType,
-            dynamicProperty);
-        this.receiver = receiver;
-        this.method = method;
-    }
+	public MethodNotFound() {
+	}
 
+	public MethodNotFound(java.lang.String dynamicType,
+			com.vmware.vim.DynamicProperty[] dynamicProperty,
+			com.vmware.vim.ManagedObjectReference receiver,
+			java.lang.String method) {
+		super(dynamicType, dynamicProperty);
+		this.receiver = receiver;
+		this.method = method;
+	}
 
-    /**
-     * Gets the receiver value for this MethodNotFound.
-     * 
-     * @return receiver
-     */
-    public com.vmware.vim.ManagedObjectReference getReceiver() {
-        return receiver;
-    }
+	/**
+	 * Gets the receiver value for this MethodNotFound.
+	 * 
+	 * @return receiver
+	 */
+	public com.vmware.vim.ManagedObjectReference getReceiver() {
+		return receiver;
+	}
 
+	/**
+	 * Sets the receiver value for this MethodNotFound.
+	 * 
+	 * @param receiver
+	 */
+	public void setReceiver(com.vmware.vim.ManagedObjectReference receiver) {
+		this.receiver = receiver;
+	}
 
-    /**
-     * Sets the receiver value for this MethodNotFound.
-     * 
-     * @param receiver
-     */
-    public void setReceiver(com.vmware.vim.ManagedObjectReference receiver) {
-        this.receiver = receiver;
-    }
+	/**
+	 * Gets the method value for this MethodNotFound.
+	 * 
+	 * @return method
+	 */
+	public java.lang.String getMethod() {
+		return method;
+	}
 
+	/**
+	 * Sets the method value for this MethodNotFound.
+	 * 
+	 * @param method
+	 */
+	public void setMethod(java.lang.String method) {
+		this.method = method;
+	}
 
-    /**
-     * Gets the method value for this MethodNotFound.
-     * 
-     * @return method
-     */
-    public java.lang.String getMethod() {
-        return method;
-    }
+	private java.lang.Object __equalsCalc = null;
 
+	@Override
+	public synchronized boolean equals(java.lang.Object obj) {
+		if (!(obj instanceof MethodNotFound)) {
+			return false;
+		}
+		MethodNotFound other = (MethodNotFound) obj;
+		if (obj == null) {
+			return false;
+		}
+		if (this == obj) {
+			return true;
+		}
+		if (__equalsCalc != null) {
+			return (__equalsCalc == obj);
+		}
+		__equalsCalc = obj;
+		boolean _equals;
+		_equals = super.equals(obj)
+				&& ((this.receiver == null && other.getReceiver() == null) || (this.receiver != null && this.receiver
+						.equals(other.getReceiver())))
+				&& ((this.method == null && other.getMethod() == null) || (this.method != null && this.method
+						.equals(other.getMethod())));
+		__equalsCalc = null;
+		return _equals;
+	}
 
-    /**
-     * Sets the method value for this MethodNotFound.
-     * 
-     * @param method
-     */
-    public void setMethod(java.lang.String method) {
-        this.method = method;
-    }
+	private boolean __hashCodeCalc = false;
 
-    private java.lang.Object __equalsCalc = null;
-    public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof MethodNotFound)) return false;
-        MethodNotFound other = (MethodNotFound) obj;
-        if (obj == null) return false;
-        if (this == obj) return true;
-        if (__equalsCalc != null) {
-            return (__equalsCalc == obj);
-        }
-        __equalsCalc = obj;
-        boolean _equals;
-        _equals = super.equals(obj) && 
-            ((this.receiver==null && other.getReceiver()==null) || 
-             (this.receiver!=null &&
-              this.receiver.equals(other.getReceiver()))) &&
-            ((this.method==null && other.getMethod()==null) || 
-             (this.method!=null &&
-              this.method.equals(other.getMethod())));
-        __equalsCalc = null;
-        return _equals;
-    }
+	@Override
+	public synchronized int hashCode() {
+		if (__hashCodeCalc) {
+			return 0;
+		}
+		__hashCodeCalc = true;
+		int _hashCode = super.hashCode();
+		if (getReceiver() != null) {
+			_hashCode += getReceiver().hashCode();
+		}
+		if (getMethod() != null) {
+			_hashCode += getMethod().hashCode();
+		}
+		__hashCodeCalc = false;
+		return _hashCode;
+	}
 
-    private boolean __hashCodeCalc = false;
-    public synchronized int hashCode() {
-        if (__hashCodeCalc) {
-            return 0;
-        }
-        __hashCodeCalc = true;
-        int _hashCode = super.hashCode();
-        if (getReceiver() != null) {
-            _hashCode += getReceiver().hashCode();
-        }
-        if (getMethod() != null) {
-            _hashCode += getMethod().hashCode();
-        }
-        __hashCodeCalc = false;
-        return _hashCode;
-    }
+	// Type metadata
+	private static org.apache.axis.description.TypeDesc typeDesc = new org.apache.axis.description.TypeDesc(
+			MethodNotFound.class, true);
 
-    // Type metadata
-    private static org.apache.axis.description.TypeDesc typeDesc =
-        new org.apache.axis.description.TypeDesc(MethodNotFound.class, true);
+	static {
+		typeDesc.setXmlType(new javax.xml.namespace.QName("urn:vim2",
+				"MethodNotFound"));
+		org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+		elemField.setFieldName("receiver");
+		elemField.setXmlName(new javax.xml.namespace.QName("urn:vim2",
+				"receiver"));
+		elemField.setXmlType(new javax.xml.namespace.QName("urn:vim2",
+				"ManagedObjectReference"));
+		elemField.setNillable(false);
+		typeDesc.addFieldDesc(elemField);
+		elemField = new org.apache.axis.description.ElementDesc();
+		elemField.setFieldName("method");
+		elemField
+				.setXmlName(new javax.xml.namespace.QName("urn:vim2", "method"));
+		elemField.setXmlType(new javax.xml.namespace.QName(
+				"http://www.w3.org/2001/XMLSchema", "string"));
+		elemField.setNillable(false);
+		typeDesc.addFieldDesc(elemField);
+	}
 
-    static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("urn:vim2", "MethodNotFound"));
-        org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("receiver");
-        elemField.setXmlName(new javax.xml.namespace.QName("urn:vim2", "receiver"));
-        elemField.setXmlType(new javax.xml.namespace.QName("urn:vim2", "ManagedObjectReference"));
-        elemField.setNillable(false);
-        typeDesc.addFieldDesc(elemField);
-        elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("method");
-        elemField.setXmlName(new javax.xml.namespace.QName("urn:vim2", "method"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
-        elemField.setNillable(false);
-        typeDesc.addFieldDesc(elemField);
-    }
+	/**
+	 * Return type metadata object
+	 */
+	public static org.apache.axis.description.TypeDesc getTypeDesc() {
+		return typeDesc;
+	}
 
-    /**
-     * Return type metadata object
-     */
-    public static org.apache.axis.description.TypeDesc getTypeDesc() {
-        return typeDesc;
-    }
+	/**
+	 * Get Custom Serializer
+	 */
+	public static org.apache.axis.encoding.Serializer getSerializer(
+			java.lang.String mechType, java.lang.Class _javaType,
+			javax.xml.namespace.QName _xmlType) {
+		return new org.apache.axis.encoding.ser.BeanSerializer(_javaType,
+				_xmlType, typeDesc);
+	}
 
-    /**
-     * Get Custom Serializer
-     */
-    public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanSerializer(
-            _javaType, _xmlType, typeDesc);
-    }
+	/**
+	 * Get Custom Deserializer
+	 */
+	public static org.apache.axis.encoding.Deserializer getDeserializer(
+			java.lang.String mechType, java.lang.Class _javaType,
+			javax.xml.namespace.QName _xmlType) {
+		return new org.apache.axis.encoding.ser.BeanDeserializer(_javaType,
+				_xmlType, typeDesc);
+	}
 
-    /**
-     * Get Custom Deserializer
-     */
-    public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanDeserializer(
-            _javaType, _xmlType, typeDesc);
-    }
-
-
-    /**
-     * Writes the exception data to the faultDetails
-     */
-    public void writeDetails(javax.xml.namespace.QName qname, org.apache.axis.encoding.SerializationContext context) throws java.io.IOException {
-        context.serialize(qname, null, this);
-    }
+	/**
+	 * Writes the exception data to the faultDetails
+	 */
+	@Override
+	public void writeDetails(javax.xml.namespace.QName qname,
+			org.apache.axis.encoding.SerializationContext context)
+			throws java.io.IOException {
+		context.serialize(qname, null, this);
+	}
 }

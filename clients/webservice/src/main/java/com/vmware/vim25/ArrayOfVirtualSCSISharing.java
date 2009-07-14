@@ -7,131 +7,142 @@
 
 package com.vmware.vim25;
 
-public class ArrayOfVirtualSCSISharing  implements java.io.Serializable {
-    private com.vmware.vim25.VirtualSCSISharing[] virtualSCSISharing;
+public class ArrayOfVirtualSCSISharing implements java.io.Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private com.vmware.vim25.VirtualSCSISharing[] virtualSCSISharing;
 
-    public ArrayOfVirtualSCSISharing() {
-    }
+	public ArrayOfVirtualSCSISharing() {
+	}
 
-    public ArrayOfVirtualSCSISharing(
-           com.vmware.vim25.VirtualSCSISharing[] virtualSCSISharing) {
-           this.virtualSCSISharing = virtualSCSISharing;
-    }
+	public ArrayOfVirtualSCSISharing(
+			com.vmware.vim25.VirtualSCSISharing[] virtualSCSISharing) {
+		this.virtualSCSISharing = virtualSCSISharing;
+	}
 
+	/**
+	 * Gets the virtualSCSISharing value for this ArrayOfVirtualSCSISharing.
+	 * 
+	 * @return virtualSCSISharing
+	 */
+	public com.vmware.vim25.VirtualSCSISharing[] getVirtualSCSISharing() {
+		return virtualSCSISharing;
+	}
 
-    /**
-     * Gets the virtualSCSISharing value for this ArrayOfVirtualSCSISharing.
-     * 
-     * @return virtualSCSISharing
-     */
-    public com.vmware.vim25.VirtualSCSISharing[] getVirtualSCSISharing() {
-        return virtualSCSISharing;
-    }
+	/**
+	 * Sets the virtualSCSISharing value for this ArrayOfVirtualSCSISharing.
+	 * 
+	 * @param virtualSCSISharing
+	 */
+	public void setVirtualSCSISharing(
+			com.vmware.vim25.VirtualSCSISharing[] virtualSCSISharing) {
+		this.virtualSCSISharing = virtualSCSISharing;
+	}
 
+	public com.vmware.vim25.VirtualSCSISharing getVirtualSCSISharing(int i) {
+		return this.virtualSCSISharing[i];
+	}
 
-    /**
-     * Sets the virtualSCSISharing value for this ArrayOfVirtualSCSISharing.
-     * 
-     * @param virtualSCSISharing
-     */
-    public void setVirtualSCSISharing(com.vmware.vim25.VirtualSCSISharing[] virtualSCSISharing) {
-        this.virtualSCSISharing = virtualSCSISharing;
-    }
+	public void setVirtualSCSISharing(int i,
+			com.vmware.vim25.VirtualSCSISharing _value) {
+		this.virtualSCSISharing[i] = _value;
+	}
 
-    public com.vmware.vim25.VirtualSCSISharing getVirtualSCSISharing(int i) {
-        return this.virtualSCSISharing[i];
-    }
+	private java.lang.Object __equalsCalc = null;
 
-    public void setVirtualSCSISharing(int i, com.vmware.vim25.VirtualSCSISharing _value) {
-        this.virtualSCSISharing[i] = _value;
-    }
+	@Override
+	public synchronized boolean equals(java.lang.Object obj) {
+		if (!(obj instanceof ArrayOfVirtualSCSISharing)) {
+			return false;
+		}
+		ArrayOfVirtualSCSISharing other = (ArrayOfVirtualSCSISharing) obj;
+		if (obj == null) {
+			return false;
+		}
+		if (this == obj) {
+			return true;
+		}
+		if (__equalsCalc != null) {
+			return (__equalsCalc == obj);
+		}
+		__equalsCalc = obj;
+		boolean _equals;
+		_equals = true && ((this.virtualSCSISharing == null && other
+				.getVirtualSCSISharing() == null) || (this.virtualSCSISharing != null && java.util.Arrays
+				.equals(this.virtualSCSISharing, other.getVirtualSCSISharing())));
+		__equalsCalc = null;
+		return _equals;
+	}
 
-    private java.lang.Object __equalsCalc = null;
-    public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof ArrayOfVirtualSCSISharing)) return false;
-        ArrayOfVirtualSCSISharing other = (ArrayOfVirtualSCSISharing) obj;
-        if (obj == null) return false;
-        if (this == obj) return true;
-        if (__equalsCalc != null) {
-            return (__equalsCalc == obj);
-        }
-        __equalsCalc = obj;
-        boolean _equals;
-        _equals = true && 
-            ((this.virtualSCSISharing==null && other.getVirtualSCSISharing()==null) || 
-             (this.virtualSCSISharing!=null &&
-              java.util.Arrays.equals(this.virtualSCSISharing, other.getVirtualSCSISharing())));
-        __equalsCalc = null;
-        return _equals;
-    }
+	private boolean __hashCodeCalc = false;
 
-    private boolean __hashCodeCalc = false;
-    public synchronized int hashCode() {
-        if (__hashCodeCalc) {
-            return 0;
-        }
-        __hashCodeCalc = true;
-        int _hashCode = 1;
-        if (getVirtualSCSISharing() != null) {
-            for (int i=0;
-                 i<java.lang.reflect.Array.getLength(getVirtualSCSISharing());
-                 i++) {
-                java.lang.Object obj = java.lang.reflect.Array.get(getVirtualSCSISharing(), i);
-                if (obj != null &&
-                    !obj.getClass().isArray()) {
-                    _hashCode += obj.hashCode();
-                }
-            }
-        }
-        __hashCodeCalc = false;
-        return _hashCode;
-    }
+	@Override
+	public synchronized int hashCode() {
+		if (__hashCodeCalc) {
+			return 0;
+		}
+		__hashCodeCalc = true;
+		int _hashCode = 1;
+		if (getVirtualSCSISharing() != null) {
+			for (int i = 0; i < java.lang.reflect.Array
+					.getLength(getVirtualSCSISharing()); i++) {
+				java.lang.Object obj = java.lang.reflect.Array.get(
+						getVirtualSCSISharing(), i);
+				if (obj != null && !obj.getClass().isArray()) {
+					_hashCode += obj.hashCode();
+				}
+			}
+		}
+		__hashCodeCalc = false;
+		return _hashCode;
+	}
 
-    // Type metadata
-    private static org.apache.axis.description.TypeDesc typeDesc =
-        new org.apache.axis.description.TypeDesc(ArrayOfVirtualSCSISharing.class, true);
+	// Type metadata
+	private static org.apache.axis.description.TypeDesc typeDesc = new org.apache.axis.description.TypeDesc(
+			ArrayOfVirtualSCSISharing.class, true);
 
-    static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("urn:vim25", "ArrayOfVirtualSCSISharing"));
-        org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("virtualSCSISharing");
-        elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25", "VirtualSCSISharing"));
-        elemField.setXmlType(new javax.xml.namespace.QName("urn:vim25", "VirtualSCSISharing"));
-        elemField.setMinOccurs(0);
-        elemField.setNillable(false);
-        elemField.setMaxOccursUnbounded(true);
-        typeDesc.addFieldDesc(elemField);
-    }
+	static {
+		typeDesc.setXmlType(new javax.xml.namespace.QName("urn:vim25",
+				"ArrayOfVirtualSCSISharing"));
+		org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+		elemField.setFieldName("virtualSCSISharing");
+		elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25",
+				"VirtualSCSISharing"));
+		elemField.setXmlType(new javax.xml.namespace.QName("urn:vim25",
+				"VirtualSCSISharing"));
+		elemField.setMinOccurs(0);
+		elemField.setNillable(false);
+		elemField.setMaxOccursUnbounded(true);
+		typeDesc.addFieldDesc(elemField);
+	}
 
-    /**
-     * Return type metadata object
-     */
-    public static org.apache.axis.description.TypeDesc getTypeDesc() {
-        return typeDesc;
-    }
+	/**
+	 * Return type metadata object
+	 */
+	public static org.apache.axis.description.TypeDesc getTypeDesc() {
+		return typeDesc;
+	}
 
-    /**
-     * Get Custom Serializer
-     */
-    public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanSerializer(
-            _javaType, _xmlType, typeDesc);
-    }
+	/**
+	 * Get Custom Serializer
+	 */
+	public static org.apache.axis.encoding.Serializer getSerializer(
+			java.lang.String mechType, java.lang.Class _javaType,
+			javax.xml.namespace.QName _xmlType) {
+		return new org.apache.axis.encoding.ser.BeanSerializer(_javaType,
+				_xmlType, typeDesc);
+	}
 
-    /**
-     * Get Custom Deserializer
-     */
-    public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanDeserializer(
-            _javaType, _xmlType, typeDesc);
-    }
+	/**
+	 * Get Custom Deserializer
+	 */
+	public static org.apache.axis.encoding.Deserializer getDeserializer(
+			java.lang.String mechType, java.lang.Class _javaType,
+			javax.xml.namespace.QName _xmlType) {
+		return new org.apache.axis.encoding.ser.BeanDeserializer(_javaType,
+				_xmlType, typeDesc);
+	}
 
 }

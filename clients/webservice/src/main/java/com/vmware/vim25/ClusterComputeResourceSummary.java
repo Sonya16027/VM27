@@ -7,312 +7,317 @@
 
 package com.vmware.vim25;
 
-public class ClusterComputeResourceSummary  extends com.vmware.vim25.ComputeResourceSummary  implements java.io.Serializable {
-    private int currentFailoverLevel;
+public class ClusterComputeResourceSummary extends
+		com.vmware.vim25.ComputeResourceSummary implements java.io.Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
-    private com.vmware.vim25.ClusterDasAdmissionControlInfo admissionControlInfo;
+	private int currentFailoverLevel;
 
-    private int numVmotions;
+	private com.vmware.vim25.ClusterDasAdmissionControlInfo admissionControlInfo;
 
-    private java.lang.Integer targetBalance;
+	private int numVmotions;
 
-    private java.lang.Integer currentBalance;
+	private java.lang.Integer targetBalance;
 
-    private java.lang.String currentEVCModeKey;
+	private java.lang.Integer currentBalance;
 
-    public ClusterComputeResourceSummary() {
-    }
+	private java.lang.String currentEVCModeKey;
 
-    public ClusterComputeResourceSummary(
-           java.lang.String dynamicType,
-           com.vmware.vim25.DynamicProperty[] dynamicProperty,
-           int totalCpu,
-           long totalMemory,
-           short numCpuCores,
-           short numCpuThreads,
-           int effectiveCpu,
-           long effectiveMemory,
-           int numHosts,
-           int numEffectiveHosts,
-           com.vmware.vim25.ManagedEntityStatus overallStatus,
-           int currentFailoverLevel,
-           com.vmware.vim25.ClusterDasAdmissionControlInfo admissionControlInfo,
-           int numVmotions,
-           java.lang.Integer targetBalance,
-           java.lang.Integer currentBalance,
-           java.lang.String currentEVCModeKey) {
-        super(
-            dynamicType,
-            dynamicProperty,
-            totalCpu,
-            totalMemory,
-            numCpuCores,
-            numCpuThreads,
-            effectiveCpu,
-            effectiveMemory,
-            numHosts,
-            numEffectiveHosts,
-            overallStatus);
-        this.currentFailoverLevel = currentFailoverLevel;
-        this.admissionControlInfo = admissionControlInfo;
-        this.numVmotions = numVmotions;
-        this.targetBalance = targetBalance;
-        this.currentBalance = currentBalance;
-        this.currentEVCModeKey = currentEVCModeKey;
-    }
+	public ClusterComputeResourceSummary() {
+	}
 
+	public ClusterComputeResourceSummary(
+			java.lang.String dynamicType,
+			com.vmware.vim25.DynamicProperty[] dynamicProperty,
+			int totalCpu,
+			long totalMemory,
+			short numCpuCores,
+			short numCpuThreads,
+			int effectiveCpu,
+			long effectiveMemory,
+			int numHosts,
+			int numEffectiveHosts,
+			com.vmware.vim25.ManagedEntityStatus overallStatus,
+			int currentFailoverLevel,
+			com.vmware.vim25.ClusterDasAdmissionControlInfo admissionControlInfo,
+			int numVmotions, java.lang.Integer targetBalance,
+			java.lang.Integer currentBalance, java.lang.String currentEVCModeKey) {
+		super(dynamicType, dynamicProperty, totalCpu, totalMemory, numCpuCores,
+				numCpuThreads, effectiveCpu, effectiveMemory, numHosts,
+				numEffectiveHosts, overallStatus);
+		this.currentFailoverLevel = currentFailoverLevel;
+		this.admissionControlInfo = admissionControlInfo;
+		this.numVmotions = numVmotions;
+		this.targetBalance = targetBalance;
+		this.currentBalance = currentBalance;
+		this.currentEVCModeKey = currentEVCModeKey;
+	}
 
-    /**
-     * Gets the currentFailoverLevel value for this ClusterComputeResourceSummary.
-     * 
-     * @return currentFailoverLevel
-     */
-    public int getCurrentFailoverLevel() {
-        return currentFailoverLevel;
-    }
+	/**
+	 * Gets the currentFailoverLevel value for this
+	 * ClusterComputeResourceSummary.
+	 * 
+	 * @return currentFailoverLevel
+	 */
+	public int getCurrentFailoverLevel() {
+		return currentFailoverLevel;
+	}
 
+	/**
+	 * Sets the currentFailoverLevel value for this
+	 * ClusterComputeResourceSummary.
+	 * 
+	 * @param currentFailoverLevel
+	 */
+	public void setCurrentFailoverLevel(int currentFailoverLevel) {
+		this.currentFailoverLevel = currentFailoverLevel;
+	}
 
-    /**
-     * Sets the currentFailoverLevel value for this ClusterComputeResourceSummary.
-     * 
-     * @param currentFailoverLevel
-     */
-    public void setCurrentFailoverLevel(int currentFailoverLevel) {
-        this.currentFailoverLevel = currentFailoverLevel;
-    }
+	/**
+	 * Gets the admissionControlInfo value for this
+	 * ClusterComputeResourceSummary.
+	 * 
+	 * @return admissionControlInfo
+	 */
+	public com.vmware.vim25.ClusterDasAdmissionControlInfo getAdmissionControlInfo() {
+		return admissionControlInfo;
+	}
 
+	/**
+	 * Sets the admissionControlInfo value for this
+	 * ClusterComputeResourceSummary.
+	 * 
+	 * @param admissionControlInfo
+	 */
+	public void setAdmissionControlInfo(
+			com.vmware.vim25.ClusterDasAdmissionControlInfo admissionControlInfo) {
+		this.admissionControlInfo = admissionControlInfo;
+	}
 
-    /**
-     * Gets the admissionControlInfo value for this ClusterComputeResourceSummary.
-     * 
-     * @return admissionControlInfo
-     */
-    public com.vmware.vim25.ClusterDasAdmissionControlInfo getAdmissionControlInfo() {
-        return admissionControlInfo;
-    }
+	/**
+	 * Gets the numVmotions value for this ClusterComputeResourceSummary.
+	 * 
+	 * @return numVmotions
+	 */
+	public int getNumVmotions() {
+		return numVmotions;
+	}
 
+	/**
+	 * Sets the numVmotions value for this ClusterComputeResourceSummary.
+	 * 
+	 * @param numVmotions
+	 */
+	public void setNumVmotions(int numVmotions) {
+		this.numVmotions = numVmotions;
+	}
 
-    /**
-     * Sets the admissionControlInfo value for this ClusterComputeResourceSummary.
-     * 
-     * @param admissionControlInfo
-     */
-    public void setAdmissionControlInfo(com.vmware.vim25.ClusterDasAdmissionControlInfo admissionControlInfo) {
-        this.admissionControlInfo = admissionControlInfo;
-    }
+	/**
+	 * Gets the targetBalance value for this ClusterComputeResourceSummary.
+	 * 
+	 * @return targetBalance
+	 */
+	public java.lang.Integer getTargetBalance() {
+		return targetBalance;
+	}
 
+	/**
+	 * Sets the targetBalance value for this ClusterComputeResourceSummary.
+	 * 
+	 * @param targetBalance
+	 */
+	public void setTargetBalance(java.lang.Integer targetBalance) {
+		this.targetBalance = targetBalance;
+	}
 
-    /**
-     * Gets the numVmotions value for this ClusterComputeResourceSummary.
-     * 
-     * @return numVmotions
-     */
-    public int getNumVmotions() {
-        return numVmotions;
-    }
+	/**
+	 * Gets the currentBalance value for this ClusterComputeResourceSummary.
+	 * 
+	 * @return currentBalance
+	 */
+	public java.lang.Integer getCurrentBalance() {
+		return currentBalance;
+	}
 
+	/**
+	 * Sets the currentBalance value for this ClusterComputeResourceSummary.
+	 * 
+	 * @param currentBalance
+	 */
+	public void setCurrentBalance(java.lang.Integer currentBalance) {
+		this.currentBalance = currentBalance;
+	}
 
-    /**
-     * Sets the numVmotions value for this ClusterComputeResourceSummary.
-     * 
-     * @param numVmotions
-     */
-    public void setNumVmotions(int numVmotions) {
-        this.numVmotions = numVmotions;
-    }
+	/**
+	 * Gets the currentEVCModeKey value for this ClusterComputeResourceSummary.
+	 * 
+	 * @return currentEVCModeKey
+	 */
+	public java.lang.String getCurrentEVCModeKey() {
+		return currentEVCModeKey;
+	}
 
+	/**
+	 * Sets the currentEVCModeKey value for this ClusterComputeResourceSummary.
+	 * 
+	 * @param currentEVCModeKey
+	 */
+	public void setCurrentEVCModeKey(java.lang.String currentEVCModeKey) {
+		this.currentEVCModeKey = currentEVCModeKey;
+	}
 
-    /**
-     * Gets the targetBalance value for this ClusterComputeResourceSummary.
-     * 
-     * @return targetBalance
-     */
-    public java.lang.Integer getTargetBalance() {
-        return targetBalance;
-    }
+	private java.lang.Object __equalsCalc = null;
 
+	@Override
+	public synchronized boolean equals(java.lang.Object obj) {
+		if (!(obj instanceof ClusterComputeResourceSummary)) {
+			return false;
+		}
+		ClusterComputeResourceSummary other = (ClusterComputeResourceSummary) obj;
+		if (obj == null) {
+			return false;
+		}
+		if (this == obj) {
+			return true;
+		}
+		if (__equalsCalc != null) {
+			return (__equalsCalc == obj);
+		}
+		__equalsCalc = obj;
+		boolean _equals;
+		_equals = super.equals(obj)
+				&& this.currentFailoverLevel == other.getCurrentFailoverLevel()
+				&& ((this.admissionControlInfo == null && other
+						.getAdmissionControlInfo() == null) || (this.admissionControlInfo != null && this.admissionControlInfo
+						.equals(other.getAdmissionControlInfo())))
+				&& this.numVmotions == other.getNumVmotions()
+				&& ((this.targetBalance == null && other.getTargetBalance() == null) || (this.targetBalance != null && this.targetBalance
+						.equals(other.getTargetBalance())))
+				&& ((this.currentBalance == null && other.getCurrentBalance() == null) || (this.currentBalance != null && this.currentBalance
+						.equals(other.getCurrentBalance())))
+				&& ((this.currentEVCModeKey == null && other
+						.getCurrentEVCModeKey() == null) || (this.currentEVCModeKey != null && this.currentEVCModeKey
+						.equals(other.getCurrentEVCModeKey())));
+		__equalsCalc = null;
+		return _equals;
+	}
 
-    /**
-     * Sets the targetBalance value for this ClusterComputeResourceSummary.
-     * 
-     * @param targetBalance
-     */
-    public void setTargetBalance(java.lang.Integer targetBalance) {
-        this.targetBalance = targetBalance;
-    }
+	private boolean __hashCodeCalc = false;
 
+	@Override
+	public synchronized int hashCode() {
+		if (__hashCodeCalc) {
+			return 0;
+		}
+		__hashCodeCalc = true;
+		int _hashCode = super.hashCode();
+		_hashCode += getCurrentFailoverLevel();
+		if (getAdmissionControlInfo() != null) {
+			_hashCode += getAdmissionControlInfo().hashCode();
+		}
+		_hashCode += getNumVmotions();
+		if (getTargetBalance() != null) {
+			_hashCode += getTargetBalance().hashCode();
+		}
+		if (getCurrentBalance() != null) {
+			_hashCode += getCurrentBalance().hashCode();
+		}
+		if (getCurrentEVCModeKey() != null) {
+			_hashCode += getCurrentEVCModeKey().hashCode();
+		}
+		__hashCodeCalc = false;
+		return _hashCode;
+	}
 
-    /**
-     * Gets the currentBalance value for this ClusterComputeResourceSummary.
-     * 
-     * @return currentBalance
-     */
-    public java.lang.Integer getCurrentBalance() {
-        return currentBalance;
-    }
+	// Type metadata
+	private static org.apache.axis.description.TypeDesc typeDesc = new org.apache.axis.description.TypeDesc(
+			ClusterComputeResourceSummary.class, true);
 
+	static {
+		typeDesc.setXmlType(new javax.xml.namespace.QName("urn:vim25",
+				"ClusterComputeResourceSummary"));
+		org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+		elemField.setFieldName("currentFailoverLevel");
+		elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25",
+				"currentFailoverLevel"));
+		elemField.setXmlType(new javax.xml.namespace.QName(
+				"http://www.w3.org/2001/XMLSchema", "int"));
+		elemField.setNillable(false);
+		typeDesc.addFieldDesc(elemField);
+		elemField = new org.apache.axis.description.ElementDesc();
+		elemField.setFieldName("admissionControlInfo");
+		elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25",
+				"admissionControlInfo"));
+		elemField.setXmlType(new javax.xml.namespace.QName("urn:vim25",
+				"ClusterDasAdmissionControlInfo"));
+		elemField.setMinOccurs(0);
+		elemField.setNillable(false);
+		typeDesc.addFieldDesc(elemField);
+		elemField = new org.apache.axis.description.ElementDesc();
+		elemField.setFieldName("numVmotions");
+		elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25",
+				"numVmotions"));
+		elemField.setXmlType(new javax.xml.namespace.QName(
+				"http://www.w3.org/2001/XMLSchema", "int"));
+		elemField.setNillable(false);
+		typeDesc.addFieldDesc(elemField);
+		elemField = new org.apache.axis.description.ElementDesc();
+		elemField.setFieldName("targetBalance");
+		elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25",
+				"targetBalance"));
+		elemField.setXmlType(new javax.xml.namespace.QName(
+				"http://www.w3.org/2001/XMLSchema", "int"));
+		elemField.setMinOccurs(0);
+		elemField.setNillable(false);
+		typeDesc.addFieldDesc(elemField);
+		elemField = new org.apache.axis.description.ElementDesc();
+		elemField.setFieldName("currentBalance");
+		elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25",
+				"currentBalance"));
+		elemField.setXmlType(new javax.xml.namespace.QName(
+				"http://www.w3.org/2001/XMLSchema", "int"));
+		elemField.setMinOccurs(0);
+		elemField.setNillable(false);
+		typeDesc.addFieldDesc(elemField);
+		elemField = new org.apache.axis.description.ElementDesc();
+		elemField.setFieldName("currentEVCModeKey");
+		elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25",
+				"currentEVCModeKey"));
+		elemField.setXmlType(new javax.xml.namespace.QName(
+				"http://www.w3.org/2001/XMLSchema", "string"));
+		elemField.setMinOccurs(0);
+		elemField.setNillable(false);
+		typeDesc.addFieldDesc(elemField);
+	}
 
-    /**
-     * Sets the currentBalance value for this ClusterComputeResourceSummary.
-     * 
-     * @param currentBalance
-     */
-    public void setCurrentBalance(java.lang.Integer currentBalance) {
-        this.currentBalance = currentBalance;
-    }
+	/**
+	 * Return type metadata object
+	 */
+	public static org.apache.axis.description.TypeDesc getTypeDesc() {
+		return typeDesc;
+	}
 
+	/**
+	 * Get Custom Serializer
+	 */
+	public static org.apache.axis.encoding.Serializer getSerializer(
+			java.lang.String mechType, java.lang.Class _javaType,
+			javax.xml.namespace.QName _xmlType) {
+		return new org.apache.axis.encoding.ser.BeanSerializer(_javaType,
+				_xmlType, typeDesc);
+	}
 
-    /**
-     * Gets the currentEVCModeKey value for this ClusterComputeResourceSummary.
-     * 
-     * @return currentEVCModeKey
-     */
-    public java.lang.String getCurrentEVCModeKey() {
-        return currentEVCModeKey;
-    }
-
-
-    /**
-     * Sets the currentEVCModeKey value for this ClusterComputeResourceSummary.
-     * 
-     * @param currentEVCModeKey
-     */
-    public void setCurrentEVCModeKey(java.lang.String currentEVCModeKey) {
-        this.currentEVCModeKey = currentEVCModeKey;
-    }
-
-    private java.lang.Object __equalsCalc = null;
-    public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof ClusterComputeResourceSummary)) return false;
-        ClusterComputeResourceSummary other = (ClusterComputeResourceSummary) obj;
-        if (obj == null) return false;
-        if (this == obj) return true;
-        if (__equalsCalc != null) {
-            return (__equalsCalc == obj);
-        }
-        __equalsCalc = obj;
-        boolean _equals;
-        _equals = super.equals(obj) && 
-            this.currentFailoverLevel == other.getCurrentFailoverLevel() &&
-            ((this.admissionControlInfo==null && other.getAdmissionControlInfo()==null) || 
-             (this.admissionControlInfo!=null &&
-              this.admissionControlInfo.equals(other.getAdmissionControlInfo()))) &&
-            this.numVmotions == other.getNumVmotions() &&
-            ((this.targetBalance==null && other.getTargetBalance()==null) || 
-             (this.targetBalance!=null &&
-              this.targetBalance.equals(other.getTargetBalance()))) &&
-            ((this.currentBalance==null && other.getCurrentBalance()==null) || 
-             (this.currentBalance!=null &&
-              this.currentBalance.equals(other.getCurrentBalance()))) &&
-            ((this.currentEVCModeKey==null && other.getCurrentEVCModeKey()==null) || 
-             (this.currentEVCModeKey!=null &&
-              this.currentEVCModeKey.equals(other.getCurrentEVCModeKey())));
-        __equalsCalc = null;
-        return _equals;
-    }
-
-    private boolean __hashCodeCalc = false;
-    public synchronized int hashCode() {
-        if (__hashCodeCalc) {
-            return 0;
-        }
-        __hashCodeCalc = true;
-        int _hashCode = super.hashCode();
-        _hashCode += getCurrentFailoverLevel();
-        if (getAdmissionControlInfo() != null) {
-            _hashCode += getAdmissionControlInfo().hashCode();
-        }
-        _hashCode += getNumVmotions();
-        if (getTargetBalance() != null) {
-            _hashCode += getTargetBalance().hashCode();
-        }
-        if (getCurrentBalance() != null) {
-            _hashCode += getCurrentBalance().hashCode();
-        }
-        if (getCurrentEVCModeKey() != null) {
-            _hashCode += getCurrentEVCModeKey().hashCode();
-        }
-        __hashCodeCalc = false;
-        return _hashCode;
-    }
-
-    // Type metadata
-    private static org.apache.axis.description.TypeDesc typeDesc =
-        new org.apache.axis.description.TypeDesc(ClusterComputeResourceSummary.class, true);
-
-    static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("urn:vim25", "ClusterComputeResourceSummary"));
-        org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("currentFailoverLevel");
-        elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25", "currentFailoverLevel"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
-        elemField.setNillable(false);
-        typeDesc.addFieldDesc(elemField);
-        elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("admissionControlInfo");
-        elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25", "admissionControlInfo"));
-        elemField.setXmlType(new javax.xml.namespace.QName("urn:vim25", "ClusterDasAdmissionControlInfo"));
-        elemField.setMinOccurs(0);
-        elemField.setNillable(false);
-        typeDesc.addFieldDesc(elemField);
-        elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("numVmotions");
-        elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25", "numVmotions"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
-        elemField.setNillable(false);
-        typeDesc.addFieldDesc(elemField);
-        elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("targetBalance");
-        elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25", "targetBalance"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
-        elemField.setMinOccurs(0);
-        elemField.setNillable(false);
-        typeDesc.addFieldDesc(elemField);
-        elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("currentBalance");
-        elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25", "currentBalance"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
-        elemField.setMinOccurs(0);
-        elemField.setNillable(false);
-        typeDesc.addFieldDesc(elemField);
-        elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("currentEVCModeKey");
-        elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25", "currentEVCModeKey"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
-        elemField.setMinOccurs(0);
-        elemField.setNillable(false);
-        typeDesc.addFieldDesc(elemField);
-    }
-
-    /**
-     * Return type metadata object
-     */
-    public static org.apache.axis.description.TypeDesc getTypeDesc() {
-        return typeDesc;
-    }
-
-    /**
-     * Get Custom Serializer
-     */
-    public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanSerializer(
-            _javaType, _xmlType, typeDesc);
-    }
-
-    /**
-     * Get Custom Deserializer
-     */
-    public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanDeserializer(
-            _javaType, _xmlType, typeDesc);
-    }
+	/**
+	 * Get Custom Deserializer
+	 */
+	public static org.apache.axis.encoding.Deserializer getDeserializer(
+			java.lang.String mechType, java.lang.Class _javaType,
+			javax.xml.namespace.QName _xmlType) {
+		return new org.apache.axis.encoding.ser.BeanDeserializer(_javaType,
+				_xmlType, typeDesc);
+	}
 
 }

@@ -1,7 +1,12 @@
 package com.vmware.apputils;
 
 public class ArgumentHandlingException extends Exception {
-   public ArgumentHandlingException(String msg) {
-      super(msg);
-   }
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public ArgumentHandlingException(String msg) {
+		super(msg);
+	}
 }

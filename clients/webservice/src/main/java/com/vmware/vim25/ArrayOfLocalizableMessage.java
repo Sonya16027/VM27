@@ -7,131 +7,142 @@
 
 package com.vmware.vim25;
 
-public class ArrayOfLocalizableMessage  implements java.io.Serializable {
-    private com.vmware.vim25.LocalizableMessage[] localizableMessage;
+public class ArrayOfLocalizableMessage implements java.io.Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private com.vmware.vim25.LocalizableMessage[] localizableMessage;
 
-    public ArrayOfLocalizableMessage() {
-    }
+	public ArrayOfLocalizableMessage() {
+	}
 
-    public ArrayOfLocalizableMessage(
-           com.vmware.vim25.LocalizableMessage[] localizableMessage) {
-           this.localizableMessage = localizableMessage;
-    }
+	public ArrayOfLocalizableMessage(
+			com.vmware.vim25.LocalizableMessage[] localizableMessage) {
+		this.localizableMessage = localizableMessage;
+	}
 
+	/**
+	 * Gets the localizableMessage value for this ArrayOfLocalizableMessage.
+	 * 
+	 * @return localizableMessage
+	 */
+	public com.vmware.vim25.LocalizableMessage[] getLocalizableMessage() {
+		return localizableMessage;
+	}
 
-    /**
-     * Gets the localizableMessage value for this ArrayOfLocalizableMessage.
-     * 
-     * @return localizableMessage
-     */
-    public com.vmware.vim25.LocalizableMessage[] getLocalizableMessage() {
-        return localizableMessage;
-    }
+	/**
+	 * Sets the localizableMessage value for this ArrayOfLocalizableMessage.
+	 * 
+	 * @param localizableMessage
+	 */
+	public void setLocalizableMessage(
+			com.vmware.vim25.LocalizableMessage[] localizableMessage) {
+		this.localizableMessage = localizableMessage;
+	}
 
+	public com.vmware.vim25.LocalizableMessage getLocalizableMessage(int i) {
+		return this.localizableMessage[i];
+	}
 
-    /**
-     * Sets the localizableMessage value for this ArrayOfLocalizableMessage.
-     * 
-     * @param localizableMessage
-     */
-    public void setLocalizableMessage(com.vmware.vim25.LocalizableMessage[] localizableMessage) {
-        this.localizableMessage = localizableMessage;
-    }
+	public void setLocalizableMessage(int i,
+			com.vmware.vim25.LocalizableMessage _value) {
+		this.localizableMessage[i] = _value;
+	}
 
-    public com.vmware.vim25.LocalizableMessage getLocalizableMessage(int i) {
-        return this.localizableMessage[i];
-    }
+	private java.lang.Object __equalsCalc = null;
 
-    public void setLocalizableMessage(int i, com.vmware.vim25.LocalizableMessage _value) {
-        this.localizableMessage[i] = _value;
-    }
+	@Override
+	public synchronized boolean equals(java.lang.Object obj) {
+		if (!(obj instanceof ArrayOfLocalizableMessage)) {
+			return false;
+		}
+		ArrayOfLocalizableMessage other = (ArrayOfLocalizableMessage) obj;
+		if (obj == null) {
+			return false;
+		}
+		if (this == obj) {
+			return true;
+		}
+		if (__equalsCalc != null) {
+			return (__equalsCalc == obj);
+		}
+		__equalsCalc = obj;
+		boolean _equals;
+		_equals = true && ((this.localizableMessage == null && other
+				.getLocalizableMessage() == null) || (this.localizableMessage != null && java.util.Arrays
+				.equals(this.localizableMessage, other.getLocalizableMessage())));
+		__equalsCalc = null;
+		return _equals;
+	}
 
-    private java.lang.Object __equalsCalc = null;
-    public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof ArrayOfLocalizableMessage)) return false;
-        ArrayOfLocalizableMessage other = (ArrayOfLocalizableMessage) obj;
-        if (obj == null) return false;
-        if (this == obj) return true;
-        if (__equalsCalc != null) {
-            return (__equalsCalc == obj);
-        }
-        __equalsCalc = obj;
-        boolean _equals;
-        _equals = true && 
-            ((this.localizableMessage==null && other.getLocalizableMessage()==null) || 
-             (this.localizableMessage!=null &&
-              java.util.Arrays.equals(this.localizableMessage, other.getLocalizableMessage())));
-        __equalsCalc = null;
-        return _equals;
-    }
+	private boolean __hashCodeCalc = false;
 
-    private boolean __hashCodeCalc = false;
-    public synchronized int hashCode() {
-        if (__hashCodeCalc) {
-            return 0;
-        }
-        __hashCodeCalc = true;
-        int _hashCode = 1;
-        if (getLocalizableMessage() != null) {
-            for (int i=0;
-                 i<java.lang.reflect.Array.getLength(getLocalizableMessage());
-                 i++) {
-                java.lang.Object obj = java.lang.reflect.Array.get(getLocalizableMessage(), i);
-                if (obj != null &&
-                    !obj.getClass().isArray()) {
-                    _hashCode += obj.hashCode();
-                }
-            }
-        }
-        __hashCodeCalc = false;
-        return _hashCode;
-    }
+	@Override
+	public synchronized int hashCode() {
+		if (__hashCodeCalc) {
+			return 0;
+		}
+		__hashCodeCalc = true;
+		int _hashCode = 1;
+		if (getLocalizableMessage() != null) {
+			for (int i = 0; i < java.lang.reflect.Array
+					.getLength(getLocalizableMessage()); i++) {
+				java.lang.Object obj = java.lang.reflect.Array.get(
+						getLocalizableMessage(), i);
+				if (obj != null && !obj.getClass().isArray()) {
+					_hashCode += obj.hashCode();
+				}
+			}
+		}
+		__hashCodeCalc = false;
+		return _hashCode;
+	}
 
-    // Type metadata
-    private static org.apache.axis.description.TypeDesc typeDesc =
-        new org.apache.axis.description.TypeDesc(ArrayOfLocalizableMessage.class, true);
+	// Type metadata
+	private static org.apache.axis.description.TypeDesc typeDesc = new org.apache.axis.description.TypeDesc(
+			ArrayOfLocalizableMessage.class, true);
 
-    static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("urn:vim25", "ArrayOfLocalizableMessage"));
-        org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("localizableMessage");
-        elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25", "LocalizableMessage"));
-        elemField.setXmlType(new javax.xml.namespace.QName("urn:vim25", "LocalizableMessage"));
-        elemField.setMinOccurs(0);
-        elemField.setNillable(false);
-        elemField.setMaxOccursUnbounded(true);
-        typeDesc.addFieldDesc(elemField);
-    }
+	static {
+		typeDesc.setXmlType(new javax.xml.namespace.QName("urn:vim25",
+				"ArrayOfLocalizableMessage"));
+		org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+		elemField.setFieldName("localizableMessage");
+		elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25",
+				"LocalizableMessage"));
+		elemField.setXmlType(new javax.xml.namespace.QName("urn:vim25",
+				"LocalizableMessage"));
+		elemField.setMinOccurs(0);
+		elemField.setNillable(false);
+		elemField.setMaxOccursUnbounded(true);
+		typeDesc.addFieldDesc(elemField);
+	}
 
-    /**
-     * Return type metadata object
-     */
-    public static org.apache.axis.description.TypeDesc getTypeDesc() {
-        return typeDesc;
-    }
+	/**
+	 * Return type metadata object
+	 */
+	public static org.apache.axis.description.TypeDesc getTypeDesc() {
+		return typeDesc;
+	}
 
-    /**
-     * Get Custom Serializer
-     */
-    public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanSerializer(
-            _javaType, _xmlType, typeDesc);
-    }
+	/**
+	 * Get Custom Serializer
+	 */
+	public static org.apache.axis.encoding.Serializer getSerializer(
+			java.lang.String mechType, java.lang.Class _javaType,
+			javax.xml.namespace.QName _xmlType) {
+		return new org.apache.axis.encoding.ser.BeanSerializer(_javaType,
+				_xmlType, typeDesc);
+	}
 
-    /**
-     * Get Custom Deserializer
-     */
-    public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanDeserializer(
-            _javaType, _xmlType, typeDesc);
-    }
+	/**
+	 * Get Custom Deserializer
+	 */
+	public static org.apache.axis.encoding.Deserializer getDeserializer(
+			java.lang.String mechType, java.lang.Class _javaType,
+			javax.xml.namespace.QName _xmlType) {
+		return new org.apache.axis.encoding.ser.BeanDeserializer(_javaType,
+				_xmlType, typeDesc);
+	}
 
 }

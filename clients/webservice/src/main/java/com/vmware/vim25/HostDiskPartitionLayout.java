@@ -7,172 +7,181 @@
 
 package com.vmware.vim25;
 
-public class HostDiskPartitionLayout  extends com.vmware.vim25.DynamicData  implements java.io.Serializable {
-    private com.vmware.vim25.HostDiskDimensionsLba total;
+public class HostDiskPartitionLayout extends com.vmware.vim25.DynamicData
+		implements java.io.Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
-    private com.vmware.vim25.HostDiskPartitionBlockRange[] partition;
+	private com.vmware.vim25.HostDiskDimensionsLba total;
 
-    public HostDiskPartitionLayout() {
-    }
+	private com.vmware.vim25.HostDiskPartitionBlockRange[] partition;
 
-    public HostDiskPartitionLayout(
-           java.lang.String dynamicType,
-           com.vmware.vim25.DynamicProperty[] dynamicProperty,
-           com.vmware.vim25.HostDiskDimensionsLba total,
-           com.vmware.vim25.HostDiskPartitionBlockRange[] partition) {
-        super(
-            dynamicType,
-            dynamicProperty);
-        this.total = total;
-        this.partition = partition;
-    }
+	public HostDiskPartitionLayout() {
+	}
 
+	public HostDiskPartitionLayout(java.lang.String dynamicType,
+			com.vmware.vim25.DynamicProperty[] dynamicProperty,
+			com.vmware.vim25.HostDiskDimensionsLba total,
+			com.vmware.vim25.HostDiskPartitionBlockRange[] partition) {
+		super(dynamicType, dynamicProperty);
+		this.total = total;
+		this.partition = partition;
+	}
 
-    /**
-     * Gets the total value for this HostDiskPartitionLayout.
-     * 
-     * @return total
-     */
-    public com.vmware.vim25.HostDiskDimensionsLba getTotal() {
-        return total;
-    }
+	/**
+	 * Gets the total value for this HostDiskPartitionLayout.
+	 * 
+	 * @return total
+	 */
+	public com.vmware.vim25.HostDiskDimensionsLba getTotal() {
+		return total;
+	}
 
+	/**
+	 * Sets the total value for this HostDiskPartitionLayout.
+	 * 
+	 * @param total
+	 */
+	public void setTotal(com.vmware.vim25.HostDiskDimensionsLba total) {
+		this.total = total;
+	}
 
-    /**
-     * Sets the total value for this HostDiskPartitionLayout.
-     * 
-     * @param total
-     */
-    public void setTotal(com.vmware.vim25.HostDiskDimensionsLba total) {
-        this.total = total;
-    }
+	/**
+	 * Gets the partition value for this HostDiskPartitionLayout.
+	 * 
+	 * @return partition
+	 */
+	public com.vmware.vim25.HostDiskPartitionBlockRange[] getPartition() {
+		return partition;
+	}
 
+	/**
+	 * Sets the partition value for this HostDiskPartitionLayout.
+	 * 
+	 * @param partition
+	 */
+	public void setPartition(
+			com.vmware.vim25.HostDiskPartitionBlockRange[] partition) {
+		this.partition = partition;
+	}
 
-    /**
-     * Gets the partition value for this HostDiskPartitionLayout.
-     * 
-     * @return partition
-     */
-    public com.vmware.vim25.HostDiskPartitionBlockRange[] getPartition() {
-        return partition;
-    }
+	public com.vmware.vim25.HostDiskPartitionBlockRange getPartition(int i) {
+		return this.partition[i];
+	}
 
+	public void setPartition(int i,
+			com.vmware.vim25.HostDiskPartitionBlockRange _value) {
+		this.partition[i] = _value;
+	}
 
-    /**
-     * Sets the partition value for this HostDiskPartitionLayout.
-     * 
-     * @param partition
-     */
-    public void setPartition(com.vmware.vim25.HostDiskPartitionBlockRange[] partition) {
-        this.partition = partition;
-    }
+	private java.lang.Object __equalsCalc = null;
 
-    public com.vmware.vim25.HostDiskPartitionBlockRange getPartition(int i) {
-        return this.partition[i];
-    }
+	@Override
+	public synchronized boolean equals(java.lang.Object obj) {
+		if (!(obj instanceof HostDiskPartitionLayout)) {
+			return false;
+		}
+		HostDiskPartitionLayout other = (HostDiskPartitionLayout) obj;
+		if (obj == null) {
+			return false;
+		}
+		if (this == obj) {
+			return true;
+		}
+		if (__equalsCalc != null) {
+			return (__equalsCalc == obj);
+		}
+		__equalsCalc = obj;
+		boolean _equals;
+		_equals = super.equals(obj)
+				&& ((this.total == null && other.getTotal() == null) || (this.total != null && this.total
+						.equals(other.getTotal())))
+				&& ((this.partition == null && other.getPartition() == null) || (this.partition != null && java.util.Arrays
+						.equals(this.partition, other.getPartition())));
+		__equalsCalc = null;
+		return _equals;
+	}
 
-    public void setPartition(int i, com.vmware.vim25.HostDiskPartitionBlockRange _value) {
-        this.partition[i] = _value;
-    }
+	private boolean __hashCodeCalc = false;
 
-    private java.lang.Object __equalsCalc = null;
-    public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof HostDiskPartitionLayout)) return false;
-        HostDiskPartitionLayout other = (HostDiskPartitionLayout) obj;
-        if (obj == null) return false;
-        if (this == obj) return true;
-        if (__equalsCalc != null) {
-            return (__equalsCalc == obj);
-        }
-        __equalsCalc = obj;
-        boolean _equals;
-        _equals = super.equals(obj) && 
-            ((this.total==null && other.getTotal()==null) || 
-             (this.total!=null &&
-              this.total.equals(other.getTotal()))) &&
-            ((this.partition==null && other.getPartition()==null) || 
-             (this.partition!=null &&
-              java.util.Arrays.equals(this.partition, other.getPartition())));
-        __equalsCalc = null;
-        return _equals;
-    }
+	@Override
+	public synchronized int hashCode() {
+		if (__hashCodeCalc) {
+			return 0;
+		}
+		__hashCodeCalc = true;
+		int _hashCode = super.hashCode();
+		if (getTotal() != null) {
+			_hashCode += getTotal().hashCode();
+		}
+		if (getPartition() != null) {
+			for (int i = 0; i < java.lang.reflect.Array
+					.getLength(getPartition()); i++) {
+				java.lang.Object obj = java.lang.reflect.Array.get(
+						getPartition(), i);
+				if (obj != null && !obj.getClass().isArray()) {
+					_hashCode += obj.hashCode();
+				}
+			}
+		}
+		__hashCodeCalc = false;
+		return _hashCode;
+	}
 
-    private boolean __hashCodeCalc = false;
-    public synchronized int hashCode() {
-        if (__hashCodeCalc) {
-            return 0;
-        }
-        __hashCodeCalc = true;
-        int _hashCode = super.hashCode();
-        if (getTotal() != null) {
-            _hashCode += getTotal().hashCode();
-        }
-        if (getPartition() != null) {
-            for (int i=0;
-                 i<java.lang.reflect.Array.getLength(getPartition());
-                 i++) {
-                java.lang.Object obj = java.lang.reflect.Array.get(getPartition(), i);
-                if (obj != null &&
-                    !obj.getClass().isArray()) {
-                    _hashCode += obj.hashCode();
-                }
-            }
-        }
-        __hashCodeCalc = false;
-        return _hashCode;
-    }
+	// Type metadata
+	private static org.apache.axis.description.TypeDesc typeDesc = new org.apache.axis.description.TypeDesc(
+			HostDiskPartitionLayout.class, true);
 
-    // Type metadata
-    private static org.apache.axis.description.TypeDesc typeDesc =
-        new org.apache.axis.description.TypeDesc(HostDiskPartitionLayout.class, true);
+	static {
+		typeDesc.setXmlType(new javax.xml.namespace.QName("urn:vim25",
+				"HostDiskPartitionLayout"));
+		org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+		elemField.setFieldName("total");
+		elemField
+				.setXmlName(new javax.xml.namespace.QName("urn:vim25", "total"));
+		elemField.setXmlType(new javax.xml.namespace.QName("urn:vim25",
+				"HostDiskDimensionsLba"));
+		elemField.setMinOccurs(0);
+		elemField.setNillable(false);
+		typeDesc.addFieldDesc(elemField);
+		elemField = new org.apache.axis.description.ElementDesc();
+		elemField.setFieldName("partition");
+		elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25",
+				"partition"));
+		elemField.setXmlType(new javax.xml.namespace.QName("urn:vim25",
+				"HostDiskPartitionBlockRange"));
+		elemField.setNillable(false);
+		elemField.setMaxOccursUnbounded(true);
+		typeDesc.addFieldDesc(elemField);
+	}
 
-    static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("urn:vim25", "HostDiskPartitionLayout"));
-        org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("total");
-        elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25", "total"));
-        elemField.setXmlType(new javax.xml.namespace.QName("urn:vim25", "HostDiskDimensionsLba"));
-        elemField.setMinOccurs(0);
-        elemField.setNillable(false);
-        typeDesc.addFieldDesc(elemField);
-        elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("partition");
-        elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25", "partition"));
-        elemField.setXmlType(new javax.xml.namespace.QName("urn:vim25", "HostDiskPartitionBlockRange"));
-        elemField.setNillable(false);
-        elemField.setMaxOccursUnbounded(true);
-        typeDesc.addFieldDesc(elemField);
-    }
+	/**
+	 * Return type metadata object
+	 */
+	public static org.apache.axis.description.TypeDesc getTypeDesc() {
+		return typeDesc;
+	}
 
-    /**
-     * Return type metadata object
-     */
-    public static org.apache.axis.description.TypeDesc getTypeDesc() {
-        return typeDesc;
-    }
+	/**
+	 * Get Custom Serializer
+	 */
+	public static org.apache.axis.encoding.Serializer getSerializer(
+			java.lang.String mechType, java.lang.Class _javaType,
+			javax.xml.namespace.QName _xmlType) {
+		return new org.apache.axis.encoding.ser.BeanSerializer(_javaType,
+				_xmlType, typeDesc);
+	}
 
-    /**
-     * Get Custom Serializer
-     */
-    public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanSerializer(
-            _javaType, _xmlType, typeDesc);
-    }
-
-    /**
-     * Get Custom Deserializer
-     */
-    public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanDeserializer(
-            _javaType, _xmlType, typeDesc);
-    }
+	/**
+	 * Get Custom Deserializer
+	 */
+	public static org.apache.axis.encoding.Deserializer getDeserializer(
+			java.lang.String mechType, java.lang.Class _javaType,
+			javax.xml.namespace.QName _xmlType) {
+		return new org.apache.axis.encoding.ser.BeanDeserializer(_javaType,
+				_xmlType, typeDesc);
+	}
 
 }

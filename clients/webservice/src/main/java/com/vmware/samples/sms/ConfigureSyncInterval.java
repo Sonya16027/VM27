@@ -1,63 +1,62 @@
 package com.vmware.samples.sms;
-import java.util.*;
 
-import com.vmware.vim25.*;
-import com.vmware.apputils.*;
-
-import com.vmware.vim.sms.*;
+import com.vmware.apputils.Log;
+import com.vmware.apputils.OptionSpec;
+import com.vmware.apputils.SmAppUtil;
+import com.vmware.apputils.SmServiceConnection;
+import com.vmware.vim.sms.SmPortType;
 
 /**
-*<pre>
-*This sample implements a function that
-*
-*<ul>
-*<li> Sets the frequency with which the service cache is automatically synced with
-provider information using SMS API - ConfigureSyncInterval 
-*</ul>
-*
-*<b>Command: To update the sync interval </b> 
-*run.bat com.vmware.samples.sms.ConfigureSyncInterval --url <webserviceurl> 
-*--username <username> --password <password> --syncInterval <syncInterval> --ignorecert
-* 
-*Sample Command Line
-*run.bat com.vmware.samples.sms.ConfigureSyncInterval --url http://localhost/sdk --username administrator --password password* 
-*--ignorecert --syncInterval 300 
-* 
-*</pre>
-*/
+ *<pre>
+ * his sample implements a function that
+ * 
+ * ul&gt;
+ * li&gt; Sets the frequency with which the service cache is automatically synced with
+ * provider information using SMS API - ConfigureSyncInterval 
+ * /ul&gt;
+ * 
+ * b&gt;Command: To update the sync interval &lt;/b&gt; 
+ * un.bat com.vmware.samples.sms.ConfigureSyncInterval --url &lt;webserviceurl&gt; 
+ * -username &lt;username&gt; --password &lt;password&gt; --syncInterval &lt;syncInterval&gt; --ignorecert
+ * 
+ * ample Command Line
+ * un.bat com.vmware.samples.sms.ConfigureSyncInterval --url http://localhost/sdk --username administrator --password password* 
+ * -ignorecert --syncInterval 300
+ * 
+ *</pre>
+ */
 
 public class ConfigureSyncInterval {
-   private static SmPortType service;
-   private static com.vmware.vim.sms.ManagedObjectReference si;
+	private static SmPortType service;
+	private static com.vmware.vim.sms.ManagedObjectReference si;
 
-   private static SmAppUtil cb = null;   
-   Log log = new Log();   
+	private static SmAppUtil cb = null;
+	Log log = new Log();
 
-   public void execute() throws Exception {
-      SmServiceConnection conn = cb.getSmConnection();
-      service = conn.getService();
+	public void execute() throws Exception {
+		SmServiceConnection conn = cb.getSmConnection();
+		service = conn.getService();
 
-      Integer syncInterval = Integer.parseInt(cb.get_option("syncInterval"));
+		Integer syncInterval = Integer.parseInt(cb.getOption("syncInterval"));
 
-      service.configureSyncInterval(si,syncInterval);
-      System.out.println("Configured sync interval to " + syncInterval + " seconds.");
-   }
+		service.configureSyncInterval(si, syncInterval);
+		System.out.println("Configured sync interval to " + syncInterval
+				+ " seconds.");
+	}
 
-   private static OptionSpec[] constructOptions() {
-      OptionSpec [] useroptions = new OptionSpec[1];
-      useroptions[0] = new OptionSpec("syncInterval","Integer",1
-                                      ,"Sync interval"
-                                      ,null);
-      return useroptions;
-   }   
+	private static OptionSpec[] constructOptions() {
+		OptionSpec[] useroptions = new OptionSpec[1];
+		useroptions[0] = new OptionSpec("syncInterval", "Integer", 1,
+				"Sync interval", null);
+		return useroptions;
+	}
 
-   public static void main(String[] args) throws Exception {
-      ConfigureSyncInterval obj = new ConfigureSyncInterval();
-      cb = SmAppUtil.initialize("ConfigureSyncInterval"
-                             ,ConfigureSyncInterval.constructOptions()
-                             ,args);      
-      cb.connect();
-      obj.execute();
-      cb.disConnect();         
-   }
+	public static void main(String[] args) throws Exception {
+		ConfigureSyncInterval obj = new ConfigureSyncInterval();
+		cb = SmAppUtil.initialize("ConfigureSyncInterval",
+				ConfigureSyncInterval.constructOptions(), args);
+		cb.connect();
+		obj.execute();
+		cb.disConnect();
+	}
 }

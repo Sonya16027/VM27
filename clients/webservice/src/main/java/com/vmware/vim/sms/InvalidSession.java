@@ -7,125 +7,135 @@
 
 package com.vmware.vim.sms;
 
-public class InvalidSession  extends com.vmware.vim.sms.AuthenticationFailed  implements java.io.Serializable {
-    private java.lang.String sessionCookie;
+public class InvalidSession extends com.vmware.vim.sms.AuthenticationFailed
+		implements java.io.Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private java.lang.String sessionCookie;
 
-    public InvalidSession() {
-    }
+	public InvalidSession() {
+	}
 
-    public InvalidSession(
-           java.lang.String dynamicType,
-           com.vmware.vim.sms.DynamicProperty[] dynamicProperty,
-           java.lang.String sessionCookie) {
-        super(
-            dynamicType,
-            dynamicProperty);
-        this.sessionCookie = sessionCookie;
-    }
+	public InvalidSession(java.lang.String dynamicType,
+			com.vmware.vim.sms.DynamicProperty[] dynamicProperty,
+			java.lang.String sessionCookie) {
+		super(dynamicType, dynamicProperty);
+		this.sessionCookie = sessionCookie;
+	}
 
+	/**
+	 * Gets the sessionCookie value for this InvalidSession.
+	 * 
+	 * @return sessionCookie
+	 */
+	public java.lang.String getSessionCookie() {
+		return sessionCookie;
+	}
 
-    /**
-     * Gets the sessionCookie value for this InvalidSession.
-     * 
-     * @return sessionCookie
-     */
-    public java.lang.String getSessionCookie() {
-        return sessionCookie;
-    }
+	/**
+	 * Sets the sessionCookie value for this InvalidSession.
+	 * 
+	 * @param sessionCookie
+	 */
+	public void setSessionCookie(java.lang.String sessionCookie) {
+		this.sessionCookie = sessionCookie;
+	}
 
+	private java.lang.Object __equalsCalc = null;
 
-    /**
-     * Sets the sessionCookie value for this InvalidSession.
-     * 
-     * @param sessionCookie
-     */
-    public void setSessionCookie(java.lang.String sessionCookie) {
-        this.sessionCookie = sessionCookie;
-    }
+	@Override
+	public synchronized boolean equals(java.lang.Object obj) {
+		if (!(obj instanceof InvalidSession)) {
+			return false;
+		}
+		InvalidSession other = (InvalidSession) obj;
+		if (obj == null) {
+			return false;
+		}
+		if (this == obj) {
+			return true;
+		}
+		if (__equalsCalc != null) {
+			return (__equalsCalc == obj);
+		}
+		__equalsCalc = obj;
+		boolean _equals;
+		_equals = super.equals(obj)
+				&& ((this.sessionCookie == null && other.getSessionCookie() == null) || (this.sessionCookie != null && this.sessionCookie
+						.equals(other.getSessionCookie())));
+		__equalsCalc = null;
+		return _equals;
+	}
 
-    private java.lang.Object __equalsCalc = null;
-    public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof InvalidSession)) return false;
-        InvalidSession other = (InvalidSession) obj;
-        if (obj == null) return false;
-        if (this == obj) return true;
-        if (__equalsCalc != null) {
-            return (__equalsCalc == obj);
-        }
-        __equalsCalc = obj;
-        boolean _equals;
-        _equals = super.equals(obj) && 
-            ((this.sessionCookie==null && other.getSessionCookie()==null) || 
-             (this.sessionCookie!=null &&
-              this.sessionCookie.equals(other.getSessionCookie())));
-        __equalsCalc = null;
-        return _equals;
-    }
+	private boolean __hashCodeCalc = false;
 
-    private boolean __hashCodeCalc = false;
-    public synchronized int hashCode() {
-        if (__hashCodeCalc) {
-            return 0;
-        }
-        __hashCodeCalc = true;
-        int _hashCode = super.hashCode();
-        if (getSessionCookie() != null) {
-            _hashCode += getSessionCookie().hashCode();
-        }
-        __hashCodeCalc = false;
-        return _hashCode;
-    }
+	@Override
+	public synchronized int hashCode() {
+		if (__hashCodeCalc) {
+			return 0;
+		}
+		__hashCodeCalc = true;
+		int _hashCode = super.hashCode();
+		if (getSessionCookie() != null) {
+			_hashCode += getSessionCookie().hashCode();
+		}
+		__hashCodeCalc = false;
+		return _hashCode;
+	}
 
-    // Type metadata
-    private static org.apache.axis.description.TypeDesc typeDesc =
-        new org.apache.axis.description.TypeDesc(InvalidSession.class, true);
+	// Type metadata
+	private static org.apache.axis.description.TypeDesc typeDesc = new org.apache.axis.description.TypeDesc(
+			InvalidSession.class, true);
 
-    static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("urn:sm1", "InvalidSession"));
-        org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("sessionCookie");
-        elemField.setXmlName(new javax.xml.namespace.QName("urn:sm1", "sessionCookie"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
-        elemField.setNillable(false);
-        typeDesc.addFieldDesc(elemField);
-    }
+	static {
+		typeDesc.setXmlType(new javax.xml.namespace.QName("urn:sm1",
+				"InvalidSession"));
+		org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+		elemField.setFieldName("sessionCookie");
+		elemField.setXmlName(new javax.xml.namespace.QName("urn:sm1",
+				"sessionCookie"));
+		elemField.setXmlType(new javax.xml.namespace.QName(
+				"http://www.w3.org/2001/XMLSchema", "string"));
+		elemField.setNillable(false);
+		typeDesc.addFieldDesc(elemField);
+	}
 
-    /**
-     * Return type metadata object
-     */
-    public static org.apache.axis.description.TypeDesc getTypeDesc() {
-        return typeDesc;
-    }
+	/**
+	 * Return type metadata object
+	 */
+	public static org.apache.axis.description.TypeDesc getTypeDesc() {
+		return typeDesc;
+	}
 
-    /**
-     * Get Custom Serializer
-     */
-    public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanSerializer(
-            _javaType, _xmlType, typeDesc);
-    }
+	/**
+	 * Get Custom Serializer
+	 */
+	public static org.apache.axis.encoding.Serializer getSerializer(
+			java.lang.String mechType, java.lang.Class _javaType,
+			javax.xml.namespace.QName _xmlType) {
+		return new org.apache.axis.encoding.ser.BeanSerializer(_javaType,
+				_xmlType, typeDesc);
+	}
 
-    /**
-     * Get Custom Deserializer
-     */
-    public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanDeserializer(
-            _javaType, _xmlType, typeDesc);
-    }
+	/**
+	 * Get Custom Deserializer
+	 */
+	public static org.apache.axis.encoding.Deserializer getDeserializer(
+			java.lang.String mechType, java.lang.Class _javaType,
+			javax.xml.namespace.QName _xmlType) {
+		return new org.apache.axis.encoding.ser.BeanDeserializer(_javaType,
+				_xmlType, typeDesc);
+	}
 
-
-    /**
-     * Writes the exception data to the faultDetails
-     */
-    public void writeDetails(javax.xml.namespace.QName qname, org.apache.axis.encoding.SerializationContext context) throws java.io.IOException {
-        context.serialize(qname, null, this);
-    }
+	/**
+	 * Writes the exception data to the faultDetails
+	 */
+	@Override
+	public void writeDetails(javax.xml.namespace.QName qname,
+			org.apache.axis.encoding.SerializationContext context)
+			throws java.io.IOException {
+		context.serialize(qname, null, this);
+	}
 }

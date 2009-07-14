@@ -8,73 +8,107 @@
 package com.vmware.vim25;
 
 public class HostIpConfigIpV6AddressStatus implements java.io.Serializable {
-    private java.lang.String _value_;
-    private static java.util.HashMap _table_ = new java.util.HashMap();
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private java.lang.String _value_;
+	private static java.util.HashMap _table_ = new java.util.HashMap();
 
-    // Constructor
-    protected HostIpConfigIpV6AddressStatus(java.lang.String value) {
-        _value_ = value;
-        _table_.put(_value_,this);
-    }
+	// Constructor
+	protected HostIpConfigIpV6AddressStatus(java.lang.String value) {
+		_value_ = value;
+		_table_.put(_value_, this);
+	}
 
-    public static final java.lang.String _preferred = "preferred";
-    public static final java.lang.String _deprecated = "deprecated";
-    public static final java.lang.String _invalid = "invalid";
-    public static final java.lang.String _inaccessible = "inaccessible";
-    public static final java.lang.String _unknown = "unknown";
-    public static final java.lang.String _tentative = "tentative";
-    public static final java.lang.String _duplicate = "duplicate";
-    public static final HostIpConfigIpV6AddressStatus preferred = new HostIpConfigIpV6AddressStatus(_preferred);
-    public static final HostIpConfigIpV6AddressStatus deprecated = new HostIpConfigIpV6AddressStatus(_deprecated);
-    public static final HostIpConfigIpV6AddressStatus invalid = new HostIpConfigIpV6AddressStatus(_invalid);
-    public static final HostIpConfigIpV6AddressStatus inaccessible = new HostIpConfigIpV6AddressStatus(_inaccessible);
-    public static final HostIpConfigIpV6AddressStatus unknown = new HostIpConfigIpV6AddressStatus(_unknown);
-    public static final HostIpConfigIpV6AddressStatus tentative = new HostIpConfigIpV6AddressStatus(_tentative);
-    public static final HostIpConfigIpV6AddressStatus duplicate = new HostIpConfigIpV6AddressStatus(_duplicate);
-    public java.lang.String getValue() { return _value_;}
-    public static HostIpConfigIpV6AddressStatus fromValue(java.lang.String value)
-          throws java.lang.IllegalArgumentException {
-        HostIpConfigIpV6AddressStatus enumeration = (HostIpConfigIpV6AddressStatus)
-            _table_.get(value);
-        if (enumeration==null) throw new java.lang.IllegalArgumentException();
-        return enumeration;
-    }
-    public static HostIpConfigIpV6AddressStatus fromString(java.lang.String value)
-          throws java.lang.IllegalArgumentException {
-        return fromValue(value);
-    }
-    public boolean equals(java.lang.Object obj) {return (obj == this);}
-    public int hashCode() { return toString().hashCode();}
-    public java.lang.String toString() { return _value_;}
-    public java.lang.Object readResolve() throws java.io.ObjectStreamException { return fromValue(_value_);}
-    public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new org.apache.axis.encoding.ser.EnumSerializer(
-            _javaType, _xmlType);
-    }
-    public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new org.apache.axis.encoding.ser.EnumDeserializer(
-            _javaType, _xmlType);
-    }
-    // Type metadata
-    private static org.apache.axis.description.TypeDesc typeDesc =
-        new org.apache.axis.description.TypeDesc(HostIpConfigIpV6AddressStatus.class);
+	public static final java.lang.String _preferred = "preferred";
+	public static final java.lang.String _deprecated = "deprecated";
+	public static final java.lang.String _invalid = "invalid";
+	public static final java.lang.String _inaccessible = "inaccessible";
+	public static final java.lang.String _unknown = "unknown";
+	public static final java.lang.String _tentative = "tentative";
+	public static final java.lang.String _duplicate = "duplicate";
+	public static final HostIpConfigIpV6AddressStatus preferred = new HostIpConfigIpV6AddressStatus(
+			_preferred);
+	public static final HostIpConfigIpV6AddressStatus deprecated = new HostIpConfigIpV6AddressStatus(
+			_deprecated);
+	public static final HostIpConfigIpV6AddressStatus invalid = new HostIpConfigIpV6AddressStatus(
+			_invalid);
+	public static final HostIpConfigIpV6AddressStatus inaccessible = new HostIpConfigIpV6AddressStatus(
+			_inaccessible);
+	public static final HostIpConfigIpV6AddressStatus unknown = new HostIpConfigIpV6AddressStatus(
+			_unknown);
+	public static final HostIpConfigIpV6AddressStatus tentative = new HostIpConfigIpV6AddressStatus(
+			_tentative);
+	public static final HostIpConfigIpV6AddressStatus duplicate = new HostIpConfigIpV6AddressStatus(
+			_duplicate);
 
-    static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("urn:vim25", "HostIpConfigIpV6AddressStatus"));
-    }
-    /**
-     * Return type metadata object
-     */
-    public static org.apache.axis.description.TypeDesc getTypeDesc() {
-        return typeDesc;
-    }
+	public java.lang.String getValue() {
+		return _value_;
+	}
+
+	public static HostIpConfigIpV6AddressStatus fromValue(java.lang.String value)
+			throws java.lang.IllegalArgumentException {
+		HostIpConfigIpV6AddressStatus enumeration = (HostIpConfigIpV6AddressStatus) _table_
+				.get(value);
+		if (enumeration == null) {
+			throw new java.lang.IllegalArgumentException();
+		}
+		return enumeration;
+	}
+
+	public static HostIpConfigIpV6AddressStatus fromString(
+			java.lang.String value) throws java.lang.IllegalArgumentException {
+		return fromValue(value);
+	}
+
+	@Override
+	public boolean equals(java.lang.Object obj) {
+		return (obj == this);
+	}
+
+	@Override
+	public int hashCode() {
+		return toString().hashCode();
+	}
+
+	@Override
+	public java.lang.String toString() {
+		return _value_;
+	}
+
+	public java.lang.Object readResolve() throws java.io.ObjectStreamException {
+		return fromValue(_value_);
+	}
+
+	public static org.apache.axis.encoding.Serializer getSerializer(
+			java.lang.String mechType, java.lang.Class _javaType,
+			javax.xml.namespace.QName _xmlType) {
+		return new org.apache.axis.encoding.ser.EnumSerializer(_javaType,
+				_xmlType);
+	}
+
+	public static org.apache.axis.encoding.Deserializer getDeserializer(
+			java.lang.String mechType, java.lang.Class _javaType,
+			javax.xml.namespace.QName _xmlType) {
+		return new org.apache.axis.encoding.ser.EnumDeserializer(_javaType,
+				_xmlType);
+	}
+
+	// Type metadata
+	private static org.apache.axis.description.TypeDesc typeDesc = new org.apache.axis.description.TypeDesc(
+			HostIpConfigIpV6AddressStatus.class);
+
+	static {
+		typeDesc.setXmlType(new javax.xml.namespace.QName("urn:vim25",
+				"HostIpConfigIpV6AddressStatus"));
+	}
+
+	/**
+	 * Return type metadata object
+	 */
+	public static org.apache.axis.description.TypeDesc getTypeDesc() {
+		return typeDesc;
+	}
 
 }

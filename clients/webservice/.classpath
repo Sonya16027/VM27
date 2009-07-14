@@ -1,0 +1,34 @@
+<classpath>
+  <classpathentry path="org.eclipse.jdt.launching.JRE_CONTAINER" kind="con"/>
+  <classpathentry path="src/main/java" kind="src" excluding="**/.svn/|**/CVS/"/>
+  <classpathentry path="target/classes" kind="output"/>
+  <classpathentry path="M2_REPO/bouncycastle/bcprov-jdk15/132/bcprov-jdk15-132.jar" kind="var"/>
+  <classpathentry path="M2_REPO/commons-codec/commons-codec/1.3/commons-codec-1.3.jar" kind="var"/>
+  <classpathentry path="M2_REPO/commons-collections/commons-collections/3.1/commons-collections-3.1.jar" kind="var"/>
+  <classpathentry path="M2_REPO/commons-httpclient/commons-httpclient/3.0/commons-httpclient-3.0.jar" kind="var"/>
+  <classpathentry path="M2_REPO/commons-lang/commons-lang/2.3/commons-lang-2.3.jar" kind="var"/>
+  <classpathentry path="M2_REPO/commons-logging/commons-logging/1.1/commons-logging-1.1.jar" kind="var"/>
+  <classpathentry path="M2_REPO/geronimo-spec/geronimo-spec-javamail/1.3.1-rc5/geronimo-spec-javamail-1.3.1-rc5.jar" kind="var"/>
+  <classpathentry path="M2_REPO/javax/activation/activation/1.1/activation-1.1.jar" kind="var"/>
+  <classpathentry path="M2_REPO/javax/xml/rpc/1.0/rpc-1.0.jar" kind="var"/>
+  <classpathentry path="M2_REPO/jaxen/jaxen/1.1.1/jaxen-1.1.1.jar" kind="var"/>
+  <classpathentry path="M2_REPO/jmock/jmock/1.2.0/jmock-1.2.0.jar" kind="var"/>
+  <classpathentry path="M2_REPO/junit/junit/4.3.1/junit-4.3.1.jar" kind="var"/>
+  <classpathentry path="M2_REPO/opensaml/opensaml/1.1/opensaml-1.1.jar" kind="var"/>
+  <classpathentry path="M2_REPO/org/apache/axis2/axis2/1.4/axis2-1.4.jar" kind="var"/>
+  <classpathentry path="M2_REPO/org/apache/geronimo/specs/geronimo-jta_1.1_spec/1.1/geronimo-jta_1.1_spec-1.1.jar" kind="var"/>
+  <classpathentry path="M2_REPO/org/apache/geronimo/specs/geronimo-servlet_2.4_spec/1.0/geronimo-servlet_2.4_spec-1.0.jar" kind="var"/>
+  <classpathentry path="M2_REPO/org/apache/rampart/rampart-core/1.3/rampart-core-1.3.jar" kind="var"/>
+  <classpathentry path="M2_REPO/org/apache/rampart/rampart-policy/1.3/rampart-policy-1.3.jar" kind="var"/>
+  <classpathentry path="M2_REPO/org/apache/rampart/rampart-trust/1.3/rampart-trust-1.3.jar" kind="var"/>
+  <classpathentry path="M2_REPO/org/apache/santuario/xmlsec/1.4.0/xmlsec-1.4.0.jar" kind="var"/>
+  <classpathentry path="M2_REPO/org/apache/ws/commons/axiom/axiom-api/1.2.5/axiom-api-1.2.5.jar" kind="var"/>
+  <classpathentry path="M2_REPO/org/apache/ws/commons/axiom/axiom-dom/1.2.5/axiom-dom-1.2.5.jar" kind="var"/>
+  <classpathentry path="M2_REPO/org/apache/ws/commons/axiom/axiom-impl/1.2.5/axiom-impl-1.2.5.jar" kind="var"/>
+  <classpathentry path="M2_REPO/org/apache/ws/security/wss4j/1.5.3/wss4j-1.5.3.jar" kind="var"/>
+  <classpathentry path="M2_REPO/org/wbemservices/wbem/1.0/wbem-1.0.jar" kind="var"/>
+  <classpathentry path="M2_REPO/stax/stax-api/1.0.1/stax-api-1.0.1.jar" kind="var"/>
+  <classpathentry path="M2_REPO/wsdl4j/wsdl4j/1.6.1/wsdl4j-1.6.1.jar" kind="var"/>
+  <classpathentry path="M2_REPO/xerces/xercesImpl/2.9.0/xercesImpl-2.9.0.jar" kind="var"/>
+  <classpathentry path="src/test/java" kind="src" output="target/test-classes" excluding="**/.svn/|**/CVS/"/>
+</classpath>

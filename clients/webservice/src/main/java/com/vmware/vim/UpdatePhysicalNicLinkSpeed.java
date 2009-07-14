@@ -7,186 +7,195 @@
 
 package com.vmware.vim;
 
-public class UpdatePhysicalNicLinkSpeed  implements java.io.Serializable {
-    private com.vmware.vim.ManagedObjectReference _this;
+public class UpdatePhysicalNicLinkSpeed implements java.io.Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
-    private java.lang.String device;
+	private com.vmware.vim.ManagedObjectReference _this;
 
-    private com.vmware.vim.PhysicalNicLinkInfo linkSpeed;
+	private java.lang.String device;
 
-    public UpdatePhysicalNicLinkSpeed() {
-    }
+	private com.vmware.vim.PhysicalNicLinkInfo linkSpeed;
 
-    public UpdatePhysicalNicLinkSpeed(
-           com.vmware.vim.ManagedObjectReference _this,
-           java.lang.String device,
-           com.vmware.vim.PhysicalNicLinkInfo linkSpeed) {
-           this._this = _this;
-           this.device = device;
-           this.linkSpeed = linkSpeed;
-    }
+	public UpdatePhysicalNicLinkSpeed() {
+	}
 
+	public UpdatePhysicalNicLinkSpeed(
+			com.vmware.vim.ManagedObjectReference _this,
+			java.lang.String device,
+			com.vmware.vim.PhysicalNicLinkInfo linkSpeed) {
+		this._this = _this;
+		this.device = device;
+		this.linkSpeed = linkSpeed;
+	}
 
-    /**
-     * Gets the _this value for this UpdatePhysicalNicLinkSpeed.
-     * 
-     * @return _this
-     */
-    public com.vmware.vim.ManagedObjectReference get_this() {
-        return _this;
-    }
+	/**
+	 * Gets the _this value for this UpdatePhysicalNicLinkSpeed.
+	 * 
+	 * @return _this
+	 */
+	public com.vmware.vim.ManagedObjectReference get_this() {
+		return _this;
+	}
 
+	/**
+	 * Sets the _this value for this UpdatePhysicalNicLinkSpeed.
+	 * 
+	 * @param _this
+	 */
+	public void set_this(com.vmware.vim.ManagedObjectReference _this) {
+		this._this = _this;
+	}
 
-    /**
-     * Sets the _this value for this UpdatePhysicalNicLinkSpeed.
-     * 
-     * @param _this
-     */
-    public void set_this(com.vmware.vim.ManagedObjectReference _this) {
-        this._this = _this;
-    }
+	/**
+	 * Gets the device value for this UpdatePhysicalNicLinkSpeed.
+	 * 
+	 * @return device
+	 */
+	public java.lang.String getDevice() {
+		return device;
+	}
 
+	/**
+	 * Sets the device value for this UpdatePhysicalNicLinkSpeed.
+	 * 
+	 * @param device
+	 */
+	public void setDevice(java.lang.String device) {
+		this.device = device;
+	}
 
-    /**
-     * Gets the device value for this UpdatePhysicalNicLinkSpeed.
-     * 
-     * @return device
-     */
-    public java.lang.String getDevice() {
-        return device;
-    }
+	/**
+	 * Gets the linkSpeed value for this UpdatePhysicalNicLinkSpeed.
+	 * 
+	 * @return linkSpeed
+	 */
+	public com.vmware.vim.PhysicalNicLinkInfo getLinkSpeed() {
+		return linkSpeed;
+	}
 
+	/**
+	 * Sets the linkSpeed value for this UpdatePhysicalNicLinkSpeed.
+	 * 
+	 * @param linkSpeed
+	 */
+	public void setLinkSpeed(com.vmware.vim.PhysicalNicLinkInfo linkSpeed) {
+		this.linkSpeed = linkSpeed;
+	}
 
-    /**
-     * Sets the device value for this UpdatePhysicalNicLinkSpeed.
-     * 
-     * @param device
-     */
-    public void setDevice(java.lang.String device) {
-        this.device = device;
-    }
+	private java.lang.Object __equalsCalc = null;
 
+	@Override
+	public synchronized boolean equals(java.lang.Object obj) {
+		if (!(obj instanceof UpdatePhysicalNicLinkSpeed)) {
+			return false;
+		}
+		UpdatePhysicalNicLinkSpeed other = (UpdatePhysicalNicLinkSpeed) obj;
+		if (obj == null) {
+			return false;
+		}
+		if (this == obj) {
+			return true;
+		}
+		if (__equalsCalc != null) {
+			return (__equalsCalc == obj);
+		}
+		__equalsCalc = obj;
+		boolean _equals;
+		_equals = true
+				&& ((this._this == null && other.get_this() == null) || (this._this != null && this._this
+						.equals(other.get_this())))
+				&& ((this.device == null && other.getDevice() == null) || (this.device != null && this.device
+						.equals(other.getDevice())))
+				&& ((this.linkSpeed == null && other.getLinkSpeed() == null) || (this.linkSpeed != null && this.linkSpeed
+						.equals(other.getLinkSpeed())));
+		__equalsCalc = null;
+		return _equals;
+	}
 
-    /**
-     * Gets the linkSpeed value for this UpdatePhysicalNicLinkSpeed.
-     * 
-     * @return linkSpeed
-     */
-    public com.vmware.vim.PhysicalNicLinkInfo getLinkSpeed() {
-        return linkSpeed;
-    }
+	private boolean __hashCodeCalc = false;
 
+	@Override
+	public synchronized int hashCode() {
+		if (__hashCodeCalc) {
+			return 0;
+		}
+		__hashCodeCalc = true;
+		int _hashCode = 1;
+		if (get_this() != null) {
+			_hashCode += get_this().hashCode();
+		}
+		if (getDevice() != null) {
+			_hashCode += getDevice().hashCode();
+		}
+		if (getLinkSpeed() != null) {
+			_hashCode += getLinkSpeed().hashCode();
+		}
+		__hashCodeCalc = false;
+		return _hashCode;
+	}
 
-    /**
-     * Sets the linkSpeed value for this UpdatePhysicalNicLinkSpeed.
-     * 
-     * @param linkSpeed
-     */
-    public void setLinkSpeed(com.vmware.vim.PhysicalNicLinkInfo linkSpeed) {
-        this.linkSpeed = linkSpeed;
-    }
+	// Type metadata
+	private static org.apache.axis.description.TypeDesc typeDesc = new org.apache.axis.description.TypeDesc(
+			UpdatePhysicalNicLinkSpeed.class, true);
 
-    private java.lang.Object __equalsCalc = null;
-    public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof UpdatePhysicalNicLinkSpeed)) return false;
-        UpdatePhysicalNicLinkSpeed other = (UpdatePhysicalNicLinkSpeed) obj;
-        if (obj == null) return false;
-        if (this == obj) return true;
-        if (__equalsCalc != null) {
-            return (__equalsCalc == obj);
-        }
-        __equalsCalc = obj;
-        boolean _equals;
-        _equals = true && 
-            ((this._this==null && other.get_this()==null) || 
-             (this._this!=null &&
-              this._this.equals(other.get_this()))) &&
-            ((this.device==null && other.getDevice()==null) || 
-             (this.device!=null &&
-              this.device.equals(other.getDevice()))) &&
-            ((this.linkSpeed==null && other.getLinkSpeed()==null) || 
-             (this.linkSpeed!=null &&
-              this.linkSpeed.equals(other.getLinkSpeed())));
-        __equalsCalc = null;
-        return _equals;
-    }
+	static {
+		typeDesc.setXmlType(new javax.xml.namespace.QName("urn:vim2",
+				">UpdatePhysicalNicLinkSpeed"));
+		org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+		elemField.setFieldName("_this");
+		elemField
+				.setXmlName(new javax.xml.namespace.QName("urn:vim2", "_this"));
+		elemField.setXmlType(new javax.xml.namespace.QName("urn:vim2",
+				"ManagedObjectReference"));
+		elemField.setNillable(false);
+		typeDesc.addFieldDesc(elemField);
+		elemField = new org.apache.axis.description.ElementDesc();
+		elemField.setFieldName("device");
+		elemField
+				.setXmlName(new javax.xml.namespace.QName("urn:vim2", "device"));
+		elemField.setXmlType(new javax.xml.namespace.QName(
+				"http://www.w3.org/2001/XMLSchema", "string"));
+		elemField.setNillable(false);
+		typeDesc.addFieldDesc(elemField);
+		elemField = new org.apache.axis.description.ElementDesc();
+		elemField.setFieldName("linkSpeed");
+		elemField.setXmlName(new javax.xml.namespace.QName("urn:vim2",
+				"linkSpeed"));
+		elemField.setXmlType(new javax.xml.namespace.QName("urn:vim2",
+				"PhysicalNicLinkInfo"));
+		elemField.setMinOccurs(0);
+		elemField.setNillable(false);
+		typeDesc.addFieldDesc(elemField);
+	}
 
-    private boolean __hashCodeCalc = false;
-    public synchronized int hashCode() {
-        if (__hashCodeCalc) {
-            return 0;
-        }
-        __hashCodeCalc = true;
-        int _hashCode = 1;
-        if (get_this() != null) {
-            _hashCode += get_this().hashCode();
-        }
-        if (getDevice() != null) {
-            _hashCode += getDevice().hashCode();
-        }
-        if (getLinkSpeed() != null) {
-            _hashCode += getLinkSpeed().hashCode();
-        }
-        __hashCodeCalc = false;
-        return _hashCode;
-    }
+	/**
+	 * Return type metadata object
+	 */
+	public static org.apache.axis.description.TypeDesc getTypeDesc() {
+		return typeDesc;
+	}
 
-    // Type metadata
-    private static org.apache.axis.description.TypeDesc typeDesc =
-        new org.apache.axis.description.TypeDesc(UpdatePhysicalNicLinkSpeed.class, true);
+	/**
+	 * Get Custom Serializer
+	 */
+	public static org.apache.axis.encoding.Serializer getSerializer(
+			java.lang.String mechType, java.lang.Class _javaType,
+			javax.xml.namespace.QName _xmlType) {
+		return new org.apache.axis.encoding.ser.BeanSerializer(_javaType,
+				_xmlType, typeDesc);
+	}
 
-    static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("urn:vim2", ">UpdatePhysicalNicLinkSpeed"));
-        org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("_this");
-        elemField.setXmlName(new javax.xml.namespace.QName("urn:vim2", "_this"));
-        elemField.setXmlType(new javax.xml.namespace.QName("urn:vim2", "ManagedObjectReference"));
-        elemField.setNillable(false);
-        typeDesc.addFieldDesc(elemField);
-        elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("device");
-        elemField.setXmlName(new javax.xml.namespace.QName("urn:vim2", "device"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
-        elemField.setNillable(false);
-        typeDesc.addFieldDesc(elemField);
-        elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("linkSpeed");
-        elemField.setXmlName(new javax.xml.namespace.QName("urn:vim2", "linkSpeed"));
-        elemField.setXmlType(new javax.xml.namespace.QName("urn:vim2", "PhysicalNicLinkInfo"));
-        elemField.setMinOccurs(0);
-        elemField.setNillable(false);
-        typeDesc.addFieldDesc(elemField);
-    }
-
-    /**
-     * Return type metadata object
-     */
-    public static org.apache.axis.description.TypeDesc getTypeDesc() {
-        return typeDesc;
-    }
-
-    /**
-     * Get Custom Serializer
-     */
-    public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanSerializer(
-            _javaType, _xmlType, typeDesc);
-    }
-
-    /**
-     * Get Custom Deserializer
-     */
-    public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanDeserializer(
-            _javaType, _xmlType, typeDesc);
-    }
+	/**
+	 * Get Custom Deserializer
+	 */
+	public static org.apache.axis.encoding.Deserializer getDeserializer(
+			java.lang.String mechType, java.lang.Class _javaType,
+			javax.xml.namespace.QName _xmlType) {
+		return new org.apache.axis.encoding.ser.BeanDeserializer(_javaType,
+				_xmlType, typeDesc);
+	}
 
 }

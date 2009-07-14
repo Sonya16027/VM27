@@ -34,6 +34,7 @@
   <classpathentry path="M2_REPO/org/apache/ws/commons/axiom/axiom-dom/1.2.5/axiom-dom-1.2.5.jar" kind="var"/>
   <classpathentry path="M2_REPO/org/apache/ws/commons/axiom/axiom-impl/1.2.5/axiom-impl-1.2.5.jar" kind="var"/>
   <classpathentry path="M2_REPO/org/apache/ws/security/wss4j/1.5.3/wss4j-1.5.3.jar" kind="var"/>
+  <classpathentry path="M2_REPO/org/wbemservices/wbem/1.0/wbem-1.0.jar" kind="var"/>
   <classpathentry path="M2_REPO/stax/stax-api/1.0.1/stax-api-1.0.1.jar" kind="var"/>
   <classpathentry path="M2_REPO/wsdl4j/wsdl4j/1.6.1/wsdl4j-1.6.1.jar" kind="var"/>
   <classpathentry path="M2_REPO/xerces/xercesImpl/2.9.0/xercesImpl-2.9.0.jar" kind="var"/>

@@ -8,9 +8,11 @@
 package com.vmware.vim25;
 
 public interface VimService extends javax.xml.rpc.Service {
-    public java.lang.String getVimPortAddress();
+	public java.lang.String getVimPortAddress();
 
-    public com.vmware.vim25.VimPortType getVimPort() throws javax.xml.rpc.ServiceException;
+	public com.vmware.vim25.VimPortType getVimPort()
+			throws javax.xml.rpc.ServiceException;
 
-    public com.vmware.vim25.VimPortType getVimPort(java.net.URL portAddress) throws javax.xml.rpc.ServiceException;
+	public com.vmware.vim25.VimPortType getVimPort(java.net.URL portAddress)
+			throws javax.xml.rpc.ServiceException;
 }

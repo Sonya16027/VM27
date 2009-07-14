@@ -7,185 +7,193 @@
 
 package com.vmware.vim25;
 
-public class DeselectVnicForNicTypeRequestType  implements java.io.Serializable {
-    private com.vmware.vim25.ManagedObjectReference _this;
+public class DeselectVnicForNicTypeRequestType implements java.io.Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
-    private java.lang.String nicType;
+	private com.vmware.vim25.ManagedObjectReference _this;
 
-    private java.lang.String device;
+	private java.lang.String nicType;
 
-    public DeselectVnicForNicTypeRequestType() {
-    }
+	private java.lang.String device;
 
-    public DeselectVnicForNicTypeRequestType(
-           com.vmware.vim25.ManagedObjectReference _this,
-           java.lang.String nicType,
-           java.lang.String device) {
-           this._this = _this;
-           this.nicType = nicType;
-           this.device = device;
-    }
+	public DeselectVnicForNicTypeRequestType() {
+	}
 
+	public DeselectVnicForNicTypeRequestType(
+			com.vmware.vim25.ManagedObjectReference _this,
+			java.lang.String nicType, java.lang.String device) {
+		this._this = _this;
+		this.nicType = nicType;
+		this.device = device;
+	}
 
-    /**
-     * Gets the _this value for this DeselectVnicForNicTypeRequestType.
-     * 
-     * @return _this
-     */
-    public com.vmware.vim25.ManagedObjectReference get_this() {
-        return _this;
-    }
+	/**
+	 * Gets the _this value for this DeselectVnicForNicTypeRequestType.
+	 * 
+	 * @return _this
+	 */
+	public com.vmware.vim25.ManagedObjectReference get_this() {
+		return _this;
+	}
 
+	/**
+	 * Sets the _this value for this DeselectVnicForNicTypeRequestType.
+	 * 
+	 * @param _this
+	 */
+	public void set_this(com.vmware.vim25.ManagedObjectReference _this) {
+		this._this = _this;
+	}
 
-    /**
-     * Sets the _this value for this DeselectVnicForNicTypeRequestType.
-     * 
-     * @param _this
-     */
-    public void set_this(com.vmware.vim25.ManagedObjectReference _this) {
-        this._this = _this;
-    }
+	/**
+	 * Gets the nicType value for this DeselectVnicForNicTypeRequestType.
+	 * 
+	 * @return nicType
+	 */
+	public java.lang.String getNicType() {
+		return nicType;
+	}
 
+	/**
+	 * Sets the nicType value for this DeselectVnicForNicTypeRequestType.
+	 * 
+	 * @param nicType
+	 */
+	public void setNicType(java.lang.String nicType) {
+		this.nicType = nicType;
+	}
 
-    /**
-     * Gets the nicType value for this DeselectVnicForNicTypeRequestType.
-     * 
-     * @return nicType
-     */
-    public java.lang.String getNicType() {
-        return nicType;
-    }
+	/**
+	 * Gets the device value for this DeselectVnicForNicTypeRequestType.
+	 * 
+	 * @return device
+	 */
+	public java.lang.String getDevice() {
+		return device;
+	}
 
+	/**
+	 * Sets the device value for this DeselectVnicForNicTypeRequestType.
+	 * 
+	 * @param device
+	 */
+	public void setDevice(java.lang.String device) {
+		this.device = device;
+	}
 
-    /**
-     * Sets the nicType value for this DeselectVnicForNicTypeRequestType.
-     * 
-     * @param nicType
-     */
-    public void setNicType(java.lang.String nicType) {
-        this.nicType = nicType;
-    }
+	private java.lang.Object __equalsCalc = null;
 
+	@Override
+	public synchronized boolean equals(java.lang.Object obj) {
+		if (!(obj instanceof DeselectVnicForNicTypeRequestType)) {
+			return false;
+		}
+		DeselectVnicForNicTypeRequestType other = (DeselectVnicForNicTypeRequestType) obj;
+		if (obj == null) {
+			return false;
+		}
+		if (this == obj) {
+			return true;
+		}
+		if (__equalsCalc != null) {
+			return (__equalsCalc == obj);
+		}
+		__equalsCalc = obj;
+		boolean _equals;
+		_equals = true
+				&& ((this._this == null && other.get_this() == null) || (this._this != null && this._this
+						.equals(other.get_this())))
+				&& ((this.nicType == null && other.getNicType() == null) || (this.nicType != null && this.nicType
+						.equals(other.getNicType())))
+				&& ((this.device == null && other.getDevice() == null) || (this.device != null && this.device
+						.equals(other.getDevice())));
+		__equalsCalc = null;
+		return _equals;
+	}
 
-    /**
-     * Gets the device value for this DeselectVnicForNicTypeRequestType.
-     * 
-     * @return device
-     */
-    public java.lang.String getDevice() {
-        return device;
-    }
+	private boolean __hashCodeCalc = false;
 
+	@Override
+	public synchronized int hashCode() {
+		if (__hashCodeCalc) {
+			return 0;
+		}
+		__hashCodeCalc = true;
+		int _hashCode = 1;
+		if (get_this() != null) {
+			_hashCode += get_this().hashCode();
+		}
+		if (getNicType() != null) {
+			_hashCode += getNicType().hashCode();
+		}
+		if (getDevice() != null) {
+			_hashCode += getDevice().hashCode();
+		}
+		__hashCodeCalc = false;
+		return _hashCode;
+	}
 
-    /**
-     * Sets the device value for this DeselectVnicForNicTypeRequestType.
-     * 
-     * @param device
-     */
-    public void setDevice(java.lang.String device) {
-        this.device = device;
-    }
+	// Type metadata
+	private static org.apache.axis.description.TypeDesc typeDesc = new org.apache.axis.description.TypeDesc(
+			DeselectVnicForNicTypeRequestType.class, true);
 
-    private java.lang.Object __equalsCalc = null;
-    public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof DeselectVnicForNicTypeRequestType)) return false;
-        DeselectVnicForNicTypeRequestType other = (DeselectVnicForNicTypeRequestType) obj;
-        if (obj == null) return false;
-        if (this == obj) return true;
-        if (__equalsCalc != null) {
-            return (__equalsCalc == obj);
-        }
-        __equalsCalc = obj;
-        boolean _equals;
-        _equals = true && 
-            ((this._this==null && other.get_this()==null) || 
-             (this._this!=null &&
-              this._this.equals(other.get_this()))) &&
-            ((this.nicType==null && other.getNicType()==null) || 
-             (this.nicType!=null &&
-              this.nicType.equals(other.getNicType()))) &&
-            ((this.device==null && other.getDevice()==null) || 
-             (this.device!=null &&
-              this.device.equals(other.getDevice())));
-        __equalsCalc = null;
-        return _equals;
-    }
+	static {
+		typeDesc.setXmlType(new javax.xml.namespace.QName("urn:vim25",
+				"DeselectVnicForNicTypeRequestType"));
+		org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+		elemField.setFieldName("_this");
+		elemField
+				.setXmlName(new javax.xml.namespace.QName("urn:vim25", "_this"));
+		elemField.setXmlType(new javax.xml.namespace.QName("urn:vim25",
+				"ManagedObjectReference"));
+		elemField.setNillable(false);
+		typeDesc.addFieldDesc(elemField);
+		elemField = new org.apache.axis.description.ElementDesc();
+		elemField.setFieldName("nicType");
+		elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25",
+				"nicType"));
+		elemField.setXmlType(new javax.xml.namespace.QName(
+				"http://www.w3.org/2001/XMLSchema", "string"));
+		elemField.setNillable(false);
+		typeDesc.addFieldDesc(elemField);
+		elemField = new org.apache.axis.description.ElementDesc();
+		elemField.setFieldName("device");
+		elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25",
+				"device"));
+		elemField.setXmlType(new javax.xml.namespace.QName(
+				"http://www.w3.org/2001/XMLSchema", "string"));
+		elemField.setNillable(false);
+		typeDesc.addFieldDesc(elemField);
+	}
 
-    private boolean __hashCodeCalc = false;
-    public synchronized int hashCode() {
-        if (__hashCodeCalc) {
-            return 0;
-        }
-        __hashCodeCalc = true;
-        int _hashCode = 1;
-        if (get_this() != null) {
-            _hashCode += get_this().hashCode();
-        }
-        if (getNicType() != null) {
-            _hashCode += getNicType().hashCode();
-        }
-        if (getDevice() != null) {
-            _hashCode += getDevice().hashCode();
-        }
-        __hashCodeCalc = false;
-        return _hashCode;
-    }
+	/**
+	 * Return type metadata object
+	 */
+	public static org.apache.axis.description.TypeDesc getTypeDesc() {
+		return typeDesc;
+	}
 
-    // Type metadata
-    private static org.apache.axis.description.TypeDesc typeDesc =
-        new org.apache.axis.description.TypeDesc(DeselectVnicForNicTypeRequestType.class, true);
+	/**
+	 * Get Custom Serializer
+	 */
+	public static org.apache.axis.encoding.Serializer getSerializer(
+			java.lang.String mechType, java.lang.Class _javaType,
+			javax.xml.namespace.QName _xmlType) {
+		return new org.apache.axis.encoding.ser.BeanSerializer(_javaType,
+				_xmlType, typeDesc);
+	}
 
-    static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("urn:vim25", "DeselectVnicForNicTypeRequestType"));
-        org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("_this");
-        elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25", "_this"));
-        elemField.setXmlType(new javax.xml.namespace.QName("urn:vim25", "ManagedObjectReference"));
-        elemField.setNillable(false);
-        typeDesc.addFieldDesc(elemField);
-        elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("nicType");
-        elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25", "nicType"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
-        elemField.setNillable(false);
-        typeDesc.addFieldDesc(elemField);
-        elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("device");
-        elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25", "device"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
-        elemField.setNillable(false);
-        typeDesc.addFieldDesc(elemField);
-    }
-
-    /**
-     * Return type metadata object
-     */
-    public static org.apache.axis.description.TypeDesc getTypeDesc() {
-        return typeDesc;
-    }
-
-    /**
-     * Get Custom Serializer
-     */
-    public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanSerializer(
-            _javaType, _xmlType, typeDesc);
-    }
-
-    /**
-     * Get Custom Deserializer
-     */
-    public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanDeserializer(
-            _javaType, _xmlType, typeDesc);
-    }
+	/**
+	 * Get Custom Deserializer
+	 */
+	public static org.apache.axis.encoding.Deserializer getDeserializer(
+			java.lang.String mechType, java.lang.Class _javaType,
+			javax.xml.namespace.QName _xmlType) {
+		return new org.apache.axis.encoding.ser.BeanDeserializer(_javaType,
+				_xmlType, typeDesc);
+	}
 
 }

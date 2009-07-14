@@ -7,167 +7,178 @@
 
 package com.vmware.vim25;
 
-public class QueryExpressionMetadataRequestType  implements java.io.Serializable {
-    private com.vmware.vim25.ManagedObjectReference _this;
+public class QueryExpressionMetadataRequestType implements java.io.Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
-    private java.lang.String[] expressionName;
+	private com.vmware.vim25.ManagedObjectReference _this;
 
-    public QueryExpressionMetadataRequestType() {
-    }
+	private java.lang.String[] expressionName;
 
-    public QueryExpressionMetadataRequestType(
-           com.vmware.vim25.ManagedObjectReference _this,
-           java.lang.String[] expressionName) {
-           this._this = _this;
-           this.expressionName = expressionName;
-    }
+	public QueryExpressionMetadataRequestType() {
+	}
 
+	public QueryExpressionMetadataRequestType(
+			com.vmware.vim25.ManagedObjectReference _this,
+			java.lang.String[] expressionName) {
+		this._this = _this;
+		this.expressionName = expressionName;
+	}
 
-    /**
-     * Gets the _this value for this QueryExpressionMetadataRequestType.
-     * 
-     * @return _this
-     */
-    public com.vmware.vim25.ManagedObjectReference get_this() {
-        return _this;
-    }
+	/**
+	 * Gets the _this value for this QueryExpressionMetadataRequestType.
+	 * 
+	 * @return _this
+	 */
+	public com.vmware.vim25.ManagedObjectReference get_this() {
+		return _this;
+	}
 
+	/**
+	 * Sets the _this value for this QueryExpressionMetadataRequestType.
+	 * 
+	 * @param _this
+	 */
+	public void set_this(com.vmware.vim25.ManagedObjectReference _this) {
+		this._this = _this;
+	}
 
-    /**
-     * Sets the _this value for this QueryExpressionMetadataRequestType.
-     * 
-     * @param _this
-     */
-    public void set_this(com.vmware.vim25.ManagedObjectReference _this) {
-        this._this = _this;
-    }
+	/**
+	 * Gets the expressionName value for this
+	 * QueryExpressionMetadataRequestType.
+	 * 
+	 * @return expressionName
+	 */
+	public java.lang.String[] getExpressionName() {
+		return expressionName;
+	}
 
+	/**
+	 * Sets the expressionName value for this
+	 * QueryExpressionMetadataRequestType.
+	 * 
+	 * @param expressionName
+	 */
+	public void setExpressionName(java.lang.String[] expressionName) {
+		this.expressionName = expressionName;
+	}
 
-    /**
-     * Gets the expressionName value for this QueryExpressionMetadataRequestType.
-     * 
-     * @return expressionName
-     */
-    public java.lang.String[] getExpressionName() {
-        return expressionName;
-    }
+	public java.lang.String getExpressionName(int i) {
+		return this.expressionName[i];
+	}
 
+	public void setExpressionName(int i, java.lang.String _value) {
+		this.expressionName[i] = _value;
+	}
 
-    /**
-     * Sets the expressionName value for this QueryExpressionMetadataRequestType.
-     * 
-     * @param expressionName
-     */
-    public void setExpressionName(java.lang.String[] expressionName) {
-        this.expressionName = expressionName;
-    }
+	private java.lang.Object __equalsCalc = null;
 
-    public java.lang.String getExpressionName(int i) {
-        return this.expressionName[i];
-    }
+	@Override
+	public synchronized boolean equals(java.lang.Object obj) {
+		if (!(obj instanceof QueryExpressionMetadataRequestType)) {
+			return false;
+		}
+		QueryExpressionMetadataRequestType other = (QueryExpressionMetadataRequestType) obj;
+		if (obj == null) {
+			return false;
+		}
+		if (this == obj) {
+			return true;
+		}
+		if (__equalsCalc != null) {
+			return (__equalsCalc == obj);
+		}
+		__equalsCalc = obj;
+		boolean _equals;
+		_equals = true
+				&& ((this._this == null && other.get_this() == null) || (this._this != null && this._this
+						.equals(other.get_this())))
+				&& ((this.expressionName == null && other.getExpressionName() == null) || (this.expressionName != null && java.util.Arrays
+						.equals(this.expressionName, other.getExpressionName())));
+		__equalsCalc = null;
+		return _equals;
+	}
 
-    public void setExpressionName(int i, java.lang.String _value) {
-        this.expressionName[i] = _value;
-    }
+	private boolean __hashCodeCalc = false;
 
-    private java.lang.Object __equalsCalc = null;
-    public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof QueryExpressionMetadataRequestType)) return false;
-        QueryExpressionMetadataRequestType other = (QueryExpressionMetadataRequestType) obj;
-        if (obj == null) return false;
-        if (this == obj) return true;
-        if (__equalsCalc != null) {
-            return (__equalsCalc == obj);
-        }
-        __equalsCalc = obj;
-        boolean _equals;
-        _equals = true && 
-            ((this._this==null && other.get_this()==null) || 
-             (this._this!=null &&
-              this._this.equals(other.get_this()))) &&
-            ((this.expressionName==null && other.getExpressionName()==null) || 
-             (this.expressionName!=null &&
-              java.util.Arrays.equals(this.expressionName, other.getExpressionName())));
-        __equalsCalc = null;
-        return _equals;
-    }
+	@Override
+	public synchronized int hashCode() {
+		if (__hashCodeCalc) {
+			return 0;
+		}
+		__hashCodeCalc = true;
+		int _hashCode = 1;
+		if (get_this() != null) {
+			_hashCode += get_this().hashCode();
+		}
+		if (getExpressionName() != null) {
+			for (int i = 0; i < java.lang.reflect.Array
+					.getLength(getExpressionName()); i++) {
+				java.lang.Object obj = java.lang.reflect.Array.get(
+						getExpressionName(), i);
+				if (obj != null && !obj.getClass().isArray()) {
+					_hashCode += obj.hashCode();
+				}
+			}
+		}
+		__hashCodeCalc = false;
+		return _hashCode;
+	}
 
-    private boolean __hashCodeCalc = false;
-    public synchronized int hashCode() {
-        if (__hashCodeCalc) {
-            return 0;
-        }
-        __hashCodeCalc = true;
-        int _hashCode = 1;
-        if (get_this() != null) {
-            _hashCode += get_this().hashCode();
-        }
-        if (getExpressionName() != null) {
-            for (int i=0;
-                 i<java.lang.reflect.Array.getLength(getExpressionName());
-                 i++) {
-                java.lang.Object obj = java.lang.reflect.Array.get(getExpressionName(), i);
-                if (obj != null &&
-                    !obj.getClass().isArray()) {
-                    _hashCode += obj.hashCode();
-                }
-            }
-        }
-        __hashCodeCalc = false;
-        return _hashCode;
-    }
+	// Type metadata
+	private static org.apache.axis.description.TypeDesc typeDesc = new org.apache.axis.description.TypeDesc(
+			QueryExpressionMetadataRequestType.class, true);
 
-    // Type metadata
-    private static org.apache.axis.description.TypeDesc typeDesc =
-        new org.apache.axis.description.TypeDesc(QueryExpressionMetadataRequestType.class, true);
+	static {
+		typeDesc.setXmlType(new javax.xml.namespace.QName("urn:vim25",
+				"QueryExpressionMetadataRequestType"));
+		org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+		elemField.setFieldName("_this");
+		elemField
+				.setXmlName(new javax.xml.namespace.QName("urn:vim25", "_this"));
+		elemField.setXmlType(new javax.xml.namespace.QName("urn:vim25",
+				"ManagedObjectReference"));
+		elemField.setNillable(false);
+		typeDesc.addFieldDesc(elemField);
+		elemField = new org.apache.axis.description.ElementDesc();
+		elemField.setFieldName("expressionName");
+		elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25",
+				"expressionName"));
+		elemField.setXmlType(new javax.xml.namespace.QName(
+				"http://www.w3.org/2001/XMLSchema", "string"));
+		elemField.setMinOccurs(0);
+		elemField.setNillable(false);
+		elemField.setMaxOccursUnbounded(true);
+		typeDesc.addFieldDesc(elemField);
+	}
 
-    static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("urn:vim25", "QueryExpressionMetadataRequestType"));
-        org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("_this");
-        elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25", "_this"));
-        elemField.setXmlType(new javax.xml.namespace.QName("urn:vim25", "ManagedObjectReference"));
-        elemField.setNillable(false);
-        typeDesc.addFieldDesc(elemField);
-        elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("expressionName");
-        elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25", "expressionName"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
-        elemField.setMinOccurs(0);
-        elemField.setNillable(false);
-        elemField.setMaxOccursUnbounded(true);
-        typeDesc.addFieldDesc(elemField);
-    }
+	/**
+	 * Return type metadata object
+	 */
+	public static org.apache.axis.description.TypeDesc getTypeDesc() {
+		return typeDesc;
+	}
 
-    /**
-     * Return type metadata object
-     */
-    public static org.apache.axis.description.TypeDesc getTypeDesc() {
-        return typeDesc;
-    }
+	/**
+	 * Get Custom Serializer
+	 */
+	public static org.apache.axis.encoding.Serializer getSerializer(
+			java.lang.String mechType, java.lang.Class _javaType,
+			javax.xml.namespace.QName _xmlType) {
+		return new org.apache.axis.encoding.ser.BeanSerializer(_javaType,
+				_xmlType, typeDesc);
+	}
 
-    /**
-     * Get Custom Serializer
-     */
-    public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanSerializer(
-            _javaType, _xmlType, typeDesc);
-    }
-
-    /**
-     * Get Custom Deserializer
-     */
-    public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanDeserializer(
-            _javaType, _xmlType, typeDesc);
-    }
+	/**
+	 * Get Custom Deserializer
+	 */
+	public static org.apache.axis.encoding.Deserializer getDeserializer(
+			java.lang.String mechType, java.lang.Class _javaType,
+			javax.xml.namespace.QName _xmlType) {
+		return new org.apache.axis.encoding.ser.BeanDeserializer(_javaType,
+				_xmlType, typeDesc);
+	}
 
 }

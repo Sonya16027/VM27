@@ -7,335 +7,338 @@
 
 package com.vmware.vim25;
 
-public class VirtualMachineFileLayout  extends com.vmware.vim25.DynamicData  implements java.io.Serializable {
-    private java.lang.String[] configFile;
+public class VirtualMachineFileLayout extends com.vmware.vim25.DynamicData
+		implements java.io.Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
-    private java.lang.String[] logFile;
+	private java.lang.String[] configFile;
 
-    private com.vmware.vim25.VirtualMachineFileLayoutDiskLayout[] disk;
+	private java.lang.String[] logFile;
 
-    private com.vmware.vim25.VirtualMachineFileLayoutSnapshotLayout[] snapshot;
+	private com.vmware.vim25.VirtualMachineFileLayoutDiskLayout[] disk;
 
-    private java.lang.String swapFile;
+	private com.vmware.vim25.VirtualMachineFileLayoutSnapshotLayout[] snapshot;
 
-    public VirtualMachineFileLayout() {
-    }
+	private java.lang.String swapFile;
 
-    public VirtualMachineFileLayout(
-           java.lang.String dynamicType,
-           com.vmware.vim25.DynamicProperty[] dynamicProperty,
-           java.lang.String[] configFile,
-           java.lang.String[] logFile,
-           com.vmware.vim25.VirtualMachineFileLayoutDiskLayout[] disk,
-           com.vmware.vim25.VirtualMachineFileLayoutSnapshotLayout[] snapshot,
-           java.lang.String swapFile) {
-        super(
-            dynamicType,
-            dynamicProperty);
-        this.configFile = configFile;
-        this.logFile = logFile;
-        this.disk = disk;
-        this.snapshot = snapshot;
-        this.swapFile = swapFile;
-    }
+	public VirtualMachineFileLayout() {
+	}
 
+	public VirtualMachineFileLayout(java.lang.String dynamicType,
+			com.vmware.vim25.DynamicProperty[] dynamicProperty,
+			java.lang.String[] configFile, java.lang.String[] logFile,
+			com.vmware.vim25.VirtualMachineFileLayoutDiskLayout[] disk,
+			com.vmware.vim25.VirtualMachineFileLayoutSnapshotLayout[] snapshot,
+			java.lang.String swapFile) {
+		super(dynamicType, dynamicProperty);
+		this.configFile = configFile;
+		this.logFile = logFile;
+		this.disk = disk;
+		this.snapshot = snapshot;
+		this.swapFile = swapFile;
+	}
 
-    /**
-     * Gets the configFile value for this VirtualMachineFileLayout.
-     * 
-     * @return configFile
-     */
-    public java.lang.String[] getConfigFile() {
-        return configFile;
-    }
+	/**
+	 * Gets the configFile value for this VirtualMachineFileLayout.
+	 * 
+	 * @return configFile
+	 */
+	public java.lang.String[] getConfigFile() {
+		return configFile;
+	}
 
+	/**
+	 * Sets the configFile value for this VirtualMachineFileLayout.
+	 * 
+	 * @param configFile
+	 */
+	public void setConfigFile(java.lang.String[] configFile) {
+		this.configFile = configFile;
+	}
 
-    /**
-     * Sets the configFile value for this VirtualMachineFileLayout.
-     * 
-     * @param configFile
-     */
-    public void setConfigFile(java.lang.String[] configFile) {
-        this.configFile = configFile;
-    }
+	public java.lang.String getConfigFile(int i) {
+		return this.configFile[i];
+	}
 
-    public java.lang.String getConfigFile(int i) {
-        return this.configFile[i];
-    }
+	public void setConfigFile(int i, java.lang.String _value) {
+		this.configFile[i] = _value;
+	}
 
-    public void setConfigFile(int i, java.lang.String _value) {
-        this.configFile[i] = _value;
-    }
+	/**
+	 * Gets the logFile value for this VirtualMachineFileLayout.
+	 * 
+	 * @return logFile
+	 */
+	public java.lang.String[] getLogFile() {
+		return logFile;
+	}
 
+	/**
+	 * Sets the logFile value for this VirtualMachineFileLayout.
+	 * 
+	 * @param logFile
+	 */
+	public void setLogFile(java.lang.String[] logFile) {
+		this.logFile = logFile;
+	}
 
-    /**
-     * Gets the logFile value for this VirtualMachineFileLayout.
-     * 
-     * @return logFile
-     */
-    public java.lang.String[] getLogFile() {
-        return logFile;
-    }
+	public java.lang.String getLogFile(int i) {
+		return this.logFile[i];
+	}
 
+	public void setLogFile(int i, java.lang.String _value) {
+		this.logFile[i] = _value;
+	}
 
-    /**
-     * Sets the logFile value for this VirtualMachineFileLayout.
-     * 
-     * @param logFile
-     */
-    public void setLogFile(java.lang.String[] logFile) {
-        this.logFile = logFile;
-    }
+	/**
+	 * Gets the disk value for this VirtualMachineFileLayout.
+	 * 
+	 * @return disk
+	 */
+	public com.vmware.vim25.VirtualMachineFileLayoutDiskLayout[] getDisk() {
+		return disk;
+	}
 
-    public java.lang.String getLogFile(int i) {
-        return this.logFile[i];
-    }
+	/**
+	 * Sets the disk value for this VirtualMachineFileLayout.
+	 * 
+	 * @param disk
+	 */
+	public void setDisk(
+			com.vmware.vim25.VirtualMachineFileLayoutDiskLayout[] disk) {
+		this.disk = disk;
+	}
 
-    public void setLogFile(int i, java.lang.String _value) {
-        this.logFile[i] = _value;
-    }
+	public com.vmware.vim25.VirtualMachineFileLayoutDiskLayout getDisk(int i) {
+		return this.disk[i];
+	}
 
+	public void setDisk(int i,
+			com.vmware.vim25.VirtualMachineFileLayoutDiskLayout _value) {
+		this.disk[i] = _value;
+	}
 
-    /**
-     * Gets the disk value for this VirtualMachineFileLayout.
-     * 
-     * @return disk
-     */
-    public com.vmware.vim25.VirtualMachineFileLayoutDiskLayout[] getDisk() {
-        return disk;
-    }
+	/**
+	 * Gets the snapshot value for this VirtualMachineFileLayout.
+	 * 
+	 * @return snapshot
+	 */
+	public com.vmware.vim25.VirtualMachineFileLayoutSnapshotLayout[] getSnapshot() {
+		return snapshot;
+	}
 
+	/**
+	 * Sets the snapshot value for this VirtualMachineFileLayout.
+	 * 
+	 * @param snapshot
+	 */
+	public void setSnapshot(
+			com.vmware.vim25.VirtualMachineFileLayoutSnapshotLayout[] snapshot) {
+		this.snapshot = snapshot;
+	}
 
-    /**
-     * Sets the disk value for this VirtualMachineFileLayout.
-     * 
-     * @param disk
-     */
-    public void setDisk(com.vmware.vim25.VirtualMachineFileLayoutDiskLayout[] disk) {
-        this.disk = disk;
-    }
+	public com.vmware.vim25.VirtualMachineFileLayoutSnapshotLayout getSnapshot(
+			int i) {
+		return this.snapshot[i];
+	}
 
-    public com.vmware.vim25.VirtualMachineFileLayoutDiskLayout getDisk(int i) {
-        return this.disk[i];
-    }
+	public void setSnapshot(int i,
+			com.vmware.vim25.VirtualMachineFileLayoutSnapshotLayout _value) {
+		this.snapshot[i] = _value;
+	}
 
-    public void setDisk(int i, com.vmware.vim25.VirtualMachineFileLayoutDiskLayout _value) {
-        this.disk[i] = _value;
-    }
+	/**
+	 * Gets the swapFile value for this VirtualMachineFileLayout.
+	 * 
+	 * @return swapFile
+	 */
+	public java.lang.String getSwapFile() {
+		return swapFile;
+	}
 
+	/**
+	 * Sets the swapFile value for this VirtualMachineFileLayout.
+	 * 
+	 * @param swapFile
+	 */
+	public void setSwapFile(java.lang.String swapFile) {
+		this.swapFile = swapFile;
+	}
 
-    /**
-     * Gets the snapshot value for this VirtualMachineFileLayout.
-     * 
-     * @return snapshot
-     */
-    public com.vmware.vim25.VirtualMachineFileLayoutSnapshotLayout[] getSnapshot() {
-        return snapshot;
-    }
+	private java.lang.Object __equalsCalc = null;
 
+	@Override
+	public synchronized boolean equals(java.lang.Object obj) {
+		if (!(obj instanceof VirtualMachineFileLayout)) {
+			return false;
+		}
+		VirtualMachineFileLayout other = (VirtualMachineFileLayout) obj;
+		if (obj == null) {
+			return false;
+		}
+		if (this == obj) {
+			return true;
+		}
+		if (__equalsCalc != null) {
+			return (__equalsCalc == obj);
+		}
+		__equalsCalc = obj;
+		boolean _equals;
+		_equals = super.equals(obj)
+				&& ((this.configFile == null && other.getConfigFile() == null) || (this.configFile != null && java.util.Arrays
+						.equals(this.configFile, other.getConfigFile())))
+				&& ((this.logFile == null && other.getLogFile() == null) || (this.logFile != null && java.util.Arrays
+						.equals(this.logFile, other.getLogFile())))
+				&& ((this.disk == null && other.getDisk() == null) || (this.disk != null && java.util.Arrays
+						.equals(this.disk, other.getDisk())))
+				&& ((this.snapshot == null && other.getSnapshot() == null) || (this.snapshot != null && java.util.Arrays
+						.equals(this.snapshot, other.getSnapshot())))
+				&& ((this.swapFile == null && other.getSwapFile() == null) || (this.swapFile != null && this.swapFile
+						.equals(other.getSwapFile())));
+		__equalsCalc = null;
+		return _equals;
+	}
 
-    /**
-     * Sets the snapshot value for this VirtualMachineFileLayout.
-     * 
-     * @param snapshot
-     */
-    public void setSnapshot(com.vmware.vim25.VirtualMachineFileLayoutSnapshotLayout[] snapshot) {
-        this.snapshot = snapshot;
-    }
+	private boolean __hashCodeCalc = false;
 
-    public com.vmware.vim25.VirtualMachineFileLayoutSnapshotLayout getSnapshot(int i) {
-        return this.snapshot[i];
-    }
+	@Override
+	public synchronized int hashCode() {
+		if (__hashCodeCalc) {
+			return 0;
+		}
+		__hashCodeCalc = true;
+		int _hashCode = super.hashCode();
+		if (getConfigFile() != null) {
+			for (int i = 0; i < java.lang.reflect.Array
+					.getLength(getConfigFile()); i++) {
+				java.lang.Object obj = java.lang.reflect.Array.get(
+						getConfigFile(), i);
+				if (obj != null && !obj.getClass().isArray()) {
+					_hashCode += obj.hashCode();
+				}
+			}
+		}
+		if (getLogFile() != null) {
+			for (int i = 0; i < java.lang.reflect.Array.getLength(getLogFile()); i++) {
+				java.lang.Object obj = java.lang.reflect.Array.get(
+						getLogFile(), i);
+				if (obj != null && !obj.getClass().isArray()) {
+					_hashCode += obj.hashCode();
+				}
+			}
+		}
+		if (getDisk() != null) {
+			for (int i = 0; i < java.lang.reflect.Array.getLength(getDisk()); i++) {
+				java.lang.Object obj = java.lang.reflect.Array
+						.get(getDisk(), i);
+				if (obj != null && !obj.getClass().isArray()) {
+					_hashCode += obj.hashCode();
+				}
+			}
+		}
+		if (getSnapshot() != null) {
+			for (int i = 0; i < java.lang.reflect.Array
+					.getLength(getSnapshot()); i++) {
+				java.lang.Object obj = java.lang.reflect.Array.get(
+						getSnapshot(), i);
+				if (obj != null && !obj.getClass().isArray()) {
+					_hashCode += obj.hashCode();
+				}
+			}
+		}
+		if (getSwapFile() != null) {
+			_hashCode += getSwapFile().hashCode();
+		}
+		__hashCodeCalc = false;
+		return _hashCode;
+	}
 
-    public void setSnapshot(int i, com.vmware.vim25.VirtualMachineFileLayoutSnapshotLayout _value) {
-        this.snapshot[i] = _value;
-    }
+	// Type metadata
+	private static org.apache.axis.description.TypeDesc typeDesc = new org.apache.axis.description.TypeDesc(
+			VirtualMachineFileLayout.class, true);
 
+	static {
+		typeDesc.setXmlType(new javax.xml.namespace.QName("urn:vim25",
+				"VirtualMachineFileLayout"));
+		org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+		elemField.setFieldName("configFile");
+		elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25",
+				"configFile"));
+		elemField.setXmlType(new javax.xml.namespace.QName(
+				"http://www.w3.org/2001/XMLSchema", "string"));
+		elemField.setMinOccurs(0);
+		elemField.setNillable(false);
+		elemField.setMaxOccursUnbounded(true);
+		typeDesc.addFieldDesc(elemField);
+		elemField = new org.apache.axis.description.ElementDesc();
+		elemField.setFieldName("logFile");
+		elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25",
+				"logFile"));
+		elemField.setXmlType(new javax.xml.namespace.QName(
+				"http://www.w3.org/2001/XMLSchema", "string"));
+		elemField.setMinOccurs(0);
+		elemField.setNillable(false);
+		elemField.setMaxOccursUnbounded(true);
+		typeDesc.addFieldDesc(elemField);
+		elemField = new org.apache.axis.description.ElementDesc();
+		elemField.setFieldName("disk");
+		elemField
+				.setXmlName(new javax.xml.namespace.QName("urn:vim25", "disk"));
+		elemField.setXmlType(new javax.xml.namespace.QName("urn:vim25",
+				"VirtualMachineFileLayoutDiskLayout"));
+		elemField.setMinOccurs(0);
+		elemField.setNillable(false);
+		elemField.setMaxOccursUnbounded(true);
+		typeDesc.addFieldDesc(elemField);
+		elemField = new org.apache.axis.description.ElementDesc();
+		elemField.setFieldName("snapshot");
+		elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25",
+				"snapshot"));
+		elemField.setXmlType(new javax.xml.namespace.QName("urn:vim25",
+				"VirtualMachineFileLayoutSnapshotLayout"));
+		elemField.setMinOccurs(0);
+		elemField.setNillable(false);
+		elemField.setMaxOccursUnbounded(true);
+		typeDesc.addFieldDesc(elemField);
+		elemField = new org.apache.axis.description.ElementDesc();
+		elemField.setFieldName("swapFile");
+		elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25",
+				"swapFile"));
+		elemField.setXmlType(new javax.xml.namespace.QName(
+				"http://www.w3.org/2001/XMLSchema", "string"));
+		elemField.setMinOccurs(0);
+		elemField.setNillable(false);
+		typeDesc.addFieldDesc(elemField);
+	}
 
-    /**
-     * Gets the swapFile value for this VirtualMachineFileLayout.
-     * 
-     * @return swapFile
-     */
-    public java.lang.String getSwapFile() {
-        return swapFile;
-    }
+	/**
+	 * Return type metadata object
+	 */
+	public static org.apache.axis.description.TypeDesc getTypeDesc() {
+		return typeDesc;
+	}
 
+	/**
+	 * Get Custom Serializer
+	 */
+	public static org.apache.axis.encoding.Serializer getSerializer(
+			java.lang.String mechType, java.lang.Class _javaType,
+			javax.xml.namespace.QName _xmlType) {
+		return new org.apache.axis.encoding.ser.BeanSerializer(_javaType,
+				_xmlType, typeDesc);
+	}
 
-    /**
-     * Sets the swapFile value for this VirtualMachineFileLayout.
-     * 
-     * @param swapFile
-     */
-    public void setSwapFile(java.lang.String swapFile) {
-        this.swapFile = swapFile;
-    }
-
-    private java.lang.Object __equalsCalc = null;
-    public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof VirtualMachineFileLayout)) return false;
-        VirtualMachineFileLayout other = (VirtualMachineFileLayout) obj;
-        if (obj == null) return false;
-        if (this == obj) return true;
-        if (__equalsCalc != null) {
-            return (__equalsCalc == obj);
-        }
-        __equalsCalc = obj;
-        boolean _equals;
-        _equals = super.equals(obj) && 
-            ((this.configFile==null && other.getConfigFile()==null) || 
-             (this.configFile!=null &&
-              java.util.Arrays.equals(this.configFile, other.getConfigFile()))) &&
-            ((this.logFile==null && other.getLogFile()==null) || 
-             (this.logFile!=null &&
-              java.util.Arrays.equals(this.logFile, other.getLogFile()))) &&
-            ((this.disk==null && other.getDisk()==null) || 
-             (this.disk!=null &&
-              java.util.Arrays.equals(this.disk, other.getDisk()))) &&
-            ((this.snapshot==null && other.getSnapshot()==null) || 
-             (this.snapshot!=null &&
-              java.util.Arrays.equals(this.snapshot, other.getSnapshot()))) &&
-            ((this.swapFile==null && other.getSwapFile()==null) || 
-             (this.swapFile!=null &&
-              this.swapFile.equals(other.getSwapFile())));
-        __equalsCalc = null;
-        return _equals;
-    }
-
-    private boolean __hashCodeCalc = false;
-    public synchronized int hashCode() {
-        if (__hashCodeCalc) {
-            return 0;
-        }
-        __hashCodeCalc = true;
-        int _hashCode = super.hashCode();
-        if (getConfigFile() != null) {
-            for (int i=0;
-                 i<java.lang.reflect.Array.getLength(getConfigFile());
-                 i++) {
-                java.lang.Object obj = java.lang.reflect.Array.get(getConfigFile(), i);
-                if (obj != null &&
-                    !obj.getClass().isArray()) {
-                    _hashCode += obj.hashCode();
-                }
-            }
-        }
-        if (getLogFile() != null) {
-            for (int i=0;
-                 i<java.lang.reflect.Array.getLength(getLogFile());
-                 i++) {
-                java.lang.Object obj = java.lang.reflect.Array.get(getLogFile(), i);
-                if (obj != null &&
-                    !obj.getClass().isArray()) {
-                    _hashCode += obj.hashCode();
-                }
-            }
-        }
-        if (getDisk() != null) {
-            for (int i=0;
-                 i<java.lang.reflect.Array.getLength(getDisk());
-                 i++) {
-                java.lang.Object obj = java.lang.reflect.Array.get(getDisk(), i);
-                if (obj != null &&
-                    !obj.getClass().isArray()) {
-                    _hashCode += obj.hashCode();
-                }
-            }
-        }
-        if (getSnapshot() != null) {
-            for (int i=0;
-                 i<java.lang.reflect.Array.getLength(getSnapshot());
-                 i++) {
-                java.lang.Object obj = java.lang.reflect.Array.get(getSnapshot(), i);
-                if (obj != null &&
-                    !obj.getClass().isArray()) {
-                    _hashCode += obj.hashCode();
-                }
-            }
-        }
-        if (getSwapFile() != null) {
-            _hashCode += getSwapFile().hashCode();
-        }
-        __hashCodeCalc = false;
-        return _hashCode;
-    }
-
-    // Type metadata
-    private static org.apache.axis.description.TypeDesc typeDesc =
-        new org.apache.axis.description.TypeDesc(VirtualMachineFileLayout.class, true);
-
-    static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("urn:vim25", "VirtualMachineFileLayout"));
-        org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("configFile");
-        elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25", "configFile"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
-        elemField.setMinOccurs(0);
-        elemField.setNillable(false);
-        elemField.setMaxOccursUnbounded(true);
-        typeDesc.addFieldDesc(elemField);
-        elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("logFile");
-        elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25", "logFile"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
-        elemField.setMinOccurs(0);
-        elemField.setNillable(false);
-        elemField.setMaxOccursUnbounded(true);
-        typeDesc.addFieldDesc(elemField);
-        elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("disk");
-        elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25", "disk"));
-        elemField.setXmlType(new javax.xml.namespace.QName("urn:vim25", "VirtualMachineFileLayoutDiskLayout"));
-        elemField.setMinOccurs(0);
-        elemField.setNillable(false);
-        elemField.setMaxOccursUnbounded(true);
-        typeDesc.addFieldDesc(elemField);
-        elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("snapshot");
-        elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25", "snapshot"));
-        elemField.setXmlType(new javax.xml.namespace.QName("urn:vim25", "VirtualMachineFileLayoutSnapshotLayout"));
-        elemField.setMinOccurs(0);
-        elemField.setNillable(false);
-        elemField.setMaxOccursUnbounded(true);
-        typeDesc.addFieldDesc(elemField);
-        elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("swapFile");
-        elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25", "swapFile"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
-        elemField.setMinOccurs(0);
-        elemField.setNillable(false);
-        typeDesc.addFieldDesc(elemField);
-    }
-
-    /**
-     * Return type metadata object
-     */
-    public static org.apache.axis.description.TypeDesc getTypeDesc() {
-        return typeDesc;
-    }
-
-    /**
-     * Get Custom Serializer
-     */
-    public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanSerializer(
-            _javaType, _xmlType, typeDesc);
-    }
-
-    /**
-     * Get Custom Deserializer
-     */
-    public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanDeserializer(
-            _javaType, _xmlType, typeDesc);
-    }
+	/**
+	 * Get Custom Deserializer
+	 */
+	public static org.apache.axis.encoding.Deserializer getDeserializer(
+			java.lang.String mechType, java.lang.Class _javaType,
+			javax.xml.namespace.QName _xmlType) {
+		return new org.apache.axis.encoding.ser.BeanDeserializer(_javaType,
+				_xmlType, typeDesc);
+	}
 
 }

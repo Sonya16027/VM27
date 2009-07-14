@@ -7,131 +7,143 @@
 
 package com.vmware.vim;
 
-public class ArrayOfPhysicalNicLinkInfo  implements java.io.Serializable {
-    private com.vmware.vim.PhysicalNicLinkInfo[] physicalNicLinkInfo;
+public class ArrayOfPhysicalNicLinkInfo implements java.io.Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private com.vmware.vim.PhysicalNicLinkInfo[] physicalNicLinkInfo;
 
-    public ArrayOfPhysicalNicLinkInfo() {
-    }
+	public ArrayOfPhysicalNicLinkInfo() {
+	}
 
-    public ArrayOfPhysicalNicLinkInfo(
-           com.vmware.vim.PhysicalNicLinkInfo[] physicalNicLinkInfo) {
-           this.physicalNicLinkInfo = physicalNicLinkInfo;
-    }
+	public ArrayOfPhysicalNicLinkInfo(
+			com.vmware.vim.PhysicalNicLinkInfo[] physicalNicLinkInfo) {
+		this.physicalNicLinkInfo = physicalNicLinkInfo;
+	}
 
+	/**
+	 * Gets the physicalNicLinkInfo value for this ArrayOfPhysicalNicLinkInfo.
+	 * 
+	 * @return physicalNicLinkInfo
+	 */
+	public com.vmware.vim.PhysicalNicLinkInfo[] getPhysicalNicLinkInfo() {
+		return physicalNicLinkInfo;
+	}
 
-    /**
-     * Gets the physicalNicLinkInfo value for this ArrayOfPhysicalNicLinkInfo.
-     * 
-     * @return physicalNicLinkInfo
-     */
-    public com.vmware.vim.PhysicalNicLinkInfo[] getPhysicalNicLinkInfo() {
-        return physicalNicLinkInfo;
-    }
+	/**
+	 * Sets the physicalNicLinkInfo value for this ArrayOfPhysicalNicLinkInfo.
+	 * 
+	 * @param physicalNicLinkInfo
+	 */
+	public void setPhysicalNicLinkInfo(
+			com.vmware.vim.PhysicalNicLinkInfo[] physicalNicLinkInfo) {
+		this.physicalNicLinkInfo = physicalNicLinkInfo;
+	}
 
+	public com.vmware.vim.PhysicalNicLinkInfo getPhysicalNicLinkInfo(int i) {
+		return this.physicalNicLinkInfo[i];
+	}
 
-    /**
-     * Sets the physicalNicLinkInfo value for this ArrayOfPhysicalNicLinkInfo.
-     * 
-     * @param physicalNicLinkInfo
-     */
-    public void setPhysicalNicLinkInfo(com.vmware.vim.PhysicalNicLinkInfo[] physicalNicLinkInfo) {
-        this.physicalNicLinkInfo = physicalNicLinkInfo;
-    }
+	public void setPhysicalNicLinkInfo(int i,
+			com.vmware.vim.PhysicalNicLinkInfo _value) {
+		this.physicalNicLinkInfo[i] = _value;
+	}
 
-    public com.vmware.vim.PhysicalNicLinkInfo getPhysicalNicLinkInfo(int i) {
-        return this.physicalNicLinkInfo[i];
-    }
+	private java.lang.Object __equalsCalc = null;
 
-    public void setPhysicalNicLinkInfo(int i, com.vmware.vim.PhysicalNicLinkInfo _value) {
-        this.physicalNicLinkInfo[i] = _value;
-    }
+	@Override
+	public synchronized boolean equals(java.lang.Object obj) {
+		if (!(obj instanceof ArrayOfPhysicalNicLinkInfo)) {
+			return false;
+		}
+		ArrayOfPhysicalNicLinkInfo other = (ArrayOfPhysicalNicLinkInfo) obj;
+		if (obj == null) {
+			return false;
+		}
+		if (this == obj) {
+			return true;
+		}
+		if (__equalsCalc != null) {
+			return (__equalsCalc == obj);
+		}
+		__equalsCalc = obj;
+		boolean _equals;
+		_equals = true && ((this.physicalNicLinkInfo == null && other
+				.getPhysicalNicLinkInfo() == null) || (this.physicalNicLinkInfo != null && java.util.Arrays
+				.equals(this.physicalNicLinkInfo, other
+						.getPhysicalNicLinkInfo())));
+		__equalsCalc = null;
+		return _equals;
+	}
 
-    private java.lang.Object __equalsCalc = null;
-    public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof ArrayOfPhysicalNicLinkInfo)) return false;
-        ArrayOfPhysicalNicLinkInfo other = (ArrayOfPhysicalNicLinkInfo) obj;
-        if (obj == null) return false;
-        if (this == obj) return true;
-        if (__equalsCalc != null) {
-            return (__equalsCalc == obj);
-        }
-        __equalsCalc = obj;
-        boolean _equals;
-        _equals = true && 
-            ((this.physicalNicLinkInfo==null && other.getPhysicalNicLinkInfo()==null) || 
-             (this.physicalNicLinkInfo!=null &&
-              java.util.Arrays.equals(this.physicalNicLinkInfo, other.getPhysicalNicLinkInfo())));
-        __equalsCalc = null;
-        return _equals;
-    }
+	private boolean __hashCodeCalc = false;
 
-    private boolean __hashCodeCalc = false;
-    public synchronized int hashCode() {
-        if (__hashCodeCalc) {
-            return 0;
-        }
-        __hashCodeCalc = true;
-        int _hashCode = 1;
-        if (getPhysicalNicLinkInfo() != null) {
-            for (int i=0;
-                 i<java.lang.reflect.Array.getLength(getPhysicalNicLinkInfo());
-                 i++) {
-                java.lang.Object obj = java.lang.reflect.Array.get(getPhysicalNicLinkInfo(), i);
-                if (obj != null &&
-                    !obj.getClass().isArray()) {
-                    _hashCode += obj.hashCode();
-                }
-            }
-        }
-        __hashCodeCalc = false;
-        return _hashCode;
-    }
+	@Override
+	public synchronized int hashCode() {
+		if (__hashCodeCalc) {
+			return 0;
+		}
+		__hashCodeCalc = true;
+		int _hashCode = 1;
+		if (getPhysicalNicLinkInfo() != null) {
+			for (int i = 0; i < java.lang.reflect.Array
+					.getLength(getPhysicalNicLinkInfo()); i++) {
+				java.lang.Object obj = java.lang.reflect.Array.get(
+						getPhysicalNicLinkInfo(), i);
+				if (obj != null && !obj.getClass().isArray()) {
+					_hashCode += obj.hashCode();
+				}
+			}
+		}
+		__hashCodeCalc = false;
+		return _hashCode;
+	}
 
-    // Type metadata
-    private static org.apache.axis.description.TypeDesc typeDesc =
-        new org.apache.axis.description.TypeDesc(ArrayOfPhysicalNicLinkInfo.class, true);
+	// Type metadata
+	private static org.apache.axis.description.TypeDesc typeDesc = new org.apache.axis.description.TypeDesc(
+			ArrayOfPhysicalNicLinkInfo.class, true);
 
-    static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("urn:vim2", "ArrayOfPhysicalNicLinkInfo"));
-        org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("physicalNicLinkInfo");
-        elemField.setXmlName(new javax.xml.namespace.QName("urn:vim2", "PhysicalNicLinkInfo"));
-        elemField.setXmlType(new javax.xml.namespace.QName("urn:vim2", "PhysicalNicLinkInfo"));
-        elemField.setMinOccurs(0);
-        elemField.setNillable(false);
-        elemField.setMaxOccursUnbounded(true);
-        typeDesc.addFieldDesc(elemField);
-    }
+	static {
+		typeDesc.setXmlType(new javax.xml.namespace.QName("urn:vim2",
+				"ArrayOfPhysicalNicLinkInfo"));
+		org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+		elemField.setFieldName("physicalNicLinkInfo");
+		elemField.setXmlName(new javax.xml.namespace.QName("urn:vim2",
+				"PhysicalNicLinkInfo"));
+		elemField.setXmlType(new javax.xml.namespace.QName("urn:vim2",
+				"PhysicalNicLinkInfo"));
+		elemField.setMinOccurs(0);
+		elemField.setNillable(false);
+		elemField.setMaxOccursUnbounded(true);
+		typeDesc.addFieldDesc(elemField);
+	}
 
-    /**
-     * Return type metadata object
-     */
-    public static org.apache.axis.description.TypeDesc getTypeDesc() {
-        return typeDesc;
-    }
+	/**
+	 * Return type metadata object
+	 */
+	public static org.apache.axis.description.TypeDesc getTypeDesc() {
+		return typeDesc;
+	}
 
-    /**
-     * Get Custom Serializer
-     */
-    public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanSerializer(
-            _javaType, _xmlType, typeDesc);
-    }
+	/**
+	 * Get Custom Serializer
+	 */
+	public static org.apache.axis.encoding.Serializer getSerializer(
+			java.lang.String mechType, java.lang.Class _javaType,
+			javax.xml.namespace.QName _xmlType) {
+		return new org.apache.axis.encoding.ser.BeanSerializer(_javaType,
+				_xmlType, typeDesc);
+	}
 
-    /**
-     * Get Custom Deserializer
-     */
-    public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanDeserializer(
-            _javaType, _xmlType, typeDesc);
-    }
+	/**
+	 * Get Custom Deserializer
+	 */
+	public static org.apache.axis.encoding.Deserializer getDeserializer(
+			java.lang.String mechType, java.lang.Class _javaType,
+			javax.xml.namespace.QName _xmlType) {
+		return new org.apache.axis.encoding.ser.BeanDeserializer(_javaType,
+				_xmlType, typeDesc);
+	}
 
 }

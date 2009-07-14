@@ -7,260 +7,262 @@
 
 package com.vmware.vim;
 
-public class BrowseDiagnosticLog  implements java.io.Serializable {
-    private com.vmware.vim.ManagedObjectReference _this;
+public class BrowseDiagnosticLog implements java.io.Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
-    private com.vmware.vim.ManagedObjectReference host;
+	private com.vmware.vim.ManagedObjectReference _this;
 
-    private java.lang.String key;
+	private com.vmware.vim.ManagedObjectReference host;
 
-    private java.lang.Integer start;
+	private java.lang.String key;
 
-    private java.lang.Integer lines;
+	private java.lang.Integer start;
 
-    public BrowseDiagnosticLog() {
-    }
+	private java.lang.Integer lines;
 
-    public BrowseDiagnosticLog(
-           com.vmware.vim.ManagedObjectReference _this,
-           com.vmware.vim.ManagedObjectReference host,
-           java.lang.String key,
-           java.lang.Integer start,
-           java.lang.Integer lines) {
-           this._this = _this;
-           this.host = host;
-           this.key = key;
-           this.start = start;
-           this.lines = lines;
-    }
+	public BrowseDiagnosticLog() {
+	}
 
+	public BrowseDiagnosticLog(com.vmware.vim.ManagedObjectReference _this,
+			com.vmware.vim.ManagedObjectReference host, java.lang.String key,
+			java.lang.Integer start, java.lang.Integer lines) {
+		this._this = _this;
+		this.host = host;
+		this.key = key;
+		this.start = start;
+		this.lines = lines;
+	}
 
-    /**
-     * Gets the _this value for this BrowseDiagnosticLog.
-     * 
-     * @return _this
-     */
-    public com.vmware.vim.ManagedObjectReference get_this() {
-        return _this;
-    }
+	/**
+	 * Gets the _this value for this BrowseDiagnosticLog.
+	 * 
+	 * @return _this
+	 */
+	public com.vmware.vim.ManagedObjectReference get_this() {
+		return _this;
+	}
 
+	/**
+	 * Sets the _this value for this BrowseDiagnosticLog.
+	 * 
+	 * @param _this
+	 */
+	public void set_this(com.vmware.vim.ManagedObjectReference _this) {
+		this._this = _this;
+	}
 
-    /**
-     * Sets the _this value for this BrowseDiagnosticLog.
-     * 
-     * @param _this
-     */
-    public void set_this(com.vmware.vim.ManagedObjectReference _this) {
-        this._this = _this;
-    }
+	/**
+	 * Gets the host value for this BrowseDiagnosticLog.
+	 * 
+	 * @return host
+	 */
+	public com.vmware.vim.ManagedObjectReference getHost() {
+		return host;
+	}
 
+	/**
+	 * Sets the host value for this BrowseDiagnosticLog.
+	 * 
+	 * @param host
+	 */
+	public void setHost(com.vmware.vim.ManagedObjectReference host) {
+		this.host = host;
+	}
 
-    /**
-     * Gets the host value for this BrowseDiagnosticLog.
-     * 
-     * @return host
-     */
-    public com.vmware.vim.ManagedObjectReference getHost() {
-        return host;
-    }
+	/**
+	 * Gets the key value for this BrowseDiagnosticLog.
+	 * 
+	 * @return key
+	 */
+	public java.lang.String getKey() {
+		return key;
+	}
 
+	/**
+	 * Sets the key value for this BrowseDiagnosticLog.
+	 * 
+	 * @param key
+	 */
+	public void setKey(java.lang.String key) {
+		this.key = key;
+	}
 
-    /**
-     * Sets the host value for this BrowseDiagnosticLog.
-     * 
-     * @param host
-     */
-    public void setHost(com.vmware.vim.ManagedObjectReference host) {
-        this.host = host;
-    }
+	/**
+	 * Gets the start value for this BrowseDiagnosticLog.
+	 * 
+	 * @return start
+	 */
+	public java.lang.Integer getStart() {
+		return start;
+	}
 
+	/**
+	 * Sets the start value for this BrowseDiagnosticLog.
+	 * 
+	 * @param start
+	 */
+	public void setStart(java.lang.Integer start) {
+		this.start = start;
+	}
 
-    /**
-     * Gets the key value for this BrowseDiagnosticLog.
-     * 
-     * @return key
-     */
-    public java.lang.String getKey() {
-        return key;
-    }
+	/**
+	 * Gets the lines value for this BrowseDiagnosticLog.
+	 * 
+	 * @return lines
+	 */
+	public java.lang.Integer getLines() {
+		return lines;
+	}
 
+	/**
+	 * Sets the lines value for this BrowseDiagnosticLog.
+	 * 
+	 * @param lines
+	 */
+	public void setLines(java.lang.Integer lines) {
+		this.lines = lines;
+	}
 
-    /**
-     * Sets the key value for this BrowseDiagnosticLog.
-     * 
-     * @param key
-     */
-    public void setKey(java.lang.String key) {
-        this.key = key;
-    }
+	private java.lang.Object __equalsCalc = null;
 
+	@Override
+	public synchronized boolean equals(java.lang.Object obj) {
+		if (!(obj instanceof BrowseDiagnosticLog)) {
+			return false;
+		}
+		BrowseDiagnosticLog other = (BrowseDiagnosticLog) obj;
+		if (obj == null) {
+			return false;
+		}
+		if (this == obj) {
+			return true;
+		}
+		if (__equalsCalc != null) {
+			return (__equalsCalc == obj);
+		}
+		__equalsCalc = obj;
+		boolean _equals;
+		_equals = true
+				&& ((this._this == null && other.get_this() == null) || (this._this != null && this._this
+						.equals(other.get_this())))
+				&& ((this.host == null && other.getHost() == null) || (this.host != null && this.host
+						.equals(other.getHost())))
+				&& ((this.key == null && other.getKey() == null) || (this.key != null && this.key
+						.equals(other.getKey())))
+				&& ((this.start == null && other.getStart() == null) || (this.start != null && this.start
+						.equals(other.getStart())))
+				&& ((this.lines == null && other.getLines() == null) || (this.lines != null && this.lines
+						.equals(other.getLines())));
+		__equalsCalc = null;
+		return _equals;
+	}
 
-    /**
-     * Gets the start value for this BrowseDiagnosticLog.
-     * 
-     * @return start
-     */
-    public java.lang.Integer getStart() {
-        return start;
-    }
+	private boolean __hashCodeCalc = false;
 
+	@Override
+	public synchronized int hashCode() {
+		if (__hashCodeCalc) {
+			return 0;
+		}
+		__hashCodeCalc = true;
+		int _hashCode = 1;
+		if (get_this() != null) {
+			_hashCode += get_this().hashCode();
+		}
+		if (getHost() != null) {
+			_hashCode += getHost().hashCode();
+		}
+		if (getKey() != null) {
+			_hashCode += getKey().hashCode();
+		}
+		if (getStart() != null) {
+			_hashCode += getStart().hashCode();
+		}
+		if (getLines() != null) {
+			_hashCode += getLines().hashCode();
+		}
+		__hashCodeCalc = false;
+		return _hashCode;
+	}
 
-    /**
-     * Sets the start value for this BrowseDiagnosticLog.
-     * 
-     * @param start
-     */
-    public void setStart(java.lang.Integer start) {
-        this.start = start;
-    }
+	// Type metadata
+	private static org.apache.axis.description.TypeDesc typeDesc = new org.apache.axis.description.TypeDesc(
+			BrowseDiagnosticLog.class, true);
 
+	static {
+		typeDesc.setXmlType(new javax.xml.namespace.QName("urn:vim2",
+				">BrowseDiagnosticLog"));
+		org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+		elemField.setFieldName("_this");
+		elemField
+				.setXmlName(new javax.xml.namespace.QName("urn:vim2", "_this"));
+		elemField.setXmlType(new javax.xml.namespace.QName("urn:vim2",
+				"ManagedObjectReference"));
+		elemField.setNillable(false);
+		typeDesc.addFieldDesc(elemField);
+		elemField = new org.apache.axis.description.ElementDesc();
+		elemField.setFieldName("host");
+		elemField.setXmlName(new javax.xml.namespace.QName("urn:vim2", "host"));
+		elemField.setXmlType(new javax.xml.namespace.QName("urn:vim2",
+				"ManagedObjectReference"));
+		elemField.setMinOccurs(0);
+		elemField.setNillable(false);
+		typeDesc.addFieldDesc(elemField);
+		elemField = new org.apache.axis.description.ElementDesc();
+		elemField.setFieldName("key");
+		elemField.setXmlName(new javax.xml.namespace.QName("urn:vim2", "key"));
+		elemField.setXmlType(new javax.xml.namespace.QName(
+				"http://www.w3.org/2001/XMLSchema", "string"));
+		elemField.setNillable(false);
+		typeDesc.addFieldDesc(elemField);
+		elemField = new org.apache.axis.description.ElementDesc();
+		elemField.setFieldName("start");
+		elemField
+				.setXmlName(new javax.xml.namespace.QName("urn:vim2", "start"));
+		elemField.setXmlType(new javax.xml.namespace.QName(
+				"http://www.w3.org/2001/XMLSchema", "int"));
+		elemField.setMinOccurs(0);
+		elemField.setNillable(false);
+		typeDesc.addFieldDesc(elemField);
+		elemField = new org.apache.axis.description.ElementDesc();
+		elemField.setFieldName("lines");
+		elemField
+				.setXmlName(new javax.xml.namespace.QName("urn:vim2", "lines"));
+		elemField.setXmlType(new javax.xml.namespace.QName(
+				"http://www.w3.org/2001/XMLSchema", "int"));
+		elemField.setMinOccurs(0);
+		elemField.setNillable(false);
+		typeDesc.addFieldDesc(elemField);
+	}
 
-    /**
-     * Gets the lines value for this BrowseDiagnosticLog.
-     * 
-     * @return lines
-     */
-    public java.lang.Integer getLines() {
-        return lines;
-    }
+	/**
+	 * Return type metadata object
+	 */
+	public static org.apache.axis.description.TypeDesc getTypeDesc() {
+		return typeDesc;
+	}
 
+	/**
+	 * Get Custom Serializer
+	 */
+	public static org.apache.axis.encoding.Serializer getSerializer(
+			java.lang.String mechType, java.lang.Class _javaType,
+			javax.xml.namespace.QName _xmlType) {
+		return new org.apache.axis.encoding.ser.BeanSerializer(_javaType,
+				_xmlType, typeDesc);
+	}
 
-    /**
-     * Sets the lines value for this BrowseDiagnosticLog.
-     * 
-     * @param lines
-     */
-    public void setLines(java.lang.Integer lines) {
-        this.lines = lines;
-    }
-
-    private java.lang.Object __equalsCalc = null;
-    public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof BrowseDiagnosticLog)) return false;
-        BrowseDiagnosticLog other = (BrowseDiagnosticLog) obj;
-        if (obj == null) return false;
-        if (this == obj) return true;
-        if (__equalsCalc != null) {
-            return (__equalsCalc == obj);
-        }
-        __equalsCalc = obj;
-        boolean _equals;
-        _equals = true && 
-            ((this._this==null && other.get_this()==null) || 
-             (this._this!=null &&
-              this._this.equals(other.get_this()))) &&
-            ((this.host==null && other.getHost()==null) || 
-             (this.host!=null &&
-              this.host.equals(other.getHost()))) &&
-            ((this.key==null && other.getKey()==null) || 
-             (this.key!=null &&
-              this.key.equals(other.getKey()))) &&
-            ((this.start==null && other.getStart()==null) || 
-             (this.start!=null &&
-              this.start.equals(other.getStart()))) &&
-            ((this.lines==null && other.getLines()==null) || 
-             (this.lines!=null &&
-              this.lines.equals(other.getLines())));
-        __equalsCalc = null;
-        return _equals;
-    }
-
-    private boolean __hashCodeCalc = false;
-    public synchronized int hashCode() {
-        if (__hashCodeCalc) {
-            return 0;
-        }
-        __hashCodeCalc = true;
-        int _hashCode = 1;
-        if (get_this() != null) {
-            _hashCode += get_this().hashCode();
-        }
-        if (getHost() != null) {
-            _hashCode += getHost().hashCode();
-        }
-        if (getKey() != null) {
-            _hashCode += getKey().hashCode();
-        }
-        if (getStart() != null) {
-            _hashCode += getStart().hashCode();
-        }
-        if (getLines() != null) {
-            _hashCode += getLines().hashCode();
-        }
-        __hashCodeCalc = false;
-        return _hashCode;
-    }
-
-    // Type metadata
-    private static org.apache.axis.description.TypeDesc typeDesc =
-        new org.apache.axis.description.TypeDesc(BrowseDiagnosticLog.class, true);
-
-    static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("urn:vim2", ">BrowseDiagnosticLog"));
-        org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("_this");
-        elemField.setXmlName(new javax.xml.namespace.QName("urn:vim2", "_this"));
-        elemField.setXmlType(new javax.xml.namespace.QName("urn:vim2", "ManagedObjectReference"));
-        elemField.setNillable(false);
-        typeDesc.addFieldDesc(elemField);
-        elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("host");
-        elemField.setXmlName(new javax.xml.namespace.QName("urn:vim2", "host"));
-        elemField.setXmlType(new javax.xml.namespace.QName("urn:vim2", "ManagedObjectReference"));
-        elemField.setMinOccurs(0);
-        elemField.setNillable(false);
-        typeDesc.addFieldDesc(elemField);
-        elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("key");
-        elemField.setXmlName(new javax.xml.namespace.QName("urn:vim2", "key"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
-        elemField.setNillable(false);
-        typeDesc.addFieldDesc(elemField);
-        elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("start");
-        elemField.setXmlName(new javax.xml.namespace.QName("urn:vim2", "start"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
-        elemField.setMinOccurs(0);
-        elemField.setNillable(false);
-        typeDesc.addFieldDesc(elemField);
-        elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("lines");
-        elemField.setXmlName(new javax.xml.namespace.QName("urn:vim2", "lines"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
-        elemField.setMinOccurs(0);
-        elemField.setNillable(false);
-        typeDesc.addFieldDesc(elemField);
-    }
-
-    /**
-     * Return type metadata object
-     */
-    public static org.apache.axis.description.TypeDesc getTypeDesc() {
-        return typeDesc;
-    }
-
-    /**
-     * Get Custom Serializer
-     */
-    public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanSerializer(
-            _javaType, _xmlType, typeDesc);
-    }
-
-    /**
-     * Get Custom Deserializer
-     */
-    public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanDeserializer(
-            _javaType, _xmlType, typeDesc);
-    }
+	/**
+	 * Get Custom Deserializer
+	 */
+	public static org.apache.axis.encoding.Deserializer getDeserializer(
+			java.lang.String mechType, java.lang.Class _javaType,
+			javax.xml.namespace.QName _xmlType) {
+		return new org.apache.axis.encoding.ser.BeanDeserializer(_javaType,
+				_xmlType, typeDesc);
+	}
 
 }

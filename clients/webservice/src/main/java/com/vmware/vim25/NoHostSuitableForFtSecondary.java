@@ -7,165 +7,171 @@
 
 package com.vmware.vim25;
 
-public class NoHostSuitableForFtSecondary  extends com.vmware.vim25.VmFaultToleranceIssue  implements java.io.Serializable {
-    private com.vmware.vim25.ManagedObjectReference vm;
+public class NoHostSuitableForFtSecondary extends
+		com.vmware.vim25.VmFaultToleranceIssue implements java.io.Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
-    private java.lang.String vmName;
+	private com.vmware.vim25.ManagedObjectReference vm;
 
-    public NoHostSuitableForFtSecondary() {
-    }
+	private java.lang.String vmName;
 
-    public NoHostSuitableForFtSecondary(
-           java.lang.String dynamicType,
-           com.vmware.vim25.DynamicProperty[] dynamicProperty,
-           com.vmware.vim25.LocalizedMethodFault faultCause,
-           com.vmware.vim25.LocalizableMessage[] faultMessage,
-           com.vmware.vim25.ManagedObjectReference vm,
-           java.lang.String vmName) {
-        super(
-            dynamicType,
-            dynamicProperty,
-            faultCause,
-            faultMessage);
-        this.vm = vm;
-        this.vmName = vmName;
-    }
+	public NoHostSuitableForFtSecondary() {
+	}
 
+	public NoHostSuitableForFtSecondary(java.lang.String dynamicType,
+			com.vmware.vim25.DynamicProperty[] dynamicProperty,
+			com.vmware.vim25.LocalizedMethodFault faultCause,
+			com.vmware.vim25.LocalizableMessage[] faultMessage,
+			com.vmware.vim25.ManagedObjectReference vm, java.lang.String vmName) {
+		super(dynamicType, dynamicProperty, faultCause, faultMessage);
+		this.vm = vm;
+		this.vmName = vmName;
+	}
 
-    /**
-     * Gets the vm value for this NoHostSuitableForFtSecondary.
-     * 
-     * @return vm
-     */
-    public com.vmware.vim25.ManagedObjectReference getVm() {
-        return vm;
-    }
+	/**
+	 * Gets the vm value for this NoHostSuitableForFtSecondary.
+	 * 
+	 * @return vm
+	 */
+	public com.vmware.vim25.ManagedObjectReference getVm() {
+		return vm;
+	}
 
+	/**
+	 * Sets the vm value for this NoHostSuitableForFtSecondary.
+	 * 
+	 * @param vm
+	 */
+	public void setVm(com.vmware.vim25.ManagedObjectReference vm) {
+		this.vm = vm;
+	}
 
-    /**
-     * Sets the vm value for this NoHostSuitableForFtSecondary.
-     * 
-     * @param vm
-     */
-    public void setVm(com.vmware.vim25.ManagedObjectReference vm) {
-        this.vm = vm;
-    }
+	/**
+	 * Gets the vmName value for this NoHostSuitableForFtSecondary.
+	 * 
+	 * @return vmName
+	 */
+	public java.lang.String getVmName() {
+		return vmName;
+	}
 
+	/**
+	 * Sets the vmName value for this NoHostSuitableForFtSecondary.
+	 * 
+	 * @param vmName
+	 */
+	public void setVmName(java.lang.String vmName) {
+		this.vmName = vmName;
+	}
 
-    /**
-     * Gets the vmName value for this NoHostSuitableForFtSecondary.
-     * 
-     * @return vmName
-     */
-    public java.lang.String getVmName() {
-        return vmName;
-    }
+	private java.lang.Object __equalsCalc = null;
 
+	@Override
+	public synchronized boolean equals(java.lang.Object obj) {
+		if (!(obj instanceof NoHostSuitableForFtSecondary)) {
+			return false;
+		}
+		NoHostSuitableForFtSecondary other = (NoHostSuitableForFtSecondary) obj;
+		if (obj == null) {
+			return false;
+		}
+		if (this == obj) {
+			return true;
+		}
+		if (__equalsCalc != null) {
+			return (__equalsCalc == obj);
+		}
+		__equalsCalc = obj;
+		boolean _equals;
+		_equals = super.equals(obj)
+				&& ((this.vm == null && other.getVm() == null) || (this.vm != null && this.vm
+						.equals(other.getVm())))
+				&& ((this.vmName == null && other.getVmName() == null) || (this.vmName != null && this.vmName
+						.equals(other.getVmName())));
+		__equalsCalc = null;
+		return _equals;
+	}
 
-    /**
-     * Sets the vmName value for this NoHostSuitableForFtSecondary.
-     * 
-     * @param vmName
-     */
-    public void setVmName(java.lang.String vmName) {
-        this.vmName = vmName;
-    }
+	private boolean __hashCodeCalc = false;
 
-    private java.lang.Object __equalsCalc = null;
-    public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof NoHostSuitableForFtSecondary)) return false;
-        NoHostSuitableForFtSecondary other = (NoHostSuitableForFtSecondary) obj;
-        if (obj == null) return false;
-        if (this == obj) return true;
-        if (__equalsCalc != null) {
-            return (__equalsCalc == obj);
-        }
-        __equalsCalc = obj;
-        boolean _equals;
-        _equals = super.equals(obj) && 
-            ((this.vm==null && other.getVm()==null) || 
-             (this.vm!=null &&
-              this.vm.equals(other.getVm()))) &&
-            ((this.vmName==null && other.getVmName()==null) || 
-             (this.vmName!=null &&
-              this.vmName.equals(other.getVmName())));
-        __equalsCalc = null;
-        return _equals;
-    }
+	@Override
+	public synchronized int hashCode() {
+		if (__hashCodeCalc) {
+			return 0;
+		}
+		__hashCodeCalc = true;
+		int _hashCode = super.hashCode();
+		if (getVm() != null) {
+			_hashCode += getVm().hashCode();
+		}
+		if (getVmName() != null) {
+			_hashCode += getVmName().hashCode();
+		}
+		__hashCodeCalc = false;
+		return _hashCode;
+	}
 
-    private boolean __hashCodeCalc = false;
-    public synchronized int hashCode() {
-        if (__hashCodeCalc) {
-            return 0;
-        }
-        __hashCodeCalc = true;
-        int _hashCode = super.hashCode();
-        if (getVm() != null) {
-            _hashCode += getVm().hashCode();
-        }
-        if (getVmName() != null) {
-            _hashCode += getVmName().hashCode();
-        }
-        __hashCodeCalc = false;
-        return _hashCode;
-    }
+	// Type metadata
+	private static org.apache.axis.description.TypeDesc typeDesc = new org.apache.axis.description.TypeDesc(
+			NoHostSuitableForFtSecondary.class, true);
 
-    // Type metadata
-    private static org.apache.axis.description.TypeDesc typeDesc =
-        new org.apache.axis.description.TypeDesc(NoHostSuitableForFtSecondary.class, true);
+	static {
+		typeDesc.setXmlType(new javax.xml.namespace.QName("urn:vim25",
+				"NoHostSuitableForFtSecondary"));
+		org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+		elemField.setFieldName("vm");
+		elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25", "vm"));
+		elemField.setXmlType(new javax.xml.namespace.QName("urn:vim25",
+				"ManagedObjectReference"));
+		elemField.setNillable(false);
+		typeDesc.addFieldDesc(elemField);
+		elemField = new org.apache.axis.description.ElementDesc();
+		elemField.setFieldName("vmName");
+		elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25",
+				"vmName"));
+		elemField.setXmlType(new javax.xml.namespace.QName(
+				"http://www.w3.org/2001/XMLSchema", "string"));
+		elemField.setNillable(false);
+		typeDesc.addFieldDesc(elemField);
+	}
 
-    static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("urn:vim25", "NoHostSuitableForFtSecondary"));
-        org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("vm");
-        elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25", "vm"));
-        elemField.setXmlType(new javax.xml.namespace.QName("urn:vim25", "ManagedObjectReference"));
-        elemField.setNillable(false);
-        typeDesc.addFieldDesc(elemField);
-        elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("vmName");
-        elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25", "vmName"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
-        elemField.setNillable(false);
-        typeDesc.addFieldDesc(elemField);
-    }
+	/**
+	 * Return type metadata object
+	 */
+	public static org.apache.axis.description.TypeDesc getTypeDesc() {
+		return typeDesc;
+	}
 
-    /**
-     * Return type metadata object
-     */
-    public static org.apache.axis.description.TypeDesc getTypeDesc() {
-        return typeDesc;
-    }
+	/**
+	 * Get Custom Serializer
+	 */
+	public static org.apache.axis.encoding.Serializer getSerializer(
+			java.lang.String mechType, java.lang.Class _javaType,
+			javax.xml.namespace.QName _xmlType) {
+		return new org.apache.axis.encoding.ser.BeanSerializer(_javaType,
+				_xmlType, typeDesc);
+	}
 
-    /**
-     * Get Custom Serializer
-     */
-    public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanSerializer(
-            _javaType, _xmlType, typeDesc);
-    }
+	/**
+	 * Get Custom Deserializer
+	 */
+	public static org.apache.axis.encoding.Deserializer getDeserializer(
+			java.lang.String mechType, java.lang.Class _javaType,
+			javax.xml.namespace.QName _xmlType) {
+		return new org.apache.axis.encoding.ser.BeanDeserializer(_javaType,
+				_xmlType, typeDesc);
+	}
 
-    /**
-     * Get Custom Deserializer
-     */
-    public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanDeserializer(
-            _javaType, _xmlType, typeDesc);
-    }
-
-
-    /**
-     * Writes the exception data to the faultDetails
-     */
-    public void writeDetails(javax.xml.namespace.QName qname, org.apache.axis.encoding.SerializationContext context) throws java.io.IOException {
-        context.serialize(qname, null, this);
-    }
+	/**
+	 * Writes the exception data to the faultDetails
+	 */
+	@Override
+	public void writeDetails(javax.xml.namespace.QName qname,
+			org.apache.axis.encoding.SerializationContext context)
+			throws java.io.IOException {
+		context.serialize(qname, null, this);
+	}
 }

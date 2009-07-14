@@ -7,131 +7,147 @@
 
 package com.vmware.vim;
 
-public class ArrayOfVirtualMachineIdeDiskDevicePartitionInfo  implements java.io.Serializable {
-    private com.vmware.vim.VirtualMachineIdeDiskDevicePartitionInfo[] virtualMachineIdeDiskDevicePartitionInfo;
+public class ArrayOfVirtualMachineIdeDiskDevicePartitionInfo implements
+		java.io.Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private com.vmware.vim.VirtualMachineIdeDiskDevicePartitionInfo[] virtualMachineIdeDiskDevicePartitionInfo;
 
-    public ArrayOfVirtualMachineIdeDiskDevicePartitionInfo() {
-    }
+	public ArrayOfVirtualMachineIdeDiskDevicePartitionInfo() {
+	}
 
-    public ArrayOfVirtualMachineIdeDiskDevicePartitionInfo(
-           com.vmware.vim.VirtualMachineIdeDiskDevicePartitionInfo[] virtualMachineIdeDiskDevicePartitionInfo) {
-           this.virtualMachineIdeDiskDevicePartitionInfo = virtualMachineIdeDiskDevicePartitionInfo;
-    }
+	public ArrayOfVirtualMachineIdeDiskDevicePartitionInfo(
+			com.vmware.vim.VirtualMachineIdeDiskDevicePartitionInfo[] virtualMachineIdeDiskDevicePartitionInfo) {
+		this.virtualMachineIdeDiskDevicePartitionInfo = virtualMachineIdeDiskDevicePartitionInfo;
+	}
 
+	/**
+	 * Gets the virtualMachineIdeDiskDevicePartitionInfo value for this
+	 * ArrayOfVirtualMachineIdeDiskDevicePartitionInfo.
+	 * 
+	 * @return virtualMachineIdeDiskDevicePartitionInfo
+	 */
+	public com.vmware.vim.VirtualMachineIdeDiskDevicePartitionInfo[] getVirtualMachineIdeDiskDevicePartitionInfo() {
+		return virtualMachineIdeDiskDevicePartitionInfo;
+	}
 
-    /**
-     * Gets the virtualMachineIdeDiskDevicePartitionInfo value for this ArrayOfVirtualMachineIdeDiskDevicePartitionInfo.
-     * 
-     * @return virtualMachineIdeDiskDevicePartitionInfo
-     */
-    public com.vmware.vim.VirtualMachineIdeDiskDevicePartitionInfo[] getVirtualMachineIdeDiskDevicePartitionInfo() {
-        return virtualMachineIdeDiskDevicePartitionInfo;
-    }
+	/**
+	 * Sets the virtualMachineIdeDiskDevicePartitionInfo value for this
+	 * ArrayOfVirtualMachineIdeDiskDevicePartitionInfo.
+	 * 
+	 * @param virtualMachineIdeDiskDevicePartitionInfo
+	 */
+	public void setVirtualMachineIdeDiskDevicePartitionInfo(
+			com.vmware.vim.VirtualMachineIdeDiskDevicePartitionInfo[] virtualMachineIdeDiskDevicePartitionInfo) {
+		this.virtualMachineIdeDiskDevicePartitionInfo = virtualMachineIdeDiskDevicePartitionInfo;
+	}
 
+	public com.vmware.vim.VirtualMachineIdeDiskDevicePartitionInfo getVirtualMachineIdeDiskDevicePartitionInfo(
+			int i) {
+		return this.virtualMachineIdeDiskDevicePartitionInfo[i];
+	}
 
-    /**
-     * Sets the virtualMachineIdeDiskDevicePartitionInfo value for this ArrayOfVirtualMachineIdeDiskDevicePartitionInfo.
-     * 
-     * @param virtualMachineIdeDiskDevicePartitionInfo
-     */
-    public void setVirtualMachineIdeDiskDevicePartitionInfo(com.vmware.vim.VirtualMachineIdeDiskDevicePartitionInfo[] virtualMachineIdeDiskDevicePartitionInfo) {
-        this.virtualMachineIdeDiskDevicePartitionInfo = virtualMachineIdeDiskDevicePartitionInfo;
-    }
+	public void setVirtualMachineIdeDiskDevicePartitionInfo(int i,
+			com.vmware.vim.VirtualMachineIdeDiskDevicePartitionInfo _value) {
+		this.virtualMachineIdeDiskDevicePartitionInfo[i] = _value;
+	}
 
-    public com.vmware.vim.VirtualMachineIdeDiskDevicePartitionInfo getVirtualMachineIdeDiskDevicePartitionInfo(int i) {
-        return this.virtualMachineIdeDiskDevicePartitionInfo[i];
-    }
+	private java.lang.Object __equalsCalc = null;
 
-    public void setVirtualMachineIdeDiskDevicePartitionInfo(int i, com.vmware.vim.VirtualMachineIdeDiskDevicePartitionInfo _value) {
-        this.virtualMachineIdeDiskDevicePartitionInfo[i] = _value;
-    }
+	@Override
+	public synchronized boolean equals(java.lang.Object obj) {
+		if (!(obj instanceof ArrayOfVirtualMachineIdeDiskDevicePartitionInfo)) {
+			return false;
+		}
+		ArrayOfVirtualMachineIdeDiskDevicePartitionInfo other = (ArrayOfVirtualMachineIdeDiskDevicePartitionInfo) obj;
+		if (obj == null) {
+			return false;
+		}
+		if (this == obj) {
+			return true;
+		}
+		if (__equalsCalc != null) {
+			return (__equalsCalc == obj);
+		}
+		__equalsCalc = obj;
+		boolean _equals;
+		_equals = true && ((this.virtualMachineIdeDiskDevicePartitionInfo == null && other
+				.getVirtualMachineIdeDiskDevicePartitionInfo() == null) || (this.virtualMachineIdeDiskDevicePartitionInfo != null && java.util.Arrays
+				.equals(this.virtualMachineIdeDiskDevicePartitionInfo, other
+						.getVirtualMachineIdeDiskDevicePartitionInfo())));
+		__equalsCalc = null;
+		return _equals;
+	}
 
-    private java.lang.Object __equalsCalc = null;
-    public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof ArrayOfVirtualMachineIdeDiskDevicePartitionInfo)) return false;
-        ArrayOfVirtualMachineIdeDiskDevicePartitionInfo other = (ArrayOfVirtualMachineIdeDiskDevicePartitionInfo) obj;
-        if (obj == null) return false;
-        if (this == obj) return true;
-        if (__equalsCalc != null) {
-            return (__equalsCalc == obj);
-        }
-        __equalsCalc = obj;
-        boolean _equals;
-        _equals = true && 
-            ((this.virtualMachineIdeDiskDevicePartitionInfo==null && other.getVirtualMachineIdeDiskDevicePartitionInfo()==null) || 
-             (this.virtualMachineIdeDiskDevicePartitionInfo!=null &&
-              java.util.Arrays.equals(this.virtualMachineIdeDiskDevicePartitionInfo, other.getVirtualMachineIdeDiskDevicePartitionInfo())));
-        __equalsCalc = null;
-        return _equals;
-    }
+	private boolean __hashCodeCalc = false;
 
-    private boolean __hashCodeCalc = false;
-    public synchronized int hashCode() {
-        if (__hashCodeCalc) {
-            return 0;
-        }
-        __hashCodeCalc = true;
-        int _hashCode = 1;
-        if (getVirtualMachineIdeDiskDevicePartitionInfo() != null) {
-            for (int i=0;
-                 i<java.lang.reflect.Array.getLength(getVirtualMachineIdeDiskDevicePartitionInfo());
-                 i++) {
-                java.lang.Object obj = java.lang.reflect.Array.get(getVirtualMachineIdeDiskDevicePartitionInfo(), i);
-                if (obj != null &&
-                    !obj.getClass().isArray()) {
-                    _hashCode += obj.hashCode();
-                }
-            }
-        }
-        __hashCodeCalc = false;
-        return _hashCode;
-    }
+	@Override
+	public synchronized int hashCode() {
+		if (__hashCodeCalc) {
+			return 0;
+		}
+		__hashCodeCalc = true;
+		int _hashCode = 1;
+		if (getVirtualMachineIdeDiskDevicePartitionInfo() != null) {
+			for (int i = 0; i < java.lang.reflect.Array
+					.getLength(getVirtualMachineIdeDiskDevicePartitionInfo()); i++) {
+				java.lang.Object obj = java.lang.reflect.Array.get(
+						getVirtualMachineIdeDiskDevicePartitionInfo(), i);
+				if (obj != null && !obj.getClass().isArray()) {
+					_hashCode += obj.hashCode();
+				}
+			}
+		}
+		__hashCodeCalc = false;
+		return _hashCode;
+	}
 
-    // Type metadata
-    private static org.apache.axis.description.TypeDesc typeDesc =
-        new org.apache.axis.description.TypeDesc(ArrayOfVirtualMachineIdeDiskDevicePartitionInfo.class, true);
+	// Type metadata
+	private static org.apache.axis.description.TypeDesc typeDesc = new org.apache.axis.description.TypeDesc(
+			ArrayOfVirtualMachineIdeDiskDevicePartitionInfo.class, true);
 
-    static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("urn:vim2", "ArrayOfVirtualMachineIdeDiskDevicePartitionInfo"));
-        org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("virtualMachineIdeDiskDevicePartitionInfo");
-        elemField.setXmlName(new javax.xml.namespace.QName("urn:vim2", "VirtualMachineIdeDiskDevicePartitionInfo"));
-        elemField.setXmlType(new javax.xml.namespace.QName("urn:vim2", "VirtualMachineIdeDiskDevicePartitionInfo"));
-        elemField.setMinOccurs(0);
-        elemField.setNillable(false);
-        elemField.setMaxOccursUnbounded(true);
-        typeDesc.addFieldDesc(elemField);
-    }
+	static {
+		typeDesc.setXmlType(new javax.xml.namespace.QName("urn:vim2",
+				"ArrayOfVirtualMachineIdeDiskDevicePartitionInfo"));
+		org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+		elemField.setFieldName("virtualMachineIdeDiskDevicePartitionInfo");
+		elemField.setXmlName(new javax.xml.namespace.QName("urn:vim2",
+				"VirtualMachineIdeDiskDevicePartitionInfo"));
+		elemField.setXmlType(new javax.xml.namespace.QName("urn:vim2",
+				"VirtualMachineIdeDiskDevicePartitionInfo"));
+		elemField.setMinOccurs(0);
+		elemField.setNillable(false);
+		elemField.setMaxOccursUnbounded(true);
+		typeDesc.addFieldDesc(elemField);
+	}
 
-    /**
-     * Return type metadata object
-     */
-    public static org.apache.axis.description.TypeDesc getTypeDesc() {
-        return typeDesc;
-    }
+	/**
+	 * Return type metadata object
+	 */
+	public static org.apache.axis.description.TypeDesc getTypeDesc() {
+		return typeDesc;
+	}
 
-    /**
-     * Get Custom Serializer
-     */
-    public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanSerializer(
-            _javaType, _xmlType, typeDesc);
-    }
+	/**
+	 * Get Custom Serializer
+	 */
+	public static org.apache.axis.encoding.Serializer getSerializer(
+			java.lang.String mechType, java.lang.Class _javaType,
+			javax.xml.namespace.QName _xmlType) {
+		return new org.apache.axis.encoding.ser.BeanSerializer(_javaType,
+				_xmlType, typeDesc);
+	}
 
-    /**
-     * Get Custom Deserializer
-     */
-    public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanDeserializer(
-            _javaType, _xmlType, typeDesc);
-    }
+	/**
+	 * Get Custom Deserializer
+	 */
+	public static org.apache.axis.encoding.Deserializer getDeserializer(
+			java.lang.String mechType, java.lang.Class _javaType,
+			javax.xml.namespace.QName _xmlType) {
+		return new org.apache.axis.encoding.ser.BeanDeserializer(_javaType,
+				_xmlType, typeDesc);
+	}
 
 }

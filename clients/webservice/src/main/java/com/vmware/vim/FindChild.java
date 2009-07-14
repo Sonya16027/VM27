@@ -7,185 +7,191 @@
 
 package com.vmware.vim;
 
-public class FindChild  implements java.io.Serializable {
-    private com.vmware.vim.ManagedObjectReference _this;
+public class FindChild implements java.io.Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
-    private com.vmware.vim.ManagedObjectReference entity;
+	private com.vmware.vim.ManagedObjectReference _this;
 
-    private java.lang.String name;
+	private com.vmware.vim.ManagedObjectReference entity;
 
-    public FindChild() {
-    }
+	private java.lang.String name;
 
-    public FindChild(
-           com.vmware.vim.ManagedObjectReference _this,
-           com.vmware.vim.ManagedObjectReference entity,
-           java.lang.String name) {
-           this._this = _this;
-           this.entity = entity;
-           this.name = name;
-    }
+	public FindChild() {
+	}
 
+	public FindChild(com.vmware.vim.ManagedObjectReference _this,
+			com.vmware.vim.ManagedObjectReference entity, java.lang.String name) {
+		this._this = _this;
+		this.entity = entity;
+		this.name = name;
+	}
 
-    /**
-     * Gets the _this value for this FindChild.
-     * 
-     * @return _this
-     */
-    public com.vmware.vim.ManagedObjectReference get_this() {
-        return _this;
-    }
+	/**
+	 * Gets the _this value for this FindChild.
+	 * 
+	 * @return _this
+	 */
+	public com.vmware.vim.ManagedObjectReference get_this() {
+		return _this;
+	}
 
+	/**
+	 * Sets the _this value for this FindChild.
+	 * 
+	 * @param _this
+	 */
+	public void set_this(com.vmware.vim.ManagedObjectReference _this) {
+		this._this = _this;
+	}
 
-    /**
-     * Sets the _this value for this FindChild.
-     * 
-     * @param _this
-     */
-    public void set_this(com.vmware.vim.ManagedObjectReference _this) {
-        this._this = _this;
-    }
+	/**
+	 * Gets the entity value for this FindChild.
+	 * 
+	 * @return entity
+	 */
+	public com.vmware.vim.ManagedObjectReference getEntity() {
+		return entity;
+	}
 
+	/**
+	 * Sets the entity value for this FindChild.
+	 * 
+	 * @param entity
+	 */
+	public void setEntity(com.vmware.vim.ManagedObjectReference entity) {
+		this.entity = entity;
+	}
 
-    /**
-     * Gets the entity value for this FindChild.
-     * 
-     * @return entity
-     */
-    public com.vmware.vim.ManagedObjectReference getEntity() {
-        return entity;
-    }
+	/**
+	 * Gets the name value for this FindChild.
+	 * 
+	 * @return name
+	 */
+	public java.lang.String getName() {
+		return name;
+	}
 
+	/**
+	 * Sets the name value for this FindChild.
+	 * 
+	 * @param name
+	 */
+	public void setName(java.lang.String name) {
+		this.name = name;
+	}
 
-    /**
-     * Sets the entity value for this FindChild.
-     * 
-     * @param entity
-     */
-    public void setEntity(com.vmware.vim.ManagedObjectReference entity) {
-        this.entity = entity;
-    }
+	private java.lang.Object __equalsCalc = null;
 
+	@Override
+	public synchronized boolean equals(java.lang.Object obj) {
+		if (!(obj instanceof FindChild)) {
+			return false;
+		}
+		FindChild other = (FindChild) obj;
+		if (obj == null) {
+			return false;
+		}
+		if (this == obj) {
+			return true;
+		}
+		if (__equalsCalc != null) {
+			return (__equalsCalc == obj);
+		}
+		__equalsCalc = obj;
+		boolean _equals;
+		_equals = true
+				&& ((this._this == null && other.get_this() == null) || (this._this != null && this._this
+						.equals(other.get_this())))
+				&& ((this.entity == null && other.getEntity() == null) || (this.entity != null && this.entity
+						.equals(other.getEntity())))
+				&& ((this.name == null && other.getName() == null) || (this.name != null && this.name
+						.equals(other.getName())));
+		__equalsCalc = null;
+		return _equals;
+	}
 
-    /**
-     * Gets the name value for this FindChild.
-     * 
-     * @return name
-     */
-    public java.lang.String getName() {
-        return name;
-    }
+	private boolean __hashCodeCalc = false;
 
+	@Override
+	public synchronized int hashCode() {
+		if (__hashCodeCalc) {
+			return 0;
+		}
+		__hashCodeCalc = true;
+		int _hashCode = 1;
+		if (get_this() != null) {
+			_hashCode += get_this().hashCode();
+		}
+		if (getEntity() != null) {
+			_hashCode += getEntity().hashCode();
+		}
+		if (getName() != null) {
+			_hashCode += getName().hashCode();
+		}
+		__hashCodeCalc = false;
+		return _hashCode;
+	}
 
-    /**
-     * Sets the name value for this FindChild.
-     * 
-     * @param name
-     */
-    public void setName(java.lang.String name) {
-        this.name = name;
-    }
+	// Type metadata
+	private static org.apache.axis.description.TypeDesc typeDesc = new org.apache.axis.description.TypeDesc(
+			FindChild.class, true);
 
-    private java.lang.Object __equalsCalc = null;
-    public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof FindChild)) return false;
-        FindChild other = (FindChild) obj;
-        if (obj == null) return false;
-        if (this == obj) return true;
-        if (__equalsCalc != null) {
-            return (__equalsCalc == obj);
-        }
-        __equalsCalc = obj;
-        boolean _equals;
-        _equals = true && 
-            ((this._this==null && other.get_this()==null) || 
-             (this._this!=null &&
-              this._this.equals(other.get_this()))) &&
-            ((this.entity==null && other.getEntity()==null) || 
-             (this.entity!=null &&
-              this.entity.equals(other.getEntity()))) &&
-            ((this.name==null && other.getName()==null) || 
-             (this.name!=null &&
-              this.name.equals(other.getName())));
-        __equalsCalc = null;
-        return _equals;
-    }
+	static {
+		typeDesc.setXmlType(new javax.xml.namespace.QName("urn:vim2",
+				">FindChild"));
+		org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+		elemField.setFieldName("_this");
+		elemField
+				.setXmlName(new javax.xml.namespace.QName("urn:vim2", "_this"));
+		elemField.setXmlType(new javax.xml.namespace.QName("urn:vim2",
+				"ManagedObjectReference"));
+		elemField.setNillable(false);
+		typeDesc.addFieldDesc(elemField);
+		elemField = new org.apache.axis.description.ElementDesc();
+		elemField.setFieldName("entity");
+		elemField
+				.setXmlName(new javax.xml.namespace.QName("urn:vim2", "entity"));
+		elemField.setXmlType(new javax.xml.namespace.QName("urn:vim2",
+				"ManagedObjectReference"));
+		elemField.setNillable(false);
+		typeDesc.addFieldDesc(elemField);
+		elemField = new org.apache.axis.description.ElementDesc();
+		elemField.setFieldName("name");
+		elemField.setXmlName(new javax.xml.namespace.QName("urn:vim2", "name"));
+		elemField.setXmlType(new javax.xml.namespace.QName(
+				"http://www.w3.org/2001/XMLSchema", "string"));
+		elemField.setNillable(false);
+		typeDesc.addFieldDesc(elemField);
+	}
 
-    private boolean __hashCodeCalc = false;
-    public synchronized int hashCode() {
-        if (__hashCodeCalc) {
-            return 0;
-        }
-        __hashCodeCalc = true;
-        int _hashCode = 1;
-        if (get_this() != null) {
-            _hashCode += get_this().hashCode();
-        }
-        if (getEntity() != null) {
-            _hashCode += getEntity().hashCode();
-        }
-        if (getName() != null) {
-            _hashCode += getName().hashCode();
-        }
-        __hashCodeCalc = false;
-        return _hashCode;
-    }
+	/**
+	 * Return type metadata object
+	 */
+	public static org.apache.axis.description.TypeDesc getTypeDesc() {
+		return typeDesc;
+	}
 
-    // Type metadata
-    private static org.apache.axis.description.TypeDesc typeDesc =
-        new org.apache.axis.description.TypeDesc(FindChild.class, true);
+	/**
+	 * Get Custom Serializer
+	 */
+	public static org.apache.axis.encoding.Serializer getSerializer(
+			java.lang.String mechType, java.lang.Class _javaType,
+			javax.xml.namespace.QName _xmlType) {
+		return new org.apache.axis.encoding.ser.BeanSerializer(_javaType,
+				_xmlType, typeDesc);
+	}
 
-    static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("urn:vim2", ">FindChild"));
-        org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("_this");
-        elemField.setXmlName(new javax.xml.namespace.QName("urn:vim2", "_this"));
-        elemField.setXmlType(new javax.xml.namespace.QName("urn:vim2", "ManagedObjectReference"));
-        elemField.setNillable(false);
-        typeDesc.addFieldDesc(elemField);
-        elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("entity");
-        elemField.setXmlName(new javax.xml.namespace.QName("urn:vim2", "entity"));
-        elemField.setXmlType(new javax.xml.namespace.QName("urn:vim2", "ManagedObjectReference"));
-        elemField.setNillable(false);
-        typeDesc.addFieldDesc(elemField);
-        elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("name");
-        elemField.setXmlName(new javax.xml.namespace.QName("urn:vim2", "name"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
-        elemField.setNillable(false);
-        typeDesc.addFieldDesc(elemField);
-    }
-
-    /**
-     * Return type metadata object
-     */
-    public static org.apache.axis.description.TypeDesc getTypeDesc() {
-        return typeDesc;
-    }
-
-    /**
-     * Get Custom Serializer
-     */
-    public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanSerializer(
-            _javaType, _xmlType, typeDesc);
-    }
-
-    /**
-     * Get Custom Deserializer
-     */
-    public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanDeserializer(
-            _javaType, _xmlType, typeDesc);
-    }
+	/**
+	 * Get Custom Deserializer
+	 */
+	public static org.apache.axis.encoding.Deserializer getDeserializer(
+			java.lang.String mechType, java.lang.Class _javaType,
+			javax.xml.namespace.QName _xmlType) {
+		return new org.apache.axis.encoding.ser.BeanDeserializer(_javaType,
+				_xmlType, typeDesc);
+	}
 
 }

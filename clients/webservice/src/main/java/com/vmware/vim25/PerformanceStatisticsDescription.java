@@ -7,136 +7,143 @@
 
 package com.vmware.vim25;
 
-public class PerformanceStatisticsDescription  extends com.vmware.vim25.DynamicData  implements java.io.Serializable {
-    private com.vmware.vim25.PerfInterval[] intervals;
+public class PerformanceStatisticsDescription extends
+		com.vmware.vim25.DynamicData implements java.io.Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private com.vmware.vim25.PerfInterval[] intervals;
 
-    public PerformanceStatisticsDescription() {
-    }
+	public PerformanceStatisticsDescription() {
+	}
 
-    public PerformanceStatisticsDescription(
-           java.lang.String dynamicType,
-           com.vmware.vim25.DynamicProperty[] dynamicProperty,
-           com.vmware.vim25.PerfInterval[] intervals) {
-        super(
-            dynamicType,
-            dynamicProperty);
-        this.intervals = intervals;
-    }
+	public PerformanceStatisticsDescription(java.lang.String dynamicType,
+			com.vmware.vim25.DynamicProperty[] dynamicProperty,
+			com.vmware.vim25.PerfInterval[] intervals) {
+		super(dynamicType, dynamicProperty);
+		this.intervals = intervals;
+	}
 
+	/**
+	 * Gets the intervals value for this PerformanceStatisticsDescription.
+	 * 
+	 * @return intervals
+	 */
+	public com.vmware.vim25.PerfInterval[] getIntervals() {
+		return intervals;
+	}
 
-    /**
-     * Gets the intervals value for this PerformanceStatisticsDescription.
-     * 
-     * @return intervals
-     */
-    public com.vmware.vim25.PerfInterval[] getIntervals() {
-        return intervals;
-    }
+	/**
+	 * Sets the intervals value for this PerformanceStatisticsDescription.
+	 * 
+	 * @param intervals
+	 */
+	public void setIntervals(com.vmware.vim25.PerfInterval[] intervals) {
+		this.intervals = intervals;
+	}
 
+	public com.vmware.vim25.PerfInterval getIntervals(int i) {
+		return this.intervals[i];
+	}
 
-    /**
-     * Sets the intervals value for this PerformanceStatisticsDescription.
-     * 
-     * @param intervals
-     */
-    public void setIntervals(com.vmware.vim25.PerfInterval[] intervals) {
-        this.intervals = intervals;
-    }
+	public void setIntervals(int i, com.vmware.vim25.PerfInterval _value) {
+		this.intervals[i] = _value;
+	}
 
-    public com.vmware.vim25.PerfInterval getIntervals(int i) {
-        return this.intervals[i];
-    }
+	private java.lang.Object __equalsCalc = null;
 
-    public void setIntervals(int i, com.vmware.vim25.PerfInterval _value) {
-        this.intervals[i] = _value;
-    }
+	@Override
+	public synchronized boolean equals(java.lang.Object obj) {
+		if (!(obj instanceof PerformanceStatisticsDescription)) {
+			return false;
+		}
+		PerformanceStatisticsDescription other = (PerformanceStatisticsDescription) obj;
+		if (obj == null) {
+			return false;
+		}
+		if (this == obj) {
+			return true;
+		}
+		if (__equalsCalc != null) {
+			return (__equalsCalc == obj);
+		}
+		__equalsCalc = obj;
+		boolean _equals;
+		_equals = super.equals(obj)
+				&& ((this.intervals == null && other.getIntervals() == null) || (this.intervals != null && java.util.Arrays
+						.equals(this.intervals, other.getIntervals())));
+		__equalsCalc = null;
+		return _equals;
+	}
 
-    private java.lang.Object __equalsCalc = null;
-    public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof PerformanceStatisticsDescription)) return false;
-        PerformanceStatisticsDescription other = (PerformanceStatisticsDescription) obj;
-        if (obj == null) return false;
-        if (this == obj) return true;
-        if (__equalsCalc != null) {
-            return (__equalsCalc == obj);
-        }
-        __equalsCalc = obj;
-        boolean _equals;
-        _equals = super.equals(obj) && 
-            ((this.intervals==null && other.getIntervals()==null) || 
-             (this.intervals!=null &&
-              java.util.Arrays.equals(this.intervals, other.getIntervals())));
-        __equalsCalc = null;
-        return _equals;
-    }
+	private boolean __hashCodeCalc = false;
 
-    private boolean __hashCodeCalc = false;
-    public synchronized int hashCode() {
-        if (__hashCodeCalc) {
-            return 0;
-        }
-        __hashCodeCalc = true;
-        int _hashCode = super.hashCode();
-        if (getIntervals() != null) {
-            for (int i=0;
-                 i<java.lang.reflect.Array.getLength(getIntervals());
-                 i++) {
-                java.lang.Object obj = java.lang.reflect.Array.get(getIntervals(), i);
-                if (obj != null &&
-                    !obj.getClass().isArray()) {
-                    _hashCode += obj.hashCode();
-                }
-            }
-        }
-        __hashCodeCalc = false;
-        return _hashCode;
-    }
+	@Override
+	public synchronized int hashCode() {
+		if (__hashCodeCalc) {
+			return 0;
+		}
+		__hashCodeCalc = true;
+		int _hashCode = super.hashCode();
+		if (getIntervals() != null) {
+			for (int i = 0; i < java.lang.reflect.Array
+					.getLength(getIntervals()); i++) {
+				java.lang.Object obj = java.lang.reflect.Array.get(
+						getIntervals(), i);
+				if (obj != null && !obj.getClass().isArray()) {
+					_hashCode += obj.hashCode();
+				}
+			}
+		}
+		__hashCodeCalc = false;
+		return _hashCode;
+	}
 
-    // Type metadata
-    private static org.apache.axis.description.TypeDesc typeDesc =
-        new org.apache.axis.description.TypeDesc(PerformanceStatisticsDescription.class, true);
+	// Type metadata
+	private static org.apache.axis.description.TypeDesc typeDesc = new org.apache.axis.description.TypeDesc(
+			PerformanceStatisticsDescription.class, true);
 
-    static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("urn:vim25", "PerformanceStatisticsDescription"));
-        org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("intervals");
-        elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25", "intervals"));
-        elemField.setXmlType(new javax.xml.namespace.QName("urn:vim25", "PerfInterval"));
-        elemField.setMinOccurs(0);
-        elemField.setNillable(false);
-        elemField.setMaxOccursUnbounded(true);
-        typeDesc.addFieldDesc(elemField);
-    }
+	static {
+		typeDesc.setXmlType(new javax.xml.namespace.QName("urn:vim25",
+				"PerformanceStatisticsDescription"));
+		org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+		elemField.setFieldName("intervals");
+		elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25",
+				"intervals"));
+		elemField.setXmlType(new javax.xml.namespace.QName("urn:vim25",
+				"PerfInterval"));
+		elemField.setMinOccurs(0);
+		elemField.setNillable(false);
+		elemField.setMaxOccursUnbounded(true);
+		typeDesc.addFieldDesc(elemField);
+	}
 
-    /**
-     * Return type metadata object
-     */
-    public static org.apache.axis.description.TypeDesc getTypeDesc() {
-        return typeDesc;
-    }
+	/**
+	 * Return type metadata object
+	 */
+	public static org.apache.axis.description.TypeDesc getTypeDesc() {
+		return typeDesc;
+	}
 
-    /**
-     * Get Custom Serializer
-     */
-    public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanSerializer(
-            _javaType, _xmlType, typeDesc);
-    }
+	/**
+	 * Get Custom Serializer
+	 */
+	public static org.apache.axis.encoding.Serializer getSerializer(
+			java.lang.String mechType, java.lang.Class _javaType,
+			javax.xml.namespace.QName _xmlType) {
+		return new org.apache.axis.encoding.ser.BeanSerializer(_javaType,
+				_xmlType, typeDesc);
+	}
 
-    /**
-     * Get Custom Deserializer
-     */
-    public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanDeserializer(
-            _javaType, _xmlType, typeDesc);
-    }
+	/**
+	 * Get Custom Deserializer
+	 */
+	public static org.apache.axis.encoding.Deserializer getDeserializer(
+			java.lang.String mechType, java.lang.Class _javaType,
+			javax.xml.namespace.QName _xmlType) {
+		return new org.apache.axis.encoding.ser.BeanDeserializer(_javaType,
+				_xmlType, typeDesc);
+	}
 
 }

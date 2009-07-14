@@ -132,7 +132,7 @@ define "clients" do
   end
   
   define "utilities" do
-    compile.with VMWARE_SDK, JAVAX.activation, JAVAX.javamail, JAXEN, JAX_RPC,
+    compile.with VMWARE_SDK, JAVAX.activation, JAVAX.javamail, JAXEN, JAX_RPC, WBEM,
       AXIOM, AXIS2_ALL, COMMONS.lang, COMMONS.logging, COMMONS.collections, COMMONS.httpclient, COMMONS.lang, 
       JAVAX.activation, JAVAX.servlet, JAVAX.stream, JAVAX.transaction, WSDL4J, AXIS2_MODULES.libs
 	

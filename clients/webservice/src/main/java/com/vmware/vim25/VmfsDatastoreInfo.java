@@ -7,129 +7,130 @@
 
 package com.vmware.vim25;
 
-public class VmfsDatastoreInfo  extends com.vmware.vim25.DatastoreInfo  implements java.io.Serializable {
-    private com.vmware.vim25.HostVmfsVolume vmfs;
+public class VmfsDatastoreInfo extends com.vmware.vim25.DatastoreInfo implements
+		java.io.Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private com.vmware.vim25.HostVmfsVolume vmfs;
 
-    public VmfsDatastoreInfo() {
-    }
+	public VmfsDatastoreInfo() {
+	}
 
-    public VmfsDatastoreInfo(
-           java.lang.String dynamicType,
-           com.vmware.vim25.DynamicProperty[] dynamicProperty,
-           java.lang.String name,
-           java.lang.String url,
-           long freeSpace,
-           long maxFileSize,
-           java.util.Calendar timestamp,
-           com.vmware.vim25.HostVmfsVolume vmfs) {
-        super(
-            dynamicType,
-            dynamicProperty,
-            name,
-            url,
-            freeSpace,
-            maxFileSize,
-            timestamp);
-        this.vmfs = vmfs;
-    }
+	public VmfsDatastoreInfo(java.lang.String dynamicType,
+			com.vmware.vim25.DynamicProperty[] dynamicProperty,
+			java.lang.String name, java.lang.String url, long freeSpace,
+			long maxFileSize, java.util.Calendar timestamp,
+			com.vmware.vim25.HostVmfsVolume vmfs) {
+		super(dynamicType, dynamicProperty, name, url, freeSpace, maxFileSize,
+				timestamp);
+		this.vmfs = vmfs;
+	}
 
+	/**
+	 * Gets the vmfs value for this VmfsDatastoreInfo.
+	 * 
+	 * @return vmfs
+	 */
+	public com.vmware.vim25.HostVmfsVolume getVmfs() {
+		return vmfs;
+	}
 
-    /**
-     * Gets the vmfs value for this VmfsDatastoreInfo.
-     * 
-     * @return vmfs
-     */
-    public com.vmware.vim25.HostVmfsVolume getVmfs() {
-        return vmfs;
-    }
+	/**
+	 * Sets the vmfs value for this VmfsDatastoreInfo.
+	 * 
+	 * @param vmfs
+	 */
+	public void setVmfs(com.vmware.vim25.HostVmfsVolume vmfs) {
+		this.vmfs = vmfs;
+	}
 
+	private java.lang.Object __equalsCalc = null;
 
-    /**
-     * Sets the vmfs value for this VmfsDatastoreInfo.
-     * 
-     * @param vmfs
-     */
-    public void setVmfs(com.vmware.vim25.HostVmfsVolume vmfs) {
-        this.vmfs = vmfs;
-    }
+	@Override
+	public synchronized boolean equals(java.lang.Object obj) {
+		if (!(obj instanceof VmfsDatastoreInfo)) {
+			return false;
+		}
+		VmfsDatastoreInfo other = (VmfsDatastoreInfo) obj;
+		if (obj == null) {
+			return false;
+		}
+		if (this == obj) {
+			return true;
+		}
+		if (__equalsCalc != null) {
+			return (__equalsCalc == obj);
+		}
+		__equalsCalc = obj;
+		boolean _equals;
+		_equals = super.equals(obj)
+				&& ((this.vmfs == null && other.getVmfs() == null) || (this.vmfs != null && this.vmfs
+						.equals(other.getVmfs())));
+		__equalsCalc = null;
+		return _equals;
+	}
 
-    private java.lang.Object __equalsCalc = null;
-    public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof VmfsDatastoreInfo)) return false;
-        VmfsDatastoreInfo other = (VmfsDatastoreInfo) obj;
-        if (obj == null) return false;
-        if (this == obj) return true;
-        if (__equalsCalc != null) {
-            return (__equalsCalc == obj);
-        }
-        __equalsCalc = obj;
-        boolean _equals;
-        _equals = super.equals(obj) && 
-            ((this.vmfs==null && other.getVmfs()==null) || 
-             (this.vmfs!=null &&
-              this.vmfs.equals(other.getVmfs())));
-        __equalsCalc = null;
-        return _equals;
-    }
+	private boolean __hashCodeCalc = false;
 
-    private boolean __hashCodeCalc = false;
-    public synchronized int hashCode() {
-        if (__hashCodeCalc) {
-            return 0;
-        }
-        __hashCodeCalc = true;
-        int _hashCode = super.hashCode();
-        if (getVmfs() != null) {
-            _hashCode += getVmfs().hashCode();
-        }
-        __hashCodeCalc = false;
-        return _hashCode;
-    }
+	@Override
+	public synchronized int hashCode() {
+		if (__hashCodeCalc) {
+			return 0;
+		}
+		__hashCodeCalc = true;
+		int _hashCode = super.hashCode();
+		if (getVmfs() != null) {
+			_hashCode += getVmfs().hashCode();
+		}
+		__hashCodeCalc = false;
+		return _hashCode;
+	}
 
-    // Type metadata
-    private static org.apache.axis.description.TypeDesc typeDesc =
-        new org.apache.axis.description.TypeDesc(VmfsDatastoreInfo.class, true);
+	// Type metadata
+	private static org.apache.axis.description.TypeDesc typeDesc = new org.apache.axis.description.TypeDesc(
+			VmfsDatastoreInfo.class, true);
 
-    static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("urn:vim25", "VmfsDatastoreInfo"));
-        org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("vmfs");
-        elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25", "vmfs"));
-        elemField.setXmlType(new javax.xml.namespace.QName("urn:vim25", "HostVmfsVolume"));
-        elemField.setMinOccurs(0);
-        elemField.setNillable(false);
-        typeDesc.addFieldDesc(elemField);
-    }
+	static {
+		typeDesc.setXmlType(new javax.xml.namespace.QName("urn:vim25",
+				"VmfsDatastoreInfo"));
+		org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+		elemField.setFieldName("vmfs");
+		elemField
+				.setXmlName(new javax.xml.namespace.QName("urn:vim25", "vmfs"));
+		elemField.setXmlType(new javax.xml.namespace.QName("urn:vim25",
+				"HostVmfsVolume"));
+		elemField.setMinOccurs(0);
+		elemField.setNillable(false);
+		typeDesc.addFieldDesc(elemField);
+	}
 
-    /**
-     * Return type metadata object
-     */
-    public static org.apache.axis.description.TypeDesc getTypeDesc() {
-        return typeDesc;
-    }
+	/**
+	 * Return type metadata object
+	 */
+	public static org.apache.axis.description.TypeDesc getTypeDesc() {
+		return typeDesc;
+	}
 
-    /**
-     * Get Custom Serializer
-     */
-    public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanSerializer(
-            _javaType, _xmlType, typeDesc);
-    }
+	/**
+	 * Get Custom Serializer
+	 */
+	public static org.apache.axis.encoding.Serializer getSerializer(
+			java.lang.String mechType, java.lang.Class _javaType,
+			javax.xml.namespace.QName _xmlType) {
+		return new org.apache.axis.encoding.ser.BeanSerializer(_javaType,
+				_xmlType, typeDesc);
+	}
 
-    /**
-     * Get Custom Deserializer
-     */
-    public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanDeserializer(
-            _javaType, _xmlType, typeDesc);
-    }
+	/**
+	 * Get Custom Deserializer
+	 */
+	public static org.apache.axis.encoding.Deserializer getDeserializer(
+			java.lang.String mechType, java.lang.Class _javaType,
+			javax.xml.namespace.QName _xmlType) {
+		return new org.apache.axis.encoding.ser.BeanDeserializer(_javaType,
+				_xmlType, typeDesc);
+	}
 
 }

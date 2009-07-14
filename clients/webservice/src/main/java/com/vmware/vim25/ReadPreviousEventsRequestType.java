@@ -7,145 +7,155 @@
 
 package com.vmware.vim25;
 
-public class ReadPreviousEventsRequestType  implements java.io.Serializable {
-    private com.vmware.vim25.ManagedObjectReference _this;
+public class ReadPreviousEventsRequestType implements java.io.Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
-    private int maxCount;
+	private com.vmware.vim25.ManagedObjectReference _this;
 
-    public ReadPreviousEventsRequestType() {
-    }
+	private int maxCount;
 
-    public ReadPreviousEventsRequestType(
-           com.vmware.vim25.ManagedObjectReference _this,
-           int maxCount) {
-           this._this = _this;
-           this.maxCount = maxCount;
-    }
+	public ReadPreviousEventsRequestType() {
+	}
 
+	public ReadPreviousEventsRequestType(
+			com.vmware.vim25.ManagedObjectReference _this, int maxCount) {
+		this._this = _this;
+		this.maxCount = maxCount;
+	}
 
-    /**
-     * Gets the _this value for this ReadPreviousEventsRequestType.
-     * 
-     * @return _this
-     */
-    public com.vmware.vim25.ManagedObjectReference get_this() {
-        return _this;
-    }
+	/**
+	 * Gets the _this value for this ReadPreviousEventsRequestType.
+	 * 
+	 * @return _this
+	 */
+	public com.vmware.vim25.ManagedObjectReference get_this() {
+		return _this;
+	}
 
+	/**
+	 * Sets the _this value for this ReadPreviousEventsRequestType.
+	 * 
+	 * @param _this
+	 */
+	public void set_this(com.vmware.vim25.ManagedObjectReference _this) {
+		this._this = _this;
+	}
 
-    /**
-     * Sets the _this value for this ReadPreviousEventsRequestType.
-     * 
-     * @param _this
-     */
-    public void set_this(com.vmware.vim25.ManagedObjectReference _this) {
-        this._this = _this;
-    }
+	/**
+	 * Gets the maxCount value for this ReadPreviousEventsRequestType.
+	 * 
+	 * @return maxCount
+	 */
+	public int getMaxCount() {
+		return maxCount;
+	}
 
+	/**
+	 * Sets the maxCount value for this ReadPreviousEventsRequestType.
+	 * 
+	 * @param maxCount
+	 */
+	public void setMaxCount(int maxCount) {
+		this.maxCount = maxCount;
+	}
 
-    /**
-     * Gets the maxCount value for this ReadPreviousEventsRequestType.
-     * 
-     * @return maxCount
-     */
-    public int getMaxCount() {
-        return maxCount;
-    }
+	private java.lang.Object __equalsCalc = null;
 
+	@Override
+	public synchronized boolean equals(java.lang.Object obj) {
+		if (!(obj instanceof ReadPreviousEventsRequestType)) {
+			return false;
+		}
+		ReadPreviousEventsRequestType other = (ReadPreviousEventsRequestType) obj;
+		if (obj == null) {
+			return false;
+		}
+		if (this == obj) {
+			return true;
+		}
+		if (__equalsCalc != null) {
+			return (__equalsCalc == obj);
+		}
+		__equalsCalc = obj;
+		boolean _equals;
+		_equals = true
+				&& ((this._this == null && other.get_this() == null) || (this._this != null && this._this
+						.equals(other.get_this())))
+				&& this.maxCount == other.getMaxCount();
+		__equalsCalc = null;
+		return _equals;
+	}
 
-    /**
-     * Sets the maxCount value for this ReadPreviousEventsRequestType.
-     * 
-     * @param maxCount
-     */
-    public void setMaxCount(int maxCount) {
-        this.maxCount = maxCount;
-    }
+	private boolean __hashCodeCalc = false;
 
-    private java.lang.Object __equalsCalc = null;
-    public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof ReadPreviousEventsRequestType)) return false;
-        ReadPreviousEventsRequestType other = (ReadPreviousEventsRequestType) obj;
-        if (obj == null) return false;
-        if (this == obj) return true;
-        if (__equalsCalc != null) {
-            return (__equalsCalc == obj);
-        }
-        __equalsCalc = obj;
-        boolean _equals;
-        _equals = true && 
-            ((this._this==null && other.get_this()==null) || 
-             (this._this!=null &&
-              this._this.equals(other.get_this()))) &&
-            this.maxCount == other.getMaxCount();
-        __equalsCalc = null;
-        return _equals;
-    }
+	@Override
+	public synchronized int hashCode() {
+		if (__hashCodeCalc) {
+			return 0;
+		}
+		__hashCodeCalc = true;
+		int _hashCode = 1;
+		if (get_this() != null) {
+			_hashCode += get_this().hashCode();
+		}
+		_hashCode += getMaxCount();
+		__hashCodeCalc = false;
+		return _hashCode;
+	}
 
-    private boolean __hashCodeCalc = false;
-    public synchronized int hashCode() {
-        if (__hashCodeCalc) {
-            return 0;
-        }
-        __hashCodeCalc = true;
-        int _hashCode = 1;
-        if (get_this() != null) {
-            _hashCode += get_this().hashCode();
-        }
-        _hashCode += getMaxCount();
-        __hashCodeCalc = false;
-        return _hashCode;
-    }
+	// Type metadata
+	private static org.apache.axis.description.TypeDesc typeDesc = new org.apache.axis.description.TypeDesc(
+			ReadPreviousEventsRequestType.class, true);
 
-    // Type metadata
-    private static org.apache.axis.description.TypeDesc typeDesc =
-        new org.apache.axis.description.TypeDesc(ReadPreviousEventsRequestType.class, true);
+	static {
+		typeDesc.setXmlType(new javax.xml.namespace.QName("urn:vim25",
+				"ReadPreviousEventsRequestType"));
+		org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+		elemField.setFieldName("_this");
+		elemField
+				.setXmlName(new javax.xml.namespace.QName("urn:vim25", "_this"));
+		elemField.setXmlType(new javax.xml.namespace.QName("urn:vim25",
+				"ManagedObjectReference"));
+		elemField.setNillable(false);
+		typeDesc.addFieldDesc(elemField);
+		elemField = new org.apache.axis.description.ElementDesc();
+		elemField.setFieldName("maxCount");
+		elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25",
+				"maxCount"));
+		elemField.setXmlType(new javax.xml.namespace.QName(
+				"http://www.w3.org/2001/XMLSchema", "int"));
+		elemField.setNillable(false);
+		typeDesc.addFieldDesc(elemField);
+	}
 
-    static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("urn:vim25", "ReadPreviousEventsRequestType"));
-        org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("_this");
-        elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25", "_this"));
-        elemField.setXmlType(new javax.xml.namespace.QName("urn:vim25", "ManagedObjectReference"));
-        elemField.setNillable(false);
-        typeDesc.addFieldDesc(elemField);
-        elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("maxCount");
-        elemField.setXmlName(new javax.xml.namespace.QName("urn:vim25", "maxCount"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "int"));
-        elemField.setNillable(false);
-        typeDesc.addFieldDesc(elemField);
-    }
+	/**
+	 * Return type metadata object
+	 */
+	public static org.apache.axis.description.TypeDesc getTypeDesc() {
+		return typeDesc;
+	}
 
-    /**
-     * Return type metadata object
-     */
-    public static org.apache.axis.description.TypeDesc getTypeDesc() {
-        return typeDesc;
-    }
+	/**
+	 * Get Custom Serializer
+	 */
+	public static org.apache.axis.encoding.Serializer getSerializer(
+			java.lang.String mechType, java.lang.Class _javaType,
+			javax.xml.namespace.QName _xmlType) {
+		return new org.apache.axis.encoding.ser.BeanSerializer(_javaType,
+				_xmlType, typeDesc);
+	}
 
-    /**
-     * Get Custom Serializer
-     */
-    public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanSerializer(
-            _javaType, _xmlType, typeDesc);
-    }
-
-    /**
-     * Get Custom Deserializer
-     */
-    public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanDeserializer(
-            _javaType, _xmlType, typeDesc);
-    }
+	/**
+	 * Get Custom Deserializer
+	 */
+	public static org.apache.axis.encoding.Deserializer getDeserializer(
+			java.lang.String mechType, java.lang.Class _javaType,
+			javax.xml.namespace.QName _xmlType) {
+		return new org.apache.axis.encoding.ser.BeanDeserializer(_javaType,
+				_xmlType, typeDesc);
+	}
 
 }

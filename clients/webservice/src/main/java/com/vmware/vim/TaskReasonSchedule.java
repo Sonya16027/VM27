@@ -7,154 +7,162 @@
 
 package com.vmware.vim;
 
-public class TaskReasonSchedule  extends com.vmware.vim.TaskReason  implements java.io.Serializable {
-    private java.lang.String name;
+public class TaskReasonSchedule extends com.vmware.vim.TaskReason implements
+		java.io.Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
-    private com.vmware.vim.ManagedObjectReference scheduledTask;
+	private java.lang.String name;
 
-    public TaskReasonSchedule() {
-    }
+	private com.vmware.vim.ManagedObjectReference scheduledTask;
 
-    public TaskReasonSchedule(
-           java.lang.String dynamicType,
-           com.vmware.vim.DynamicProperty[] dynamicProperty,
-           java.lang.String name,
-           com.vmware.vim.ManagedObjectReference scheduledTask) {
-        super(
-            dynamicType,
-            dynamicProperty);
-        this.name = name;
-        this.scheduledTask = scheduledTask;
-    }
+	public TaskReasonSchedule() {
+	}
 
+	public TaskReasonSchedule(java.lang.String dynamicType,
+			com.vmware.vim.DynamicProperty[] dynamicProperty,
+			java.lang.String name,
+			com.vmware.vim.ManagedObjectReference scheduledTask) {
+		super(dynamicType, dynamicProperty);
+		this.name = name;
+		this.scheduledTask = scheduledTask;
+	}
 
-    /**
-     * Gets the name value for this TaskReasonSchedule.
-     * 
-     * @return name
-     */
-    public java.lang.String getName() {
-        return name;
-    }
+	/**
+	 * Gets the name value for this TaskReasonSchedule.
+	 * 
+	 * @return name
+	 */
+	public java.lang.String getName() {
+		return name;
+	}
 
+	/**
+	 * Sets the name value for this TaskReasonSchedule.
+	 * 
+	 * @param name
+	 */
+	public void setName(java.lang.String name) {
+		this.name = name;
+	}
 
-    /**
-     * Sets the name value for this TaskReasonSchedule.
-     * 
-     * @param name
-     */
-    public void setName(java.lang.String name) {
-        this.name = name;
-    }
+	/**
+	 * Gets the scheduledTask value for this TaskReasonSchedule.
+	 * 
+	 * @return scheduledTask
+	 */
+	public com.vmware.vim.ManagedObjectReference getScheduledTask() {
+		return scheduledTask;
+	}
 
+	/**
+	 * Sets the scheduledTask value for this TaskReasonSchedule.
+	 * 
+	 * @param scheduledTask
+	 */
+	public void setScheduledTask(
+			com.vmware.vim.ManagedObjectReference scheduledTask) {
+		this.scheduledTask = scheduledTask;
+	}
 
-    /**
-     * Gets the scheduledTask value for this TaskReasonSchedule.
-     * 
-     * @return scheduledTask
-     */
-    public com.vmware.vim.ManagedObjectReference getScheduledTask() {
-        return scheduledTask;
-    }
+	private java.lang.Object __equalsCalc = null;
 
+	@Override
+	public synchronized boolean equals(java.lang.Object obj) {
+		if (!(obj instanceof TaskReasonSchedule)) {
+			return false;
+		}
+		TaskReasonSchedule other = (TaskReasonSchedule) obj;
+		if (obj == null) {
+			return false;
+		}
+		if (this == obj) {
+			return true;
+		}
+		if (__equalsCalc != null) {
+			return (__equalsCalc == obj);
+		}
+		__equalsCalc = obj;
+		boolean _equals;
+		_equals = super.equals(obj)
+				&& ((this.name == null && other.getName() == null) || (this.name != null && this.name
+						.equals(other.getName())))
+				&& ((this.scheduledTask == null && other.getScheduledTask() == null) || (this.scheduledTask != null && this.scheduledTask
+						.equals(other.getScheduledTask())));
+		__equalsCalc = null;
+		return _equals;
+	}
 
-    /**
-     * Sets the scheduledTask value for this TaskReasonSchedule.
-     * 
-     * @param scheduledTask
-     */
-    public void setScheduledTask(com.vmware.vim.ManagedObjectReference scheduledTask) {
-        this.scheduledTask = scheduledTask;
-    }
+	private boolean __hashCodeCalc = false;
 
-    private java.lang.Object __equalsCalc = null;
-    public synchronized boolean equals(java.lang.Object obj) {
-        if (!(obj instanceof TaskReasonSchedule)) return false;
-        TaskReasonSchedule other = (TaskReasonSchedule) obj;
-        if (obj == null) return false;
-        if (this == obj) return true;
-        if (__equalsCalc != null) {
-            return (__equalsCalc == obj);
-        }
-        __equalsCalc = obj;
-        boolean _equals;
-        _equals = super.equals(obj) && 
-            ((this.name==null && other.getName()==null) || 
-             (this.name!=null &&
-              this.name.equals(other.getName()))) &&
-            ((this.scheduledTask==null && other.getScheduledTask()==null) || 
-             (this.scheduledTask!=null &&
-              this.scheduledTask.equals(other.getScheduledTask())));
-        __equalsCalc = null;
-        return _equals;
-    }
+	@Override
+	public synchronized int hashCode() {
+		if (__hashCodeCalc) {
+			return 0;
+		}
+		__hashCodeCalc = true;
+		int _hashCode = super.hashCode();
+		if (getName() != null) {
+			_hashCode += getName().hashCode();
+		}
+		if (getScheduledTask() != null) {
+			_hashCode += getScheduledTask().hashCode();
+		}
+		__hashCodeCalc = false;
+		return _hashCode;
+	}
 
-    private boolean __hashCodeCalc = false;
-    public synchronized int hashCode() {
-        if (__hashCodeCalc) {
-            return 0;
-        }
-        __hashCodeCalc = true;
-        int _hashCode = super.hashCode();
-        if (getName() != null) {
-            _hashCode += getName().hashCode();
-        }
-        if (getScheduledTask() != null) {
-            _hashCode += getScheduledTask().hashCode();
-        }
-        __hashCodeCalc = false;
-        return _hashCode;
-    }
+	// Type metadata
+	private static org.apache.axis.description.TypeDesc typeDesc = new org.apache.axis.description.TypeDesc(
+			TaskReasonSchedule.class, true);
 
-    // Type metadata
-    private static org.apache.axis.description.TypeDesc typeDesc =
-        new org.apache.axis.description.TypeDesc(TaskReasonSchedule.class, true);
+	static {
+		typeDesc.setXmlType(new javax.xml.namespace.QName("urn:vim2",
+				"TaskReasonSchedule"));
+		org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+		elemField.setFieldName("name");
+		elemField.setXmlName(new javax.xml.namespace.QName("urn:vim2", "name"));
+		elemField.setXmlType(new javax.xml.namespace.QName(
+				"http://www.w3.org/2001/XMLSchema", "string"));
+		elemField.setNillable(false);
+		typeDesc.addFieldDesc(elemField);
+		elemField = new org.apache.axis.description.ElementDesc();
+		elemField.setFieldName("scheduledTask");
+		elemField.setXmlName(new javax.xml.namespace.QName("urn:vim2",
+				"scheduledTask"));
+		elemField.setXmlType(new javax.xml.namespace.QName("urn:vim2",
+				"ManagedObjectReference"));
+		elemField.setNillable(false);
+		typeDesc.addFieldDesc(elemField);
+	}
 
-    static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("urn:vim2", "TaskReasonSchedule"));
-        org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("name");
-        elemField.setXmlName(new javax.xml.namespace.QName("urn:vim2", "name"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
-        elemField.setNillable(false);
-        typeDesc.addFieldDesc(elemField);
-        elemField = new org.apache.axis.description.ElementDesc();
-        elemField.setFieldName("scheduledTask");
-        elemField.setXmlName(new javax.xml.namespace.QName("urn:vim2", "scheduledTask"));
-        elemField.setXmlType(new javax.xml.namespace.QName("urn:vim2", "ManagedObjectReference"));
-        elemField.setNillable(false);
-        typeDesc.addFieldDesc(elemField);
-    }
+	/**
+	 * Return type metadata object
+	 */
+	public static org.apache.axis.description.TypeDesc getTypeDesc() {
+		return typeDesc;
+	}
 
-    /**
-     * Return type metadata object
-     */
-    public static org.apache.axis.description.TypeDesc getTypeDesc() {
-        return typeDesc;
-    }
+	/**
+	 * Get Custom Serializer
+	 */
+	public static org.apache.axis.encoding.Serializer getSerializer(
+			java.lang.String mechType, java.lang.Class _javaType,
+			javax.xml.namespace.QName _xmlType) {
+		return new org.apache.axis.encoding.ser.BeanSerializer(_javaType,
+				_xmlType, typeDesc);
+	}
 
-    /**
-     * Get Custom Serializer
-     */
-    public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanSerializer(
-            _javaType, _xmlType, typeDesc);
-    }
-
-    /**
-     * Get Custom Deserializer
-     */
-    public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
-        return 
-          new  org.apache.axis.encoding.ser.BeanDeserializer(
-            _javaType, _xmlType, typeDesc);
-    }
+	/**
+	 * Get Custom Deserializer
+	 */
+	public static org.apache.axis.encoding.Deserializer getDeserializer(
+			java.lang.String mechType, java.lang.Class _javaType,
+			javax.xml.namespace.QName _xmlType) {
+		return new org.apache.axis.encoding.ser.BeanDeserializer(_javaType,
+				_xmlType, typeDesc);
+	}
 
 }
