@@ -1,20 +1,49 @@
 package com.intalio.vmware.session;
 
 import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.HashMap;
 
+import com.intalio.vmware.vm.VMClone;
 import com.vmware.apputils.AppUtil;
 import com.vmware.apputils.OptionSpec;
 
-public abstract class BasicActivity implements Activity {
+public class BasicActivity implements Activity {
 	private Object activityObject;
 	private Class<? extends Object> activityClass;
+	private HashMap<String, String> arguments;
+	private String operationName;
+	
+	public BasicActivity() {		
+	}
 	
 	public BasicActivity(Object activityObject) {
 		this.activityObject = activityObject;
 		this.activityClass = activityObject.getClass();
 	}
+	
+	public BasicActivity(Object activityObject, HashMap<String, String> arguments) {
+		this.activityObject = activityObject;
+		this.activityClass = activityObject.getClass();
+		this.arguments = arguments;
+	}
 
-	@Override
+	public HashMap<String, String> getArguments() {
+		return arguments;
+	}
+
+	public void setArguments(HashMap<String, String> arguments) {
+		this.arguments = arguments;
+	}
+
+	public String getOperationName() {
+		return operationName;
+	}
+
+	public void setOperationName(String operationName) {
+		this.operationName = operationName;
+	}
+
 	public OptionSpec[] constructOptions() {
 		try {
 			Method method = activityClass.getMethod("constructOptions");
@@ -25,8 +54,29 @@ public abstract class BasicActivity implements Activity {
 		}
 	}
 
-	public abstract String[] getArgs();
+	public String[] getArgs() {
+		ArrayList<String> arguments = new ArrayList<String>();
+		OptionSpec[] options = constructOptions();
+		if (options != null) {
+			for (OptionSpec option : options) {
+				String optionName = option.getOptionName();
+				String optionValue = this.arguments.get(optionName);
+				if (optionValue != null) {
+					arguments.add("--" + optionName);
+					arguments.add(optionValue);
+				}
+			}
+		}
+		return arguments.toArray(new String[] {});
+	}
 
-	public abstract void run(AppUtil cb) throws Exception;
+	public void run(AppUtil cb) throws Exception {
+		try {
+			Method operation = activityClass.getMethod(operationName);
+			operation.invoke(activityObject);
+		} catch (Exception e) {
+			System.out.println("Could not invoke " + operationName + " on " + activityObject);
+		}
+	}
 
 }

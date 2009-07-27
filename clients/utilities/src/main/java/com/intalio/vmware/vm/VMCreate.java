@@ -10,34 +10,34 @@ import com.vmware.vim.VirtualMachineConfigSpec;
 
 /**
  *<pre>
- * his sample creates a VM.
+ * This sample creates a VM.
  * 
- * arameters:
- * mname :       [required]: Name of the virtual machine
- * atacentername [required]: Name of the datacenter
- * ostname :     [optional]: Name fo the host
- * uestosid:     [optional]: Type of Guest OS
- * pucount:      [optional]: Total cpu count
- * isksize       [optional]: Size of the Disk
- * emorysize     [optional]: Size of the Memory in the blocks of 1024 MB
- * atastorename  [optional]: Name of datastore
+ * parameters:
+ * vmname :       [required]: Name of the virtual machine
+ * datacentername [required]: Name of the datacenter
+ * hostname :     [optional]: Name fo the host
+ * guestosid:     [optional]: Type of Guest OS
+ * cpucount:      [optional]: Total cpu count
+ * disksize       [optional]: Size of the Disk
+ * memorysize     [optional]: Size of the Memory in the blocks of 1024 MB
+ * datastorename  [optional]: Name of datastore
  * 
- * b&gt;Command: To create a virtual machine when the name of the data center 
- * nd the host is provided:&lt;/b&gt;
- * un.bat com.intalio.vmware.vm.VMCreate --url &lt;webserviceurl&gt; 
+ * <b&gt;Command: To create a virtual machine when the name of the data center 
+ * and the host is provided:&lt;/b&gt;
+ * run.bat com.intalio.vmware.vm.VMCreate --url &lt;webserviceurl&gt; 
  * -username &lt;username&gt; --password &lt;password&gt; --vmname &lt;vmname&gt; 
  * -datacentername &lt;datacentername&gt;  
  * -hostname &lt;hostname&gt;
  * 
- * b&gt;Command: To create a virtual machine when the name of the vmname,datacenter name 
- * nd name of the guestosid is provided:&lt;/b&gt;
- * un.bat com.intalio.vmware.vm.VMCreate --url &lt;webserviceurl&gt; 
+ * <b&gt;Command: To create a virtual machine when the name of the vmname,datacenter name 
+ * and name of the guestosid is provided:&lt;/b&gt;
+ * run.bat com.intalio.vmware.vm.VMCreate --url &lt;webserviceurl&gt; 
  *  --username &lt;username&gt; --password &lt;password&gt; --vmname &lt;vmname&gt; 
  * -datacentername &lt;datacentername&gt;  --guestosid &lt;guestosid&gt;
  * 
- * b&gt;Command: To create a virtual machine when the name of the vmname,datacenter name 
- * and cpucount parameter value is provided:&lt;/b&gt;
- * un.bat com.intalio.vmware.vm.VMCreate --url &lt;webserviceurl&gt;
+ * <b&gt;Command: To create a virtual machine when the name of the vmname,datacenter name 
+ *  and cpucount parameter value is provided:&lt;/b&gt;
+ * run.bat com.intalio.vmware.vm.VMCreate --url &lt;webserviceurl&gt;
  *  --username &lt;username&gt; --password &lt;password&gt; --vmname &lt;vmname&gt; 
  * -datacentername &lt;datacentername&gt;  --cpucount &lt;cpucount&gt;
  *</pre>

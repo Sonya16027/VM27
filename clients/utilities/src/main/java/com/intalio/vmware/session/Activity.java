@@ -7,6 +7,10 @@ public interface Activity {
 	public OptionSpec[] constructOptions();
 
 	public String[] getArgs();
+	
+	public void setOperationName(String operationName);
+	
+	public String getOperationName();
 
 	public void run(AppUtil cb) throws Exception;
 }
