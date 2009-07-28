@@ -61,7 +61,7 @@ import com.vmware.vim.VirtualPCNet32;
  */
 
 public class VMReconfig {
-	private static VMUtils vmUtils = null;
+	protected static VMUtils vmUtils = null;
 	private static AppUtil cb = null;
 
 	private static OptionSpec[] constructOptions() {
@@ -102,9 +102,9 @@ public class VMReconfig {
 		}
 	}
 
-	private ManagedObjectReference _virtualMachine = null;
+	protected ManagedObjectReference _virtualMachine = null;
 
-	private boolean customValidation() throws Exception {
+	protected boolean customValidation() throws Exception {
 		boolean flag = true;
 		String device = cb.get_option("device");
 		if (device.equalsIgnoreCase("disk")) {
@@ -452,7 +452,7 @@ public class VMReconfig {
 		return raInfo;
 	}
 
-	private void getVmMor(String vmName) throws Exception {
+	protected void getVmMor(String vmName) throws Exception {
 		_virtualMachine = cb.getServiceUtil().getDecendentMoRef(null,
 				"VirtualMachine", vmName);
 	}
@@ -468,7 +468,7 @@ public class VMReconfig {
 		}
 	}
 
-	private void reConfig() throws Exception {
+	protected void reConfig() throws Exception {
 		String deviceType = cb.get_option("device");
 		VirtualMachineConfigSpec vmConfigSpec = new VirtualMachineConfigSpec();
 

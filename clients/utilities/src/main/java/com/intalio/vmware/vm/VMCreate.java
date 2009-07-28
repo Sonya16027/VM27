@@ -45,7 +45,7 @@ import com.vmware.vim.VirtualMachineConfigSpec;
 
 public class VMCreate {
 	private static AppUtil cb = null;
-	private static VMUtils vmUtils = null;
+	protected static VMUtils vmUtils = null;
 
 	private static OptionSpec[] constructOptions() {
 		OptionSpec[] useroptions = new OptionSpec[8];

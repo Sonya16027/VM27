@@ -4,7 +4,6 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import com.intalio.vmware.vm.VMClone;
 import com.vmware.apputils.AppUtil;
 import com.vmware.apputils.OptionSpec;
 
@@ -73,7 +72,16 @@ public class BasicActivity implements Activity {
 	public void run(AppUtil cb) throws Exception {
 		try {
 			Method operation = activityClass.getMethod(operationName);
-			operation.invoke(activityObject);
+			Class<?>[] parameterTypes = operation.getParameterTypes();
+			ArrayList<Object> parameters = new ArrayList<Object>(parameterTypes.length);
+			for (Class<?> parameterType : parameterTypes) {
+				if (AppUtil.class.equals(parameterType)) {
+					parameters.add(cb);
+				} else if (String[].class.equals(parameterType)) {
+					parameters.add(getArgs());
+				}
+			}
+			operation.invoke(activityObject, parameters.toArray());
 		} catch (Exception e) {
 			System.out.println("Could not invoke " + operationName + " on " + activityObject);
 		}

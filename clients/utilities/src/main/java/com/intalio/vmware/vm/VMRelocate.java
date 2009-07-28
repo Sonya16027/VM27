@@ -68,7 +68,7 @@ public class VMRelocate {
 		}
 	}
 
-	private boolean customValidation() throws Exception {
+	protected boolean customValidation() throws Exception {
 		boolean flag = true;
 		String val = cb.get_option("diskmovetype");
 		if ((!val.equalsIgnoreCase("moveChildMostDiskBacking"))
@@ -93,7 +93,7 @@ public class VMRelocate {
 		}
 	}
 
-	private void relocate(String[] args, String cookieString) throws Exception {
+	protected void relocate(String[] args, String cookieString) throws Exception {
 		ArrayList apiVersions = VersionUtil.getSupportedVersions(cb
 				.get_option("url"));
 		if (!VersionUtil.isApiVersionSupported(apiVersions, "4.0")) {

@@ -165,7 +165,7 @@ public class VMotion {
 	 */
 
 	// check which operation is to be performed migration or relocation
-	private boolean customValidation() throws Exception {
+	protected boolean customValidation() throws Exception {
 		boolean flag = true;
 		if (cb.option_is_set("state")) {
 			String state = cb.get_option("state");
@@ -217,7 +217,7 @@ public class VMotion {
 		}
 	}
 
-	private void getVersion(String args[], VMotion vmotionObj) throws Exception {
+	public void getVersion(String args[], VMotion vmotionObj) throws Exception {
 		ArrayList apiVersions = VersionUtil.getSupportedVersions(cb
 				.get_option("url"));
 		if (VersionUtil.isApiVersionSupported(apiVersions, "4.0")) {

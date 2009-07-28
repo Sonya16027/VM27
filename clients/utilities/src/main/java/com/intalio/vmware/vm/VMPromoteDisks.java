@@ -63,7 +63,7 @@ public class VMPromoteDisks {
 
 	private static VersionUtil versionUtil = null;
 
-	private boolean customValidation() throws Exception {
+	protected boolean customValidation() throws Exception {
 		boolean flag = true;
 		String val = cb.get_option("unlink");
 		if ((!val.equalsIgnoreCase("true")) && (!val.equalsIgnoreCase("false"))) {
@@ -104,7 +104,7 @@ public class VMPromoteDisks {
 		}
 	}
 
-	private void promoteDeltaDisk(String[] args, String cookieString)
+	protected void promoteDeltaDisk(String[] args, String cookieString)
 			throws Exception {
 		ArrayList apiVersions = VersionUtil.getSupportedVersions(cb
 				.get_option("url"));

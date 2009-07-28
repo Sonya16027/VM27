@@ -46,9 +46,9 @@ import com.vmware.vim.VirtualMachineSnapshotTree;
  */
 
 public class VMSnapshot {
-	private static AppUtil cb = null;
+	protected static AppUtil cb = null;
 
-	private static OptionSpec[] constructOptions() {
+	protected static OptionSpec[] constructOptions() {
 		OptionSpec[] useroptions = new OptionSpec[5];
 		useroptions[0] = new OptionSpec("vmname", "String", 1,
 				"Name of the virtual machine", null);
@@ -105,7 +105,7 @@ public class VMSnapshot {
 		}
 	}
 
-	private boolean createSnapshot(ManagedObjectReference vmMor)
+	protected boolean createSnapshot(ManagedObjectReference vmMor)
 			throws Exception {
 		String snapshotName = cb.get_option("snapshotname");
 		String desc = cb.get_option("description");
@@ -118,7 +118,7 @@ public class VMSnapshot {
 		return false;
 	}
 
-	private boolean customValidation() throws Exception {
+	protected boolean customValidation() throws Exception {
 		boolean flag = true;
 		String op = cb.get_option("operation");
 		if (op.equalsIgnoreCase("create")) {
@@ -154,7 +154,7 @@ public class VMSnapshot {
 		return flag;
 	}
 
-	private VirtualMachineSnapshotInfo getSnapshotInfo(
+	protected VirtualMachineSnapshotInfo getSnapshotInfo(
 			ManagedObjectReference vmmor, String vmName) throws Exception {
 		ObjectContent[] snaps = cb.getServiceUtil().getObjectProperties(null,
 				vmmor, new String[] { "snapshot" });
@@ -173,7 +173,7 @@ public class VMSnapshot {
 		return snapInfo;
 	}
 
-	private ManagedObjectReference getSnapshotReference(
+	protected ManagedObjectReference getSnapshotReference(
 			ManagedObjectReference vmmor, String vmName, String snapName)
 			throws Exception {
 		VirtualMachineSnapshotInfo snapInfo = getSnapshotInfo(vmmor, vmName);
@@ -189,7 +189,7 @@ public class VMSnapshot {
 		return snapmor;
 	}
 
-	private boolean listSnapshot(ManagedObjectReference vmMor) throws Exception {
+	protected boolean listSnapshot(ManagedObjectReference vmMor) throws Exception {
 		ObjectContent[] snaps = cb.getServiceUtil().getObjectProperties(null,
 				vmMor, new String[] { "snapshot" });
 		VirtualMachineSnapshotInfo snapInfo = null;
@@ -208,7 +208,7 @@ public class VMSnapshot {
 		return false;
 	}
 
-	private boolean removeAllSnapshot(ManagedObjectReference vmMor)
+	protected boolean removeAllSnapshot(ManagedObjectReference vmMor)
 			throws Exception {
 		ManagedObjectReference taskMor = cb.getConnection().getService()
 				.removeAllSnapshots_Task(vmMor);
@@ -219,7 +219,7 @@ public class VMSnapshot {
 		return false;
 	}
 
-	private boolean removeSnapshot(ManagedObjectReference vmMor)
+	protected boolean removeSnapshot(ManagedObjectReference vmMor)
 			throws Exception {
 		String snapshotName = cb.get_option("snapshotname");
 		int rem = Integer.parseInt(cb.get_option("removechild"));
@@ -242,7 +242,7 @@ public class VMSnapshot {
 		return false;
 	}
 
-	private boolean revertSnapshot(ManagedObjectReference vmMor)
+	protected boolean revertSnapshot(ManagedObjectReference vmMor)
 			throws Exception {
 		String snapshotName = cb.get_option("snapshotname");
 		ManagedObjectReference snapmor = getSnapshotReference(vmMor, cb
@@ -260,7 +260,7 @@ public class VMSnapshot {
 		return false;
 	}
 
-	private ManagedObjectReference traverseSnapshotInTree(
+	protected ManagedObjectReference traverseSnapshotInTree(
 			VirtualMachineSnapshotTree[] snapTree, String findName,
 			boolean print) {
 		ManagedObjectReference snapmor = null;

@@ -39,7 +39,7 @@ import com.vmware.vim.ToolsUnavailable;
 public class VMpowerOps {
 
 	private static AppUtil cb = null;
-	private static VMUtils vmUtils = null;
+	protected static VMUtils vmUtils = null;
 
 	private static OptionSpec[] constructOptions() {
 		OptionSpec[] useroptions = new OptionSpec[8];
@@ -249,7 +249,7 @@ public class VMpowerOps {
 		}
 	}
 
-	private void runOperation() throws Exception {
+	protected void runOperation() throws Exception {
 		String operation = cb.get_option("operation");
 		ArrayList arrList = getVms();
 		// System.out.println("in run operation");
@@ -354,7 +354,7 @@ public class VMpowerOps {
 		}
 	}
 
-	private void validate() throws Exception {
+	protected void validate() throws Exception {
 		String operation = cb.get_option("operation");
 		if (!(operation.equalsIgnoreCase("poweron"))
 				&& !(operation.equalsIgnoreCase("poweroff"))
