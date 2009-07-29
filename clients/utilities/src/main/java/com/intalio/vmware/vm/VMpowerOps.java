@@ -38,10 +38,10 @@ import com.vmware.vim.ToolsUnavailable;
 
 public class VMpowerOps {
 
-	private static AppUtil cb = null;
+	protected static AppUtil cb = null;
 	protected static VMUtils vmUtils = null;
 
-	private static OptionSpec[] constructOptions() {
+	protected static OptionSpec[] constructOptions() {
 		OptionSpec[] useroptions = new OptionSpec[8];
 		useroptions[0] = new OptionSpec("vmname", "String", 0,
 				"Name of the virtual machine", null);
@@ -88,7 +88,7 @@ public class VMpowerOps {
 
 	String[][] filter = null;
 
-	private DynamicProperty[] getDynamicProarray(ManagedObjectReference MOR,
+	protected DynamicProperty[] getDynamicProarray(ManagedObjectReference MOR,
 			String pName) throws Exception {
 
 		ObjectContent[] objContent = cb.getServiceUtil().getObjectProperties(
@@ -98,7 +98,7 @@ public class VMpowerOps {
 		return objArr;
 	}
 
-	private boolean getTaskInfo(ManagedObjectReference taskmor)
+	protected boolean getTaskInfo(ManagedObjectReference taskmor)
 			throws Exception {
 		boolean valid = false;
 		DynamicProperty[] scsiArry = getDynamicProarray(taskmor, "info");
@@ -117,7 +117,7 @@ public class VMpowerOps {
 		return valid;
 	}
 
-	private ArrayList getVms() throws Exception {
+	protected ArrayList getVms() throws Exception {
 		ArrayList vmList = new ArrayList();
 		if (cb.option_is_set("host")) {
 			host = cb.get_option("host");
@@ -150,7 +150,7 @@ public class VMpowerOps {
 		return vmList;
 	}
 
-	private void powerOffVM(ArrayList vmList) throws Exception {
+	protected void powerOffVM(ArrayList vmList) throws Exception {
 		for (int i = 0; i < vmList.size(); i++) {
 			String vmName = (String) cb.getServiceUtil().getDynamicProperty(
 					(ManagedObjectReference) vmList.get(i), "name");
@@ -174,7 +174,7 @@ public class VMpowerOps {
 		}
 	}
 
-	private void powerOnVM(ArrayList vmList) throws Exception {
+	protected void powerOnVM(ArrayList vmList) throws Exception {
 		for (int i = 0; i < vmList.size(); i++) {
 			String vmName = (String) cb.getServiceUtil().getDynamicProperty(
 					(ManagedObjectReference) vmList.get(i), "name");
@@ -201,7 +201,7 @@ public class VMpowerOps {
 		}
 	}
 
-	private void rebootVM(ArrayList vmList) throws Exception {
+	protected void rebootVM(ArrayList vmList) throws Exception {
 		for (int i = 0; i < vmList.size(); i++) {
 			String vmName = (String) cb.getServiceUtil().getDynamicProperty(
 					(ManagedObjectReference) vmList.get(i), "name");
@@ -227,7 +227,7 @@ public class VMpowerOps {
 		}
 	}
 
-	private void resetVM(ArrayList vmList) throws Exception {
+	protected void resetVM(ArrayList vmList) throws Exception {
 		for (int i = 0; i < vmList.size(); i++) {
 			String vmName = (String) cb.getServiceUtil().getDynamicProperty(
 					(ManagedObjectReference) vmList.get(i), "name");
@@ -275,7 +275,7 @@ public class VMpowerOps {
 		}
 	}
 
-	private void shutdownVM(ArrayList vmList) throws Exception {
+	protected void shutdownVM(ArrayList vmList) throws Exception {
 		for (int i = 0; i < vmList.size(); i++) {
 			String vmName = (String) cb.getServiceUtil().getDynamicProperty(
 					(ManagedObjectReference) vmList.get(i), "name");
@@ -302,7 +302,7 @@ public class VMpowerOps {
 		}
 	}
 
-	private void standbyVM(ArrayList vmList) throws Exception {
+	protected void standbyVM(ArrayList vmList) throws Exception {
 		for (int i = 0; i < vmList.size(); i++) {
 			String vmName = (String) cb.getServiceUtil().getDynamicProperty(
 					(ManagedObjectReference) vmList.get(i), "name");
@@ -331,7 +331,7 @@ public class VMpowerOps {
 		}
 	}
 
-	private void suspendVM(ArrayList vmList) throws Exception {
+	protected void suspendVM(ArrayList vmList) throws Exception {
 		for (int i = 0; i < vmList.size(); i++) {
 			String vmName = (String) cb.getServiceUtil().getDynamicProperty(
 					(ManagedObjectReference) vmList.get(i), "name");

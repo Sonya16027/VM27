@@ -52,9 +52,9 @@ import com.vmware.vim.VimPortType;
 public class SearchIndex {
 	static VimPortType service; // All Methods
 	static ServiceContent content;
-	private static AppUtil cb = null;
+	protected static AppUtil cb = null;
 
-	private static OptionSpec[] constructOptions() {
+	protected static OptionSpec[] constructOptions() {
 		OptionSpec[] useroptions = new OptionSpec[5];
 		useroptions[0] = new OptionSpec("dcName", "String", 1,
 				"Name of the Datacenter", null);

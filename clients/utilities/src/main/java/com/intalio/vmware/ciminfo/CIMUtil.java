@@ -15,15 +15,15 @@ import javax.wbem.client.UserPrincipal;
 
 public class CIMUtil {
 	// pretty printing constants
-	private final int TABSTOP = 3;
-	private final int KEYPREFIXLEN = 6;
-	private final int VALSUFFIXLEN = 2;
+	protected final int TABSTOP = 3;
+	protected final int KEYPREFIXLEN = 6;
+	protected final int VALSUFFIXLEN = 2;
 
-	private CIMClient client = null;
+	protected CIMClient client = null;
 
-	private boolean printNullValues;
-	private boolean printOnlyKeys;
-	private boolean ignoreCerts;
+	protected boolean printNullValues;
+	protected boolean printOnlyKeys;
+	protected boolean ignoreCerts;
 
 	public CIMUtil(boolean printNullVals, boolean printKeys, boolean ignorecerts) {
 		printNullValues = printNullVals;
@@ -237,7 +237,7 @@ public class CIMUtil {
 		printCimObjectPath(path, 0);
 	}
 
-	private void printCimObjectPath(CIMObjectPath path, int prefixWhiteSpace) {
+	protected void printCimObjectPath(CIMObjectPath path, int prefixWhiteSpace) {
 		if (path == null) {
 			return;
 		}
@@ -258,7 +258,7 @@ public class CIMUtil {
 		}
 	}
 
-	private void printCimProperty(CIMProperty prop, int prefixWhiteSpace) {
+	protected void printCimProperty(CIMProperty prop, int prefixWhiteSpace) {
 		if (prop == null) {
 			return;
 		}
@@ -296,14 +296,14 @@ public class CIMUtil {
 		}
 	}
 
-	private void printPrefixWhiteSpace(int prefixWhiteSpace) {
+	protected void printPrefixWhiteSpace(int prefixWhiteSpace) {
 		while (prefixWhiteSpace > 0) {
 			System.out.print(" ");
 			--prefixWhiteSpace;
 		}
 	}
 
-	private void printValueArray(CIMValue arrayVal) {
+	protected void printValueArray(CIMValue arrayVal) {
 		System.out.print("{");
 		System.out.print(arrayVal.toString());
 		System.out.println("}");

@@ -35,13 +35,13 @@ import com.vmware.vim.ManagedObjectReference;
 
 public class RemoveManagedObject {
 
-	private static final String STR_REMOVE = "remove";
-	private static final String STR_UNREGISTER = "unregisterVM";
+	protected static final String STR_REMOVE = "remove";
+	protected static final String STR_UNREGISTER = "unregisterVM";
 
-	private static AppUtil cb = null;
-	private static VMUtils vmUtils = null;
+	protected static AppUtil cb = null;
+	protected static VMUtils vmUtils = null;
 
-	private static OptionSpec[] constructOptions() {
+	protected static OptionSpec[] constructOptions() {
 		OptionSpec[] useroptions = new OptionSpec[3];
 		useroptions[0] = new OptionSpec(
 				"objtype",
@@ -67,7 +67,7 @@ public class RemoveManagedObject {
 		cb.disConnect();
 	}
 
-	private void doRemove() throws Exception {
+	protected void doRemove() throws Exception {
 		String objType = cb.get_option("objtype");
 		String objName = cb.get_option("objname");
 		String remOpStr = getRemoveOp();
@@ -113,7 +113,7 @@ public class RemoveManagedObject {
 
 	}
 
-	private String getRemoveOp() throws Exception {
+	protected String getRemoveOp() throws Exception {
 		String operation = cb.get_option("operation");
 		String objType = cb.get_option("objtype");
 		if ((operation == null || operation.length() == 0)
@@ -131,11 +131,11 @@ public class RemoveManagedObject {
 		return operation;
 	}
 
-	private void runOperation() throws Exception {
+	protected void runOperation() throws Exception {
 		doRemove();
 	}
 
-	private void validate() throws Exception {
+	protected void validate() throws Exception {
 		String objType = cb.get_option("objtype");
 		try {
 			if (cb.option_is_set("operation")) {

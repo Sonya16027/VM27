@@ -29,9 +29,9 @@ import com.vmware.vim.TaskInfoState;
  */
 
 public class Delete {
-	private static AppUtil cb = null;
+	protected static AppUtil cb = null;
 
-	private static OptionSpec[] constructOptions() {
+	protected static OptionSpec[] constructOptions() {
 		OptionSpec[] useroptions = new OptionSpec[1];
 		useroptions[0] = new OptionSpec("meName", "String", 1,
 				"Virtual Machine|ClusterComputeResource|folder", null);
@@ -48,7 +48,7 @@ public class Delete {
 
 	Log log = new Log();
 
-	private boolean doDelete() throws Exception {
+	protected boolean doDelete() throws Exception {
 		try {
 			String errmsg = "";
 
@@ -105,7 +105,7 @@ public class Delete {
 		return true;
 	}
 
-	private String getMeName() throws Exception {
+	protected String getMeName() throws Exception {
 		return cb.get_option("meName");
 	}
 }

@@ -37,9 +37,9 @@ import com.vmware.vim.WeeklyTaskScheduler;
  */
 
 public class WeeklyRecurrenceScheduledTask {
-	private static AppUtil cb = null;
+	protected static AppUtil cb = null;
 
-	private static OptionSpec[] constructOptions() {
+	protected static OptionSpec[] constructOptions() {
 		OptionSpec[] useroptions = new OptionSpec[2];
 		useroptions[0] = new OptionSpec("vmpath", "String", 1,
 				"VM Inventory Path", null);
@@ -88,21 +88,21 @@ public class WeeklyRecurrenceScheduledTask {
 		}
 	}
 
-	private ManagedObjectReference _svcRef; // Service Instance Reference
+	protected ManagedObjectReference _svcRef; // Service Instance Reference
 
-	private VimServiceLocator _locator;
+	protected VimServiceLocator _locator;
 
-	private VimPortType _service; // All webservice methods
+	protected VimPortType _service; // All webservice methods
 
 	// ServiceContent contains References to commonly used
 	// Managed Objects like PropertyCollector, SearchIndex, EventManager, etc.
-	private ServiceContent _sic;
+	protected ServiceContent _sic;
 
-	private ManagedObjectReference _searchIndex;
+	protected ManagedObjectReference _searchIndex;
 
-	private ManagedObjectReference _scheduleManager;
+	protected ManagedObjectReference _scheduleManager;
 
-	private ManagedObjectReference _virtualMachine;
+	protected ManagedObjectReference _virtualMachine;
 
 	/**
 	 * Create a Scheduled Task using the reboot method action and the weekly
@@ -114,7 +114,7 @@ public class WeeklyRecurrenceScheduledTask {
 	 *            the scheduler used to execute the action
 	 * @throws Exception
 	 */
-	private void createScheduledTask(Action taskAction, TaskScheduler scheduler)
+	protected void createScheduledTask(Action taskAction, TaskScheduler scheduler)
 			throws Exception {
 		try {
 			// Create the Scheduled Task Spec and set a unique task name
@@ -153,7 +153,7 @@ public class WeeklyRecurrenceScheduledTask {
 	 * 
 	 * @return the action to run when the schedule runs
 	 */
-	private Action createTaskAction() {
+	protected Action createTaskAction() {
 		MethodAction action = new MethodAction();
 
 		// Method Name is the WSDL name of the
@@ -173,7 +173,7 @@ public class WeeklyRecurrenceScheduledTask {
 	 * 
 	 * @return weekly task scheduler
 	 */
-	private TaskScheduler createTaskScheduler() {
+	protected TaskScheduler createTaskScheduler() {
 		WeeklyTaskScheduler scheduler = new WeeklyTaskScheduler();
 
 		// Set the Day of the Week to be Saturday
@@ -195,7 +195,7 @@ public class WeeklyRecurrenceScheduledTask {
 	 * 
 	 * @throws Exception
 	 */
-	private void findVirtualMachine() throws Exception {
+	protected void findVirtualMachine() throws Exception {
 		String vmPath = cb.get_option("vmpath");
 		_virtualMachine = _service.findByInventoryPath(_searchIndex, vmPath);
 	}
@@ -203,7 +203,7 @@ public class WeeklyRecurrenceScheduledTask {
 	/**
 	 * Initialize the necessary Managed Object References needed here
 	 */
-	private void initialize() {
+	protected void initialize() {
 		_sic = cb.getConnection().getServiceContent();
 		_service = cb.getConnection().getService();
 		// Get the SearchIndex and ScheduleManager references from

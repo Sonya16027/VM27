@@ -52,26 +52,26 @@ import com.vmware.vim.ServiceContent;
 
 public class VIWrapper {
 
-	private static String OPT_QUERY = "query";
-	private static String OPT_LOG_OPERATION = "logop";
-	private static String OPT_NAMESPACE = "ns";
-	private static String OPT_PRINTNULLS = "printNulls";
-	private static String OPT_PRINTONLYKEYS = "printOnlyKeys";
-	private static String OPT_IGNORECERT = "ignorecert";
+	protected static String OPT_QUERY = "query";
+	protected static String OPT_LOG_OPERATION = "logop";
+	protected static String OPT_NAMESPACE = "ns";
+	protected static String OPT_PRINTNULLS = "printNulls";
+	protected static String OPT_PRINTONLYKEYS = "printOnlyKeys";
+	protected static String OPT_IGNORECERT = "ignorecert";
 
-	private static String OPT_VAL_FIRMWARE = "firmware";
-	private static String OPT_VAL_FANSENSORS = "fansensors";
-	private static String OPT_VAL_FRUS = "frus";
-	private static String OPT_VAL_SENSORFRUS = "sensorfrus";
-	private static String OPT_VAL_LOG = "log";
+	protected static String OPT_VAL_FIRMWARE = "firmware";
+	protected static String OPT_VAL_FANSENSORS = "fansensors";
+	protected static String OPT_VAL_FRUS = "frus";
+	protected static String OPT_VAL_SENSORFRUS = "sensorfrus";
+	protected static String OPT_VAL_LOG = "log";
 
-	private static String OPT_VAL_CIM_NAMESPACE = "root/cimv2";
+	protected static String OPT_VAL_CIM_NAMESPACE = "root/cimv2";
 
-	private static String ESX_API_VERSION = "3.5";
+	protected static String ESX_API_VERSION = "3.5";
 
-	private static AppUtil appUtil = null;
+	protected static AppUtil appUtil = null;
 
-	private static OptionSpec[] initOptions() {
+	protected static OptionSpec[] initOptions() {
 		OptionSpec[] appOpts = new OptionSpec[5];
 		appOpts[0] = new OptionSpec(OPT_QUERY, "String", 1,
 				"Query to be made.\n       "
@@ -113,7 +113,7 @@ public class VIWrapper {
 	 * 
 	 * @throws Exception
 	 */
-	private void doOperation() throws Exception {
+	protected void doOperation() throws Exception {
 		ServiceContent sc = appUtil.getConnection().getServiceContent();
 		String apiType = sc.getAbout().getApiType();
 		String apiVersion = sc.getAbout().getApiVersion();

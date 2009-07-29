@@ -47,9 +47,9 @@ import com.vmware.vim.PerfMetricId;
  */
 
 public class PrintCounters {
-	private static AppUtil cb = null;
+	protected static AppUtil cb = null;
 
-	private static OptionSpec[] constructOptions() {
+	protected static OptionSpec[] constructOptions() {
 		OptionSpec[] useroptions = new OptionSpec[3];
 		useroptions[0] = new OptionSpec("entitytype", "String", 1,
 				"Type of the Entity "
@@ -70,14 +70,14 @@ public class PrintCounters {
 		cb.disConnect();
 	}
 
-	private ManagedObjectReference getManagedObjectReference(String entityType)
+	protected ManagedObjectReference getManagedObjectReference(String entityType)
 			throws Exception {
 		ManagedObjectReference obj = cb.getServiceUtil().getDecendentMoRef(
 				null, entityType, cb.get_option("entityname"));
 		return obj;
 	}
 
-	private Set getPerfIdsAvailable(ManagedObjectReference perfMoRef,
+	protected Set getPerfIdsAvailable(ManagedObjectReference perfMoRef,
 			ManagedObjectReference entityMoRef) throws Exception {
 		Set ret = new HashSet();
 		if (entityMoRef != null) {
@@ -93,7 +93,7 @@ public class PrintCounters {
 		return ret;
 	}
 
-	private void printCounters() throws Exception {
+	protected void printCounters() throws Exception {
 		String entityType = cb.get_option("entitytype");
 
 		if (entityType.equalsIgnoreCase("HostSystem")) {
@@ -108,7 +108,7 @@ public class PrintCounters {
 		}
 	}
 
-	private void printElementDescription(PrintWriter out, String name,
+	protected void printElementDescription(PrintWriter out, String name,
 			ElementDescription ed) {
 		out.print("   <" + name + "-key>");
 		out.print(ed.getKey());
@@ -123,7 +123,7 @@ public class PrintCounters {
 		out.println("</" + name + "-summary>");
 	}
 
-	private void printEntityCounters(String entityType) throws Exception {
+	protected void printEntityCounters(String entityType) throws Exception {
 		ManagedObjectReference mor = getManagedObjectReference(entityType);
 		ManagedObjectReference pmRef = cb.getConnection().getServiceContent()
 				.getPerfManager();

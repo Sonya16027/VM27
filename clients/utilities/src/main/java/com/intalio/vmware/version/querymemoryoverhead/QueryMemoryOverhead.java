@@ -27,7 +27,7 @@ import com.vmware.vim.ManagedObjectReference;
  */
 
 public class QueryMemoryOverhead {
-	private static AppUtil cb = null;
+	protected static AppUtil cb = null;
 
 	public static OptionSpec[] constructOptions() {
 		OptionSpec[] useroptions = new OptionSpec[3];
@@ -52,7 +52,7 @@ public class QueryMemoryOverhead {
 		}
 	}
 
-	private boolean customValidation() throws Exception {
+	protected boolean customValidation() throws Exception {
 		boolean flag = true;
 		if (Integer.parseInt(cb.get_option("memorysize")) <= 0) {
 			System.out.println("Memory size must be greater than zero");
@@ -65,7 +65,7 @@ public class QueryMemoryOverhead {
 		return flag;
 	}
 
-	private void queryMemoryOverhead(String[] args) throws Exception {
+	protected void queryMemoryOverhead(String[] args) throws Exception {
 		String hostname = cb.get_option("hostname");
 		ManagedObjectReference hmor = cb.getServiceUtil().getDecendentMoRef(
 				null, "HostSystem", hostname);

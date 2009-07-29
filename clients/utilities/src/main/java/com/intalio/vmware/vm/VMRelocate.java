@@ -34,11 +34,11 @@ import com.vmware.vim25.VirtualMachineRelocateSpec;
  */
 
 public class VMRelocate {
-	private ExtendedAppUtil ecb = null;
-	private static AppUtil cb = null;
+	protected ExtendedAppUtil ecb = null;
+	protected static AppUtil cb = null;
 
-	private static ManagedObjectReference provisionChkr = null;
-	private static VersionUtil versionUtil = null;
+	protected static ManagedObjectReference provisionChkr = null;
+	protected static VersionUtil versionUtil = null;
 
 	public static OptionSpec[] constructOptions() {
 		OptionSpec[] useroptions = new OptionSpec[3];
@@ -81,7 +81,7 @@ public class VMRelocate {
 		return flag;
 	}
 
-	private ManagedObjectReference getMOR(String name, String type,
+	protected ManagedObjectReference getMOR(String name, String type,
 			ManagedObjectReference root) throws Exception {
 		ManagedObjectReference nameMOR = ecb.getServiceUtil3()
 				.getDecendentMoRef(root, type, name);

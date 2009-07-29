@@ -44,10 +44,10 @@ import com.vmware.vim25.VirtualMachineConfigSpec;
  */
 
 public class VMDeltaDisk {
-	private ExtendedAppUtil ecb = null;
-	private static AppUtil cb = null;
-	private static ManagedObjectReference provisionChkr = null;
-	private static VersionUtil versionUtil = null;
+	protected ExtendedAppUtil ecb = null;
+	protected static AppUtil cb = null;
+	protected static ManagedObjectReference provisionChkr = null;
+	protected static VersionUtil versionUtil = null;
 
 	public static OptionSpec[] constructOptions() {
 		OptionSpec[] useroptions = new OptionSpec[3];
@@ -236,7 +236,7 @@ public class VMDeltaDisk {
 		}
 	}
 
-	private VirtualDisk findVirtualDisk(ManagedObjectReference vmMOR,
+	protected VirtualDisk findVirtualDisk(ManagedObjectReference vmMOR,
 			String diskName) throws Exception {
 		VirtualDisk ret = null;
 		VirtualHardware hw = (VirtualHardware) ecb.getServiceUtil3()
@@ -254,7 +254,7 @@ public class VMDeltaDisk {
 		return ret;
 	}
 
-	private ManagedObjectReference getMOR(String name, String type,
+	protected ManagedObjectReference getMOR(String name, String type,
 			ManagedObjectReference root) throws Exception {
 		ManagedObjectReference nameMOR = ecb.getServiceUtil3()
 				.getDecendentMoRef(root, type, name);

@@ -50,9 +50,9 @@ import com.vmware.vim.PerfSummaryType;
  */
 
 public class History {
-	private static AppUtil cb = null;
+	protected static AppUtil cb = null;
 
-	private static OptionSpec[] constructOptions() {
+	protected static OptionSpec[] constructOptions() {
 		OptionSpec[] useroptions = new OptionSpec[6];
 		useroptions[0] = new OptionSpec("hostname", "String", 1,
 				"Name of the host system", null);
@@ -88,7 +88,7 @@ public class History {
 
 	Calendar eTime;
 
-	private boolean checkInterval(PerfInterval[] intervals, Integer interval)
+	protected boolean checkInterval(PerfInterval[] intervals, Integer interval)
 			throws Exception {
 		boolean flag = false;
 		for (int i = 0; i < intervals.length; ++i) {
@@ -111,7 +111,7 @@ public class History {
 		return flag;
 	}
 
-	private void CounterInfo(ManagedObjectReference pmRef) throws Exception {
+	protected void CounterInfo(ManagedObjectReference pmRef) throws Exception {
 		PerfCounterInfo[] cInfos = (PerfCounterInfo[]) cb.getServiceUtil()
 				.getDynamicProperty(pmRef, "perfCounter");
 		for (int i = 0; i < cInfos.length; ++i) {
@@ -136,7 +136,7 @@ public class History {
 		}
 	}
 
-	private boolean customValidation() throws Exception {
+	protected boolean customValidation() throws Exception {
 		int duration = Integer.parseInt(cb.get_option("duration"));
 		int starttime = Integer.parseInt(cb.get_option("starttime"));
 		if (duration > starttime) {
@@ -147,7 +147,7 @@ public class History {
 		}
 	}
 
-	private void displayHistory() throws Exception {
+	protected void displayHistory() throws Exception {
 		ManagedObjectReference hostmor = cb.getServiceUtil().getDecendentMoRef(
 				null, "HostSystem", cb.get_option("hostname"));
 		if (hostmor == null) {
@@ -231,7 +231,7 @@ public class History {
 		}
 	}
 
-	private void displayValues(PerfEntityMetricBase[] values,
+	protected void displayValues(PerfEntityMetricBase[] values,
 			PerfCounterInfo pci, PerfMetricId pmid, Integer interval) {
 		for (int i = 0; i < values.length; ++i) {
 			PerfMetricSeries[] vals = ((PerfEntityMetric) values[i]).getValue();
@@ -267,7 +267,7 @@ public class History {
 		}
 	}
 
-	private PerfCounterInfo getCounterInfo(String groupName,
+	protected PerfCounterInfo getCounterInfo(String groupName,
 			String counterName, PerfSummaryType rollupType,
 			PerfStatsType statsType) {
 		ArrayList counters = getCounterInfos(groupName, counterName);
@@ -284,7 +284,7 @@ public class History {
 		return null;
 	}
 
-	private ArrayList getCounterInfos(String groupName, String counterName) {
+	protected ArrayList getCounterInfos(String groupName, String counterName) {
 		Map nameMap = (Map) _pci.get(groupName);
 		if (nameMap != null) {
 			ArrayList ret = (ArrayList) nameMap.get(counterName);

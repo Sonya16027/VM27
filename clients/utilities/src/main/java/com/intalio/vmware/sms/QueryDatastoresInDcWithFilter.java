@@ -44,11 +44,11 @@ import com.vmware.vim.sms.SortSpec;
  */
 
 public class QueryDatastoresInDcWithFilter {
-	private static SmPortType service;
-	private static com.vmware.vim.sms.ManagedObjectReference si;
-	private static SmAppUtil cb = null;
+	protected static SmPortType service;
+	protected static com.vmware.vim.sms.ManagedObjectReference si;
+	protected static SmAppUtil cb = null;
 
-	private static OptionSpec[] constructOptions() {
+	protected static OptionSpec[] constructOptions() {
 		OptionSpec[] useroptions = new OptionSpec[1];
 		useroptions[0] = new OptionSpec(
 				"sortPropertyName",
@@ -71,9 +71,9 @@ public class QueryDatastoresInDcWithFilter {
 	Log log = new Log();
 
 	// Hardcoded entityType and relEntityType values
-	private EntityReferenceEntityType entityType = EntityReferenceEntityType.datacenter;
+	protected EntityReferenceEntityType entityType = EntityReferenceEntityType.datacenter;
 
-	private EntityReferenceEntityType relEntityType = EntityReferenceEntityType.datastore;
+	protected EntityReferenceEntityType relEntityType = EntityReferenceEntityType.datastore;
 
 	// User defined value of sortPropertyName
 	String sortPropertyName = null;

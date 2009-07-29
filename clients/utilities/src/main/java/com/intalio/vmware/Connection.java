@@ -12,13 +12,13 @@ public class Connection {
 	public static final ManagedObjectReference SIMO_REF = new ManagedObjectReference();
 	public static final String STR_SERVICE_INSTANCE = "ServiceInstance";
 
-	private VimPortType vimPort;
-	private ServiceContent serviceContent;
-	private String vimHost;
+	protected VimPortType vimPort;
+	protected ServiceContent serviceContent;
+	protected String vimHost;
 
-	private String url;
-	private String username;
-	private String password;
+	protected String url;
+	protected String username;
+	protected String password;
 
 	public Connection(String url, String username, String password) {
 		this.url = url;
@@ -80,7 +80,7 @@ public class Connection {
 		initServiceContent();
 	}
 
-	private void initServiceContent() {
+	protected void initServiceContent() {
 		if (serviceContent == null) {
 			try {
 				serviceContent = vimPort.retrieveServiceContent(SIMO_REF);
@@ -93,7 +93,7 @@ public class Connection {
 	/**
 	 * Set the managed object reference type, and value to ServiceInstance
 	 */
-	private void initSIMORef() {
+	protected void initSIMORef() {
 		SIMO_REF.setType(STR_SERVICE_INSTANCE);
 		SIMO_REF.set_value(STR_SERVICE_INSTANCE);
 	}
@@ -110,7 +110,7 @@ public class Connection {
 	 *            connection.
 	 * 
 	 */
-	private void initVimPort(String url) {
+	protected void initVimPort(String url) {
 		VimServiceLocator locator = new VimServiceLocator();
 		locator.setMaintainSession(true);
 		try {

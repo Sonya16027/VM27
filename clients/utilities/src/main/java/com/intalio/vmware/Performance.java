@@ -22,15 +22,15 @@ import com.vmware.vim25.SelectionSpec;
 import com.vmware.vim25.TraversalSpec;
 
 public class Performance {
-	private Connection connection;
+	protected Connection connection;
 
-	private ManagedObjectReference propertyCollector;
-	private ManagedObjectReference rootFolder;
-	private ManagedObjectReference performanceManager;
+	protected ManagedObjectReference propertyCollector;
+	protected ManagedObjectReference rootFolder;
+	protected ManagedObjectReference performanceManager;
 
-	private HashMap<Integer, PerfCounterInfo> counterInfoMap = new HashMap<Integer, PerfCounterInfo>();
-	private HashMap<String, Integer> counters = new HashMap<String, Integer>();
-	private HashMap<Integer, PerfMetricId> metrics = new HashMap<Integer, PerfMetricId>();
+	protected HashMap<Integer, PerfCounterInfo> counterInfoMap = new HashMap<Integer, PerfCounterInfo>();
+	protected HashMap<String, Integer> counters = new HashMap<String, Integer>();
+	protected HashMap<Integer, PerfMetricId> metrics = new HashMap<Integer, PerfMetricId>();
 
 	public Performance(Connection connection) {
 		this.connection = connection;
@@ -47,7 +47,7 @@ public class Performance {
 	 * @param isVM
 	 *            - Boolean indicating whether the entityName is a VM name
 	 */
-	private void getAvailablePerfMetricIds(String entityName, boolean isVM) {
+	protected void getAvailablePerfMetricIds(String entityName, boolean isVM) {
 		PerfMetricId[] pmArr = null;
 		try {
 			ManagedObjectReference entityMor = null;
@@ -234,7 +234,7 @@ public class Performance {
 	 * hashmap counters with group.counter.rolluptype being the key and id being
 	 * the value.
 	 */
-	private void getPerfCounters() {
+	protected void getPerfCounters() {
 		try {
 			// Create Property Spec
 			PropertySpec propertySpec = new PropertySpec();
@@ -337,7 +337,7 @@ public class Performance {
 	 *            - The name of the performance counter (cpu.usage.average)
 	 * @return PerfQuerySpec
 	 */
-	private PerfQuerySpec getPerfQuerySpec(String entityName, boolean isVM,
+	protected PerfQuerySpec getPerfQuerySpec(String entityName, boolean isVM,
 			String perfCounter) {
 		PerfQuerySpec retVal = null;
 
@@ -557,7 +557,7 @@ public class Performance {
 		initPerfMgr();
 	}
 
-	private void initPerfMgr() {
+	protected void initPerfMgr() {
 		if (performanceManager == null) {
 			try {
 				performanceManager = connection.getServiceContent()
@@ -568,7 +568,7 @@ public class Performance {
 		}
 	}
 
-	private void initPropertyCollector() {
+	protected void initPropertyCollector() {
 		if (propertyCollector == null) {
 			try {
 				propertyCollector = connection.getServiceContent()
@@ -579,7 +579,7 @@ public class Performance {
 		}
 	}
 
-	private void initRootFolder() {
+	protected void initRootFolder() {
 		if (rootFolder == null) {
 			try {
 				rootFolder = connection.getServiceContent().getRootFolder();

@@ -40,10 +40,10 @@ import com.vmware.vim.ServiceContent;
  */
 
 public class RemoveVirtualSwitchPortGroup {
-	private static AppUtil cb = null;
-	private static VMUtils vmUtils = null;
+	protected static AppUtil cb = null;
+	protected static VMUtils vmUtils = null;
 
-	private static OptionSpec[] constructOptions() {
+	protected static OptionSpec[] constructOptions() {
 		OptionSpec[] useroptions = new OptionSpec[3];
 		useroptions[0] = new OptionSpec("host", "String", 0,
 				"Name of the host", null);
@@ -72,7 +72,7 @@ public class RemoveVirtualSwitchPortGroup {
 
 	String portGroupName = null;
 
-	private void doRemoveVirtualSwitchPortGroup() throws Exception {
+	protected void doRemoveVirtualSwitchPortGroup() throws Exception {
 		ManagedObjectReference dcmor;
 		ManagedObjectReference hostfoldermor;
 		ManagedObjectReference hostmor = null;
@@ -133,7 +133,7 @@ public class RemoveVirtualSwitchPortGroup {
 		}
 	}
 
-	private void validate() throws Exception {
+	protected void validate() throws Exception {
 		ManagedObjectReference sic = cb.getConnection().getServiceInstanceRef();
 		ServiceContent serCont = (ServiceContent) cb.getServiceUtil()
 				.getDynamicProperty(sic, "content");

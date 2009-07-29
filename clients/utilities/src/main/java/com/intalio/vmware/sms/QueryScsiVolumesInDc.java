@@ -27,10 +27,10 @@ import com.vmware.vim.sms.SmPortType;
  */
 
 public class QueryScsiVolumesInDc {
-	private static SmPortType service;
-	private static com.vmware.vim.sms.ManagedObjectReference si;
+	protected static SmPortType service;
+	protected static com.vmware.vim.sms.ManagedObjectReference si;
 
-	private static SmAppUtil cb = null;
+	protected static SmAppUtil cb = null;
 
 	public static void main(String[] args) throws Exception {
 		QueryScsiVolumesInDc obj = new QueryScsiVolumesInDc();

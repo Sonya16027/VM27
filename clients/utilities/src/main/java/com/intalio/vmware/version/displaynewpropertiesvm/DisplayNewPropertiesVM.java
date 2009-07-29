@@ -37,7 +37,7 @@ import com.vmware.vim.ManagedObjectReference;
  */
 
 public class DisplayNewPropertiesVM {
-	private static AppUtil cb = null;
+	protected static AppUtil cb = null;
 
 	public static OptionSpec[] constructOptions() {
 		OptionSpec[] useroptions = new OptionSpec[1];
@@ -56,7 +56,7 @@ public class DisplayNewPropertiesVM {
 		cb.disConnect();
 	}
 
-	private void displayVMProperties(String[] args) throws Exception {
+	protected void displayVMProperties(String[] args) throws Exception {
 		String vmName = cb.get_option("vmname");
 		ManagedObjectReference vmmor = cb.getServiceUtil().getDecendentMoRef(
 				null, "VirtualMachine", vmName);

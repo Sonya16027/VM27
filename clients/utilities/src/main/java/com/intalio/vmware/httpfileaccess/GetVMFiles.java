@@ -72,9 +72,9 @@ public class GetVMFiles {
 		}
 	}
 
-	private static AppUtil cb = null;
+	protected static AppUtil cb = null;
 
-	private static OptionSpec[] constructOptions() {
+	protected static OptionSpec[] constructOptions() {
 		OptionSpec[] useroptions = new OptionSpec[2];
 		useroptions[0] = new OptionSpec("vmname", "String", 1,
 				"Name of the virtual machine", null);
@@ -92,7 +92,7 @@ public class GetVMFiles {
 		cb.disConnect();
 	}
 
-	private static void trustAllHttpsCertificates() throws Exception {
+	protected static void trustAllHttpsCertificates() throws Exception {
 		javax.net.ssl.TrustManager[] trustAllCerts = new javax.net.ssl.TrustManager[1];
 		javax.net.ssl.TrustManager tm = new miTM();
 		trustAllCerts[0] = tm;
@@ -105,7 +105,7 @@ public class GetVMFiles {
 
 	HashMap downloadedDir = new HashMap();
 
-	private void downloadDirectory(String directoryName, String localDirectory,
+	protected void downloadDirectory(String directoryName, String localDirectory,
 			String dataStoreName, String dataCenter) throws Exception {
 		String serviceUrl = cb.getServiceUrl();
 		serviceUrl = serviceUrl.substring(0, serviceUrl.lastIndexOf("sdk") - 1);
@@ -125,7 +125,7 @@ public class GetVMFiles {
 		}
 	}
 
-	private String getCookie() throws Exception {
+	protected String getCookie() throws Exception {
 		com.vmware.vim.VimPortType test = cb.getConnection().getService();
 		org.apache.axis.client.Stub st = (org.apache.axis.client.Stub) test;
 		org.apache.axis.client.Call callObj = st._getCall();
@@ -135,7 +135,7 @@ public class GetVMFiles {
 		return cookieString;
 	}
 
-	private void getData(String urlString, String fileName) throws Exception {
+	protected void getData(String urlString, String fileName) throws Exception {
 		HttpURLConnection conn = getHTTPConnection(urlString);
 		String line = null;
 		String xmlString = "";
@@ -157,7 +157,7 @@ public class GetVMFiles {
 		out.close();
 	}
 
-	private String getDataCenter(com.vmware.vim.ManagedObjectReference vmmor)
+	protected String getDataCenter(com.vmware.vim.ManagedObjectReference vmmor)
 			throws Exception {
 		com.vmware.vim.ManagedObjectReference morParent = (com.vmware.vim.ManagedObjectReference) cb
 				.getServiceUtil().getDynamicProperty(vmmor, "parent");
@@ -168,7 +168,7 @@ public class GetVMFiles {
 		return dcName;
 	}
 
-	private ArrayList getFileLinks(String xmlString) throws Exception {
+	protected ArrayList getFileLinks(String xmlString) throws Exception {
 		ArrayList linkMap = new ArrayList();
 		Pattern regex = Pattern.compile("<a href=\".*?\">");
 		Matcher regexMatcher = regex.matcher(xmlString);
@@ -182,7 +182,7 @@ public class GetVMFiles {
 		return linkMap;
 	}
 
-	private HttpURLConnection getHTTPConnection(String urlString)
+	protected HttpURLConnection getHTTPConnection(String urlString)
 			throws Exception {
 		String cookieString = getCookie();
 		trustAllHttpsCertificates();
@@ -205,7 +205,7 @@ public class GetVMFiles {
 		return conn;
 	}
 
-	private String[] getListFiles(String urlString) throws Exception {
+	protected String[] getListFiles(String urlString) throws Exception {
 		HttpURLConnection conn = getHTTPConnection(urlString);
 		String line = null;
 		String xmlString = "";
@@ -225,7 +225,7 @@ public class GetVMFiles {
 		return linkMap;
 	}
 
-	private String[] getVDiskLocations(ManagedObjectReference vmmor)
+	protected String[] getVDiskLocations(ManagedObjectReference vmmor)
 			throws Exception {
 		VirtualMachineConfigInfo vmConfigInfo = (VirtualMachineConfigInfo) cb
 				.getServiceUtil().getDynamicProperty(vmmor, "config");
@@ -255,7 +255,7 @@ public class GetVMFiles {
 		}
 	}
 
-	private void getVM() throws Exception {
+	protected void getVM() throws Exception {
 		File file = new File(cb.get_option("localpath"));
 		if (!file.exists()) {
 			System.out
@@ -369,7 +369,7 @@ public class GetVMFiles {
 		}
 	}
 
-	private String[] getVmDirectory(ManagedObjectReference vmmor)
+	protected String[] getVmDirectory(ManagedObjectReference vmmor)
 			throws Exception {
 		String[] vmDir = new String[4];
 		VirtualMachineConfigInfo vmConfigInfo = (VirtualMachineConfigInfo) cb
@@ -386,13 +386,13 @@ public class GetVMFiles {
 		return vmDir;
 	}
 
-	private ManagedObjectReference getVmMor(String vmName) throws Exception {
+	protected ManagedObjectReference getVmMor(String vmName) throws Exception {
 		ManagedObjectReference vmmor = cb.getServiceUtil().getDecendentMoRef(
 				null, "VirtualMachine", vmName);
 		return vmmor;
 	}
 
-	private String replaceSpecialChar(String fileName) {
+	protected String replaceSpecialChar(String fileName) {
 		fileName = fileName.replace(':', '_');
 		fileName = fileName.replace('*', '_');
 		fileName = fileName.replace('<', '_');

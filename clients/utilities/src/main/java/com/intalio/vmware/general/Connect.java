@@ -14,7 +14,7 @@ import com.vmware.apputils.AppUtil;
  */
 
 public class Connect {
-	private static AppUtil cb = null;
+	protected static AppUtil cb = null;
 
 	public static void main(String[] args) throws Exception {
 		try {

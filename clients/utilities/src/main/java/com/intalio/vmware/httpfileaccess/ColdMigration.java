@@ -65,9 +65,9 @@ public class ColdMigration {
 		}
 	}
 
-	private static AppUtil cb = null;
+	protected static AppUtil cb = null;
 
-	private static OptionSpec[] constructOptions() {
+	protected static OptionSpec[] constructOptions() {
 		OptionSpec[] useroptions = new OptionSpec[4];
 		useroptions[0] = new OptionSpec("vmname", "String", 1,
 				"Name of the virtual machine", null);
@@ -89,7 +89,7 @@ public class ColdMigration {
 		cb.disConnect();
 	}
 
-	private static void trustAllHttpsCertificates() throws Exception {
+	protected static void trustAllHttpsCertificates() throws Exception {
 		javax.net.ssl.TrustManager[] trustAllCerts = new javax.net.ssl.TrustManager[1];
 		javax.net.ssl.TrustManager tm = new miTM();
 		trustAllCerts[0] = tm;
@@ -100,9 +100,9 @@ public class ColdMigration {
 				.getSocketFactory());
 	}
 
-	private ArrayList vdiskName = new ArrayList();
+	protected ArrayList vdiskName = new ArrayList();
 
-	private void coldMigration() throws Exception {
+	protected void coldMigration() throws Exception {
 		boolean validated = customValidation();
 		if (validated) {
 			String[] listOfDir = getDirFiles(getLocalPath());
@@ -127,7 +127,7 @@ public class ColdMigration {
 		}
 	}
 
-	private void copyDir(String dirName) throws Exception {
+	protected void copyDir(String dirName) throws Exception {
 		System.out.println("Copying The Virtual Machine To Host..........");
 		dirName = getLocalPath() + "/" + dirName;
 		String[] listOfFiles = getDirFiles(dirName);
@@ -150,7 +150,7 @@ public class ColdMigration {
 		System.out.println("Copying The Virtual Machine To Host..........Done");
 	}
 
-	private boolean customValidation() throws Exception {
+	protected boolean customValidation() throws Exception {
 		boolean validate = false;
 		String datacenterName = getDataCenter();
 		String datastoreName = getDataStore();
@@ -190,7 +190,7 @@ public class ColdMigration {
 		return validate;
 	}
 
-	private String getCookie() throws Exception {
+	protected String getCookie() throws Exception {
 		com.vmware.vim.VimPortType test = cb.getConnection().getService();
 		org.apache.axis.client.Stub st = (org.apache.axis.client.Stub) test;
 		org.apache.axis.client.Call callObj = st._getCall();
@@ -200,15 +200,15 @@ public class ColdMigration {
 		return cookieString;
 	}
 
-	private String getDataCenter() {
+	protected String getDataCenter() {
 		return cb.get_option("datacentername");
 	}
 
-	private String getDataStore() {
+	protected String getDataStore() {
 		return cb.get_option("datastorename");
 	}
 
-	private String[] getDirFiles(String localDir) throws Exception {
+	protected String[] getDirFiles(String localDir) throws Exception {
 		File temp = new File(localDir);
 		String[] listOfFiles = temp.list();
 		if (listOfFiles != null) {
@@ -219,7 +219,7 @@ public class ColdMigration {
 		}
 	}
 
-	private long getDirSize(String localDir) throws Exception {
+	protected long getDirSize(String localDir) throws Exception {
 		File tempe = new File(localDir);
 		String[] fileList = tempe.list();
 		long size = 0;
@@ -238,7 +238,7 @@ public class ColdMigration {
 		return size;
 	}
 
-	private HttpURLConnection getHTTPConnection(String urlString)
+	protected HttpURLConnection getHTTPConnection(String urlString)
 			throws Exception {
 		String cookieString = getCookie();
 		trustAllHttpsCertificates();
@@ -269,21 +269,21 @@ public class ColdMigration {
 		return conn;
 	}
 
-	private String getLocalPath() {
+	protected String getLocalPath() {
 		return cb.get_option("localpath");
 	}
 
-	private ManagedObjectReference getVmMor(String vmName) throws Exception {
+	protected ManagedObjectReference getVmMor(String vmName) throws Exception {
 		ManagedObjectReference vmmor = cb.getServiceUtil().getDecendentMoRef(
 				null, "VirtualMachine", getVmName());
 		return vmmor;
 	}
 
-	private String getVmName() {
+	protected String getVmName() {
 		return cb.get_option("vmname");
 	}
 
-	private void putVMFiles(String remoteFilePath, String localFilePath)
+	protected void putVMFiles(String remoteFilePath, String localFilePath)
 			throws Exception {
 		String serviceUrl = cb.getServiceUrl();
 		serviceUrl = serviceUrl.substring(0, serviceUrl.lastIndexOf("sdk") - 1);
@@ -317,7 +317,7 @@ public class ColdMigration {
 		out.close();
 	}
 
-	private void reconfigVirtualMachine() throws Exception {
+	protected void reconfigVirtualMachine() throws Exception {
 		System.out.println("ReConfigure The Virtual Machine ..........");
 		com.vmware.vim.VirtualMachineFileInfo vmFileInfo = new com.vmware.vim.VirtualMachineFileInfo();
 		vmFileInfo.setLogDirectory("[" + getDataStore() + "]" + getVmName());
@@ -349,7 +349,7 @@ public class ColdMigration {
 		}
 	}
 
-	private boolean registerVirtualMachine() throws Exception {
+	protected boolean registerVirtualMachine() throws Exception {
 		boolean registered = false;
 		System.out.println("Registering The Virtual Machine ..........");
 		ManagedObjectReference host = null;

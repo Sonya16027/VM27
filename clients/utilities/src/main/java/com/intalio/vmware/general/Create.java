@@ -43,9 +43,9 @@ import com.vmware.vim.ManagedObjectReference;
  */
 
 public class Create {
-	private static AppUtil cb = null;
+	protected static AppUtil cb = null;
 
-	private static OptionSpec[] constructOptions() {
+	protected static OptionSpec[] constructOptions() {
 		OptionSpec[] useroptions = new OptionSpec[3];
 		useroptions[0] = new OptionSpec("parentName", "String", 1,
 				"Specifies the name of the parent folder", null);
@@ -57,14 +57,14 @@ public class Create {
 		return useroptions;
 	}
 
-	private static String getPassword() throws Exception {
+	protected static String getPassword() throws Exception {
 		System.out.print("Enter the password for the host: ");
 		BufferedReader reader = new BufferedReader(new InputStreamReader(
 				System.in));
 		return (reader.readLine());
 	}
 
-	private static Integer getPort() throws Exception {
+	protected static Integer getPort() throws Exception {
 		System.out.print("Enter the port for the host : "
 				+ "[Hit enter for default:] ");
 		BufferedReader reader = new BufferedReader(new InputStreamReader(
@@ -78,7 +78,7 @@ public class Create {
 		}
 	}
 
-	private static String getUserName() throws Exception {
+	protected static String getUserName() throws Exception {
 		System.out.print("Enter the userName for the host: ");
 		BufferedReader reader = new BufferedReader(new InputStreamReader(
 				System.in));
@@ -95,7 +95,7 @@ public class Create {
 
 	Log log = new Log();
 
-	private void doCreate() throws Exception {
+	protected void doCreate() throws Exception {
 		try {
 			String type = getItemType();
 			String name = getItemName();
@@ -188,19 +188,19 @@ public class Create {
 		}
 	}
 
-	private String getItemName() throws Exception {
+	protected String getItemName() throws Exception {
 		return cb.get_option("itemName");
 	}
 
-	private String getItemType() throws Exception {
+	protected String getItemType() throws Exception {
 		return cb.get_option("itemType");
 	}
 
-	private String getParentName() throws Exception {
+	protected String getParentName() throws Exception {
 		return cb.get_option("parentName");
 	}
 
-	private String getparentType() throws Exception {
+	protected String getparentType() throws Exception {
 		return cb.get_option("parentType");
 	}
 }

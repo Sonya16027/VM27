@@ -21,7 +21,7 @@ import com.vmware.vim.ObjectContent;
 
 public class Browser {
 
-	private static AppUtil cb = null;
+	protected static AppUtil cb = null;
 
 	public static void main(String[] args) throws Exception {
 		Browser obj = new Browser();
@@ -31,9 +31,9 @@ public class Browser {
 		cb.disConnect();
 	}
 
-	private String[][] typeInfo;
+	protected String[][] typeInfo;
 
-	private void printInventory() throws Exception {
+	protected void printInventory() throws Exception {
 		try {
 			typeInfo = new String[][] { new String[] { "ManagedEntity", "name" }, };
 			ObjectContent[] ocary = cb.getServiceUtil().getContentsRecursively(

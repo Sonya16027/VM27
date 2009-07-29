@@ -45,7 +45,7 @@ import com.vmware.vim.VimPortType;
 
 public class EventHistoryCollectorMonitor {
 
-	private static AppUtil cb = null;
+	protected static AppUtil cb = null;
 
 	public static void main(String[] args) {
 		try {
@@ -66,16 +66,16 @@ public class EventHistoryCollectorMonitor {
 		}
 	}
 
-	private VimPortType _service; // All webservice methods
-	private ServiceContent _sic;
+	protected VimPortType _service; // All webservice methods
+	protected ServiceContent _sic;
 
-	private ManagedObjectReference _propCol; // PropertyCollector Reference
+	protected ManagedObjectReference _propCol; // PropertyCollector Reference
 	// EventManager and EventHistoryCollector References
-	private ManagedObjectReference _eventManager;
+	protected ManagedObjectReference _eventManager;
 
-	private ManagedObjectReference _eventHistoryCollector;
+	protected ManagedObjectReference _eventHistoryCollector;
 
-	private PropertyFilterSpec createEventFilterSpec() {
+	protected PropertyFilterSpec createEventFilterSpec() {
 		// Set up a PropertySpec to use the latestPage attribute
 		// of the EventHistoryCollector
 		PropertySpec propSpec = new PropertySpec();
@@ -105,13 +105,13 @@ public class EventHistoryCollectorMonitor {
 		return spec;
 	}
 
-	private void createEventHistoryCollector() throws Exception {
+	protected void createEventHistoryCollector() throws Exception {
 		EventFilterSpec eventFilter = new EventFilterSpec();
 		_eventHistoryCollector = _service.createCollectorForEvents(
 				_eventManager, eventFilter);
 	}
 
-	private void initialize() {
+	protected void initialize() {
 		_sic = cb.getConnection().getServiceContent();
 		_service = cb.getConnection().getService();
 		// The PropertyCollector and EventManager References are present
@@ -120,7 +120,7 @@ public class EventHistoryCollectorMonitor {
 		_eventManager = _sic.getEventManager();
 	}
 
-	private void monitorEvents(PropertyFilterSpec spec) throws Exception {
+	protected void monitorEvents(PropertyFilterSpec spec) throws Exception {
 		// Get all Events returned from the EventHistoryCollector
 		// This will result in a large number of events, depending on the
 		// page size of the latestPage.

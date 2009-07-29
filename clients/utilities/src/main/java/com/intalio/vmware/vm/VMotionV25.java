@@ -10,11 +10,11 @@ import com.vmware.vim25.VirtualMachineRelocateSpec;
 
 public class VMotionV25 {
 	ExtendedAppUtil ecb = null;
-	private static ManagedObjectReference provisionChkr = null;
+	protected static ManagedObjectReference provisionChkr = null;
 	public VMotion vmotionObj = null;
-	private static VersionUtil versionUtil = null;
+	protected static VersionUtil versionUtil = null;
 
-	private ManagedObjectReference browseDSMOR(ManagedObjectReference[] dsMOR,
+	protected ManagedObjectReference browseDSMOR(ManagedObjectReference[] dsMOR,
 			String dsName) {
 		ManagedObjectReference dataMOR = null;
 		try {
@@ -49,7 +49,7 @@ public class VMotionV25 {
 	 * 
 	 * @return boolean yes for feasible false for not feasible
 	 */
-	private boolean checkMigrate(ManagedObjectReference vmMOR,
+	protected boolean checkMigrate(ManagedObjectReference vmMOR,
 			ManagedObjectReference hostMOR, ManagedObjectReference poolMOR)
 			throws Exception {
 		boolean migrate = false;
@@ -85,7 +85,7 @@ public class VMotionV25 {
 	 * @return boolean yes for feasible false for not feasible
 	 */
 
-	private boolean checkRelocation(ManagedObjectReference vmMOR,
+	protected boolean checkRelocation(ManagedObjectReference vmMOR,
 			ManagedObjectReference hostMOR, ManagedObjectReference poolMOR,
 			ManagedObjectReference dsMOR) throws Exception {
 		boolean relocate = false;
@@ -111,7 +111,7 @@ public class VMotionV25 {
 		return relocate;
 	}
 
-	private void checkVMotionCompatibility() throws Exception {
+	protected void checkVMotionCompatibility() throws Exception {
 
 		String vmname = ecb.get_option("vmname");
 		String sourcehost = ecb.get_option("sourcehost");
@@ -163,7 +163,7 @@ public class VMotionV25 {
 	 * @return boolean yes for feasible false for not feasible
 	 */
 
-	private ManagedObjectReference getMOR(String name, String type,
+	protected ManagedObjectReference getMOR(String name, String type,
 			ManagedObjectReference root) throws Exception {
 
 		ManagedObjectReference nameMOR = ecb.getServiceUtil3()
@@ -197,7 +197,7 @@ public class VMotionV25 {
 		}
 	}
 
-	private boolean queryVMotionCompatibility(ManagedObjectReference vmMOR,
+	protected boolean queryVMotionCompatibility(ManagedObjectReference vmMOR,
 			ManagedObjectReference hostMOR, ManagedObjectReference targethostMOR)
 			throws Exception {
 		boolean result = false;

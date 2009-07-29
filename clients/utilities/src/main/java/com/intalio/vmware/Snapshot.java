@@ -23,19 +23,19 @@ import com.vmware.vim25.UpdateSet;
 
 public class Snapshot {
 
-	private Connection connection;
+	protected Connection connection;
 
-	private String vmName;
-	private String snapshotOperation;
-	private String snapshotName;
+	protected String vmName;
+	protected String snapshotOperation;
+	protected String snapshotName;
 
-	private ManagedObjectReference propertyCollector;
+	protected ManagedObjectReference propertyCollector;
 
-	private ManagedObjectReference rootFolder;
+	protected ManagedObjectReference rootFolder;
 	// Need to keep track of the created snapshot to remove it later.
-	private ManagedObjectReference vmSnapshot;
+	protected ManagedObjectReference vmSnapshot;
 
-	private ArrayList<String> SNAPSHOT_OPS = new ArrayList<String>(3);
+	protected ArrayList<String> SNAPSHOT_OPS = new ArrayList<String>(3);
 
 	{
 		SNAPSHOT_OPS.add("create");
@@ -261,7 +261,7 @@ public class Snapshot {
 		initRootFolder();
 	}
 
-	private void initPropertyCollector() {
+	protected void initPropertyCollector() {
 		if (propertyCollector == null) {
 			try {
 				propertyCollector = connection.getServiceContent()
@@ -272,7 +272,7 @@ public class Snapshot {
 		}
 	}
 
-	private void initRootFolder() {
+	protected void initRootFolder() {
 		if (rootFolder == null) {
 			try {
 				rootFolder = connection.getServiceContent().getRootFolder();

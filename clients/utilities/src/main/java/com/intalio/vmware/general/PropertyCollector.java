@@ -52,13 +52,13 @@ import com.vmware.vim.VmfsDatastoreInfo;
 
 public class PropertyCollector {
 	static class Host {
-		private ManagedObjectReference moRef;
-		private String name;
-		private ManagedObjectReference network;
-		private HostHardwareSummary hardware;
-		private HostSystemConnectionState connectionState;
-		private ManagedEntityStatus overallStatus;
-		private HostListSummaryQuickStats quickStats;
+		protected ManagedObjectReference moRef;
+		protected String name;
+		protected ManagedObjectReference network;
+		protected HostHardwareSummary hardware;
+		protected HostSystemConnectionState connectionState;
+		protected ManagedEntityStatus overallStatus;
+		protected HostListSummaryQuickStats quickStats;
 
 		public Host(ManagedObjectReference _this) {
 			this.setMoRef(_this);
@@ -136,10 +136,10 @@ public class PropertyCollector {
 	}
 
 	static class MeNode {
-		private ManagedObjectReference parent;
-		private ManagedObjectReference node;
-		private String name;
-		private ArrayList children = new ArrayList();
+		protected ManagedObjectReference parent;
+		protected ManagedObjectReference node;
+		protected String name;
+		protected ArrayList children = new ArrayList();
 
 		public MeNode(ManagedObjectReference parent,
 				ManagedObjectReference node, String name) {
@@ -182,8 +182,8 @@ public class PropertyCollector {
 	}
 
 	static class Network {
-		private ManagedObjectReference moRef;
-		private String name;
+		protected ManagedObjectReference moRef;
+		protected String name;
 
 		public Network(ManagedObjectReference _this) {
 			this.setMoRef(_this);
@@ -207,13 +207,13 @@ public class PropertyCollector {
 	}
 
 	static class VirtualMachine {
-		private ManagedObjectReference moRef;
-		private String name;
-		private ManagedObjectReference network;
-		private ManagedObjectReference host;
-		private VirtualMachinePowerState powerState;
-		private ManagedEntityStatus overallStatus;
-		private VirtualMachineQuickStats quickStats;
+		protected ManagedObjectReference moRef;
+		protected String name;
+		protected ManagedObjectReference network;
+		protected ManagedObjectReference host;
+		protected VirtualMachinePowerState powerState;
+		protected ManagedEntityStatus overallStatus;
+		protected VirtualMachineQuickStats quickStats;
 
 		public VirtualMachine(ManagedObjectReference _this) {
 			this.setMoRef(_this);
@@ -291,22 +291,22 @@ public class PropertyCollector {
 	}
 
 	static class VMInfo {
-		private String name = "";
-		private String configGuestFullName = "";
-		private int configHardwareMemoryMB;
-		private int configHardwareNumCPU;
-		private VirtualMachineToolsStatus guestToolsStatus;
-		private ManagedEntityStatus guestHeartbeatStatus;
-		private String guestIpAddress = "";
-		private String guestHostName = "";
-		private VirtualMachinePowerState runtimePowerState;
-		private int summaryQuickStatsOverallCpuUsage;
-		private int summaryQuickStatsHostMemoryUsage;
-		private int summaryQuickStatsGuestMemoryUsage;
-		private String hostSystemName = "";
-		private ArrayList taskInfoNames;
-		private ArrayList datastoreInfos;
-		private ArrayList networkNames;
+		protected String name = "";
+		protected String configGuestFullName = "";
+		protected int configHardwareMemoryMB;
+		protected int configHardwareNumCPU;
+		protected VirtualMachineToolsStatus guestToolsStatus;
+		protected ManagedEntityStatus guestHeartbeatStatus;
+		protected String guestIpAddress = "";
+		protected String guestHostName = "";
+		protected VirtualMachinePowerState runtimePowerState;
+		protected int summaryQuickStatsOverallCpuUsage;
+		protected int summaryQuickStatsHostMemoryUsage;
+		protected int summaryQuickStatsGuestMemoryUsage;
+		protected String hostSystemName = "";
+		protected ArrayList taskInfoNames;
+		protected ArrayList datastoreInfos;
+		protected ArrayList networkNames;
 
 		String getConfigGuestFullName() {
 			return configGuestFullName;
@@ -516,9 +516,9 @@ public class PropertyCollector {
 
 	static ServiceContent content;
 
-	private static AppUtil cb = null;
+	protected static AppUtil cb = null;
 
-	private static OptionSpec[] constructOptions() {
+	protected static OptionSpec[] constructOptions() {
 		OptionSpec[] useroptions = new OptionSpec[2];
 		useroptions[0] = new OptionSpec("dcName", "String", 1,
 				"Name of the Datacenter", null);

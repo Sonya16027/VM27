@@ -4,7 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class Statistics {
-	private Connection connection;
+	protected Connection connection;
 
 	public Statistics(Connection connection) {
 		this.connection = connection;

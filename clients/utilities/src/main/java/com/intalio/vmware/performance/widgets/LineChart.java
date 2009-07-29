@@ -43,8 +43,8 @@ import javax.swing.JComponent;
 public class LineChart extends JComponent implements MouseListener,
 		MouseMotionListener {
 	/** Stores the time-zone offset for this JVM. */
-	private static long m_zoneOffset;
-	private static final long serialVersionUID = 1L;
+	protected static long m_zoneOffset;
+	protected static final long serialVersionUID = 1L;
 
 	/*---------------------------------------------------------------
 	 * Static Initializer
@@ -53,66 +53,66 @@ public class LineChart extends JComponent implements MouseListener,
 		Calendar now = Calendar.getInstance();
 		m_zoneOffset = now.get(Calendar.ZONE_OFFSET);
 	}
-	private Color m_lineColor = Color.red;
-	private Color m_lightLineColor = new Color(255, 128, 128);
-	private Color m_lightGridColor = new Color(192, 192, 192);
-	private Color m_darkGridColor = new Color(128, 128, 128);
-	private Color m_frameColor = Color.black;
-	private Color m_crossColor = Color.blue;
-	private Color m_maskFrameColor = new Color(128, 128, 255, 192);
+	protected Color m_lineColor = Color.red;
+	protected Color m_lightLineColor = new Color(255, 128, 128);
+	protected Color m_lightGridColor = new Color(192, 192, 192);
+	protected Color m_darkGridColor = new Color(128, 128, 128);
+	protected Color m_frameColor = Color.black;
+	protected Color m_crossColor = Color.blue;
+	protected Color m_maskFrameColor = new Color(128, 128, 255, 192);
 
-	private Color m_maskColor = new Color(224, 224, 255, 192);
+	protected Color m_maskColor = new Color(224, 224, 255, 192);
 
 	/** Number of sample points between vertical lines. */
-	private int m_lineSampleInterval;
+	protected int m_lineSampleInterval;
 
 	/** The number of milliseconds represented by each data sample. */
-	private long m_sampleInterval;
+	protected long m_sampleInterval;
 
 	/**
 	 * Format of the text which is displayed along the x (time) axis of the
 	 * chart.
 	 */
-	private String m_format;
+	protected String m_format;
 
 	/**
 	 * Format of the text which is displayed over the component as the user
 	 * moves the mouse over the line chart.
 	 */
-	private String m_dFormat;
+	protected String m_dFormat;
 
 	/** Number of sample points to use when calculating the moving average. */
-	private int m_averageWindow;
+	protected int m_averageWindow;
 
 	/** True if Antialiasing should be used when rendering the chart. */
-	private boolean m_antialias;
+	protected boolean m_antialias;
 
 	/** Time of the last sample point. */
-	private long m_time;
+	protected long m_time;
 
 	/** Sample point data. */
-	private int[] m_values;
+	protected int[] m_values;
 
 	/** Moving average of the sample point data. */
-	private float[] m_averageWindowValues;
+	protected float[] m_averageWindowValues;
 
 	/** Minimum value in m_values. */
-	private int m_min;
+	protected int m_min;
 
 	/** Maximum value in m_values. */
-	private int m_max;
+	protected int m_max;
 
 	/** Integer number format. */
-	private DecimalFormat m_intFormat = new DecimalFormat("###,###,###,##0");
+	protected DecimalFormat m_intFormat = new DecimalFormat("###,###,###,##0");
 
 	/** Decimal number format. */
-	private DecimalFormat m_floatFormat = new DecimalFormat(
+	protected DecimalFormat m_floatFormat = new DecimalFormat(
 			"###,###,###,##0.00");
-	private boolean m_mouseOver;
-	private boolean m_mousePressed;
-	private int m_mouseX;
+	protected boolean m_mouseOver;
+	protected boolean m_mousePressed;
+	protected int m_mouseX;
 
-	private int m_mouseY;
+	protected int m_mouseY;
 
 	/*---------------------------------------------------------------
 	 * Constructor
@@ -162,7 +162,7 @@ public class LineChart extends JComponent implements MouseListener,
 		addMouseMotionListener(this);
 	}
 
-	private String getFormattedTime(Date dTime, boolean detailed) {
+	protected String getFormattedTime(Date dTime, boolean detailed) {
 		Calendar calendar = Calendar.getInstance();
 		calendar.setTime(dTime);
 
@@ -397,7 +397,7 @@ public class LineChart extends JComponent implements MouseListener,
 	 * @param chartHeight
 	 *            Height of the chart.
 	 */
-	private void paintFrame(Graphics g, int chartLeft, int chartTop,
+	protected void paintFrame(Graphics g, int chartLeft, int chartTop,
 			int chartWidth, int chartHeight) {
 		if ((chartWidth > 0) && (chartHeight > 0)) {
 			g.setColor(m_frameColor);
@@ -425,7 +425,7 @@ public class LineChart extends JComponent implements MouseListener,
 	 * @param chartHeight
 	 *            Height of the chart.
 	 */
-	private void paintHorizontalGrid(Graphics g, int yLabelInterval,
+	protected void paintHorizontalGrid(Graphics g, int yLabelInterval,
 			int fontHeight, int chartLeft, int chartTop, int chartWidth,
 			int chartHeight) {
 		if (chartHeight > 0) {
@@ -480,7 +480,7 @@ public class LineChart extends JComponent implements MouseListener,
 	 * @param chartHeight
 	 *            Height of the chart.
 	 */
-	private void paintOverlay(Graphics g, int fontHeight, int chartLeft,
+	protected void paintOverlay(Graphics g, int fontHeight, int chartLeft,
 			int chartTop, int chartWidth, int chartHeight) {
 		if ((m_mouseOver) && (m_mouseX >= chartLeft)
 				&& (m_mouseX <= chartLeft + chartWidth)) {
@@ -573,7 +573,7 @@ public class LineChart extends JComponent implements MouseListener,
 	 * @param chartHeight
 	 *            Height of the chart.
 	 */
-	private void paintOverlayAt(Graphics g, int fontHeight, int chartLeft,
+	protected void paintOverlayAt(Graphics g, int fontHeight, int chartLeft,
 			int chartTop, int chartWidth, int chartHeight, int mouseDataPointX,
 			int mouseDataPointY, String mouseDataPointValue,
 			long mouseDataPointTime) {
@@ -652,7 +652,7 @@ public class LineChart extends JComponent implements MouseListener,
 	 * @param chartHeight
 	 *            Height of the chart.
 	 */
-	private void paintValues(Graphics g, int chartLeft, int chartTop,
+	protected void paintValues(Graphics g, int chartLeft, int chartTop,
 			int chartWidth, int chartHeight) {
 		if ((m_averageWindow > 0) && (m_mousePressed)) {
 			g.setColor(m_lightLineColor);
@@ -724,7 +724,7 @@ public class LineChart extends JComponent implements MouseListener,
 	 * @param chartHeight
 	 *            Height of the chart.
 	 */
-	private void paintVerticalGrid(Graphics g, int fontHeight, int chartLeft,
+	protected void paintVerticalGrid(Graphics g, int fontHeight, int chartLeft,
 			int chartTop, int chartWidth, int chartHeight) {
 		if (chartWidth > 0) {
 			FontMetrics fontMetrics = g.getFontMetrics();

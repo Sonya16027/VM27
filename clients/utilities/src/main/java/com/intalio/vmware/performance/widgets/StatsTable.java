@@ -17,9 +17,9 @@ public class StatsTable extends JPanel {
 		/**
 	 * 
 	 */
-		private static final long serialVersionUID = 1L;
-		private String[] columnNames;
-		private Vector data;
+		protected static final long serialVersionUID = 1L;
+		protected String[] columnNames;
+		protected Vector data;
 
 		StatsTableModel(String[] columnNames) {
 			this.columnNames = columnNames;
@@ -65,10 +65,10 @@ public class StatsTable extends JPanel {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
-	private StatsTableModel tableModel;
+	protected static final long serialVersionUID = 1L;
+	protected StatsTableModel tableModel;
 
-	private JLabel label;
+	protected JLabel label;
 
 	public StatsTable(String[] columnNames) {
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));

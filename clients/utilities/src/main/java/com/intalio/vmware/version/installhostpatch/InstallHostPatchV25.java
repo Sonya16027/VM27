@@ -35,21 +35,21 @@ import com.vmware.vim25.ServiceContent;
 import com.vmware.vim25.VimPortType;
 
 public class InstallHostPatchV25 {
-	private static ExtendedAppUtil ecb = null;
-	private final static String BUNDLE_METADATA = "metadata.xml";
-	private final static String CONTENTS_METADATA = "contents.xml";
-	private final static String ESXHW_PRODUCTLINE_ID = "embeddedEsx";
-	private final static String PATCH_DIR = "rcli_patch";
-	private static ManagedObjectReference hmor = null;
+	protected static ExtendedAppUtil ecb = null;
+	protected final static String BUNDLE_METADATA = "metadata.xml";
+	protected final static String CONTENTS_METADATA = "contents.xml";
+	protected final static String ESXHW_PRODUCTLINE_ID = "embeddedEsx";
+	protected final static String PATCH_DIR = "rcli_patch";
+	protected static ManagedObjectReference hmor = null;
 
-	private static void connectV25(String[] args, String cookieString)
+	protected static void connectV25(String[] args, String cookieString)
 			throws Exception {
 		ecb = ExtendedAppUtil.initialize("InstallHostPatch", InstallHostPatch
 				.constructOptions(), args);
 		ecb.connect(cookieString);
 	}
 
-	private static void copyInputStream(InputStream in, OutputStream out)
+	protected static void copyInputStream(InputStream in, OutputStream out)
 			throws IOException {
 		byte[] buffer = new byte[1024];
 		int len;
@@ -61,7 +61,7 @@ public class InstallHostPatchV25 {
 		out.close();
 	}
 
-	private static boolean foundFile(ArrayList fileList, String fileName)
+	protected static boolean foundFile(ArrayList fileList, String fileName)
 			throws Exception {
 		if (fileList.contains(fileName)) {
 			return true;
@@ -70,7 +70,7 @@ public class InstallHostPatchV25 {
 		}
 	}
 
-	private static String getbundleProductStr() throws Exception {
+	protected static String getbundleProductStr() throws Exception {
 		Document doc = getDocument(ecb.get_option("targetDirectory") + "/"
 				+ BUNDLE_METADATA);
 		Element nameElement = (Element) doc.getDocumentElement()
@@ -93,7 +93,7 @@ public class InstallHostPatchV25 {
 		return str;
 	}
 
-	private static String getCookie() throws Exception {
+	protected static String getCookie() throws Exception {
 		VimPortType test = ecb.getServiceConnection3().getService();
 		org.apache.axis.client.Stub st = (org.apache.axis.client.Stub) test;
 		org.apache.axis.client.Call callObj = st._getCall();
@@ -103,7 +103,7 @@ public class InstallHostPatchV25 {
 		return cookieString;
 	}
 
-	private static Document getDocument(String fileName) throws Exception {
+	protected static Document getDocument(String fileName) throws Exception {
 		File metadata = new File(fileName);
 		DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory
 				.newInstance();
@@ -114,7 +114,7 @@ public class InstallHostPatchV25 {
 		return doc;
 	}
 
-	private static HttpURLConnection getHTTPConnection(String urlString)
+	protected static HttpURLConnection getHTTPConnection(String urlString)
 			throws Exception {
 		String cookieString = getCookie();
 		HostnameVerifier hv = new HostnameVerifier() {
@@ -144,7 +144,7 @@ public class InstallHostPatchV25 {
 		return conn;
 	}
 
-	private static void installComponents(ManagedObjectReference pm)
+	protected static void installComponents(ManagedObjectReference pm)
 			throws Exception {
 		Document doc = getDocument(ecb.get_option("targetDirectory") + "/"
 				+ BUNDLE_METADATA);
@@ -224,7 +224,7 @@ public class InstallHostPatchV25 {
 		}
 	}
 
-	private static void installUpdate(ManagedObjectReference hmor)
+	protected static void installUpdate(ManagedObjectReference hmor)
 			throws Exception {
 		HostConfigManager cm = (HostConfigManager) ecb.getServiceUtil3()
 				.getDynamicProperty(hmor, "configManager");
@@ -258,7 +258,7 @@ public class InstallHostPatchV25 {
 		}
 	}
 
-	private static void putFiles(String localFilePath, String pName)
+	protected static void putFiles(String localFilePath, String pName)
 			throws Exception {
 		String serviceUrl = ecb.getServiceUrl();
 		serviceUrl = serviceUrl.substring(0, serviceUrl.lastIndexOf("sdk") - 1);
@@ -305,7 +305,7 @@ public class InstallHostPatchV25 {
 		}
 	}
 
-	private static ArrayList unzipFile(String fileName) throws Exception {
+	protected static ArrayList unzipFile(String fileName) throws Exception {
 		System.out.println("Unpacking bundle .....");
 		ArrayList fileList = new ArrayList();
 		ZipFile zipFile = new ZipFile(fileName);
@@ -329,7 +329,7 @@ public class InstallHostPatchV25 {
 		return fileList;
 	}
 
-	private static void unzipMember(String fileName) throws Exception {
+	protected static void unzipMember(String fileName) throws Exception {
 		ZipFile zipFile = new ZipFile(fileName);
 		Enumeration entries = zipFile.entries();
 		while (entries.hasMoreElements()) {
@@ -348,7 +348,7 @@ public class InstallHostPatchV25 {
 		zipFile.close();
 	}
 
-	private static boolean verifySignatures(ArrayList fileList)
+	protected static boolean verifySignatures(ArrayList fileList)
 			throws Exception {
 		System.out.println("Veification .....");
 		Document doc = getDocument(ecb.get_option("targetDirectory") + "/"

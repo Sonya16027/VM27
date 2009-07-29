@@ -31,9 +31,9 @@ import com.vmware.vim.StateAlarmOperator;
  */
 
 public class VMPowerStateAlarm {
-	private static AppUtil cb = null;
+	protected static AppUtil cb = null;
 
-	private static OptionSpec[] constructOptions() {
+	protected static OptionSpec[] constructOptions() {
 		OptionSpec[] useroptions = new OptionSpec[2];
 		useroptions[0] = new OptionSpec("vmname", "String", 1,
 				"Name of the virtual machine", null);
@@ -62,11 +62,11 @@ public class VMPowerStateAlarm {
 		cb.disConnect();
 	}
 
-	private ManagedObjectReference _virtualMachine = null;
+	protected ManagedObjectReference _virtualMachine = null;
 
-	private ManagedObjectReference _alarmManager;
+	protected ManagedObjectReference _alarmManager;
 
-	private void createAlarm(AlarmSpec alarmSpec) throws Exception {
+	protected void createAlarm(AlarmSpec alarmSpec) throws Exception {
 		try {
 			_alarmManager = cb.getConnection().getServiceContent()
 					.getAlarmManager();
@@ -98,7 +98,7 @@ public class VMPowerStateAlarm {
 		}
 	}
 
-	private AlarmSpec createAlarmSpec(AlarmAction action,
+	protected AlarmSpec createAlarmSpec(AlarmAction action,
 			AlarmExpression expression) throws Exception {
 		AlarmSpec spec = new AlarmSpec();
 		spec.setAction(action);
@@ -110,7 +110,7 @@ public class VMPowerStateAlarm {
 		return spec;
 	}
 
-	private AlarmTriggeringAction createAlarmTriggerAction(
+	protected AlarmTriggeringAction createAlarmTriggerAction(
 			MethodAction methodAction) throws Exception {
 		com.vmware.vim.AlarmTriggeringAction alarmAction = new com.vmware.vim.AlarmTriggeringAction();
 		alarmAction.setYellow2Red(true);
@@ -118,7 +118,7 @@ public class VMPowerStateAlarm {
 		return alarmAction;
 	}
 
-	private MethodAction createPowerOnAction() {
+	protected MethodAction createPowerOnAction() {
 		MethodAction action = new MethodAction();
 		action.setName("PowerOnVM_Task");
 		MethodActionArgument argument = new MethodActionArgument();
@@ -127,7 +127,7 @@ public class VMPowerStateAlarm {
 		return action;
 	}
 
-	private StateAlarmExpression createStateAlarmExpression() throws Exception {
+	protected StateAlarmExpression createStateAlarmExpression() throws Exception {
 		StateAlarmExpression expression = new StateAlarmExpression();
 		expression.setType("VirtualMachine");
 		expression.setStatePath("runtime.powerState");
@@ -136,7 +136,7 @@ public class VMPowerStateAlarm {
 		return expression;
 	}
 
-	private void getVmMor(String vmName) throws Exception {
+	protected void getVmMor(String vmName) throws Exception {
 		_virtualMachine = cb.getServiceUtil().getDecendentMoRef(null,
 				"VirtualMachine", vmName);
 	}

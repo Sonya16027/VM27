@@ -22,7 +22,7 @@ import com.vmware.vim.VmRenamedEvent;
  */
 
 public class EventFormat {
-	private static AppUtil cb = null;
+	protected static AppUtil cb = null;
 
 	/**
 	 * The main entry point for the application.
@@ -135,7 +135,7 @@ public class EventFormat {
 		}
 	}
 
-	private void formatLatestEvent() throws Exception {
+	protected void formatLatestEvent() throws Exception {
 		try {
 			// Get the static EventDescriptionEventDetail[] (format strings
 			// etc.)

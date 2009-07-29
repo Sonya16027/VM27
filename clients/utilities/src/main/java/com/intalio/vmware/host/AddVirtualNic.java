@@ -45,10 +45,10 @@ import com.vmware.vim.ServiceContent;
 
 public class AddVirtualNic {
 
-	private static AppUtil cb = null;
-	private static VMUtils vmUtils = null;
+	protected static AppUtil cb = null;
+	protected static VMUtils vmUtils = null;
 
-	private static OptionSpec[] constructOptions() {
+	protected static OptionSpec[] constructOptions() {
 		OptionSpec[] useroptions = new OptionSpec[5];
 		useroptions[0] = new OptionSpec("vswitchid", "String", 1,
 				"Name of the switch", null);
@@ -82,7 +82,7 @@ public class AddVirtualNic {
 
 	String ipAddr = null;
 
-	private HostVirtualNicSpec createVNicSpecification() {
+	protected HostVirtualNicSpec createVNicSpecification() {
 		HostVirtualNicSpec vNicSpec = new HostVirtualNicSpec();
 		HostIpConfig ipConfig = new HostIpConfig();
 		ipConfig.setDhcp(false);
@@ -93,7 +93,7 @@ public class AddVirtualNic {
 		return vNicSpec;
 	}
 
-	private void doAddVirtualNic() throws Exception {
+	protected void doAddVirtualNic() throws Exception {
 		ManagedObjectReference dcmor;
 		ManagedObjectReference hostfoldermor;
 		ManagedObjectReference hostmor = null;
@@ -155,7 +155,7 @@ public class AddVirtualNic {
 		}
 	}
 
-	private void validate() throws Exception {
+	protected void validate() throws Exception {
 		ManagedObjectReference sic = cb.getConnection().getServiceInstanceRef();
 		ServiceContent serCont = (ServiceContent) cb.getServiceUtil()
 				.getDynamicProperty(sic, "content");

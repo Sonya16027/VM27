@@ -11,14 +11,14 @@ import com.vmware.vim25.ManagedObjectReference;
 
 public class LicenseManagerV25 {
 	ExtendedAppUtil ecb = null;
-	private static ManagedObjectReference licMgr = null;
+	protected static ManagedObjectReference licMgr = null;
 	public LicenseManager licMngrObj = null;
 
-	private void displayFeatureInfo() throws Exception {
+	protected void displayFeatureInfo() throws Exception {
 		licMngrObj.displayFeatureInfo();
 	}
 
-	private void displayLicenseUsage() throws Exception {
+	protected void displayLicenseUsage() throws Exception {
 		try {
 			ManagedObjectReference licMgrMOR = (ManagedObjectReference) ecb
 					.getServiceUtil3().getDynamicProperty(licMgr,
@@ -47,7 +47,7 @@ public class LicenseManagerV25 {
 		}
 	}
 
-	private void print(LicenseAssignmentManagerLicenseAssignment[] licAssignment) {
+	protected void print(LicenseAssignmentManagerLicenseAssignment[] licAssignment) {
 		if (licAssignment != null) {
 			for (LicenseAssignmentManagerLicenseAssignment element : licAssignment) {
 				String entityId = element.getEntityId();
@@ -64,11 +64,11 @@ public class LicenseManagerV25 {
 		}
 	}
 
-	private void setEdition() {
+	protected void setEdition() {
 		System.out.println("This feature is not supported in ESX 4.0 servers");
 	}
 
-	private void setLicenseServer() throws Exception {
+	protected void setLicenseServer() throws Exception {
 		boolean flag = true;
 		if (!ecb.option_is_set("licensekey")) {
 			System.out

@@ -54,9 +54,9 @@ import com.vmware.vim.ManagedObjectReference;
  */
 
 public class Move {
-	private static AppUtil cb = null;
+	protected static AppUtil cb = null;
 
-	private static OptionSpec[] constructOptions() {
+	protected static OptionSpec[] constructOptions() {
 		OptionSpec[] useroptions = new OptionSpec[2];
 		useroptions[0] = new OptionSpec("entityname", "String", 1,
 				"Name of the virtual entity", null);
@@ -74,7 +74,7 @@ public class Move {
 		cb.disConnect();
 	}
 
-	private void doMove() throws Exception {
+	protected void doMove() throws Exception {
 		String entityname = cb.get_option("entityname");
 		String foldername = cb.get_option("foldername");
 		ManagedObjectReference memor = cb.getServiceUtil().getDecendentMoRef(
@@ -114,7 +114,7 @@ public class Move {
 		}
 	}
 
-	private void runOperation() throws Exception {
+	protected void runOperation() throws Exception {
 		doMove();
 	}
 }

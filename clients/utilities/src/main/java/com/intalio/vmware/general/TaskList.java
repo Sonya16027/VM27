@@ -33,7 +33,7 @@ import com.vmware.vim.TraversalSpec;
  */
 
 public class TaskList {
-	private static AppUtil cb = null;
+	protected static AppUtil cb = null;
 
 	public static void main(String[] args) throws Exception {
 		TaskList obj = new TaskList();
@@ -56,7 +56,7 @@ public class TaskList {
 		cb.disConnect();
 	}
 
-	private PropertyFilterSpec[] createPFSForRecentTasks(
+	protected PropertyFilterSpec[] createPFSForRecentTasks(
 			ManagedObjectReference taskManagerRef) {
 		PropertySpec pSpec = new PropertySpec();
 		pSpec.setAll(Boolean.FALSE);
@@ -82,7 +82,7 @@ public class TaskList {
 		return new PropertyFilterSpec[] { pfSpec };
 	}
 
-	private void displayTasks(ObjectContent[] oContents) {
+	protected void displayTasks(ObjectContent[] oContents) {
 		for (int oci = 0; oci < oContents.length; ++oci) {
 			System.out.println("Task");
 			DynamicProperty[] dps = oContents[oci].getPropSet();

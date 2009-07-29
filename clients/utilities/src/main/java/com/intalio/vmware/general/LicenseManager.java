@@ -53,8 +53,8 @@ import com.vmware.vim.ObjectContent;
  */
 
 public class LicenseManager {
-	private static AppUtil cb = null;
-	private static ManagedObjectReference licMgr = null;
+	protected static AppUtil cb = null;
+	protected static ManagedObjectReference licMgr = null;
 
 	public static OptionSpec[] constructOptions() {
 		OptionSpec[] useroptions = new OptionSpec[5];
@@ -89,7 +89,7 @@ public class LicenseManager {
 		}
 	}
 
-	private boolean customValidation() throws Exception {
+	protected boolean customValidation() throws Exception {
 		boolean flag = true;
 		String action = cb.get_option("action");
 		if (action.equalsIgnoreCase("setedition")) {
@@ -132,7 +132,7 @@ public class LicenseManager {
 		}
 	}
 
-	private void displayLicenseUsage() throws Exception {
+	protected void displayLicenseUsage() throws Exception {
 		ObjectContent[] licContent = cb.getServiceUtil().getObjectProperties(
 				null, licMgr,
 				new String[] { "source", "sourceAvailable", "featureInfo" });
@@ -144,7 +144,7 @@ public class LicenseManager {
 		print(avail);
 	}
 
-	private void getVersion(String args[], LicenseManager obj) throws Exception {
+	protected void getVersion(String args[], LicenseManager obj) throws Exception {
 		ArrayList apiVersions = VersionUtil.getSupportedVersions(cb
 				.get_option("url"));
 		if (VersionUtil.isApiVersionSupported(apiVersions, "4.0")) {
@@ -160,7 +160,7 @@ public class LicenseManager {
 		}
 	}
 
-	private void print(LicenseAvailabilityInfo[] avail) {
+	protected void print(LicenseAvailabilityInfo[] avail) {
 		System.out.println(" : License Available Info:");
 		if (avail != null) {
 			for (int i = 0; i < avail.length; ++i) {
@@ -174,7 +174,7 @@ public class LicenseManager {
 		}
 	}
 
-	private void print(LicenseFeatureInfo feature) {
+	protected void print(LicenseFeatureInfo feature) {
 		LicenseFeatureInfoState state = feature.getState();
 		String fState;
 		if (state == null) {
@@ -190,13 +190,13 @@ public class LicenseManager {
 				+ feature.getCostUnit() + ", State: " + fState);
 	}
 
-	private void print(LicenseReservationInfo reservation) {
+	protected void print(LicenseReservationInfo reservation) {
 		System.out.println(" : R: " + reservation.getKey() + ", Required: "
 				+ reservation.getRequired() + ", State: "
 				+ reservation.getState());
 	}
 
-	private void print(LicenseUsageInfo usage) {
+	protected void print(LicenseUsageInfo usage) {
 		if (usage != null && usage.getFeatureInfo() != null) {
 			String fState = "";
 			for (int i = 0; i < usage.getFeatureInfo().length; ++i) {
@@ -212,7 +212,7 @@ public class LicenseManager {
 		}
 	}
 
-	private void setEdition() throws Exception {
+	protected void setEdition() throws Exception {
 		boolean valid = validate(cb.get_option("edition"));
 		if (valid) {
 			try {
@@ -240,7 +240,7 @@ public class LicenseManager {
 		}
 	}
 
-	private void setLicenseServer() throws Exception {
+	protected void setLicenseServer() throws Exception {
 		boolean flag = true;
 
 		if (!cb.option_is_set("serverurl")) {
@@ -281,7 +281,7 @@ public class LicenseManager {
 		}
 	}
 
-	private void useLicenseManager() throws Exception {
+	protected void useLicenseManager() throws Exception {
 		String action = cb.get_option("action");
 		if (action.equalsIgnoreCase("browse")) {
 			System.out.println("Display the license usage. "

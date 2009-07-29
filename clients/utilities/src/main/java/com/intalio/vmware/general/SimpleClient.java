@@ -36,7 +36,7 @@ import com.vmware.vim.TraversalSpec;
  */
 
 public class SimpleClient {
-	private static AppUtil cb = null;
+	protected static AppUtil cb = null;
 
 	public static void main(String[] args) throws Exception {
 		SimpleClient obj = new SimpleClient();
@@ -46,7 +46,7 @@ public class SimpleClient {
 		cb.disConnect();
 	}
 
-	private void getAndPrintInventoryContents() throws Exception {
+	protected void getAndPrintInventoryContents() throws Exception {
 		TraversalSpec resourcePoolTraversalSpec = new TraversalSpec();
 		resourcePoolTraversalSpec.setName("resourcePoolTraversalSpec");
 		resourcePoolTraversalSpec.setType("ResourcePool");

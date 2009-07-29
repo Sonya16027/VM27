@@ -52,16 +52,16 @@ public class InstallHostPatch {
 		}
 	}
 
-	private final String BUNDLE_METADATA = "metadata.xml";
-	private final String CONTENTS_METADATA = "contents.xml";
-	private final String ESXHW_PRODUCTLINE_ID = "embeddedEsx";
-	private final String PATCH_DIR = "rcli_patch";
+	protected final String BUNDLE_METADATA = "metadata.xml";
+	protected final String CONTENTS_METADATA = "contents.xml";
+	protected final String ESXHW_PRODUCTLINE_ID = "embeddedEsx";
+	protected final String PATCH_DIR = "rcli_patch";
 
-	private static AppUtil cb = null;
+	protected static AppUtil cb = null;
 
-	private ArrayList apiVersions;
+	protected ArrayList apiVersions;
 
-	private boolean customValidation() throws Exception {
+	protected boolean customValidation() throws Exception {
 		boolean flag = true;
 		String operation = cb.get_option("operation");
 		if (operation.equalsIgnoreCase("install")) {
@@ -81,7 +81,7 @@ public class InstallHostPatch {
 		return flag;
 	}
 
-	private void installHostComponents(String[] args) throws Exception {
+	protected void installHostComponents(String[] args) throws Exception {
 		if (VersionUtil.isApiVersionSupported(apiVersions, "2.5")) {
 			String cookieString = VersionUtil.getCookieString(cb);
 			InstallHostPatchV25.installHostComponents(args, cookieString);
@@ -91,7 +91,7 @@ public class InstallHostPatch {
 		}
 	}
 
-	private void operation(String[] args) throws Exception {
+	protected void operation(String[] args) throws Exception {
 		String operation = cb.get_option("operation");
 		apiVersions = VersionUtil.getSupportedVersions(cb.get_option("url"));
 		if (operation.equalsIgnoreCase("query")) {
@@ -104,7 +104,7 @@ public class InstallHostPatch {
 		}
 	}
 
-	private void queryHostComponents(String[] args) throws Exception {
+	protected void queryHostComponents(String[] args) throws Exception {
 		ManagedObjectReference sic = cb.getConnection().getServiceInstanceRef();
 		ServiceContent sc = (ServiceContent) cb.getServiceUtil()
 				.getDynamicProperty(sic, "content");

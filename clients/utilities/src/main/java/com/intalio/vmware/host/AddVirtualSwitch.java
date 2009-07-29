@@ -32,10 +32,10 @@ import com.vmware.vim.ServiceContent;
 
 public class AddVirtualSwitch {
 
-	private static AppUtil cb = null;
-	private static VMUtils vmUtils = null;
+	protected static AppUtil cb = null;
+	protected static VMUtils vmUtils = null;
 
-	private static OptionSpec[] constructOptions() {
+	protected static OptionSpec[] constructOptions() {
 		OptionSpec[] useroptions = new OptionSpec[3];
 		useroptions[0] = new OptionSpec("vswitchid", "String", 1,
 				"Name of the switch", null);
@@ -63,7 +63,7 @@ public class AddVirtualSwitch {
 
 	String vswitchId = null;
 
-	private void doAddVirtualSwitch() throws Exception {
+	protected void doAddVirtualSwitch() throws Exception {
 		ManagedObjectReference dcmor;
 		ManagedObjectReference hostfoldermor;
 		ManagedObjectReference hostmor = null;
@@ -121,7 +121,7 @@ public class AddVirtualSwitch {
 		}
 	}
 
-	private void validate() throws Exception {
+	protected void validate() throws Exception {
 		ManagedObjectReference sic = cb.getConnection().getServiceInstanceRef();
 		ServiceContent serCont = (ServiceContent) cb.getServiceUtil()
 				.getDynamicProperty(sic, "content");

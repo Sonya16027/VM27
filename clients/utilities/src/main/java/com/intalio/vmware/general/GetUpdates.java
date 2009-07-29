@@ -42,9 +42,9 @@ import com.vmware.vim.VirtualMachineRuntimeInfo;
  */
 
 public class GetUpdates {
-	private static AppUtil cb = null;
+	protected static AppUtil cb = null;
 
-	private static OptionSpec[] constructOptions() {
+	protected static OptionSpec[] constructOptions() {
 		OptionSpec[] useroptions = new OptionSpec[1];
 		useroptions[0] = new OptionSpec("vmname", "String", 1,
 				"Name of the virtual machine", null);
@@ -60,7 +60,7 @@ public class GetUpdates {
 		cb.disConnect();
 	}
 
-	private void getUpdates() throws Exception {
+	protected void getUpdates() throws Exception {
 		ManagedObjectReference vmRef = cb.getServiceUtil().getDecendentMoRef(
 				null, "VirtualMachine", cb.get_option("vmname"));
 		if (vmRef == null) {

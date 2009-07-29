@@ -34,9 +34,9 @@ import com.vmware.vim.VimPortType;
  */
 
 public class VMEventHistoryCollectorMonitor {
-	private static AppUtil cb = null;
+	protected static AppUtil cb = null;
 
-	private static OptionSpec[] constructOptions() {
+	protected static OptionSpec[] constructOptions() {
 		OptionSpec[] useroptions = new OptionSpec[1];
 		useroptions[0] = new OptionSpec("vmpath", "String", 1,
 				"A VM Inventory Path", null);
@@ -67,20 +67,20 @@ public class VMEventHistoryCollectorMonitor {
 		}
 	}
 
-	private VimPortType _service; // All webservice methods
-	private ServiceContent _sic;
+	protected VimPortType _service; // All webservice methods
+	protected ServiceContent _sic;
 
-	private ManagedObjectReference _propCol; // PropertyCollector Reference
-	private ManagedObjectReference _searchIndex;
+	protected ManagedObjectReference _propCol; // PropertyCollector Reference
+	protected ManagedObjectReference _searchIndex;
 
 	// EventManager and EventHistoryCollector References
-	private ManagedObjectReference _eventManager;
+	protected ManagedObjectReference _eventManager;
 
-	private ManagedObjectReference _eventHistoryCollector;
+	protected ManagedObjectReference _eventHistoryCollector;
 
-	private ManagedObjectReference _virtualMachine;
+	protected ManagedObjectReference _virtualMachine;
 
-	private PropertyFilterSpec createEventFilterSpec() {
+	protected PropertyFilterSpec createEventFilterSpec() {
 		// Set up a PropertySpec to use the latestPage attribute
 		// of the EventHistoryCollector
 
@@ -112,7 +112,7 @@ public class VMEventHistoryCollectorMonitor {
 		return spec;
 	}
 
-	private void createEventHistoryCollector() throws Exception {
+	protected void createEventHistoryCollector() throws Exception {
 		// Create an Entity Event Filter Spec to
 		// specify the MoRef of the VM to be get events filtered for
 		EventFilterSpecByEntity entitySpec = new EventFilterSpecByEntity();
@@ -142,7 +142,7 @@ public class VMEventHistoryCollectorMonitor {
 	/**
 	 * Initialize the necessary Managed Object References needed here
 	 */
-	private void initialize() {
+	protected void initialize() {
 		_sic = cb.getConnection().getServiceContent();
 		_service = cb.getConnection().getService();
 		// The SearchIndex Reference is present in the ServiceInstanceContent
@@ -154,7 +154,7 @@ public class VMEventHistoryCollectorMonitor {
 		_eventManager = _sic.getEventManager();
 	}
 
-	private void monitorEvents(PropertyFilterSpec spec) throws Exception {
+	protected void monitorEvents(PropertyFilterSpec spec) throws Exception {
 		// Get all Events returned from the EventHistoryCollector
 		// This will result in a large number of events, depending on the
 		// page size of the latestPage.

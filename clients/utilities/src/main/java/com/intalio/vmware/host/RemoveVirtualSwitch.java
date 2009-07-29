@@ -35,10 +35,10 @@ import com.vmware.vim.ServiceContent;
 
 public class RemoveVirtualSwitch {
 
-	private static AppUtil cb = null;
-	private static VMUtils vmUtils = null;
+	protected static AppUtil cb = null;
+	protected static VMUtils vmUtils = null;
 
-	private static OptionSpec[] constructOptions() {
+	protected static OptionSpec[] constructOptions() {
 		OptionSpec[] useroptions = new OptionSpec[3];
 		useroptions[0] = new OptionSpec("vswitchid", "String", 1,
 				"Name of the virtual switch", null);
@@ -66,7 +66,7 @@ public class RemoveVirtualSwitch {
 
 	String vswitchId = null;
 
-	private void doRemoveVirtualSwitch() throws Exception {
+	protected void doRemoveVirtualSwitch() throws Exception {
 		ManagedObjectReference dcmor;
 		ManagedObjectReference hostfoldermor;
 		ManagedObjectReference hostmor = null;
@@ -117,7 +117,7 @@ public class RemoveVirtualSwitch {
 		}
 	}
 
-	private void validate() throws Exception {
+	protected void validate() throws Exception {
 		ManagedObjectReference sic = cb.getConnection().getServiceInstanceRef();
 		ServiceContent serCont = (ServiceContent) cb.getServiceUtil()
 				.getDynamicProperty(sic, "content");

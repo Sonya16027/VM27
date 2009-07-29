@@ -25,10 +25,10 @@ import com.vmware.vim.sms.SmPortType;
  */
 
 public class Sync {
-	private static SmPortType service;
-	private static com.vmware.vim.sms.ManagedObjectReference si;
+	protected static SmPortType service;
+	protected static com.vmware.vim.sms.ManagedObjectReference si;
 
-	private static SmAppUtil cb = null;
+	protected static SmAppUtil cb = null;
 
 	public static void main(String[] args) throws Exception {
 		Sync obj = new Sync();

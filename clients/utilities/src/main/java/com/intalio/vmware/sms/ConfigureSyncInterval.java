@@ -27,12 +27,12 @@ import com.vmware.vim.sms.SmPortType;
  */
 
 public class ConfigureSyncInterval {
-	private static SmPortType service;
-	private static com.vmware.vim.sms.ManagedObjectReference si;
+	protected static SmPortType service;
+	protected static com.vmware.vim.sms.ManagedObjectReference si;
 
-	private static SmAppUtil cb = null;
+	protected static SmAppUtil cb = null;
 
-	private static OptionSpec[] constructOptions() {
+	protected static OptionSpec[] constructOptions() {
 		OptionSpec[] useroptions = new OptionSpec[1];
 		useroptions[0] = new OptionSpec("syncInterval", "Integer", 1,
 				"Sync interval", null);

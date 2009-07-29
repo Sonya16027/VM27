@@ -58,9 +58,9 @@ import com.vmware.vim.VimPortType;
  */
 
 public class VITop {
-	private static AppUtil cb = null;
+	protected static AppUtil cb = null;
 
-	private static OptionSpec[] constructOptions() {
+	protected static OptionSpec[] constructOptions() {
 		OptionSpec[] useroptions = new OptionSpec[3];
 		useroptions[0] = new OptionSpec("host", "String", 1,
 				"Name of the host", null);
@@ -71,7 +71,7 @@ public class VITop {
 		return useroptions;
 	}
 
-	private static String[][] getCounters() throws Exception {
+	protected static String[][] getCounters() throws Exception {
 		String cpu = cb.get_option("cpu");
 		String mem = cb.get_option("memory");
 
@@ -106,7 +106,7 @@ public class VITop {
 
 	StatsTable statsTable;
 
-	private void createAndShowGUI(String firstColumnName,
+	protected void createAndShowGUI(String firstColumnName,
 			Vector<String> statNames) {
 		try {
 			String lookAndFeel = UIManager.getSystemLookAndFeelClassName();
@@ -131,7 +131,7 @@ public class VITop {
 		frame.setVisible(true);
 	}
 
-	private void displayStats() throws Exception {
+	protected void displayStats() throws Exception {
 		String[][] statsList = getCounters();
 		ManagedObjectReference hostmor = cb.getServiceUtil().getDecendentMoRef(
 				null, "HostSystem", cb.get_option("host"));
@@ -192,7 +192,7 @@ public class VITop {
 		}, 1000, 21000);
 	}
 
-	private Calendar displayStats(PerfMetricId[] midList,
+	protected Calendar displayStats(PerfMetricId[] midList,
 			PerfCompositeMetric compMetric) throws RuntimeException,
 			RemoteException {
 		if (compMetric == null || (compMetric.getEntity() == null)) {
@@ -238,7 +238,7 @@ public class VITop {
 		return timeStamp;
 	}
 
-	private int FindStatsIndex(PerfMetricId[] midList, PerfMetricId mid) {
+	protected int FindStatsIndex(PerfMetricId[] midList, PerfMetricId mid) {
 		for (int i = 0; i < midList.length; i++) {
 			if ((midList[i].getCounterId() == mid.getCounterId())
 					&& (midList[i].getInstance().equals(mid.getInstance()))) {
@@ -248,7 +248,7 @@ public class VITop {
 		return -1;
 	}
 
-	private PerfCounterInfo GetCounterInfo(PerfCounterInfo[] counterInfo,
+	protected PerfCounterInfo GetCounterInfo(PerfCounterInfo[] counterInfo,
 			String groupName, String counterName) {
 		for (PerfCounterInfo info : counterInfo) {
 			if (info.getGroupInfo().getKey().equals(groupName)
@@ -259,7 +259,7 @@ public class VITop {
 		return null;
 	}
 
-	private String getEntityName(ManagedObjectReference moRef)
+	protected String getEntityName(ManagedObjectReference moRef)
 			throws RuntimeFault, RemoteException {
 		Object property = getProperty(cb.getConnection().getService(), moRef,
 				"name");
@@ -270,7 +270,7 @@ public class VITop {
 		}
 	}
 
-	private Object[] getProperties(VimPortType service,
+	protected Object[] getProperties(VimPortType service,
 			ManagedObjectReference moRef, String[] properties)
 			throws RuntimeFault, RemoteException {
 		PropertySpec pSpec = new PropertySpec();
@@ -304,7 +304,7 @@ public class VITop {
 		return ret;
 	}
 
-	private Object getProperty(VimPortType service,
+	protected Object getProperty(VimPortType service,
 			ManagedObjectReference moRef, String prop) throws RuntimeFault,
 			RemoteException {
 		Object[] props = getProperties(service, moRef, new String[] { prop });
@@ -315,7 +315,7 @@ public class VITop {
 		}
 	}
 
-	private void RefreshStats() {
+	protected void RefreshStats() {
 		try {
 			PerfCompositeMetric metric = cb.getConnection().getService()
 					.queryPerfComposite(perfManager, querySpec);

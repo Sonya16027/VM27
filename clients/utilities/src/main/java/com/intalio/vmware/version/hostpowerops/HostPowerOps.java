@@ -22,7 +22,7 @@ import com.vmware.vim.ManagedObjectReference;
  */
 
 public class HostPowerOps {
-	private static AppUtil cb = null;
+	protected static AppUtil cb = null;
 
 	public static OptionSpec[] constructOptions() {
 		OptionSpec[] useroptions = new OptionSpec[2];
@@ -45,7 +45,7 @@ public class HostPowerOps {
 		}
 	}
 
-	private boolean customValidation() throws Exception {
+	protected boolean customValidation() throws Exception {
 		boolean flag = true;
 		String operation = cb.get_option("operation");
 		if ((!operation.equalsIgnoreCase("reboot"))
@@ -58,7 +58,7 @@ public class HostPowerOps {
 		return flag;
 	}
 
-	private void PowerDownHost(String[] args) throws Exception {
+	protected void PowerDownHost(String[] args) throws Exception {
 		String hostname = cb.get_option("hostname");
 		ManagedObjectReference hmor = cb.getServiceUtil().getDecendentMoRef(
 				null, "HostSystem", hostname);

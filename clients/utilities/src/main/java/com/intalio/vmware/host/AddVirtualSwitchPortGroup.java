@@ -41,10 +41,10 @@ import com.vmware.vim.ServiceContent;
 
 public class AddVirtualSwitchPortGroup {
 
-	private static AppUtil cb = null;
-	private static VMUtils vmUtils = null;
+	protected static AppUtil cb = null;
+	protected static VMUtils vmUtils = null;
 
-	private static OptionSpec[] constructOptions() {
+	protected static OptionSpec[] constructOptions() {
 		OptionSpec[] useroptions = new OptionSpec[4];
 		useroptions[0] = new OptionSpec("vswitchid", "String", 1,
 				"Name of the switch on which portgroup is to be added", null);
@@ -75,7 +75,7 @@ public class AddVirtualSwitchPortGroup {
 
 	String portGroupName = null;
 
-	private void doAddVirtualSwitchPortGroup() throws Exception {
+	protected void doAddVirtualSwitchPortGroup() throws Exception {
 		ManagedObjectReference dcmor;
 		ManagedObjectReference hostfoldermor;
 		ManagedObjectReference hostmor = null;
@@ -141,7 +141,7 @@ public class AddVirtualSwitchPortGroup {
 		}
 	}
 
-	private void validate() throws Exception {
+	protected void validate() throws Exception {
 		ManagedObjectReference sic = cb.getConnection().getServiceInstanceRef();
 		ServiceContent serCont = (ServiceContent) cb.getServiceUtil()
 				.getDynamicProperty(sic, "content");

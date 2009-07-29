@@ -34,9 +34,9 @@ import com.vmware.vim.VimServiceLocator;
 
 public class DeleteOneTimeScheduledTask {
 
-	private static AppUtil cb = null;
+	protected static AppUtil cb = null;
 
-	private static OptionSpec[] constructOptions() {
+	protected static OptionSpec[] constructOptions() {
 		OptionSpec[] useroptions = new OptionSpec[1];
 		useroptions[0] = new OptionSpec("taskname", "String", 1,
 				"Name of the task to be scheduled", null);
@@ -85,17 +85,17 @@ public class DeleteOneTimeScheduledTask {
 		}
 	}
 
-	private ManagedObjectReference _svcRef; // Service Instance Reference
+	protected ManagedObjectReference _svcRef; // Service Instance Reference
 
-	private VimServiceLocator _locator;
-	private VimPortType _service; // All webservice methods
+	protected VimServiceLocator _locator;
+	protected VimPortType _service; // All webservice methods
 	// ServiceContent contains References to commonly used
 	// Managed Objects like PropertyCollector, SearchIndex, EventManager, etc.
-	private ServiceContent _sic;
+	protected ServiceContent _sic;
 
-	private ManagedObjectReference _propCol;
+	protected ManagedObjectReference _propCol;
 
-	private ManagedObjectReference _scheduleManager;
+	protected ManagedObjectReference _scheduleManager;
 
 	/**
 	 * Create Property Collector Filter to get names of all ScheduledTasks the
@@ -103,7 +103,7 @@ public class DeleteOneTimeScheduledTask {
 	 * 
 	 * @return PropertyFilterSpec to get properties
 	 */
-	private PropertyFilterSpec createTaskPropertyFilterSpec() {
+	protected PropertyFilterSpec createTaskPropertyFilterSpec() {
 		// The traversal spec traverses the "scheduledTask" property of
 		// ScheduledTaskManager to get names of ScheduledTask ManagedEntities
 		// A Traversal Spec allows traversal into a ManagedObjects
@@ -167,7 +167,7 @@ public class DeleteOneTimeScheduledTask {
 	 *            the ManagedObjectReference of task to delete
 	 * @throws Exception
 	 */
-	private void deleteScheduledTask(ManagedObjectReference oneTimeTask)
+	protected void deleteScheduledTask(ManagedObjectReference oneTimeTask)
 			throws Exception {
 		try {
 
@@ -190,7 +190,7 @@ public class DeleteOneTimeScheduledTask {
 	 * @throws Exception
 	 *             an reported exceptions
 	 */
-	private ManagedObjectReference findOneTimeScheduledTask(
+	protected ManagedObjectReference findOneTimeScheduledTask(
 			PropertyFilterSpec scheduledTaskSpec) throws Exception {
 		String findTaskName = cb.get_option("taskname");
 		boolean found = false;
@@ -228,7 +228,7 @@ public class DeleteOneTimeScheduledTask {
 	/**
 	 * Initialize the necessary Managed Object References needed here
 	 */
-	private void initialize() {
+	protected void initialize() {
 		_sic = cb.getConnection().getServiceContent();
 		_service = cb.getConnection().getService();
 		// Get the PropertyCollector and ScheduleManager references from

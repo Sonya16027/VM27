@@ -36,9 +36,9 @@ import com.vmware.vim.VimServiceLocator;
  */
 
 public class OneTimeScheduledTask {
-	private static AppUtil cb = null;
+	protected static AppUtil cb = null;
 
-	private static OptionSpec[] constructOptions() {
+	protected static OptionSpec[] constructOptions() {
 		OptionSpec[] useroptions = new OptionSpec[2];
 		useroptions[0] = new OptionSpec("vmname", "String", 1,
 				"Name of Virtual Machine", null);
@@ -86,19 +86,19 @@ public class OneTimeScheduledTask {
 		}
 	}
 
-	private ManagedObjectReference _svcRef; // Service Instance Reference
+	protected ManagedObjectReference _svcRef; // Service Instance Reference
 
-	private VimServiceLocator _locator;
-	private VimPortType _service; // All webservice methods
+	protected VimServiceLocator _locator;
+	protected VimPortType _service; // All webservice methods
 	// ServiceContent contains References to commonly used
 	// Managed Objects like PropertyCollector, SearchIndex, EventManager, etc.
-	private ServiceContent _sic;
+	protected ServiceContent _sic;
 
-	private ManagedObjectReference _searchIndex;
+	protected ManagedObjectReference _searchIndex;
 
-	private ManagedObjectReference _scheduleManager;
+	protected ManagedObjectReference _scheduleManager;
 
-	private ManagedObjectReference _virtualMachine;
+	protected ManagedObjectReference _virtualMachine;
 
 	/**
 	 * Create a Scheduled Task using the poweroff method action and the onetime
@@ -111,7 +111,7 @@ public class OneTimeScheduledTask {
 	 * @throws Exception
 	 */
 
-	private void createScheduledTask(com.vmware.vim.Action taskAction,
+	protected void createScheduledTask(com.vmware.vim.Action taskAction,
 			TaskScheduler scheduler) throws Exception {
 		try {
 			// Create the Scheduled Task Spec and set a unique task name
@@ -154,7 +154,7 @@ public class OneTimeScheduledTask {
 	 * 
 	 * @return the action to run when the schedule runs
 	 */
-	private com.vmware.vim.Action createTaskAction() {
+	protected com.vmware.vim.Action createTaskAction() {
 		MethodAction action = new MethodAction();
 
 		// Method Name is the WSDL name of the
@@ -173,7 +173,7 @@ public class OneTimeScheduledTask {
 	 * 
 	 * @return one time task scheduler
 	 */
-	private TaskScheduler createTaskScheduler() {
+	protected TaskScheduler createTaskScheduler() {
 		// Create a Calendar Object and add 30 minutes to allow
 		// the Action to be run 30 minutes from now
 		Calendar runTime = Calendar.getInstance();
@@ -193,7 +193,7 @@ public class OneTimeScheduledTask {
 	 * @throws Exception
 	 */
 
-	private void findVirtualMachine() throws Exception {
+	protected void findVirtualMachine() throws Exception {
 		_virtualMachine = cb.getServiceUtil().getDecendentMoRef(null,
 				"VirtualMachine", cb.get_option("vmname"));
 	}
@@ -201,7 +201,7 @@ public class OneTimeScheduledTask {
 	/**
 	 * Initialize the necessary Managed Object References needed here
 	 */
-	private void initialize() {
+	protected void initialize() {
 		_sic = cb.getConnection().getServiceContent();
 		_service = cb.getConnection().getService();
 		// Get the SearchIndex and ScheduleManager references from

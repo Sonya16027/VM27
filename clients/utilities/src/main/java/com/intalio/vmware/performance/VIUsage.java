@@ -61,10 +61,10 @@ import com.vmware.vim.VimPortType;
  */
 
 public class VIUsage implements ActionListener {
-	private static AppUtil cb = null;
+	protected static AppUtil cb = null;
 	static JFrame frame;
 
-	private static OptionSpec[] constructOptions() {
+	protected static OptionSpec[] constructOptions() {
 		OptionSpec[] useroptions = new OptionSpec[2];
 		useroptions[0] = new OptionSpec("host", "String", 1,
 				"Name of the host", null);
@@ -100,7 +100,7 @@ public class VIUsage implements ActionListener {
 		}
 	}
 
-	private void createAndShowGUI() throws Exception {
+	protected void createAndShowGUI() throws Exception {
 		try {
 			String lookAndFeel = UIManager.getSystemLookAndFeelClassName();
 			UIManager.setLookAndFeel(lookAndFeel);
@@ -115,7 +115,7 @@ public class VIUsage implements ActionListener {
 		frame.setVisible(true);
 	}
 
-	private void createMainPanel() {
+	protected void createMainPanel() {
 		selectPanel = new JPanel();
 		displayPanel = new JPanel();
 
@@ -146,7 +146,7 @@ public class VIUsage implements ActionListener {
 		mainPanel.add(displayPanel);
 	}
 
-	private void displayUsage() throws Exception {
+	protected void displayUsage() throws Exception {
 		stats = cb.get_option("counter");
 		hostmor = cb.getServiceUtil().getDecendentMoRef(null, "HostSystem",
 				cb.get_option("host"));
@@ -175,7 +175,7 @@ public class VIUsage implements ActionListener {
 		});
 	}
 
-	private Object[] getProperties(VimPortType service,
+	protected Object[] getProperties(VimPortType service,
 			ManagedObjectReference moRef, String[] properties)
 			throws RuntimeFault, RemoteException {
 		PropertySpec pSpec = new PropertySpec();
@@ -209,7 +209,7 @@ public class VIUsage implements ActionListener {
 		return ret;
 	}
 
-	private Object getProperty(VimPortType service,
+	protected Object getProperty(VimPortType service,
 			ManagedObjectReference moRef, String prop) throws RuntimeFault,
 			RemoteException {
 		Object[] props = getProperties(service, moRef, new String[] { prop });
@@ -220,7 +220,7 @@ public class VIUsage implements ActionListener {
 		}
 	}
 
-	private void initChart() {
+	protected void initChart() {
 		PerfInterval interval = intervals[intervalBox.getSelectedIndex()];
 		int period = interval.getSamplingPeriod();
 		int tickInterval;
@@ -248,13 +248,13 @@ public class VIUsage implements ActionListener {
 		}
 	}
 
-	private void populateData() throws Exception {
+	protected void populateData() throws Exception {
 		createMainPanel();
 		initChart();
 		updateChart();
 	}
 
-	private void updateChart() {
+	protected void updateChart() {
 		PerfCounterInfo[] counterInfoList;
 		try {
 			Object property = getProperty(service, perfMgr, "perfCounter");

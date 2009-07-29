@@ -44,10 +44,10 @@ import com.vmware.vim.VirtualMachineRelocateSpec;
 
 public class VMClone {
 	static VimPortType service; // All Methods
-	private static ServiceContent content;
-	private static AppUtil cb = null;
+	protected static ServiceContent content;
+	protected static AppUtil cb = null;
 
-	private static OptionSpec[] constructOptions() {
+	protected static OptionSpec[] constructOptions() {
 		OptionSpec[] useroptions = new OptionSpec[3];
 		useroptions[0] = new OptionSpec("DatacenterName", "String", 1,
 				"Name of the Datacenter", null);
@@ -134,7 +134,7 @@ public class VMClone {
 		cb.disConnect();
 	}
 
-	private String[][] typeInfo;
+	protected String[][] typeInfo;
 
 	Log log = new Log();
 

@@ -56,12 +56,12 @@ public class VMPromoteDisks {
 		}
 	}
 
-	private ExtendedAppUtil ecb = null;
-	private static AppUtil cb = null;
+	protected ExtendedAppUtil ecb = null;
+	protected static AppUtil cb = null;
 
-	private static ManagedObjectReference provisionChkr = null;
+	protected static ManagedObjectReference provisionChkr = null;
 
-	private static VersionUtil versionUtil = null;
+	protected static VersionUtil versionUtil = null;
 
 	protected boolean customValidation() throws Exception {
 		boolean flag = true;
@@ -73,7 +73,7 @@ public class VMPromoteDisks {
 		return flag;
 	}
 
-	private VirtualDisk findVirtualDisk(ManagedObjectReference vmMOR,
+	protected VirtualDisk findVirtualDisk(ManagedObjectReference vmMOR,
 			String diskName) throws Exception {
 		VirtualDisk ret = null;
 		VirtualHardware hw = (VirtualHardware) ecb.getServiceUtil3()
@@ -91,7 +91,7 @@ public class VMPromoteDisks {
 		return ret;
 	}
 
-	private ManagedObjectReference getMOR(String name, String type,
+	protected ManagedObjectReference getMOR(String name, String type,
 			ManagedObjectReference root) throws Exception {
 		ManagedObjectReference nameMOR = ecb.getServiceUtil3()
 				.getDecendentMoRef(root, type, name);

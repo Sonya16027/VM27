@@ -29,7 +29,7 @@ import com.vmware.vim.VirtualMachineSnapshotTree;
  */
 
 public class RecordSession {
-	private static AppUtil cb = null;
+	protected static AppUtil cb = null;
 
 	public static OptionSpec[] constructOptions() {
 		OptionSpec[] useroptions = new OptionSpec[3];
@@ -52,7 +52,7 @@ public class RecordSession {
 		cb.disConnect();
 	}
 
-	private void recordSession(String[] args) throws Exception {
+	protected void recordSession(String[] args) throws Exception {
 		String vmName = cb.get_option("vmname");
 		ManagedObjectReference vmmor = cb.getServiceUtil().getDecendentMoRef(
 				null, "VirtualMachine", vmName);

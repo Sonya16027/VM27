@@ -32,7 +32,7 @@ import com.vmware.vim.TaskInfo;
  */
 
 public class GetVirtualDiskFiles {
-	private static AppUtil cb = null;
+	protected static AppUtil cb = null;
 
 	public static OptionSpec[] constructOptions() {
 		OptionSpec[] useroptions = new OptionSpec[1];
@@ -50,7 +50,7 @@ public class GetVirtualDiskFiles {
 		cb.disConnect();
 	}
 
-	private void displayControllers(String[] args) throws Exception {
+	protected void displayControllers(String[] args) throws Exception {
 		String hostName = cb.get_option("hostname");
 
 		ManagedObjectReference hostmor = cb.getServiceUtil().getDecendentMoRef(

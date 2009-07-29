@@ -68,12 +68,12 @@ public class VMLinkedClone {
 		cb.disConnect();
 	}
 
-	private ExtendedAppUtil ecb = null;
-	private static AppUtil cb = null;
+	protected ExtendedAppUtil ecb = null;
+	protected static AppUtil cb = null;
 
-	private static ManagedObjectReference provisionChkr = null;
+	protected static ManagedObjectReference provisionChkr = null;
 
-	private static VersionUtil versionUtil = null;
+	protected static VersionUtil versionUtil = null;
 
 	public void createLinkedClone(String[] args, String cookieString)
 			throws Exception {
@@ -181,7 +181,7 @@ public class VMLinkedClone {
 		}
 	}
 
-	private ArrayList getIndependenetVirtualDiskKeys(
+	protected ArrayList getIndependenetVirtualDiskKeys(
 			ManagedObjectReference vmMOR) throws Exception {
 		ArrayList independenetVirtualDiskKeys = new ArrayList();
 		VirtualHardware hw = (VirtualHardware) ecb.getServiceUtil3()
@@ -221,7 +221,7 @@ public class VMLinkedClone {
 		return independenetVirtualDiskKeys;
 	}
 
-	private ManagedObjectReference getMOR(String name, String type,
+	protected ManagedObjectReference getMOR(String name, String type,
 			ManagedObjectReference root) throws Exception {
 		ManagedObjectReference nameMOR = ecb.getServiceUtil3()
 				.getDecendentMoRef(root, type, name);
@@ -234,7 +234,7 @@ public class VMLinkedClone {
 		}
 	}
 
-	private VirtualMachineSnapshotInfo getSnapshotInfo(
+	protected VirtualMachineSnapshotInfo getSnapshotInfo(
 			ManagedObjectReference vmmor) throws Exception {
 		ObjectContent[] snaps = ecb.getServiceUtil3().getObjectProperties(null,
 				vmmor, new String[] { "snapshot" });
@@ -250,7 +250,7 @@ public class VMLinkedClone {
 		return snapInfo;
 	}
 
-	private ManagedObjectReference getSnapshotReference(
+	protected ManagedObjectReference getSnapshotReference(
 			ManagedObjectReference vmmor, String snapName) throws Exception {
 		VirtualMachineSnapshotInfo snapInfo = getSnapshotInfo(vmmor);
 		ManagedObjectReference snapmor = null;
@@ -262,7 +262,7 @@ public class VMLinkedClone {
 		return snapmor;
 	}
 
-	private ManagedObjectReference traverseSnapshotInTree(
+	protected ManagedObjectReference traverseSnapshotInTree(
 			VirtualMachineSnapshotTree[] snapTree, String findName) {
 		ManagedObjectReference snapmor = null;
 		if (snapTree == null) {

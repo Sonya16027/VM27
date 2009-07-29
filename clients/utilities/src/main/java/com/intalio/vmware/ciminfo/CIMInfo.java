@@ -42,7 +42,7 @@ public class CIMInfo {
 		public String srcPropertyFilter;
 	}
 
-	private static CIMUtil cimUtil = null;
+	protected static CIMUtil cimUtil = null;
 
 	/**
 	 * createAssocFilter
@@ -82,7 +82,7 @@ public class CIMInfo {
 		cimUtil = new CIMUtil(printNullValues, printOnlyKeys, ignoreCerts);
 	}
 
-	private boolean compareOpVal(String match, String prop, String op,
+	protected boolean compareOpVal(String match, String prop, String op,
 			boolean isArray) {
 		if (!isArray) {
 			if (op.equals("=")) {
@@ -200,7 +200,7 @@ public class CIMInfo {
 	 *            the class name to be verified
 	 * @return true if the class is in the allowed list
 	 */
-	private boolean isClassUsed(String classFilter, String className) {
+	protected boolean isClassUsed(String classFilter, String className) {
 		return classFilter == null || classFilter.indexOf(className) >= 0;
 	}
 
@@ -217,7 +217,7 @@ public class CIMInfo {
 	 * @see AssociationFilter.srcPropertyFilter
 	 * @return true if the instance matches the filter criteria specified.
 	 */
-	private boolean isInstanceMatch(CIMInstance inst, String propertyFilter) {
+	protected boolean isInstanceMatch(CIMInstance inst, String propertyFilter) {
 		boolean instMatched = false;
 
 		if (propertyFilter != null && propertyFilter.length() > 0) {
@@ -274,14 +274,14 @@ public class CIMInfo {
 		return instMatched;
 	}
 
-	private boolean negateOpVal(String negateOp, boolean prevVal) {
+	protected boolean negateOpVal(String negateOp, boolean prevVal) {
 		if (negateOp.equals("!")) {
 			return !prevVal;
 		}
 		return prevVal;
 	}
 
-	private boolean relnOpVal(String relnOp, boolean prevVal, boolean newVal) {
+	protected boolean relnOpVal(String relnOp, boolean prevVal, boolean newVal) {
 		if (relnOp.equals("&")) {
 			return prevVal && newVal;
 		}

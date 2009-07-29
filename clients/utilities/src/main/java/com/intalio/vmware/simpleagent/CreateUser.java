@@ -39,7 +39,7 @@ import com.vmware.vim.Permission;
  */
 
 public class CreateUser {
-	private static AppUtil cb = null;
+	protected static AppUtil cb = null;
 
 	public static void main(String[] args) throws Exception {
 		CreateUser obj = new CreateUser();
@@ -52,7 +52,7 @@ public class CreateUser {
 
 	// @param userName String that specifies
 
-	private void createUser() throws Exception {
+	protected void createUser() throws Exception {
 		ManagedObjectReference hostLocalAccountManager = cb.getConnection()
 				.getServiceContent().getAccountManager();
 
@@ -104,20 +104,20 @@ public class CreateUser {
 		}
 	}
 
-	private String generatePassword() {
+	protected String generatePassword() {
 		int rawRandomNumber = (int) (Math.random() * (256 - 32 + 1)) + 32;
 		String passwd = "passwd" + Integer.toString(rawRandomNumber);
 		return passwd;
 	}
 
-	private String generateUserName() {
+	protected String generateUserName() {
 		int rawRandomNumber = (int) (Math.random() * (256 - 32 + 1)) + 32;
 		String userName = "user" + Integer.toString(rawRandomNumber);
 		return userName;
 	}
 
 	// @param server String that specifies the fully qualified server name.
-	private String getServerName() {
+	protected String getServerName() {
 		if (cb.get_option("server") != null) {
 			return cb.get_option("server");
 		} else {

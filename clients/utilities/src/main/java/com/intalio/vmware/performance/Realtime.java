@@ -40,9 +40,9 @@ import com.vmware.vim.PerfSampleInfo;
  */
 
 public class Realtime {
-	private static AppUtil cb = null;
+	protected static AppUtil cb = null;
 
-	private static OptionSpec[] constructOptions() {
+	protected static OptionSpec[] constructOptions() {
 		OptionSpec[] useroptions = new OptionSpec[1];
 		useroptions[0] = new OptionSpec("vmname", "String", 1,
 				"Name of the virtual machine", null);
@@ -86,7 +86,7 @@ public class Realtime {
 		}
 	}
 
-	private void doRealTime() throws Exception {
+	protected void doRealTime() throws Exception {
 		ManagedObjectReference vmmor = cb.getServiceUtil().getDecendentMoRef(
 				null, "VirtualMachine", cb.get_option("vmname"));
 		if (vmmor != null) {

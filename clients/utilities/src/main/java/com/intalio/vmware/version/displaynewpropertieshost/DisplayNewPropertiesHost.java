@@ -31,7 +31,7 @@ import com.vmware.vim.ManagedObjectReference;
  */
 
 public class DisplayNewPropertiesHost {
-	private static AppUtil cb = null;
+	protected static AppUtil cb = null;
 
 	public static OptionSpec[] constructOptions() {
 		OptionSpec[] useroptions = new OptionSpec[1];
@@ -50,7 +50,7 @@ public class DisplayNewPropertiesHost {
 		cb.disConnect();
 	}
 
-	private void displayProperties(String[] args) throws Exception {
+	protected void displayProperties(String[] args) throws Exception {
 		String hostName = cb.get_option("hostname");
 		ManagedObjectReference hmor = cb.getServiceUtil().getDecendentMoRef(
 				null, "HostSystem", hostName);

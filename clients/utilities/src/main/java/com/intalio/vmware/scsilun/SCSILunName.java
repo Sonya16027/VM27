@@ -29,9 +29,9 @@ import com.vmware.vim.VmfsDatastoreInfo;
  */
 
 public class SCSILunName {
-	private static AppUtil cb = null;
+	protected static AppUtil cb = null;
 
-	private static OptionSpec[] constructOptions() {
+	protected static OptionSpec[] constructOptions() {
 		OptionSpec[] useroptions = new OptionSpec[1];
 		useroptions[0] = new OptionSpec("hostname", "String", 1,
 				"Name of the host", null);
@@ -64,7 +64,7 @@ public class SCSILunName {
 	 * @param canName Canonical name of the SCSI logical unit
 	 */
 
-	private void displayScsiLuns() throws Exception {
+	protected void displayScsiLuns() throws Exception {
 		String hostname = cb.get_option("hostname");
 		ManagedObjectReference hmor = cb.getServiceUtil().getDecendentMoRef(
 				null, "HostSystem", hostname);
@@ -122,7 +122,7 @@ public class SCSILunName {
 		}
 	}
 
-	private DynamicProperty[] getDynamicProarray(ManagedObjectReference MOR,
+	protected DynamicProperty[] getDynamicProarray(ManagedObjectReference MOR,
 			String pName) throws Exception {
 
 		ObjectContent[] objContent = cb.getServiceUtil().getObjectProperties(
@@ -132,7 +132,7 @@ public class SCSILunName {
 		return objArr;
 	}
 
-	private void getVMFS(ManagedObjectReference hmor, String canName)
+	protected void getVMFS(ManagedObjectReference hmor, String canName)
 			throws Exception {
 		DynamicProperty[] dsArr = getDynamicProarray(hmor, "datastore");
 		ArrayOfManagedObjectReference ds = ((ArrayOfManagedObjectReference) (dsArr[0])
@@ -166,7 +166,7 @@ public class SCSILunName {
 		}
 	}
 
-	private void getVMs(ManagedObjectReference hmor, String canName)
+	protected void getVMs(ManagedObjectReference hmor, String canName)
 			throws Exception {
 		DynamicProperty[] dsArr = getDynamicProarray(hmor, "datastore");
 		ArrayOfManagedObjectReference ds = ((ArrayOfManagedObjectReference) (dsArr[0])

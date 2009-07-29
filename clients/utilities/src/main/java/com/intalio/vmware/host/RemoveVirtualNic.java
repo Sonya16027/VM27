@@ -38,10 +38,10 @@ import com.vmware.vim.ServiceContent;
 
 public class RemoveVirtualNic {
 
-	private static AppUtil cb = null;
-	private static VMUtils vmUtils = null;
+	protected static AppUtil cb = null;
+	protected static VMUtils vmUtils = null;
 
-	private static OptionSpec[] constructOptions() {
+	protected static OptionSpec[] constructOptions() {
 		OptionSpec[] useroptions = new OptionSpec[3];
 		useroptions[0] = new OptionSpec("host", "String", 0,
 				"Name of the host", null);
@@ -70,7 +70,7 @@ public class RemoveVirtualNic {
 
 	String portGroupName = null;
 
-	private void doRemoveVirtualNic() throws Exception {
+	protected void doRemoveVirtualNic() throws Exception {
 		ManagedObjectReference dcmor;
 		ManagedObjectReference hostfoldermor;
 		ManagedObjectReference hostmor = null;
@@ -137,7 +137,7 @@ public class RemoveVirtualNic {
 		}
 	}
 
-	private void validate() throws Exception {
+	protected void validate() throws Exception {
 		ManagedObjectReference sic = cb.getConnection().getServiceInstanceRef();
 		ServiceContent serCont = (ServiceContent) cb.getServiceUtil()
 				.getDynamicProperty(sic, "content");

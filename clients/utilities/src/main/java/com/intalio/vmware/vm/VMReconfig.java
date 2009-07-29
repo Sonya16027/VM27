@@ -62,9 +62,9 @@ import com.vmware.vim.VirtualPCNet32;
 
 public class VMReconfig {
 	protected static VMUtils vmUtils = null;
-	private static AppUtil cb = null;
+	protected static AppUtil cb = null;
 
-	private static OptionSpec[] constructOptions() {
+	protected static OptionSpec[] constructOptions() {
 		OptionSpec[] useroptions = new OptionSpec[6];
 		useroptions[0] = new OptionSpec("vmname", "String", 1,
 				"Name of the virtual machine", null);
@@ -157,7 +157,7 @@ public class VMReconfig {
 		return flag;
 	}
 
-	private VirtualDeviceConfigSpec getCDDeviceConfigSpec() throws Exception {
+	protected VirtualDeviceConfigSpec getCDDeviceConfigSpec() throws Exception {
 		String ops = cb.get_option("operation");
 		VirtualDeviceConfigSpec cdSpec = new VirtualDeviceConfigSpec();
 		VirtualMachineConfigInfo vmConfigInfo = (VirtualMachineConfigInfo) cb
@@ -205,7 +205,7 @@ public class VMReconfig {
 		return cdSpec;
 	}
 
-	private String getDataStoreName(int size) throws Exception {
+	protected String getDataStoreName(int size) throws Exception {
 		String dsName = null;
 		ManagedObjectReference[] datastores = (ManagedObjectReference[]) cb
 				.getServiceUtil().getDynamicProperty(_virtualMachine,
@@ -221,7 +221,7 @@ public class VMReconfig {
 		return dsName;
 	}
 
-	private DatastoreSummary getDataStoreSummary() throws Exception {
+	protected DatastoreSummary getDataStoreSummary() throws Exception {
 		DatastoreSummary dsSum = null;
 		VirtualMachineRuntimeInfo vmRuntimeInfo = (VirtualMachineRuntimeInfo) cb
 				.getServiceUtil()
@@ -252,7 +252,7 @@ public class VMReconfig {
 		}
 	}
 
-	private VirtualDevice[] getDefaultDevices() throws Exception {
+	protected VirtualDevice[] getDefaultDevices() throws Exception {
 		VirtualMachineRuntimeInfo vmRuntimeInfo = (VirtualMachineRuntimeInfo) cb
 				.getServiceUtil()
 				.getDynamicProperty(_virtualMachine, "runtime");
@@ -277,7 +277,7 @@ public class VMReconfig {
 		return defaultDevs;
 	}
 
-	private VirtualDeviceConfigSpec getDiskDeviceConfigSpec() throws Exception {
+	protected VirtualDeviceConfigSpec getDiskDeviceConfigSpec() throws Exception {
 		String ops = cb.get_option("operation");
 		VirtualDeviceConfigSpec diskSpec = new VirtualDeviceConfigSpec();
 		VirtualMachineConfigInfo vmConfigInfo = (VirtualMachineConfigInfo) cb
@@ -342,7 +342,7 @@ public class VMReconfig {
 		return diskSpec;
 	}
 
-	private VirtualDevice getIDEController() throws Exception {
+	protected VirtualDevice getIDEController() throws Exception {
 		VirtualDevice ideCtlr = null;
 		VirtualDevice[] defaultDevices = getDefaultDevices();
 		for (VirtualDevice defaultDevice : defaultDevices) {
@@ -354,7 +354,7 @@ public class VMReconfig {
 		return ideCtlr;
 	}
 
-	private String getNetworkName() throws Exception {
+	protected String getNetworkName() throws Exception {
 		String networkName = null;
 		VirtualMachineRuntimeInfo vmRuntimeInfo = (VirtualMachineRuntimeInfo) cb
 				.getServiceUtil()
@@ -392,7 +392,7 @@ public class VMReconfig {
 		}
 	}
 
-	private VirtualDeviceConfigSpec getNICDeviceConfigSpec() throws Exception {
+	protected VirtualDeviceConfigSpec getNICDeviceConfigSpec() throws Exception {
 		String ops = cb.get_option("operation");
 		VirtualDeviceConfigSpec nicSpec = new VirtualDeviceConfigSpec();
 		VirtualMachineConfigInfo vmConfigInfo = (VirtualMachineConfigInfo) cb
@@ -433,7 +433,7 @@ public class VMReconfig {
 		return nicSpec;
 	}
 
-	private ResourceAllocationInfo getShares() throws Exception {
+	protected ResourceAllocationInfo getShares() throws Exception {
 		ResourceAllocationInfo raInfo = new ResourceAllocationInfo();
 		SharesInfo sharesInfo = new SharesInfo();
 
@@ -457,7 +457,7 @@ public class VMReconfig {
 				"VirtualMachine", vmName);
 	}
 
-	private void monitorTask(ManagedObjectReference tmor) throws Exception {
+	protected void monitorTask(ManagedObjectReference tmor) throws Exception {
 		if (tmor != null) {
 			String result = cb.getServiceUtil().waitForTask(tmor);
 			if (result.equalsIgnoreCase("sucess")) {

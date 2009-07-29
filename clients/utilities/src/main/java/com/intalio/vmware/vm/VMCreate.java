@@ -44,10 +44,10 @@ import com.vmware.vim.VirtualMachineConfigSpec;
  */
 
 public class VMCreate {
-	private static AppUtil cb = null;
+	protected static AppUtil cb = null;
 	protected static VMUtils vmUtils = null;
 
-	private static OptionSpec[] constructOptions() {
+	protected static OptionSpec[] constructOptions() {
 		OptionSpec[] useroptions = new OptionSpec[8];
 		useroptions[0] = new OptionSpec("vmname", "String", 1,
 				"Name of the virtual machine", null);

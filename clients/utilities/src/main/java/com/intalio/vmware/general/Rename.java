@@ -28,9 +28,9 @@ import com.vmware.vim.ManagedObjectReference;
  */
 
 public class Rename {
-	private static AppUtil cb = null;
+	protected static AppUtil cb = null;
 
-	private static OptionSpec[] constructOptions() {
+	protected static OptionSpec[] constructOptions() {
 		OptionSpec[] useroptions = new OptionSpec[2];
 		useroptions[0] = new OptionSpec("entityname", "String", 1,
 				"Name of the virtual entity", null);
@@ -48,7 +48,7 @@ public class Rename {
 		cb.disConnect();
 	}
 
-	private void doRename() throws Exception {
+	protected void doRename() throws Exception {
 		String entityname = cb.get_option("entityname");
 		String newname = cb.get_option("newname");
 		ManagedObjectReference memor = cb.getServiceUtil().getDecendentMoRef(
@@ -79,7 +79,7 @@ public class Rename {
 		}
 	}
 
-	private void runOperation() throws Exception {
+	protected void runOperation() throws Exception {
 		doRename();
 	}
 }

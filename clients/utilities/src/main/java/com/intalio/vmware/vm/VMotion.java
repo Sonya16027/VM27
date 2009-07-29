@@ -43,9 +43,9 @@ import com.vmware.vim.VirtualMachineRelocateSpec;
  */
 
 public class VMotion {
-	private static AppUtil cb = null;
-	private static ManagedObjectReference licMgr = null;
-	private static VMUtils vmUtils = null;
+	protected static AppUtil cb = null;
+	protected static ManagedObjectReference licMgr = null;
+	protected static VMUtils vmUtils = null;
 
 	public static OptionSpec[] constructOptions() {
 		OptionSpec[] useroptions = new OptionSpec[8];
@@ -84,7 +84,7 @@ public class VMotion {
 		}
 	}
 
-	private ManagedObjectReference browseDSMOR(ManagedObjectReference[] dsMOR,
+	protected ManagedObjectReference browseDSMOR(ManagedObjectReference[] dsMOR,
 			String dsName) {
 		ManagedObjectReference dataMOR = null;
 		try {
@@ -115,7 +115,7 @@ public class VMotion {
 	 * @param String name of the target datastore
 	 */
 
-	private String check_operation_type(String targetHost, String sourceHost,
+	protected String check_operation_type(String targetHost, String sourceHost,
 			String targetDS) {
 		String operation = "";
 		try {
@@ -204,7 +204,7 @@ public class VMotion {
 		return flag;
 	}
 
-	private ManagedObjectReference getMOR(String name, String type,
+	protected ManagedObjectReference getMOR(String name, String type,
 			ManagedObjectReference root) throws Exception {
 
 		ManagedObjectReference nameMOR = (ManagedObjectReference) cb

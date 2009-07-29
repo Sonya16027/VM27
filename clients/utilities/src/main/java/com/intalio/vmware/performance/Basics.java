@@ -93,9 +93,9 @@ import com.vmware.vim.VimPortType;
  */
 
 public class Basics {
-	private static AppUtil cb = null;
+	protected static AppUtil cb = null;
 
-	private static OptionSpec[] constructOptions() {
+	protected static OptionSpec[] constructOptions() {
 		OptionSpec[] useroptions = new OptionSpec[2];
 		useroptions[0] = new OptionSpec("info", "String", 1,
 				"[interval|counter|host]", null);
@@ -121,7 +121,7 @@ public class Basics {
 
 	ManagedObjectReference perfMgr;
 
-	private boolean customvalidation() throws Exception {
+	protected boolean customvalidation() throws Exception {
 		boolean valid = true;
 		if (cb.get_option("info").equalsIgnoreCase("host")) {
 			if ((!cb.option_is_set("hostname"))) {
@@ -133,7 +133,7 @@ public class Basics {
 		return valid;
 	}
 
-	private void displayBasics() throws Exception {
+	protected void displayBasics() throws Exception {
 		service = cb.getConnection().getService();
 		sic = cb.getConnection().getServiceContent();
 		perfMgr = sic.getPerfManager();
@@ -157,7 +157,7 @@ public class Basics {
 		}
 	}
 
-	private void getCounters(ManagedObjectReference perfMgr, VimPortType service)
+	protected void getCounters(ManagedObjectReference perfMgr, VimPortType service)
 			throws RuntimeFault, RemoteException {
 		Object property = getProperty(service, perfMgr, "perfCounter");
 		ArrayOfPerfCounterInfo arrayCounter = (ArrayOfPerfCounterInfo) property;
@@ -173,7 +173,7 @@ public class Basics {
 		System.out.println();
 	}
 
-	private void getIntervals(ManagedObjectReference perfMgr,
+	protected void getIntervals(ManagedObjectReference perfMgr,
 			VimPortType service) throws RuntimeFault, RemoteException {
 		Object property = getProperty(service, perfMgr, "historicalInterval");
 		ArrayOfPerfInterval arrayInterval = (ArrayOfPerfInterval) property;
@@ -189,7 +189,7 @@ public class Basics {
 		System.out.println();
 	}
 
-	private Object[] getProperties(VimPortType service,
+	protected Object[] getProperties(VimPortType service,
 			ManagedObjectReference moRef, String[] properties)
 			throws RuntimeFault, RemoteException {
 		PropertySpec pSpec = new PropertySpec();
@@ -222,7 +222,7 @@ public class Basics {
 		return ret;
 	}
 
-	private Object getProperty(VimPortType service,
+	protected Object getProperty(VimPortType service,
 			ManagedObjectReference moRef, String prop) throws RuntimeFault,
 			RemoteException {
 		Object[] props = getProperties(service, moRef, new String[] { prop });
@@ -233,7 +233,7 @@ public class Basics {
 		}
 	}
 
-	private void getQueryAvailable(ManagedObjectReference perfMgr,
+	protected void getQueryAvailable(ManagedObjectReference perfMgr,
 			ManagedObjectReference hostmor, VimPortType service)
 			throws RuntimeFault, RemoteException {
 		Calendar end = Calendar.getInstance();
@@ -261,7 +261,7 @@ public class Basics {
 		System.out.println();
 	}
 
-	private void getQuerySummary(ManagedObjectReference perfMgr,
+	protected void getQuerySummary(ManagedObjectReference perfMgr,
 			ManagedObjectReference hostmor, VimPortType service)
 			throws RuntimeFault, RemoteException {
 		PerfProviderSummary summary = service.queryPerfProviderSummary(perfMgr,

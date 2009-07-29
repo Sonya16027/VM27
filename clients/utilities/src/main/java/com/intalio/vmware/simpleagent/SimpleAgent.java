@@ -53,13 +53,13 @@ public class SimpleAgent {
 		obj.connectAndLogin(serverName);
 	}
 
-	private ManagedObjectReference _svcRef;
-	private VimServiceLocator _locator;
-	private VimPortType _service;
+	protected ManagedObjectReference _svcRef;
+	protected VimServiceLocator _locator;
+	protected VimPortType _service;
 
-	private ServiceContent _sic;
+	protected ServiceContent _sic;
 
-	private void connectAndLogin(String hostName) throws Exception {
+	protected void connectAndLogin(String hostName) throws Exception {
 		System.setProperty("axis.socketSecureFactory",
 				"org.apache.axis.components.net.SunFakeTrustSocketFactory");
 
@@ -93,7 +93,7 @@ public class SimpleAgent {
 				+ _sic.getAbout().getFullName());
 	}
 
-	private void createServiceRef() throws Exception {
+	protected void createServiceRef() throws Exception {
 		_svcRef = new ManagedObjectReference();
 		_svcRef.setType("ServiceInstance");
 		_svcRef.set_value("ServiceInstance");
