@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<session xmlns="http://www.intalio.com/vmware/session" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.intalio.com/vmware/session file:///c:/Users/Administrator/Desktop/vmware-session.xsd">
+   <argument name="name1">value1</argument>
+   <activity name="activity1">
+   <argument name="name1">value1</argument>
+      <argument name="name2">value2</argument>
+   </activity>
+   <activity name="activity2">
+	   <activity name="activity3">
+		  <argument name="name3">value3</argument>
+	   </activity>
+	   <activity name="activity4">
+		  <argument name="name4">value4</argument>
+		  <argument name="name4">value4</argument>
+	   </activity>
+	   <activity name="activity5">
+		  <argument name="name5">value5</argument>
+	   </activity>
+   </activity>
+</session>
