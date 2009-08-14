@@ -188,7 +188,7 @@ public class VMUtils {
 		return hostmor;
 	}
 
-	public void browseMOR(ManagedObjectReference MOR) {
+	public ObjectContent[] browseMOR(ManagedObjectReference MOR) {
 		try {
 			ObjectContent[] ocary = cb.getServiceUtil().getContentsRecursively(
 					MOR, true);
@@ -198,24 +198,30 @@ public class VMUtils {
 			DynamicProperty pc = null;
 			if (ocary != null) {
 				for (ObjectContent element : ocary) {
+					System.out.println("{ object : " + element + " }");
 					oc = element;
 					mor = oc.getObj();
+					System.out.println("{ mor : " + mor + ", type = " + mor.getType() + ", value = " + mor.get_value() + ", class = " + mor.getClass() + " }");
 					pcary = oc.getPropSet();
 					if (pcary != null) {
 						for (DynamicProperty element2 : pcary) {
 							pc = element2;
-							if (pc.getName().equalsIgnoreCase("name")) {
-								System.out.println(pc.getVal().toString());
-							}
+//							if (pc.getName().equalsIgnoreCase("name")) {
+//								System.out.println(pc.getVal().toString());
+//							}
+							System.out.println("[" + pc.getName() + ", " + pc.getVal() + "]");
 
 						}
 					}
+					System.out.println("{ object : " + element + " }");
+					System.out.println("");
 				}
 			}
-
+			return ocary;
 		} catch (Exception e) {
 			System.out.println("ClassCastException");
 			e.printStackTrace();
+			return null;
 		}
 	}
 
