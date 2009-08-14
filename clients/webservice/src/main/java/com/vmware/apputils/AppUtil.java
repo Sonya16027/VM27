@@ -557,6 +557,10 @@ public class AppUtil {
 		return valid;
 	}
 
+	public String get_option(String key) {
+		return getOption(key);
+	}
+	
 	public String getOption(String key) {
 		if (optsEntered.get(key) != null) {
 			return optsEntered.get(key).toString();
