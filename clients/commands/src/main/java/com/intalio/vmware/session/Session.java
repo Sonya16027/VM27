@@ -18,6 +18,9 @@ public class Session {
 		this.sd = sd;
 	}
 
+	public Session(SessionDocument sessionDocument) {
+	}
+
 	public void execute() {
 		Element session = sd.getDocumentElement();
 		HashMap<String, String> globalArgs = new HashMap<String, String>();

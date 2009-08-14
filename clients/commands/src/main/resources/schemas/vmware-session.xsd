@@ -13,6 +13,7 @@
       <xs:simpleContent>
         <xs:extension base="xs:NCName">
           <xs:attribute name="name" use="required" type="xs:NCName"/>
+          <xs:attribute name="value" use="required" type="xs:NCName"/>
         </xs:extension>
       </xs:simpleContent>
     </xs:complexType>
